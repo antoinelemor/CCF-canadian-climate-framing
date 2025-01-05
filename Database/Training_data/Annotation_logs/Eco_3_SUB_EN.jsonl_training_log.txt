@@ -1,0 +1,140 @@
+[LOG] Logging started for Eco_Detection in EN
+Data loaded successfully for label: Eco_Detection, language: EN
+Training label distribution for Eco_Detection in EN:
+label
+0    156
+1     63
+Name: count, dtype: int64
+Validation label distribution for Eco_Detection in EN:
+label
+0    17
+1     6
+Name: count, dtype: int64
+label ids: {0: 0, 1: 1}
+label ids: {0: 0, 1: 1}
+Data encoding completed for label: Eco_Detection, language: EN
+Saving model to (relative path): Eco_3_SUB_EN.jsonl.model
+[INFO] Training Eco_3_SUB_EN.jsonl pour 6 époque(s).
+
+======== Epoch 1 / 6 ========
+Training...
+
+  Average training loss: 0.65
+  Training took: 0:00:02
+
+Running Validation...
+
+  Average test loss: 0.57
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.74      1.00      0.85        17
+           1       0.00      0.00      0.00         6
+
+    accuracy                           0.74        23
+   macro avg       0.37      0.50      0.42        23
+weighted avg       0.55      0.74      0.63        23
+
+
+======== Epoch 2 / 6 ========
+Training...
+
+  Average training loss: 0.56
+  Training took: 0:00:02
+
+Running Validation...
+
+  Average test loss: 0.59
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.79      0.88      0.83        17
+           1       0.50      0.33      0.40         6
+
+    accuracy                           0.74        23
+   macro avg       0.64      0.61      0.62        23
+weighted avg       0.71      0.74      0.72        23
+
+
+======== Epoch 3 / 6 ========
+Training...
+
+  Average training loss: 0.47
+  Training took: 0:00:02
+
+Running Validation...
+
+  Average test loss: 0.53
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.75      0.88      0.81        17
+           1       0.33      0.17      0.22         6
+
+    accuracy                           0.70        23
+   macro avg       0.54      0.52      0.52        23
+weighted avg       0.64      0.70      0.66        23
+
+
+======== Epoch 4 / 6 ========
+Training...
+
+  Average training loss: 0.36
+  Training took: 0:00:02
+
+Running Validation...
+
+  Average test loss: 0.54
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.83      0.88      0.86        17
+           1       0.60      0.50      0.55         6
+
+    accuracy                           0.78        23
+   macro avg       0.72      0.69      0.70        23
+weighted avg       0.77      0.78      0.78        23
+
+
+======== Epoch 5 / 6 ========
+Training...
+
+  Average training loss: 0.28
+  Training took: 0:00:02
+
+Running Validation...
+
+  Average test loss: 0.55
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.83      0.88      0.86        17
+           1       0.60      0.50      0.55         6
+
+    accuracy                           0.78        23
+   macro avg       0.72      0.69      0.70        23
+weighted avg       0.77      0.78      0.78        23
+
+
+======== Epoch 6 / 6 ========
+Training...
+
+  Average training loss: 0.20
+  Training took: 0:00:02
+
+Running Validation...
+
+  Average test loss: 0.59
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.81      0.76      0.79        17
+           1       0.43      0.50      0.46         6
+
+    accuracy                           0.70        23
+   macro avg       0.62      0.63      0.62        23
+weighted avg       0.71      0.70      0.70        23
+
+
+Training complete!
+Training completed successfully for Eco_3_SUB_EN.jsonl

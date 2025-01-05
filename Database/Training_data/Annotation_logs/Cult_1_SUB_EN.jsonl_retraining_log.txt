@@ -1,0 +1,109 @@
+Chargement des données effectué pour le modèle Cult_1_SUB_EN.jsonl.
+Encodage des données terminé.
+[INFO] Sauvegarde temporaire du modèle dans : models/best_models/Cult_1_SUB_EN.jsonl.model
+======== Epoch 1 / 8 ========
+Training...
+  Average training loss: 0.7574130495389303
+Running Validation...
+              precision    recall  f1-score   support
+
+           0       0.50      1.00      0.67         2
+           1       0.00      0.00      0.00         2
+
+    accuracy                           0.50         4
+   macro avg       0.25      0.50      0.33         4
+weighted avg       0.25      0.50      0.33         4
+
+======== Epoch 2 / 8 ========
+Training...
+  Average training loss: 0.5313414732615153
+Running Validation...
+              precision    recall  f1-score   support
+
+           0       1.00      0.50      0.67         2
+           1       0.67      1.00      0.80         2
+
+    accuracy                           0.75         4
+   macro avg       0.83      0.75      0.73         4
+weighted avg       0.83      0.75      0.73         4
+
+======== Epoch 3 / 8 ========
+Training...
+  Average training loss: 0.399409423271815
+Running Validation...
+              precision    recall  f1-score   support
+
+           0       1.00      0.50      0.67         2
+           1       0.67      1.00      0.80         2
+
+    accuracy                           0.75         4
+   macro avg       0.83      0.75      0.73         4
+weighted avg       0.83      0.75      0.73         4
+
+======== Epoch 4 / 8 ========
+Training...
+  Average training loss: 0.24867959320545197
+Running Validation...
+              precision    recall  f1-score   support
+
+           0       1.00      0.50      0.67         2
+           1       0.67      1.00      0.80         2
+
+    accuracy                           0.75         4
+   macro avg       0.83      0.75      0.73         4
+weighted avg       0.83      0.75      0.73         4
+
+======== Epoch 5 / 8 ========
+Training...
+  Average training loss: 0.16787301003932953
+Running Validation...
+              precision    recall  f1-score   support
+
+           0       1.00      0.50      0.67         2
+           1       0.67      1.00      0.80         2
+
+    accuracy                           0.75         4
+   macro avg       0.83      0.75      0.73         4
+weighted avg       0.83      0.75      0.73         4
+
+======== Epoch 6 / 8 ========
+Training...
+  Average training loss: 0.09052665283282597
+Running Validation...
+              precision    recall  f1-score   support
+
+           0       1.00      0.50      0.67         2
+           1       0.67      1.00      0.80         2
+
+    accuracy                           0.75         4
+   macro avg       0.83      0.75      0.73         4
+weighted avg       0.83      0.75      0.73         4
+
+======== Epoch 7 / 8 ========
+Training...
+  Average training loss: 0.06803680335481961
+Running Validation...
+              precision    recall  f1-score   support
+
+           0       1.00      0.50      0.67         2
+           1       0.67      1.00      0.80         2
+
+    accuracy                           0.75         4
+   macro avg       0.83      0.75      0.73         4
+weighted avg       0.83      0.75      0.73         4
+
+======== Epoch 8 / 8 ========
+Training...
+  Average training loss: 0.0490126001338164
+Running Validation...
+              precision    recall  f1-score   support
+
+           0       1.00      0.50      0.67         2
+           1       0.67      1.00      0.80         2
+
+    accuracy                           0.75         4
+   macro avg       0.83      0.75      0.73         4
+weighted avg       0.83      0.75      0.73         4
+
+Entraînement du modèle Cult_1_SUB_EN.jsonl terminé avec succès.
+Déplacement du modèle depuis models/best_models/Cult_1_SUB_EN.jsonl.model vers /Volumes/CLIMATE.FRAME/CLIMATE.FRAME/best_models/Cult_1_SUB_EN.jsonl.model

@@ -1,0 +1,160 @@
+[LOG] Logging started for Cult_Detection in FR
+Data loaded successfully for label: Cult_Detection, language: FR
+Training label distribution for Cult_Detection in FR:
+label
+0    27
+1    18
+Name: count, dtype: int64
+Validation label distribution for Cult_Detection in FR:
+label
+0    3
+1    2
+Name: count, dtype: int64
+label ids: {0: 0, 1: 1}
+label ids: {0: 0, 1: 1}
+Data encoding completed for label: Cult_Detection, language: FR
+Saving model to (relative path): Cult_1_SUB_FR.jsonl.model
+[INFO] Training Cult_1_SUB_FR.jsonl pour 7 époque(s).
+
+======== Epoch 1 / 7 ========
+Training...
+
+  Average training loss: 0.68
+  Training took: 0:00:01
+
+Running Validation...
+
+  Average test loss: 0.66
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.60      1.00      0.75         3
+           1       0.00      0.00      0.00         2
+
+    accuracy                           0.60         5
+   macro avg       0.30      0.50      0.38         5
+weighted avg       0.36      0.60      0.45         5
+
+
+======== Epoch 2 / 7 ========
+Training...
+
+  Average training loss: 0.64
+  Training took: 0:00:00
+
+Running Validation...
+
+  Average test loss: 0.64
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.60      1.00      0.75         3
+           1       0.00      0.00      0.00         2
+
+    accuracy                           0.60         5
+   macro avg       0.30      0.50      0.38         5
+weighted avg       0.36      0.60      0.45         5
+
+
+======== Epoch 3 / 7 ========
+Training...
+
+  Average training loss: 0.60
+  Training took: 0:00:00
+
+Running Validation...
+
+  Average test loss: 0.63
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.60      1.00      0.75         3
+           1       0.00      0.00      0.00         2
+
+    accuracy                           0.60         5
+   macro avg       0.30      0.50      0.38         5
+weighted avg       0.36      0.60      0.45         5
+
+
+======== Epoch 4 / 7 ========
+Training...
+
+  Average training loss: 0.59
+  Training took: 0:00:00
+
+Running Validation...
+
+  Average test loss: 0.61
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.60      1.00      0.75         3
+           1       0.00      0.00      0.00         2
+
+    accuracy                           0.60         5
+   macro avg       0.30      0.50      0.38         5
+weighted avg       0.36      0.60      0.45         5
+
+
+======== Epoch 5 / 7 ========
+Training...
+
+  Average training loss: 0.56
+  Training took: 0:00:00
+
+Running Validation...
+
+  Average test loss: 0.59
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.60      1.00      0.75         3
+           1       0.00      0.00      0.00         2
+
+    accuracy                           0.60         5
+   macro avg       0.30      0.50      0.38         5
+weighted avg       0.36      0.60      0.45         5
+
+
+======== Epoch 6 / 7 ========
+Training...
+
+  Average training loss: 0.55
+  Training took: 0:00:00
+
+Running Validation...
+
+  Average test loss: 0.57
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.60      1.00      0.75         3
+           1       0.00      0.00      0.00         2
+
+    accuracy                           0.60         5
+   macro avg       0.30      0.50      0.38         5
+weighted avg       0.36      0.60      0.45         5
+
+
+======== Epoch 7 / 7 ========
+Training...
+
+  Average training loss: 0.54
+  Training took: 0:00:00
+
+Running Validation...
+
+  Average test loss: 0.56
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.60      1.00      0.75         3
+           1       0.00      0.00      0.00         2
+
+    accuracy                           0.60         5
+   macro avg       0.30      0.50      0.38         5
+weighted avg       0.36      0.60      0.45         5
+
+
+Training complete!
+Training completed successfully for Cult_1_SUB_FR.jsonl

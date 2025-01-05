@@ -1,0 +1,13 @@
+[LOG] Logging started for Secu_Detection in EN
+Data loaded successfully for label: Secu_Detection, language: EN
+Training label distribution for Secu_Detection in EN:
+label
+0    18
+Name: count, dtype: int64
+Validation label distribution for Secu_Detection in EN:
+label
+0    2
+1    1
+Name: count, dtype: int64
+[SKIP] Les données d'entraînement ou de validation pour Secu_Detection en EN contiennent uniquement des 0. Entraînement sauté.
+[INFO] Données contenant uniquement des 0.

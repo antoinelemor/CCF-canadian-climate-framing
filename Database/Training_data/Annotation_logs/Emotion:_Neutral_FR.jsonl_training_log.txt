@@ -1,0 +1,17 @@
+[LOG] Logging started for Emotion:_Neutral in FR
+Data loaded successfully for label: Emotion:_Neutral, language: FR
+Training label distribution for Emotion:_Neutral in FR:
+label
+1    726
+0    691
+Name: count, dtype: int64
+Validation label distribution for Emotion:_Neutral in FR:
+label
+1    80
+0    76
+Name: count, dtype: int64
+label ids: {0: 0, 1: 1}
+label ids: {0: 0, 1: 1}
+Data encoding completed for label: Emotion:_Neutral, language: FR
+Saving model as: Emotion:_Neutral_FR.jsonl.model
+Error during training for Emotion:_Neutral_FR.jsonl: name 'best_epoch_for_model' is not defined

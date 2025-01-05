@@ -1,0 +1,104 @@
+[LOG] Logging started for Solutions_Detection in EN
+Data loaded successfully for label: Solutions_Detection, language: EN
+Training label distribution for Solutions_Detection in EN:
+label
+0    972
+1    314
+Name: count, dtype: int64
+Validation label distribution for Solutions_Detection in EN:
+label
+0    107
+1     34
+Name: count, dtype: int64
+label ids: {0: 0, 1: 1}
+label ids: {0: 0, 1: 1}
+Data encoding completed for label: Solutions_Detection, language: EN
+Saving model to (relative path): Solutions_Detection_EN.jsonl.model
+[INFO] Training Solutions_Detection_EN.jsonl pour 4 époque(s).
+
+======== Epoch 1 / 4 ========
+Training...
+  Batch    40  of     41.    Elapsed: 0:00:15.
+
+  Average training loss: 0.49
+  Training took: 0:00:15
+
+Running Validation...
+
+  Average test loss: 0.41
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.86      0.94      0.90       107
+           1       0.74      0.50      0.60        34
+
+    accuracy                           0.84       141
+   macro avg       0.80      0.72      0.75       141
+weighted avg       0.83      0.84      0.83       141
+
+
+======== Epoch 2 / 4 ========
+Training...
+  Batch    40  of     41.    Elapsed: 0:00:15.
+
+  Average training loss: 0.31
+  Training took: 0:00:15
+
+Running Validation...
+
+  Average test loss: 0.40
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.92      0.89      0.90       107
+           1       0.68      0.76      0.72        34
+
+    accuracy                           0.86       141
+   macro avg       0.80      0.83      0.81       141
+weighted avg       0.86      0.86      0.86       141
+
+
+======== Epoch 3 / 4 ========
+Training...
+  Batch    40  of     41.    Elapsed: 0:00:15.
+
+  Average training loss: 0.20
+  Training took: 0:00:15
+
+Running Validation...
+
+  Average test loss: 0.51
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.92      0.88      0.90       107
+           1       0.67      0.76      0.71        34
+
+    accuracy                           0.85       141
+   macro avg       0.79      0.82      0.81       141
+weighted avg       0.86      0.85      0.85       141
+
+
+======== Epoch 4 / 4 ========
+Training...
+  Batch    40  of     41.    Elapsed: 0:00:15.
+
+  Average training loss: 0.11
+  Training took: 0:00:15
+
+Running Validation...
+
+  Average test loss: 0.51
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.91      0.88      0.90       107
+           1       0.66      0.74      0.69        34
+
+    accuracy                           0.84       141
+   macro avg       0.79      0.81      0.79       141
+weighted avg       0.85      0.84      0.85       141
+
+
+Training complete!
+Training completed successfully for Solutions_Detection_EN.jsonl

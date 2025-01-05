@@ -1,0 +1,100 @@
+[LOG] Logging started for Just_Detection in FR
+Data loaded successfully for label: Just_Detection, language: FR
+Training label distribution for Just_Detection in FR:
+label
+0    62
+1    20
+Name: count, dtype: int64
+Validation label distribution for Just_Detection in FR:
+label
+0    6
+1    2
+Name: count, dtype: int64
+label ids: {0: 0, 1: 1}
+label ids: {0: 0, 1: 1}
+Data encoding completed for label: Just_Detection, language: FR
+Saving model to (relative path): Just_1_SUB_FR.jsonl.model
+[INFO] Training Just_1_SUB_FR.jsonl pour 4 époque(s).
+
+======== Epoch 1 / 4 ========
+Training...
+
+  Average training loss: 0.64
+  Training took: 0:00:01
+
+Running Validation...
+
+  Average test loss: 0.59
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.75      1.00      0.86         6
+           1       0.00      0.00      0.00         2
+
+    accuracy                           0.75         8
+   macro avg       0.38      0.50      0.43         8
+weighted avg       0.56      0.75      0.64         8
+
+
+======== Epoch 2 / 4 ========
+Training...
+
+  Average training loss: 0.55
+  Training took: 0:00:01
+
+Running Validation...
+
+  Average test loss: 0.57
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.75      1.00      0.86         6
+           1       0.00      0.00      0.00         2
+
+    accuracy                           0.75         8
+   macro avg       0.38      0.50      0.43         8
+weighted avg       0.56      0.75      0.64         8
+
+
+======== Epoch 3 / 4 ========
+Training...
+
+  Average training loss: 0.54
+  Training took: 0:00:01
+
+Running Validation...
+
+  Average test loss: 0.56
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.75      1.00      0.86         6
+           1       0.00      0.00      0.00         2
+
+    accuracy                           0.75         8
+   macro avg       0.38      0.50      0.43         8
+weighted avg       0.56      0.75      0.64         8
+
+
+======== Epoch 4 / 4 ========
+Training...
+
+  Average training loss: 0.54
+  Training took: 0:00:01
+
+Running Validation...
+
+  Average test loss: 0.56
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.75      1.00      0.86         6
+           1       0.00      0.00      0.00         2
+
+    accuracy                           0.75         8
+   macro avg       0.38      0.50      0.43         8
+weighted avg       0.56      0.75      0.64         8
+
+
+Training complete!
+Training completed successfully for Just_1_SUB_FR.jsonl

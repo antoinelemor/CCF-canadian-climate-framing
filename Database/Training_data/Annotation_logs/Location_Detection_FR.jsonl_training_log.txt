@@ -1,0 +1,83 @@
+[LOG] Logging started for Location_Detection in FR
+Data loaded successfully for label: Location_Detection, language: FR
+Training label distribution for Location_Detection in FR:
+label
+0    924
+1    493
+Name: count, dtype: int64
+Validation label distribution for Location_Detection in FR:
+label
+0    102
+1     54
+Name: count, dtype: int64
+label ids: {0: 0, 1: 1}
+label ids: {0: 0, 1: 1}
+Data encoding completed for label: Location_Detection, language: FR
+Saving model to (relative path): Location_Detection_FR.jsonl.model
+[INFO] Training Location_Detection_FR.jsonl pour 3 époque(s).
+
+======== Epoch 1 / 3 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:18.
+
+  Average training loss: 0.38
+  Training took: 0:00:19
+
+Running Validation...
+
+  Average test loss: 0.11
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       1.00      0.96      0.98       102
+           1       0.93      1.00      0.96        54
+
+    accuracy                           0.97       156
+   macro avg       0.97      0.98      0.97       156
+weighted avg       0.98      0.97      0.97       156
+
+
+======== Epoch 2 / 3 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:17.
+
+  Average training loss: 0.17
+  Training took: 0:00:19
+
+Running Validation...
+
+  Average test loss: 0.08
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       1.00      0.97      0.99       102
+           1       0.95      1.00      0.97        54
+
+    accuracy                           0.98       156
+   macro avg       0.97      0.99      0.98       156
+weighted avg       0.98      0.98      0.98       156
+
+
+======== Epoch 3 / 3 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:17.
+
+  Average training loss: 0.13
+  Training took: 0:00:19
+
+Running Validation...
+
+  Average test loss: 0.12
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       1.00      0.95      0.97       102
+           1       0.92      1.00      0.96        54
+
+    accuracy                           0.97       156
+   macro avg       0.96      0.98      0.97       156
+weighted avg       0.97      0.97      0.97       156
+
+
+Training complete!
+Training completed successfully for Location_Detection_FR.jsonl

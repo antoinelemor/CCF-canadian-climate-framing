@@ -1,0 +1,41 @@
+[LOG] Logging started for Event_Detection in EN
+Data loaded successfully for label: Event_Detection, language: EN
+Training label distribution for Event_Detection in EN:
+label
+0    987
+1    298
+Name: count, dtype: int64
+Validation label distribution for Event_Detection in EN:
+label
+0    109
+1     33
+Name: count, dtype: int64
+label ids: {0: 0, 1: 1}
+label ids: {0: 0, 1: 1}
+Data encoding completed for label: Event_Detection, language: EN
+Saving model to (relative path): Event_Detection_EN.jsonl.model
+[INFO] Training Event_Detection_EN.jsonl pour 1 époque(s).
+
+======== Epoch 1 / 1 ========
+Training...
+  Batch    40  of     41.    Elapsed: 0:00:15.
+
+  Average training loss: 0.51
+  Training took: 0:00:15
+
+Running Validation...
+
+  Average test loss: 0.44
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.78      0.99      0.87       109
+           1       0.75      0.09      0.16        33
+
+    accuracy                           0.78       142
+   macro avg       0.77      0.54      0.52       142
+weighted avg       0.78      0.78      0.71       142
+
+
+Training complete!
+Training completed successfully for Event_Detection_EN.jsonl

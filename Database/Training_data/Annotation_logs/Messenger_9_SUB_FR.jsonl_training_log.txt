@@ -1,0 +1,17 @@
+[LOG] Logging started for Messenger_Detection in FR
+Data loaded successfully for label: Messenger_Detection, language: FR
+Training label distribution for Messenger_Detection in FR:
+label
+0    513
+1    223
+Name: count, dtype: int64
+Validation label distribution for Messenger_Detection in FR:
+label
+0    57
+1    24
+Name: count, dtype: int64
+label ids: {0: 0, 1: 1}
+label ids: {0: 0, 1: 1}
+Data encoding completed for label: Messenger_Detection, language: FR
+Saving model as: Messenger_9_SUB_FR.jsonl.model
+Error during training for Messenger_9_SUB_FR.jsonl: name 'best_epoch_for_model' is not defined

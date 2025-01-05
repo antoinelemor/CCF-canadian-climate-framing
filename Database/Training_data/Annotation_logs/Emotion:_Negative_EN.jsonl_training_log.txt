@@ -1,0 +1,17 @@
+[LOG] Logging started for Emotion:_Negative in EN
+Data loaded successfully for label: Emotion:_Negative, language: EN
+Training label distribution for Emotion:_Negative in EN:
+label
+0    794
+1    491
+Name: count, dtype: int64
+Validation label distribution for Emotion:_Negative in EN:
+label
+0    88
+1    54
+Name: count, dtype: int64
+label ids: {0: 0, 1: 1}
+label ids: {0: 0, 1: 1}
+Data encoding completed for label: Emotion:_Negative, language: EN
+Saving model as: Emotion:_Negative_EN.jsonl.model
+Error during training for Emotion:_Negative_EN.jsonl: name 'best_epoch_for_model' is not defined

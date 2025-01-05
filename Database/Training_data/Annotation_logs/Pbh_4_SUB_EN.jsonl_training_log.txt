@@ -1,0 +1,13 @@
+[LOG] Logging started for Pbh_Detection in EN
+Data loaded successfully for label: Pbh_Detection, language: EN
+Training label distribution for Pbh_Detection in EN:
+label
+0    56
+Name: count, dtype: int64
+Validation label distribution for Pbh_Detection in EN:
+label
+0    6
+1    1
+Name: count, dtype: int64
+[SKIP] Les données d'entraînement ou de validation pour Pbh_Detection en EN contiennent uniquement des 0. Entraînement sauté.
+[INFO] Données contenant uniquement des 0.

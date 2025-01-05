@@ -1,0 +1,41 @@
+[LOG] Logging started for Pol_Detection in EN
+Data loaded successfully for label: Pol_Detection, language: EN
+Training label distribution for Pol_Detection in EN:
+label
+0    869
+1    416
+Name: count, dtype: int64
+Validation label distribution for Pol_Detection in EN:
+label
+0    96
+1    46
+Name: count, dtype: int64
+label ids: {0: 0, 1: 1}
+label ids: {0: 0, 1: 1}
+Data encoding completed for label: Pol_Detection, language: EN
+Saving model to (relative path): Pol_Detection_EN.jsonl.model
+[INFO] Training Pol_Detection_EN.jsonl pour 1 époque(s).
+
+======== Epoch 1 / 1 ========
+Training...
+  Batch    40  of     41.    Elapsed: 0:00:13.
+
+  Average training loss: 0.49
+  Training took: 0:00:14
+
+Running Validation...
+
+  Average test loss: 0.37
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.94      0.84      0.89        96
+           1       0.73      0.89      0.80        46
+
+    accuracy                           0.86       142
+   macro avg       0.84      0.87      0.85       142
+weighted avg       0.87      0.86      0.86       142
+
+
+Training complete!
+Training completed successfully for Pol_Detection_EN.jsonl

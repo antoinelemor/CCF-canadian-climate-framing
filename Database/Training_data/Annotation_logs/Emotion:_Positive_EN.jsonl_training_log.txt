@@ -1,0 +1,104 @@
+[LOG] Logging started for Emotion:_Positive in EN
+Data loaded successfully for label: Emotion:_Positive, language: EN
+Training label distribution for Emotion:_Positive in EN:
+label
+0    1182
+1     103
+Name: count, dtype: int64
+Validation label distribution for Emotion:_Positive in EN:
+label
+0    131
+1     11
+Name: count, dtype: int64
+label ids: {0: 0, 1: 1}
+label ids: {0: 0, 1: 1}
+Data encoding completed for label: Emotion:_Positive, language: EN
+Saving model to (relative path): Emotion:_Positive_EN.jsonl.model
+[INFO] Training Emotion:_Positive_EN.jsonl pour 4 époque(s).
+
+======== Epoch 1 / 4 ========
+Training...
+  Batch    40  of     41.    Elapsed: 0:00:15.
+
+  Average training loss: 0.32
+  Training took: 0:00:15
+
+Running Validation...
+
+  Average test loss: 0.26
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.92      1.00      0.96       131
+           1       0.00      0.00      0.00        11
+
+    accuracy                           0.92       142
+   macro avg       0.46      0.50      0.48       142
+weighted avg       0.85      0.92      0.89       142
+
+
+======== Epoch 2 / 4 ========
+Training...
+  Batch    40  of     41.    Elapsed: 0:00:15.
+
+  Average training loss: 0.23
+  Training took: 0:00:15
+
+Running Validation...
+
+  Average test loss: 0.25
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.93      0.97      0.95       131
+           1       0.20      0.09      0.12        11
+
+    accuracy                           0.90       142
+   macro avg       0.56      0.53      0.54       142
+weighted avg       0.87      0.90      0.88       142
+
+
+======== Epoch 3 / 4 ========
+Training...
+  Batch    40  of     41.    Elapsed: 0:00:15.
+
+  Average training loss: 0.13
+  Training took: 0:00:15
+
+Running Validation...
+
+  Average test loss: 0.28
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.93      1.00      0.96       131
+           1       1.00      0.09      0.17        11
+
+    accuracy                           0.93       142
+   macro avg       0.96      0.55      0.56       142
+weighted avg       0.93      0.93      0.90       142
+
+
+======== Epoch 4 / 4 ========
+Training...
+  Batch    40  of     41.    Elapsed: 0:00:15.
+
+  Average training loss: 0.05
+  Training took: 0:00:15
+
+Running Validation...
+
+  Average test loss: 0.28
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.94      0.99      0.97       131
+           1       0.75      0.27      0.40        11
+
+    accuracy                           0.94       142
+   macro avg       0.85      0.63      0.68       142
+weighted avg       0.93      0.94      0.92       142
+
+
+Training complete!
+Training completed successfully for Emotion:_Positive_EN.jsonl

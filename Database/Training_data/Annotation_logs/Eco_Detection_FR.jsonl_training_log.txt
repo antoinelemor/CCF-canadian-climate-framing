@@ -1,0 +1,104 @@
+[LOG] Logging started for Eco_Detection in FR
+Data loaded successfully for label: Eco_Detection, language: FR
+Training label distribution for Eco_Detection in FR:
+label
+0    1164
+1     252
+Name: count, dtype: int64
+Validation label distribution for Eco_Detection in FR:
+label
+0    129
+1     28
+Name: count, dtype: int64
+label ids: {0: 0, 1: 1}
+label ids: {0: 0, 1: 1}
+Data encoding completed for label: Eco_Detection, language: FR
+Saving model to (relative path): Eco_Detection_FR.jsonl.model
+[INFO] Training Eco_Detection_FR.jsonl pour 4 époque(s).
+
+======== Epoch 1 / 4 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:17.
+
+  Average training loss: 0.47
+  Training took: 0:00:19
+
+Running Validation...
+
+  Average test loss: 0.46
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.82      1.00      0.90       129
+           1       0.00      0.00      0.00        28
+
+    accuracy                           0.82       157
+   macro avg       0.41      0.50      0.45       157
+weighted avg       0.68      0.82      0.74       157
+
+
+======== Epoch 2 / 4 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:17.
+
+  Average training loss: 0.32
+  Training took: 0:00:19
+
+Running Validation...
+
+  Average test loss: 0.27
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.93      0.94      0.93       129
+           1       0.70      0.68      0.69        28
+
+    accuracy                           0.89       157
+   macro avg       0.82      0.81      0.81       157
+weighted avg       0.89      0.89      0.89       157
+
+
+======== Epoch 3 / 4 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:17.
+
+  Average training loss: 0.21
+  Training took: 0:00:19
+
+Running Validation...
+
+  Average test loss: 0.26
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.94      0.93      0.93       129
+           1       0.69      0.71      0.70        28
+
+    accuracy                           0.89       157
+   macro avg       0.81      0.82      0.82       157
+weighted avg       0.89      0.89      0.89       157
+
+
+======== Epoch 4 / 4 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:17.
+
+  Average training loss: 0.14
+  Training took: 0:00:19
+
+Running Validation...
+
+  Average test loss: 0.27
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.94      0.93      0.94       129
+           1       0.70      0.75      0.72        28
+
+    accuracy                           0.90       157
+   macro avg       0.82      0.84      0.83       157
+weighted avg       0.90      0.90      0.90       157
+
+
+Training complete!
+Training completed successfully for Eco_Detection_FR.jsonl

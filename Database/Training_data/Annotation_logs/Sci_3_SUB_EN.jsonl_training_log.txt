@@ -1,0 +1,100 @@
+[LOG] Logging started for Sci_Detection in EN
+Data loaded successfully for label: Sci_Detection, language: EN
+Training label distribution for Sci_Detection in EN:
+label
+0    194
+1     50
+Name: count, dtype: int64
+Validation label distribution for Sci_Detection in EN:
+label
+0    21
+1     5
+Name: count, dtype: int64
+label ids: {0: 0, 1: 1}
+label ids: {0: 0, 1: 1}
+Data encoding completed for label: Sci_Detection, language: EN
+Saving model to (relative path): Sci_3_SUB_EN.jsonl.model
+[INFO] Training Sci_3_SUB_EN.jsonl pour 4 époque(s).
+
+======== Epoch 1 / 4 ========
+Training...
+
+  Average training loss: 0.59
+  Training took: 0:00:03
+
+Running Validation...
+
+  Average test loss: 0.48
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.81      1.00      0.89        21
+           1       0.00      0.00      0.00         5
+
+    accuracy                           0.81        26
+   macro avg       0.40      0.50      0.45        26
+weighted avg       0.65      0.81      0.72        26
+
+
+======== Epoch 2 / 4 ========
+Training...
+
+  Average training loss: 0.51
+  Training took: 0:00:03
+
+Running Validation...
+
+  Average test loss: 0.46
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.81      1.00      0.89        21
+           1       0.00      0.00      0.00         5
+
+    accuracy                           0.81        26
+   macro avg       0.40      0.50      0.45        26
+weighted avg       0.65      0.81      0.72        26
+
+
+======== Epoch 3 / 4 ========
+Training...
+
+  Average training loss: 0.45
+  Training took: 0:00:03
+
+Running Validation...
+
+  Average test loss: 0.44
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.81      1.00      0.89        21
+           1       0.00      0.00      0.00         5
+
+    accuracy                           0.81        26
+   macro avg       0.40      0.50      0.45        26
+weighted avg       0.65      0.81      0.72        26
+
+
+======== Epoch 4 / 4 ========
+Training...
+
+  Average training loss: 0.38
+  Training took: 0:00:03
+
+Running Validation...
+
+  Average test loss: 0.42
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.81      1.00      0.89        21
+           1       0.00      0.00      0.00         5
+
+    accuracy                           0.81        26
+   macro avg       0.40      0.50      0.45        26
+weighted avg       0.65      0.81      0.72        26
+
+
+Training complete!
+Training completed successfully for Sci_3_SUB_EN.jsonl

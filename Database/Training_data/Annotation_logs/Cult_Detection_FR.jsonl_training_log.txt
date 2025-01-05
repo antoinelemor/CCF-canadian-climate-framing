@@ -1,0 +1,230 @@
+[LOG] Logging started for Cult_Detection in FR
+Data loaded successfully for label: Cult_Detection, language: FR
+Training label distribution for Cult_Detection in FR:
+label
+0    1371
+1      45
+Name: count, dtype: int64
+Validation label distribution for Cult_Detection in FR:
+label
+0    152
+1      5
+Name: count, dtype: int64
+label ids: {0: 0, 1: 1}
+label ids: {0: 0, 1: 1}
+Data encoding completed for label: Cult_Detection, language: FR
+Saving model to (relative path): Cult_Detection_FR.jsonl.model
+[INFO] Training Cult_Detection_FR.jsonl pour 10 époque(s).
+
+======== Epoch 1 / 10 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:13.
+
+  Average training loss: 0.22
+  Training took: 0:00:14
+
+Running Validation...
+
+  Average test loss: 0.15
+  Validation took: 0:00:01
+              precision    recall  f1-score   support
+
+           0       0.97      1.00      0.98       152
+           1       0.00      0.00      0.00         5
+
+    accuracy                           0.97       157
+   macro avg       0.48      0.50      0.49       157
+weighted avg       0.94      0.97      0.95       157
+
+
+======== Epoch 2 / 10 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:12.
+
+  Average training loss: 0.14
+  Training took: 0:00:14
+
+Running Validation...
+
+  Average test loss: 0.15
+  Validation took: 0:00:01
+              precision    recall  f1-score   support
+
+           0       0.97      1.00      0.98       152
+           1       0.00      0.00      0.00         5
+
+    accuracy                           0.97       157
+   macro avg       0.48      0.50      0.49       157
+weighted avg       0.94      0.97      0.95       157
+
+
+======== Epoch 3 / 10 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:12.
+
+  Average training loss: 0.14
+  Training took: 0:00:14
+
+Running Validation...
+
+  Average test loss: 0.14
+  Validation took: 0:00:01
+              precision    recall  f1-score   support
+
+           0       0.97      1.00      0.98       152
+           1       0.00      0.00      0.00         5
+
+    accuracy                           0.97       157
+   macro avg       0.48      0.50      0.49       157
+weighted avg       0.94      0.97      0.95       157
+
+
+======== Epoch 4 / 10 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:13.
+
+  Average training loss: 0.13
+  Training took: 0:00:14
+
+Running Validation...
+
+  Average test loss: 0.14
+  Validation took: 0:00:01
+              precision    recall  f1-score   support
+
+           0       0.97      1.00      0.98       152
+           1       0.00      0.00      0.00         5
+
+    accuracy                           0.97       157
+   macro avg       0.48      0.50      0.49       157
+weighted avg       0.94      0.97      0.95       157
+
+
+======== Epoch 5 / 10 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:13.
+
+  Average training loss: 0.08
+  Training took: 0:00:14
+
+Running Validation...
+
+  Average test loss: 0.10
+  Validation took: 0:00:01
+              precision    recall  f1-score   support
+
+           0       0.98      0.99      0.98       152
+           1       0.50      0.40      0.44         5
+
+    accuracy                           0.97       157
+   macro avg       0.74      0.69      0.71       157
+weighted avg       0.97      0.97      0.97       157
+
+
+======== Epoch 6 / 10 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:13.
+
+  Average training loss: 0.03
+  Training took: 0:00:14
+
+Running Validation...
+
+  Average test loss: 0.13
+  Validation took: 0:00:01
+              precision    recall  f1-score   support
+
+           0       0.99      0.96      0.98       152
+           1       0.40      0.80      0.53         5
+
+    accuracy                           0.96       157
+   macro avg       0.70      0.88      0.75       157
+weighted avg       0.97      0.96      0.96       157
+
+
+======== Epoch 7 / 10 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:12.
+
+  Average training loss: 0.03
+  Training took: 0:00:14
+
+Running Validation...
+
+  Average test loss: 0.10
+  Validation took: 0:00:01
+              precision    recall  f1-score   support
+
+           0       0.98      1.00      0.99       152
+           1       1.00      0.40      0.57         5
+
+    accuracy                           0.98       157
+   macro avg       0.99      0.70      0.78       157
+weighted avg       0.98      0.98      0.98       157
+
+
+======== Epoch 8 / 10 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:12.
+
+  Average training loss: 0.01
+  Training took: 0:00:14
+
+Running Validation...
+
+  Average test loss: 0.09
+  Validation took: 0:00:01
+              precision    recall  f1-score   support
+
+           0       0.99      0.99      0.99       152
+           1       0.75      0.60      0.67         5
+
+    accuracy                           0.98       157
+   macro avg       0.87      0.80      0.83       157
+weighted avg       0.98      0.98      0.98       157
+
+
+======== Epoch 9 / 10 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:12.
+
+  Average training loss: 0.00
+  Training took: 0:00:14
+
+Running Validation...
+
+  Average test loss: 0.09
+  Validation took: 0:00:01
+              precision    recall  f1-score   support
+
+           0       0.99      0.99      0.99       152
+           1       0.75      0.60      0.67         5
+
+    accuracy                           0.98       157
+   macro avg       0.87      0.80      0.83       157
+weighted avg       0.98      0.98      0.98       157
+
+
+======== Epoch 10 / 10 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:12.
+
+  Average training loss: 0.00
+  Training took: 0:00:14
+
+Running Validation...
+
+  Average test loss: 0.09
+  Validation took: 0:00:01
+              precision    recall  f1-score   support
+
+           0       0.99      0.99      0.99       152
+           1       0.75      0.60      0.67         5
+
+    accuracy                           0.98       157
+   macro avg       0.87      0.80      0.83       157
+weighted avg       0.98      0.98      0.98       157
+
+
+Training complete!
+Training completed successfully for Cult_Detection_FR.jsonl

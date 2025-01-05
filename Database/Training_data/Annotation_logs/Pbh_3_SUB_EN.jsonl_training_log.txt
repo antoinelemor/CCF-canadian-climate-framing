@@ -1,0 +1,17 @@
+[LOG] Logging started for Pbh_Detection in EN
+Data loaded successfully for label: Pbh_Detection, language: EN
+Training label distribution for Pbh_Detection in EN:
+label
+0    49
+1     8
+Name: count, dtype: int64
+Validation label distribution for Pbh_Detection in EN:
+label
+0    5
+1    1
+Name: count, dtype: int64
+label ids: {0: 0, 1: 1}
+label ids: {0: 0, 1: 1}
+Data encoding completed for label: Pbh_Detection, language: EN
+Saving model as: Pbh_3_SUB_EN.jsonl.model
+Error during training for Pbh_3_SUB_EN.jsonl: name 'best_epoch_for_model' is not defined

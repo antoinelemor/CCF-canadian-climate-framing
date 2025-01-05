@@ -1,0 +1,120 @@
+[LOG] Logging started for Messenger_Detection in EN
+Data loaded successfully for label: Messenger_Detection, language: EN
+Training label distribution for Messenger_Detection in EN:
+label
+0    648
+1      9
+Name: count, dtype: int64
+Validation label distribution for Messenger_Detection in EN:
+label
+0    71
+1     1
+Name: count, dtype: int64
+label ids: {0: 0, 1: 1}
+label ids: {0: 0, 1: 1}
+Data encoding completed for label: Messenger_Detection, language: EN
+Saving model to (relative path): Messenger_7_SUB_EN.jsonl.model
+[INFO] Training Messenger_7_SUB_EN.jsonl pour 5 époque(s).
+
+======== Epoch 1 / 5 ========
+Training...
+
+  Average training loss: 0.19
+  Training took: 0:00:08
+
+Running Validation...
+
+  Average test loss: 0.06
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.99      1.00      0.99        71
+           1       0.00      0.00      0.00         1
+
+    accuracy                           0.99        72
+   macro avg       0.49      0.50      0.50        72
+weighted avg       0.97      0.99      0.98        72
+
+
+======== Epoch 2 / 5 ========
+Training...
+
+  Average training loss: 0.07
+  Training took: 0:00:08
+
+Running Validation...
+
+  Average test loss: 0.06
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.99      1.00      0.99        71
+           1       0.00      0.00      0.00         1
+
+    accuracy                           0.99        72
+   macro avg       0.49      0.50      0.50        72
+weighted avg       0.97      0.99      0.98        72
+
+
+======== Epoch 3 / 5 ========
+Training...
+
+  Average training loss: 0.07
+  Training took: 0:00:08
+
+Running Validation...
+
+  Average test loss: 0.06
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.99      1.00      0.99        71
+           1       0.00      0.00      0.00         1
+
+    accuracy                           0.99        72
+   macro avg       0.49      0.50      0.50        72
+weighted avg       0.97      0.99      0.98        72
+
+
+======== Epoch 4 / 5 ========
+Training...
+
+  Average training loss: 0.06
+  Training took: 0:00:08
+
+Running Validation...
+
+  Average test loss: 0.05
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.99      1.00      0.99        71
+           1       0.00      0.00      0.00         1
+
+    accuracy                           0.99        72
+   macro avg       0.49      0.50      0.50        72
+weighted avg       0.97      0.99      0.98        72
+
+
+======== Epoch 5 / 5 ========
+Training...
+
+  Average training loss: 0.05
+  Training took: 0:00:08
+
+Running Validation...
+
+  Average test loss: 0.05
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.99      1.00      0.99        71
+           1       0.00      0.00      0.00         1
+
+    accuracy                           0.99        72
+   macro avg       0.49      0.50      0.50        72
+weighted avg       0.97      0.99      0.98        72
+
+
+Training complete!
+Training completed successfully for Messenger_7_SUB_EN.jsonl

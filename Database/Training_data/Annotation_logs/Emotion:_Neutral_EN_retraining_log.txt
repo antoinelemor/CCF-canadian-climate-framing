@@ -1,0 +1,31 @@
+Chargement des données effectué pour le modèle Emotion:_Neutral_EN.jsonl.
+Encodage des données terminé.
+[INFO] Sauvegarde intermédiaire dans : models/best_models/Emotion:_Neutral_EN.jsonl.model
+======== Epoch 1 / 2 ========
+Training...
+  Average training loss: 0.668685574590424
+Running Validation...
+              precision    recall  f1-score   support
+
+           0       0.53      0.70      0.60        66
+           1       0.64      0.46      0.53        76
+
+    accuracy                           0.57       142
+   macro avg       0.58      0.58      0.57       142
+weighted avg       0.59      0.57      0.57       142
+
+======== Epoch 2 / 2 ========
+Training...
+  Average training loss: 0.5082142634524239
+Running Validation...
+              precision    recall  f1-score   support
+
+           0       0.74      0.38      0.50        66
+           1       0.62      0.88      0.73        76
+
+    accuracy                           0.65       142
+   macro avg       0.68      0.63      0.61       142
+weighted avg       0.67      0.65      0.62       142
+
+Entraînement du modèle Emotion:_Neutral_EN.jsonl terminé avec succès.
+Déplacement du modèle depuis models/best_models/Emotion:_Neutral_EN.jsonl.model vers /Volumes/CLIMATE.FRAME/CLIMATE.FRAME/best_models/Emotion:_Neutral_EN.jsonl.model

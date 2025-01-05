@@ -1,0 +1,60 @@
+[LOG] Logging started for Secu_Detection in FR
+Data loaded successfully for label: Secu_Detection, language: FR
+Training label distribution for Secu_Detection in FR:
+label
+0    15
+1     4
+Name: count, dtype: int64
+Validation label distribution for Secu_Detection in FR:
+label
+0    1
+1    1
+Name: count, dtype: int64
+label ids: {0: 0, 1: 1}
+label ids: {0: 0, 1: 1}
+Data encoding completed for label: Secu_Detection, language: FR
+Saving model to (relative path): Secu_1_SUB_FR.jsonl.model
+[INFO] Training Secu_1_SUB_FR.jsonl pour 2 époque(s).
+
+======== Epoch 1 / 2 ========
+Training...
+
+  Average training loss: 0.69
+  Training took: 0:00:01
+
+Running Validation...
+
+  Average test loss: 0.71
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.50      1.00      0.67         1
+           1       0.00      0.00      0.00         1
+
+    accuracy                           0.50         2
+   macro avg       0.25      0.50      0.33         2
+weighted avg       0.25      0.50      0.33         2
+
+
+======== Epoch 2 / 2 ========
+Training...
+
+  Average training loss: 0.63
+  Training took: 0:00:00
+
+Running Validation...
+
+  Average test loss: 0.72
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.50      1.00      0.67         1
+           1       0.00      0.00      0.00         1
+
+    accuracy                           0.50         2
+   macro avg       0.25      0.50      0.33         2
+weighted avg       0.25      0.50      0.33         2
+
+
+Training complete!
+Training completed successfully for Secu_1_SUB_FR.jsonl

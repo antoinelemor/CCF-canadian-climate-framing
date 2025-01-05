@@ -1,0 +1,40 @@
+[LOG] Logging started for Just_Detection in EN
+Data loaded successfully for label: Just_Detection, language: EN
+Training label distribution for Just_Detection in EN:
+label
+0    70
+1    20
+Name: count, dtype: int64
+Validation label distribution for Just_Detection in EN:
+label
+0    7
+1    2
+Name: count, dtype: int64
+label ids: {0: 0, 1: 1}
+label ids: {0: 0, 1: 1}
+Data encoding completed for label: Just_Detection, language: EN
+Saving model to (relative path): Just_1_SUB_EN.jsonl.model
+[INFO] Training Just_1_SUB_EN.jsonl pour 1 époque(s).
+
+======== Epoch 1 / 1 ========
+Training...
+
+  Average training loss: 0.72
+  Training took: 0:00:01
+
+Running Validation...
+
+  Average test loss: 0.61
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.78      1.00      0.88         7
+           1       0.00      0.00      0.00         2
+
+    accuracy                           0.78         9
+   macro avg       0.39      0.50      0.44         9
+weighted avg       0.60      0.78      0.68         9
+
+
+Training complete!
+Training completed successfully for Just_1_SUB_EN.jsonl

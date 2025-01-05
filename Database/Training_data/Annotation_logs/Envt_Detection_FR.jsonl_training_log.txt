@@ -1,0 +1,167 @@
+[LOG] Logging started for Envt_Detection in FR
+Data loaded successfully for label: Envt_Detection, language: FR
+Training label distribution for Envt_Detection in FR:
+label
+0    1354
+1      63
+Name: count, dtype: int64
+Validation label distribution for Envt_Detection in FR:
+label
+0    150
+1      6
+Name: count, dtype: int64
+label ids: {0: 0, 1: 1}
+label ids: {0: 0, 1: 1}
+Data encoding completed for label: Envt_Detection, language: FR
+Saving model to (relative path): Envt_Detection_FR.jsonl.model
+[INFO] Training Envt_Detection_FR.jsonl pour 7 époque(s).
+
+======== Epoch 1 / 7 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:18.
+
+  Average training loss: 0.25
+  Training took: 0:00:20
+
+Running Validation...
+
+  Average test loss: 0.17
+  Validation took: 0:00:01
+              precision    recall  f1-score   support
+
+           0       0.96      1.00      0.98       150
+           1       0.00      0.00      0.00         6
+
+    accuracy                           0.96       156
+   macro avg       0.48      0.50      0.49       156
+weighted avg       0.92      0.96      0.94       156
+
+
+======== Epoch 2 / 7 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:17.
+
+  Average training loss: 0.19
+  Training took: 0:00:19
+
+Running Validation...
+
+  Average test loss: 0.17
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.96      1.00      0.98       150
+           1       0.00      0.00      0.00         6
+
+    accuracy                           0.96       156
+   macro avg       0.48      0.50      0.49       156
+weighted avg       0.92      0.96      0.94       156
+
+
+======== Epoch 3 / 7 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:17.
+
+  Average training loss: 0.19
+  Training took: 0:00:19
+
+Running Validation...
+
+  Average test loss: 0.17
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.96      1.00      0.98       150
+           1       0.00      0.00      0.00         6
+
+    accuracy                           0.96       156
+   macro avg       0.48      0.50      0.49       156
+weighted avg       0.92      0.96      0.94       156
+
+
+======== Epoch 4 / 7 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:17.
+
+  Average training loss: 0.19
+  Training took: 0:00:19
+
+Running Validation...
+
+  Average test loss: 0.17
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.96      1.00      0.98       150
+           1       0.00      0.00      0.00         6
+
+    accuracy                           0.96       156
+   macro avg       0.48      0.50      0.49       156
+weighted avg       0.92      0.96      0.94       156
+
+
+======== Epoch 5 / 7 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:17.
+
+  Average training loss: 0.19
+  Training took: 0:00:19
+
+Running Validation...
+
+  Average test loss: 0.17
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.96      1.00      0.98       150
+           1       0.00      0.00      0.00         6
+
+    accuracy                           0.96       156
+   macro avg       0.48      0.50      0.49       156
+weighted avg       0.92      0.96      0.94       156
+
+
+======== Epoch 6 / 7 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:17.
+
+  Average training loss: 0.19
+  Training took: 0:00:19
+
+Running Validation...
+
+  Average test loss: 0.16
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.96      1.00      0.98       150
+           1       0.00      0.00      0.00         6
+
+    accuracy                           0.96       156
+   macro avg       0.48      0.50      0.49       156
+weighted avg       0.92      0.96      0.94       156
+
+
+======== Epoch 7 / 7 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:17.
+
+  Average training loss: 0.18
+  Training took: 0:00:19
+
+Running Validation...
+
+  Average test loss: 0.16
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.96      1.00      0.98       150
+           1       0.00      0.00      0.00         6
+
+    accuracy                           0.96       156
+   macro avg       0.48      0.50      0.49       156
+weighted avg       0.92      0.96      0.94       156
+
+
+Training complete!
+Training completed successfully for Envt_Detection_FR.jsonl

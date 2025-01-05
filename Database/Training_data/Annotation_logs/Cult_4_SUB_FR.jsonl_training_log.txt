@@ -1,0 +1,120 @@
+[LOG] Logging started for Cult_Detection in FR
+Data loaded successfully for label: Cult_Detection, language: FR
+Training label distribution for Cult_Detection in FR:
+label
+0    43
+1     2
+Name: count, dtype: int64
+Validation label distribution for Cult_Detection in FR:
+label
+0    4
+1    1
+Name: count, dtype: int64
+label ids: {0: 0, 1: 1}
+label ids: {0: 0, 1: 1}
+Data encoding completed for label: Cult_Detection, language: FR
+Saving model to (relative path): Cult_4_SUB_FR.jsonl.model
+[INFO] Training Cult_4_SUB_FR.jsonl pour 5 époque(s).
+
+======== Epoch 1 / 5 ========
+Training...
+
+  Average training loss: 0.64
+  Training took: 0:00:01
+
+Running Validation...
+
+  Average test loss: 0.58
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.80      1.00      0.89         4
+           1       0.00      0.00      0.00         1
+
+    accuracy                           0.80         5
+   macro avg       0.40      0.50      0.44         5
+weighted avg       0.64      0.80      0.71         5
+
+
+======== Epoch 2 / 5 ========
+Training...
+
+  Average training loss: 0.50
+  Training took: 0:00:00
+
+Running Validation...
+
+  Average test loss: 0.53
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.80      1.00      0.89         4
+           1       0.00      0.00      0.00         1
+
+    accuracy                           0.80         5
+   macro avg       0.40      0.50      0.44         5
+weighted avg       0.64      0.80      0.71         5
+
+
+======== Epoch 3 / 5 ========
+Training...
+
+  Average training loss: 0.42
+  Training took: 0:00:00
+
+Running Validation...
+
+  Average test loss: 0.51
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.80      1.00      0.89         4
+           1       0.00      0.00      0.00         1
+
+    accuracy                           0.80         5
+   macro avg       0.40      0.50      0.44         5
+weighted avg       0.64      0.80      0.71         5
+
+
+======== Epoch 4 / 5 ========
+Training...
+
+  Average training loss: 0.38
+  Training took: 0:00:00
+
+Running Validation...
+
+  Average test loss: 0.51
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.80      1.00      0.89         4
+           1       0.00      0.00      0.00         1
+
+    accuracy                           0.80         5
+   macro avg       0.40      0.50      0.44         5
+weighted avg       0.64      0.80      0.71         5
+
+
+======== Epoch 5 / 5 ========
+Training...
+
+  Average training loss: 0.36
+  Training took: 0:00:00
+
+Running Validation...
+
+  Average test loss: 0.50
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.80      1.00      0.89         4
+           1       0.00      0.00      0.00         1
+
+    accuracy                           0.80         5
+   macro avg       0.40      0.50      0.44         5
+weighted avg       0.64      0.80      0.71         5
+
+
+Training complete!
+Training completed successfully for Cult_4_SUB_FR.jsonl

@@ -1,0 +1,160 @@
+[LOG] Logging started for Messenger_Detection in EN
+Data loaded successfully for label: Messenger_Detection, language: EN
+Training label distribution for Messenger_Detection in EN:
+label
+0    486
+1    171
+Name: count, dtype: int64
+Validation label distribution for Messenger_Detection in EN:
+label
+0    54
+1    18
+Name: count, dtype: int64
+label ids: {0: 0, 1: 1}
+label ids: {0: 0, 1: 1}
+Data encoding completed for label: Messenger_Detection, language: EN
+Saving model to (relative path): Messenger_9_SUB_EN.jsonl.model
+[INFO] Training Messenger_9_SUB_EN.jsonl pour 7 époque(s).
+
+======== Epoch 1 / 7 ========
+Training...
+
+  Average training loss: 0.53
+  Training took: 0:00:08
+
+Running Validation...
+
+  Average test loss: 0.33
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.86      0.91      0.88        54
+           1       0.67      0.56      0.61        18
+
+    accuracy                           0.82        72
+   macro avg       0.76      0.73      0.74        72
+weighted avg       0.81      0.82      0.81        72
+
+
+======== Epoch 2 / 7 ========
+Training...
+
+  Average training loss: 0.36
+  Training took: 0:00:08
+
+Running Validation...
+
+  Average test loss: 0.32
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.98      0.78      0.87        54
+           1       0.59      0.94      0.72        18
+
+    accuracy                           0.82        72
+   macro avg       0.78      0.86      0.79        72
+weighted avg       0.88      0.82      0.83        72
+
+
+======== Epoch 3 / 7 ========
+Training...
+
+  Average training loss: 0.18
+  Training took: 0:00:08
+
+Running Validation...
+
+  Average test loss: 0.29
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.92      0.91      0.92        54
+           1       0.74      0.78      0.76        18
+
+    accuracy                           0.88        72
+   macro avg       0.83      0.84      0.84        72
+weighted avg       0.88      0.88      0.88        72
+
+
+======== Epoch 4 / 7 ========
+Training...
+
+  Average training loss: 0.06
+  Training took: 0:00:08
+
+Running Validation...
+
+  Average test loss: 0.46
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.94      0.81      0.87        54
+           1       0.60      0.83      0.70        18
+
+    accuracy                           0.82        72
+   macro avg       0.77      0.82      0.78        72
+weighted avg       0.85      0.82      0.83        72
+
+
+======== Epoch 5 / 7 ========
+Training...
+
+  Average training loss: 0.02
+  Training took: 0:00:08
+
+Running Validation...
+
+  Average test loss: 0.44
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.94      0.89      0.91        54
+           1       0.71      0.83      0.77        18
+
+    accuracy                           0.88        72
+   macro avg       0.83      0.86      0.84        72
+weighted avg       0.88      0.88      0.88        72
+
+
+======== Epoch 6 / 7 ========
+Training...
+
+  Average training loss: 0.01
+  Training took: 0:00:08
+
+Running Validation...
+
+  Average test loss: 0.46
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.94      0.89      0.91        54
+           1       0.71      0.83      0.77        18
+
+    accuracy                           0.88        72
+   macro avg       0.83      0.86      0.84        72
+weighted avg       0.88      0.88      0.88        72
+
+
+======== Epoch 7 / 7 ========
+Training...
+
+  Average training loss: 0.00
+  Training took: 0:00:08
+
+Running Validation...
+
+  Average test loss: 0.46
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.94      0.89      0.91        54
+           1       0.71      0.83      0.77        18
+
+    accuracy                           0.88        72
+   macro avg       0.83      0.86      0.84        72
+weighted avg       0.88      0.88      0.88        72
+
+
+Training complete!
+Training completed successfully for Messenger_9_SUB_EN.jsonl
