@@ -12,9 +12,9 @@ Scripts/Annotation/Archives
 Scripts/Database_creation/Archives
 .DS_Store
 Scripts/Results/
-Database/Training_data/manual_annotations_JSONL
-Database/Training_data/annotation_bases
-Scripts/Results
+Database/Training_data/manual_annotations_JSONL/
+Database/Training_data/annotation_bases/
+Scripts/Results/
 
 # Ignorer tous les fichiers Python
 Scripts/Database_creation/*.py
