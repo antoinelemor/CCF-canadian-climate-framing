@@ -1,74 +1,89 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
 """
+PROJECT:
+-------
+CCF-Canadian-Climate-Framing
+
+TITLE:
+------
 7_Produce_JSON_for_Recheck.py
 
-Ce script génère un nouveau jeu de données JSONL pour revalider (manuellement) 
-l'efficacité des annotations après passage des modèles. Il cible notamment 
-les catégories sous-représentées, afin de vérifier la qualité des modèles 
-dans tous les cas de figure.
+MAIN OBJECTIVE:
+-------------------
+This script generates a new JSONL dataset to manually revalidate 
+the effectiveness of annotations after model processing. It specifically targets 
+underrepresented categories to verify the quality of models 
+in all scenarios.
 
-Fonctionnalités principales :
-1) Lecture de la base annotée (ex. CCF.media_processed_texts_annotated.csv).
-2) Détection et filtrage des phrases déjà utilisées dans les précédentes 
-   annotations manuelles (sentences_to_annotate_EN.jsonl, sentences_to_annotate_FR.jsonl).
-3) Sélection aléatoire avec sur-échantillonnage (ou "pondération") 
-   des catégories sous-représentées. Le but est d'avoir une couverture 
-   plus équitable de toutes les classes (detection, sub et autres).
-4) Respect d'une répartition 50/50 entre langue anglaise et française.
-5) Production d'un fichier JSONL (multilingue), où chaque entrée contient :
-   - "text" : la phrase elle-même,
-   - "label" : la liste des catégories actives (==1) pour cette phrase,
-   - "meta" : un dictionnaire contenant toutes les métadonnées de l'article
-              (par exemple : title, source, date, etc.).
+Dependencies:
+-------------
+- os
+- json
+- random
+- pandas
+- math
 
-Auteur : Antoine Lemor
-Date  : 2025-01-03
+MAIN FEATURES:
+----------------------------
+1) Reads the annotated database (e.g., CCF.media_processed_texts_annotated.csv).
+2) Detects and filters out sentences already used in previous manual 
+   annotations (sentences_to_annotate_EN.jsonl, sentences_to_annotate_FR.jsonl).
+3) Randomly selects with oversampling (or "weighting") 
+   of underrepresented categories to ensure a more equitable coverage of all classes 
+   (detection, sub, etc.).
+4) Maintains a 50/50 distribution between English and French languages.
+5) Produces a multilingual JSONL file where each entry contains:
+   - "text": the sentence itself,
+   - "label": the list of active categories (==1) for that sentence,
+   - "meta": a dictionary containing all article metadata 
+             (e.g., title, source, date, etc.).
+         
+Author : 
+--------
+Antoine Lemor
 """
 
 import os
 import json
 import random
 import pandas as pd
-
+import math
 
 ##############################################################################
-#                      A. CONSTANTES ET CHEMINS D'ACCÈS
+#                      A. CONSTANTS AND PATHS
 ##############################################################################
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Fichier CSV annoté en sortie de 6_Annotate.py
+# Annotated CSV file output from 6_Annotate.py
 ANNOTATED_CSV = os.path.join(
     BASE_DIR, "..", "..", "Database", "Database", "CCF.media_processed_texts_annotated.csv"
 )
 
-# Dossier contenant les anciennes annotations manuelles
+# Directory containing old manual annotations
 MANUAL_ANNOTATIONS_DIR = os.path.join(
     BASE_DIR, "..", "..", "Database", "Training_data", "manual_annotations_JSONL"
 )
 
-# Fichiers JSONL déjà annotés manuellement, qu'on souhaite exclure
+# JSONL files already manually annotated, which we want to exclude
 MANUAL_ANNOTATIONS_EN = os.path.join(MANUAL_ANNOTATIONS_DIR, "sentences_to_annotate_EN.jsonl")
 MANUAL_ANNOTATIONS_FR = os.path.join(MANUAL_ANNOTATIONS_DIR, "sentences_to_annotate_FR.jsonl")
 
-# Fichier de sortie (un unique JSONL multilingue, 50/50 EN/FR)
+# Output file (a single multilingual JSONL, 50/50 EN/FR)
 OUTPUT_JSONL = os.path.join(
     MANUAL_ANNOTATIONS_DIR, "sentences_to_recheck_multiling.jsonl"
 )
 
-# Nombre total de phrases que l’on souhaite annoter (vous pouvez ajuster)
-NB_SENTENCES_TOTAL = 400  # 200 EN + 200 FR, par exemple
+# Total number of sentences to annotate (adjustable)
+NB_SENTENCES_TOTAL = 400  # 200 EN + 200 FR, for example
 
 
 ##############################################################################
-#                      B. FONCTIONS UTILITAIRES
+#                      B. UTILITY FUNCTIONS
 ##############################################################################
 def load_already_annotated_texts(jsonl_path):
     """
-    Charge un fichier JSONL déjà utilisé pour les annotations manuelles
-    et retourne l'ensemble des 'text' (phrases) qui y figurent, 
-    afin de les exclure.
+    Loads a JSONL file previously used for manual annotations
+    and returns the set of 'text' (sentences) it contains, 
+    to exclude them.
     """
     if not os.path.exists(jsonl_path):
         return set()
@@ -79,26 +94,29 @@ def load_already_annotated_texts(jsonl_path):
             line = line.strip()
             if not line:
                 continue
-            data = json.loads(line)
-            txt = data.get("text", "")
-            texts.add(txt)
+            try:
+                data = json.loads(line)
+                txt = data.get("text", "")
+                texts.add(txt)
+            except json.JSONDecodeError as e:
+                print(f"[ERROR] JSON decoding failed for line: {line}\nError: {e}")
     return texts
 
 
 def identify_annotation_columns(df):
     """
-    Identifie les colonnes correspondant à des catégories d'annotations.
-    Typiquement, on peut prendre toutes les colonnes binaires (0/1) 
-    à l'exclusion de colonnes clairement métadonnées (ex. 'language', 'sentences', etc.).
-    À ajuster selon la structure réelle du CSV.
+    Identifies the columns corresponding to annotation categories.
+    Typically, we can take all binary columns (0/1) 
+    excluding clearly metadata columns (e.g., 'language', 'sentences', etc.).
+    Adjust as per the actual CSV structure.
     """
     excluded_cols = {"language", "sentences", "id_article", "Unnamed: 0"}
     annotation_cols = []
     for col in df.columns:
         if col in excluded_cols:
             continue
-        # On vérifie si le contenu est 0/1 ou NaN/1, etc.
-        # Simple heuristique : type numérique + au moins un '1' dedans
+        # Check if the content is 0/1 or NaN/1, etc.
+        # Simple heuristic: numeric type + at least one '1' in it
         if pd.api.types.is_numeric_dtype(df[col]):
             nb_ones = df[col].sum(skipna=True)
             if nb_ones > 0:
@@ -109,9 +127,9 @@ def identify_annotation_columns(df):
 
 def get_underrepresented_categories(df, annotation_cols, threshold=50):
     """
-    Repère les catégories sous-représentées, par exemple celles 
-    qui ont moins de 'threshold' lignes positives (==1).
-    Retourne une liste de ces catégories.
+    Identifies underrepresented categories, for example those 
+    with fewer than 'threshold' positive rows (==1).
+    Returns a list of these categories.
     """
     underrepresented = []
     for col in annotation_cols:
@@ -123,37 +141,41 @@ def get_underrepresented_categories(df, annotation_cols, threshold=50):
 
 def build_doccano_jsonl_entry(row, annotation_cols):
     """
-    Construit l'entrée JSONL conforme à Doccano :
-      {
-        "text": ...,
-        "label": [...],
-        "meta": {...}
-      }
-    où "label" est la liste des colonnes (catégories) pour lesquelles row[col] == 1.
-    Toutes les métadonnées (sauf 'sentences' et colonnes d'annotations) 
-    sont placées dans 'meta'.
+    Constructs a Doccano-compliant JSONL entry.
+    - "text": the sentence itself,
+    - "label": the list of active categories (==1) for that sentence,
+    - "meta": a dictionary containing all article metadata
+               (e.g., title, source, date, etc.).
+               Fields corresponding to non-positive annotations are excluded.
+               NaN values are replaced with null.
     """
-    # 1) Le texte
     text = row["sentences"]
 
-    # 2) Les catégories actives
-    active_labels = []
-    for col in annotation_cols:
-        val = row[col]
-        if pd.notna(val) and val == 1:
-            active_labels.append(col)
+    # 1) Identify positive labels
+    active_labels = [col for col in annotation_cols if pd.notna(row[col]) and row[col] == 1]
 
-    # 3) Métadonnées : on inclut toutes les colonnes de row sauf le texte et les labels
-    #    Les colonnes d'annotations sont exclues pour éviter la redondance 
-    #    (elles sont déjà dans label).
+    # 2) Build the meta dictionary excluding annotations
     meta = {}
     for col in row.index:
         if col == "sentences":
             continue
         if col in annotation_cols:
             continue
-        meta[col] = row[col]
+        value = row[col]
+        # Replace NaN with None
+        if isinstance(value, float) and math.isnan(value):
+            meta[col] = None
+        else:
+            meta[col] = value
 
+    # 3) Validate JSON serialization
+    try:
+        json.dumps(meta)  # Check that 'meta' is serializable
+    except (TypeError, ValueError) as e:
+        print(f"[ERROR] Meta not serializable for text: {text}\nError: {e}")
+        meta = None  # Or handle otherwise as needed
+
+    # 4) Build the JSON entry
     entry = {
         "text": text,
         "label": active_labels,
@@ -163,29 +185,29 @@ def build_doccano_jsonl_entry(row, annotation_cols):
 
 
 ##############################################################################
-#                    C. FONCTION PRINCIPALE DE GÉNÉRATION
+#                    C. MAIN GENERATION FUNCTION
 ##############################################################################
 def main():
     # ----------------------------------------------------------------------
-    # 1) Chargement du CSV annoté
+    # 1) Load the annotated CSV
     # ----------------------------------------------------------------------
-    print("[INFO] Chargement du CSV annoté...")
+    print("[INFO] Loading the annotated CSV...")
     if not os.path.exists(ANNOTATED_CSV):
-        raise FileNotFoundError(f"Fichier introuvable : {ANNOTATED_CSV}")
+        raise FileNotFoundError(f"File not found: {ANNOTATED_CSV}")
 
     df = pd.read_csv(ANNOTATED_CSV, low_memory=False)
-    print(f" -> {len(df)} lignes chargées.")
+    print(f" -> {len(df)} rows loaded.")
 
     # ----------------------------------------------------------------------
-    # 2) Identification des colonnes d'annotations
+    # 2) Identify annotation columns
     # ----------------------------------------------------------------------
     annotation_cols = identify_annotation_columns(df)
-    print(f"[INFO] Colonnes d'annotations détectées : {annotation_cols}")
+    print(f"[INFO] Detected annotation columns: {annotation_cols}")
 
     # ----------------------------------------------------------------------
-    # 3) Exclure les phrases déjà annotées manuellement
+    # 3) Exclude sentences already manually annotated
     # ----------------------------------------------------------------------
-    print("[INFO] Exclusion des phrases déjà annotées manuellement...")
+    print("[INFO] Excluding sentences already manually annotated...")
     en_annotated = load_already_annotated_texts(MANUAL_ANNOTATIONS_EN)
     fr_annotated = load_already_annotated_texts(MANUAL_ANNOTATIONS_FR)
 
@@ -194,47 +216,47 @@ def main():
         ((df["language"] == "EN") & (df["sentences"].isin(en_annotated))) |
         ((df["language"] == "FR") & (df["sentences"].isin(fr_annotated)))
     )].copy()
-    print(f" -> {initial_len - len(df)} lignes exclues. Il reste {len(df)} lignes.")
+    print(f" -> {initial_len - len(df)} rows excluded. {len(df)} rows remaining.")
 
     # ----------------------------------------------------------------------
-    # 4) Identification des catégories sous-représentées
+    # 4) Identify underrepresented categories
     # ----------------------------------------------------------------------
-    # Par exemple, on fixe un seuil "threshold=50" (à ajuster). 
-    # On peut ensuite sur-échantillonner (ou forcer la prise en compte) 
-    # d'un plus grand nombre de phrases de ces catégories.
+    # For example, we set a threshold of "threshold=50" (adjustable). 
+    # We can then oversample (or force the inclusion) 
+    # of a larger number of sentences from these categories.
     under_cat = get_underrepresented_categories(df, annotation_cols, threshold=50)
-    print(f"[INFO] Catégories sous-représentées (moins de 50 occurrences) : {under_cat}")
+    print(f"[INFO] Underrepresented categories (less than 50 occurrences): {under_cat}")
 
     # ----------------------------------------------------------------------
-    # 5) Constitution de l'échantillon en deux étapes :
-    #    a) Sur-échantillonner des phrases positives pour under_cat
-    #    b) Compléter le reste pour atteindre NB_SENTENCES_TOTAL, 
-    #       tout en préservant 50% EN, 50% FR
+    # 5) Sample composition in two steps:
+    #    a) Oversample positive sentences for under_cat
+    #    b) Complete the rest to reach NB_SENTENCES_TOTAL, 
+    #       maintaining 50% EN and 50% FR
     # ----------------------------------------------------------------------
 
-    # a) Sur-échantillonner en priorité les catégories sous-représentées
-    #    On récupère toutes les phrases qui possèdent au moins 
-    #    une catégorie sous-représentée = 1 (union).
-    #    Ensuite, on pourra en prendre un certain nombre au hasard.
+    # a) Oversample underrepresented categories
+    #    We retrieve all sentences that have at least 
+    #    one underrepresented category = 1 (union).
+    #    Then, we can take a certain number at random.
     df_under = df.copy()
     mask_under = False
     for cat in under_cat:
         mask_under |= (df_under[cat] == 1)
     df_candidates_under = df_under[mask_under]
 
-    # Pour éviter de prendre que des sous-représentées, on va limiter 
-    # cette prise si c'est trop grand. On peut par exemple prendre 
-    # min(len(df_candidates_under), 200) si on veut limiter à 200 
-    # (ou un certain ratio).
-    random_under_limit = max(50, int(0.5 * NB_SENTENCES_TOTAL))  # 50% du total, par ex.
+    # To avoid taking only underrepresented categories, we will limit 
+    # this selection if it is too large. For example, we can take 
+    # min(len(df_candidates_under), 200) if we want to limit to 200 
+    # (or a certain ratio).
+    random_under_limit = max(50, int(0.5 * NB_SENTENCES_TOTAL))  # 50% of the total, for example.
     if len(df_candidates_under) > random_under_limit:
         df_candidates_under = df_candidates_under.sample(random_under_limit, random_state=42)
-    # On a maintenant un premier set surreprésentant (relativement) les under_cat
-    # sans excéder la moitié de l'échantillon final visé.
+    # We now have a first set relatively oversampling the under_cat
+    # without exceeding half of the final target sample.
 
-    # b) Compléter l'échantillon (en plus de df_candidates_under) 
-    #    depuis le reste du DF. 
-    #    On veut NB_SENTENCES_TOTAL - len(df_candidates_under) phrases en tout.
+    # b) Complete the sample (in addition to df_candidates_under) 
+    #    from the rest of the DF. 
+    #    We want NB_SENTENCES_TOTAL - len(df_candidates_under) sentences in total.
     df_rest = df.drop(df_candidates_under.index, errors="ignore")
     nb_rest_needed = NB_SENTENCES_TOTAL - len(df_candidates_under)
     if nb_rest_needed < 0:
@@ -243,20 +265,20 @@ def main():
     if len(df_rest) > nb_rest_needed:
         df_rest = df_rest.sample(nb_rest_needed, random_state=42)
 
-    # c) Combiner
+    # c) Combine
     df_final = pd.concat([df_candidates_under, df_rest], axis=0)
-    # On mélange l'ensemble pour ne pas avoir d'ordre particulier
+    # Shuffle the set to avoid any particular order
     df_final = df_final.sample(frac=1.0, random_state=42).reset_index(drop=True)
 
     # ----------------------------------------------------------------------
-    # 6) Assurer le 50/50 EN/FR
-    #    - Stratégie : on sépare en deux dataframes (EN et FR) et on 
-    #      équilibre au plus proche 50/50, en random.
+    # 6) Ensure a 50/50 EN/FR Split
+    #    - Strategy: Separate into two dataframes (EN and FR) and balance as 
+    #      close to 50/50 as possible, randomly.
     # ----------------------------------------------------------------------
     df_en = df_final[df_final["language"] == "EN"].copy()
     df_fr = df_final[df_final["language"] == "FR"].copy()
 
-    # Nombre maximum par langue : NB_SENTENCES_TOTAL // 2 (par ex. 200)
+    # Maximum number per language: NB_SENTENCES_TOTAL // 2 (e.g., 200)
     half_target = NB_SENTENCES_TOTAL // 2
 
     if len(df_en) > half_target:
@@ -264,44 +286,47 @@ def main():
     if len(df_fr) > half_target:
         df_fr = df_fr.sample(half_target, random_state=42)
 
-    # Si l'un des deux est plus petit que half_target, 
-    # on peut le prendre en entier et ajuster l'autre
+    # If one of the two is smaller than half_target, 
+    # we can take it in its entirety and adjust the other
     final_en = len(df_en)
     final_fr = len(df_fr)
-    # On peut laisser tel quel si on veut impérativement NB_SENTENCES_TOTAL 
-    # ou on peut accepter un total un peu plus faible si l'un des deux 
-    # n'atteint pas half_target.
-    # Ici on choisit la flexibilité : on prend tout ce qui est possible 
-    # jusqu'à 50/50. 
-    # => On réadapte l’autre groupe pour qu’il ait la même taille.
-    if final_en < half_target:
-        # On redescend FR au même nombre
+    # We can leave it as is if we want exactly NB_SENTENCES_TOTAL 
+    # or we can accept a slightly smaller total if one of the two 
+    # does not reach half_target.
+    # Here we choose flexibility: we take everything possible 
+    # up to 50/50. 
+    # => We readjust the other group to have the same size.
+    if final_en < half_target and final_en > 0:
+        # Reduce FR to the same number
         df_fr = df_fr.sample(final_en, random_state=42)
-    elif final_fr < half_target:
-        # On redescend EN au même nombre
+    elif final_fr < half_target and final_fr > 0:
+        # Reduce EN to the same number
         df_en = df_en.sample(final_fr, random_state=42)
 
-    # Reconstruction finale
+    # Final reconstruction
     df_final_balanced = pd.concat([df_en, df_fr], axis=0)
-    # Mélange final
+    # Final shuffle
     df_final_balanced = df_final_balanced.sample(frac=1.0, random_state=42).reset_index(drop=True)
 
-    print(f"[INFO] Échantillon final : {len(df_final_balanced)} lignes.")
-    print(f"       -> EN : {(df_final_balanced['language'] == 'EN').sum()}")
-    print(f"       -> FR : {(df_final_balanced['language'] == 'FR').sum()}")
+    print(f"[INFO] Final sample: {len(df_final_balanced)} rows.")
+    print(f"       -> EN: {(df_final_balanced['language'] == 'EN').sum()}")
+    print(f"       -> FR: {(df_final_balanced['language'] == 'FR').sum()}")
 
     # ----------------------------------------------------------------------
-    # 7) Production du JSONL
+    # 7) Produce the JSONL
     # ----------------------------------------------------------------------
-    print("[INFO] Écriture du JSONL final multilingue...")
+    print("[INFO] Writing the final multilingual JSONL...")
     with open(OUTPUT_JSONL, 'w', encoding='utf-8') as out_f:
         for idx, row in df_final_balanced.iterrows():
             entry = build_doccano_jsonl_entry(row, annotation_cols)
-            json_line = json.dumps(entry, ensure_ascii=False)
-            out_f.write(json_line + "\n")
+            try:
+                json_line = json.dumps(entry, ensure_ascii=False, separators=(',', ':'))
+                out_f.write(json_line + "\n")
+            except (TypeError, ValueError) as e:
+                print(f"[ERROR] Serialization failed for entry at index {idx}: {e}")
 
-    print(f"[INFO] Fichier JSONL créé : {OUTPUT_JSONL}")
-    print("[INFO] Fin du script.")
+    print(f"[INFO] JSONL file created: {OUTPUT_JSONL}")
+    print("[INFO] End of script.")
 
 
 if __name__ == "__main__":

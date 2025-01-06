@@ -1,33 +1,76 @@
+"""
+PROJECT:
+-------
+CCF-Canadian-Climate-Framing
+
+TITLE:
+------
+5bis_Training_best_model.py
+
+MAIN OBJECTIVE:
+-------------------
+This script manages training processes for Camembert/Bert models using labeled data. 
+It checks for completed or partial trainings, handles directories/logs, and summarizes 
+trained/untrained models.
+
+Dependencies:
+-------------
+- os
+- sys
+- glob
+- shutil
+- json
+- pandas
+- torch
+- AugmentedSocialScientist
+
+MAIN FEATURES:
+----------------------------
+1) Detect GPU (CUDA/MPS) or default to CPU.
+2) Load training/validation data from JSONL into pandas DataFrames.
+3) Determine model states (fully trained, partial, not started).
+4) Skip training if data are insufficient or invalid.
+5) Produce a CSV listing untrained models.
+
+Author:
+-------
+Antoine Lemor
+"""
+
 import json
 import sys
 import os
 import glob
-import shutil 
+import shutil
 import pandas as pd
 import torch
 
 from AugmentedSocialScientist.models import Camembert, Bert
 
 # --------------------------------------------------------------------
-# FONCTION POUR RÉCUPÉRER LE DEVICE (CUDA, MPS OU CPU)
+# FUNCTION TO GET DEVICE (CUDA, MPS, OR CPU)
 # --------------------------------------------------------------------
 def get_device():
     """
-    Détecte le GPU si disponible (CUDA ou MPS), sinon bascule sur CPU.
+    Detects if GPU (CUDA or MPS) is available; otherwise falls back to CPU.
+    
+    Returns
+    -------
+    torch.device
+        Device for computations.
     """
     if torch.cuda.is_available():
         device = torch.device("cuda")
-        print("Utilisation du GPU (CUDA) pour les calculs.")
+        print("Using GPU (CUDA) for computations.")
     elif torch.backends.mps.is_available():
         device = torch.device("mps")
-        print("Utilisation du GPU (MPS) pour les calculs.")
+        print("Using GPU (MPS) for computations.")
     else:
         device = torch.device("cpu")
-        print("Utilisation du CPU pour les calculs.")
+        print("Using CPU for computations.")
     return device
 
-# Debugging print pour vérifier l'exécution du script
-print("Script started.")
+print("Script started.")  # Debugging print in English
 
 # Récupère le chemin de base du script
 base_path = os.path.dirname(os.path.abspath(__file__))
@@ -38,7 +81,7 @@ model_output_dir = os.path.join(base_path, "..", "..", "models")  # Point direct
 log_output_dir = os.path.join(base_path, "..", "..", "Database", "Training_data", "Annotation_logs")
 training_data_dir = os.path.join(base_path, "..", "..", "Database", "Training_data")  # Pour y enregistrer le CSV final
 
-print(f"Model output directory: {model_output_dir}")  # Debug
+print(f"Model output directory: {model_output_dir}")  # Debug in English
 
 # Vérifie l'existence du répertoire des logs
 if not os.path.exists(log_output_dir):
@@ -49,9 +92,12 @@ if not os.path.exists(model_output_dir):
     os.makedirs(model_output_dir)
 
 # --------------------------------------------------------------------
-# LOGGER CLASS POUR L'ENREGISTREMENT DES LOGS
+# LOGGER CLASS FOR LOGGING
 # --------------------------------------------------------------------
 class Logger(object):
+    """
+    Handles logging to both console and file.
+    """
     def __init__(self, filename):
         self.terminal = sys.stdout
         self.log = open(filename, "w", encoding='utf-8')
@@ -67,10 +113,22 @@ class Logger(object):
         self.log.close()
 
 # --------------------------------------------------------------------
-# FONCTION DE CHARGEMENT JSONL -> PANDAS
+# FUNCTION TO LOAD JSONL -> PANDAS
 # --------------------------------------------------------------------
 def load_jsonl_to_dataframe(filepath):
-    """Charge un fichier JSONL dans un DataFrame pandas."""
+    """
+    Loads a JSONL file into a pandas DataFrame.
+    
+    Parameters
+    ----------
+    filepath : str
+        Path to the JSONL file.
+
+    Returns
+    -------
+    pandas.DataFrame
+        DataFrame containing the loaded data.
+    """
     data = []
     with open(filepath, 'r', encoding='utf-8') as file:
         for line in file:
@@ -78,14 +136,13 @@ def load_jsonl_to_dataframe(filepath):
     return pd.DataFrame(data)
 
 # --------------------------------------------------------------------
-# FONCTION POUR DÉTERMINER LES FICHIERS INDISPENSABLES
-# SELON LA LANGUE
+# FUNCTION TO DETERMINE REQUIRED FILES PER LANGUAGE
 # --------------------------------------------------------------------
 def get_required_files_for_language(language: str):
     """
-    Retourne la liste des fichiers indispensables pour un modèle de la langue donnée.
-    - Pour FR (Camembert), c'est: ['config.json', 'pytorch_model.bin', 'sentencepiece.bpe.model']
-    - Pour EN (Bert), c'est:      ['config.json', 'pytorch_model.bin', 'vocab.txt']
+    Returns the list of files needed for the given language.
+    - For FR (Camembert), it's: ['config.json', 'pytorch_model.bin', 'sentencepiece.bpe.model']
+    - For EN (Bert), it's:      ['config.json', 'pytorch_model.bin', 'vocab.txt']
     """
     if language == "FR":
         return ["config.json", "pytorch_model.bin", "sentencepiece.bpe.model"]
@@ -93,19 +150,17 @@ def get_required_files_for_language(language: str):
         return ["config.json", "pytorch_model.bin", "vocab.txt"]
 
 # --------------------------------------------------------------------
-# FONCTION POUR VÉRIFIER COMBIEN DE FICHIERS D'UN MODÈLE SONT PRÉSENTS
-# POUR UNE LANGUE DONNÉE
+# FUNCTION TO CHECK MODEL FILE COUNT
 # --------------------------------------------------------------------
 def get_model_file_count(model_dir, language):
     """
-    Retourne le nombre de fichiers requis présents dans 'model_dir',
-    en se basant sur la langue pour déterminer lesquels sont requis.
+    Counts how many required model files are present for a given language.
     """
     required_files = get_required_files_for_language(language)
     present_count = 0
 
     if not os.path.exists(model_dir):
-        # Le dossier n'existe même pas
+        # The folder doesn't even exist
         return 0
 
     for file_name in required_files:
@@ -116,47 +171,53 @@ def get_model_file_count(model_dir, language):
     return present_count
 
 # --------------------------------------------------------------------
-# EXCEPTION PERSONNALISÉE POUR SAUTER L'ENTRAÎNEMENT
+# CUSTOM EXCEPTION FOR SKIPPING TRAINING
 # --------------------------------------------------------------------
 class SkipTrainingException(Exception):
-    """Exception levée pour indiquer que l'entraînement doit être sauté."""
+    """
+    Exception raised when training must be skipped.
+    """
     pass
 
 # --------------------------------------------------------------------
-# FONCTION PRINCIPALE DE TRAINING
+# MAIN TRAINING FUNCTION
 # --------------------------------------------------------------------
 def train_models(base_dir, model_output_dir, log_output_dir):
-    # Récupère le device (GPU ou CPU)
+    """
+    Orchestrates model training using discovered data/directories. 
+    Skips incomplete or fully trained models, logs results, and summarizes.
+    """
+    # Get the device (GPU or CPU)
     device = get_device()
 
-    # Pour le reporting global
+    # For global reporting
     fully_trained_count = 0
     partial_count = 0
     not_started_count = 0
-    skipped_count = 0  # Compteur pour les modèles sautés
+    skipped_count = 0  # Counter for skipped models
 
-    # Liste pour stocker les modèles non entraînés (pour cause d'annotations insuffisantes ou autres)
+    # List to store non-trained models (due to insufficient annotations or other reasons)
     non_trained_models = []
 
     # ----------------------------------------------------------------
-    # 1) LIRE LE CSV DE LA MEILLEURE ÉPOQUE (SI DISPONIBLE)
+    # 1) READ THE CSV OF THE BEST EPOCH (IF AVAILABLE)
     # ----------------------------------------------------------------
     best_epoch_csv = os.path.join(training_data_dir, "models_metrics_summary_advanced.csv")
     best_epoch_dict = {}
 
     if os.path.exists(best_epoch_csv):
         df_best_epochs = pd.read_csv(best_epoch_csv, encoding='utf-8')
-        # On considère que le CSV contient au moins "model_name" et "best_epoch"
+        # We assume the CSV contains at least "model_name" and "best_epoch"
         for _, row in df_best_epochs.iterrows():
             model_nm = str(row["model_name"])
             epoch_val = int(row["best_epoch"])
             best_epoch_dict[model_nm] = epoch_val
-        print("[INFO] Fichier 'models_metrics_summary_advanced.csv' chargé. Meilleure époque récupérée pour chaque modèle.")
+        print("[INFO] 'models_metrics_summary_advanced.csv' loaded. Best epoch retrieved.")
     else:
-        print("[INFO] Aucun fichier 'models_metrics_summary_advanced.csv' trouvé. Utilisation de la valeur par défaut pour les époques.")
+        print("[INFO] No 'models_metrics_summary_advanced.csv' found. Using default epochs.")
 
     # ----------------------------------------------------------------
-    # 2) RÉCUPÉRER LA LISTE DE TOUS LES MODÈLES ET DÉTERMINER LEUR ÉTAT
+    # 2) GET THE LIST OF ALL MODELS AND DETERMINE THEIR STATE
     # ----------------------------------------------------------------
     models_info = []
 
@@ -165,9 +226,9 @@ def train_models(base_dir, model_output_dir, log_output_dir):
         if not os.path.isdir(label_path):
             continue
 
-        # On traite pour chaque langue
+        # Process for each language
         for language in ['EN', 'FR']:
-            # Recherche des fichiers pour l'entraînement et la validation
+            # Search for training and validation files
             train_filepath_pattern = os.path.join(label_path, 'train', language, f"*train*_{language}.jsonl")
             test_filepath_pattern = os.path.join(label_path, 'validation', language, f"*validation*_{language}.jsonl")
 
@@ -179,7 +240,7 @@ def train_models(base_dir, model_output_dir, log_output_dir):
             if not test_files:
                 continue
 
-            # Associe les fichiers d'entraînement aux fichiers de validation correspondants
+            # Match training files with corresponding validation files
             for train_file in train_files:
                 base_name = os.path.basename(train_file).replace('_train_', '_validation_')
                 matching_test_file = None
@@ -191,13 +252,13 @@ def train_models(base_dir, model_output_dir, log_output_dir):
                 if not matching_test_file:
                     continue
 
-                # Détermine le nom du modèle (pour logs et répertoire)
+                # Determine the model name (for logs and directory)
                 model_name = os.path.basename(train_file).replace('_train_', '_')
 
-                # Le répertoire final du modèle : ex. "Cult_4_SUB_FR.jsonl.model"
+                # The final model directory: e.g., "Cult_4_SUB_FR.jsonl.model"
                 model_dir = os.path.join(model_output_dir, f"{model_name}.model")
 
-                # Calcul du statut
+                # Calculate the status
                 file_count = get_model_file_count(model_dir, language)
                 required_count = len(get_required_files_for_language(language))
 
@@ -211,7 +272,7 @@ def train_models(base_dir, model_output_dir, log_output_dir):
                     status = "partial"
                     partial_count += 1
 
-                # Stocke pour l'étape d'entraînement
+                # Store for the training step
                 models_info.append({
                     "label": label,
                     "language": language,
@@ -223,21 +284,21 @@ def train_models(base_dir, model_output_dir, log_output_dir):
                 })
 
     # ----------------------------------------------------------------
-    # 3) AFFICHER UN RÉCAPITULATIF EN TERMINAL
+    # 3) DISPLAY A SUMMARY IN THE TERMINAL
     # ----------------------------------------------------------------
-    print("===== RÉCAPITULATIF DE L'ÉTAT DES MODÈLES =====")
-    print(f"Modèles entièrement entraînés : {fully_trained_count}")
-    print(f"Modèles non démarrés : {not_started_count}")
-    print(f"Modèles arrêtés en cours (partiels) : {partial_count}")
+    print("===== MODEL STATE SUMMARY =====")
+    print(f"Fully trained models : {fully_trained_count}")
+    print(f"Not started models : {not_started_count}")
+    print(f"Partially trained models : {partial_count}")
     print("===============================================")
 
     # ----------------------------------------------------------------
-    # 4) BOUCLE D'ENTRAÎNEMENT POUR LES MODÈLES NON COMPLETS
+    # 4) TRAINING LOOP FOR INCOMPLETE MODELS
     # ----------------------------------------------------------------
     for info in models_info:
         if info["status"] == "fully_trained":
-            # On ignore les modèles déjà complets
-            print(f"[INFO] Modèle déjà entièrement entraîné : {info['model_name']}")
+            # Ignore already complete models
+            print(f"[INFO] Model already fully trained : {info['model_name']}")
             continue
 
         label = info["label"]
@@ -249,7 +310,7 @@ def train_models(base_dir, model_output_dir, log_output_dir):
 
         print(f"[TRAIN] Starting training for label: {label}, language: {language} -> {model_name}")
 
-        # Instancie le modèle en fonction de la langue
+        # Instantiate the model based on the language
         if language == 'FR':
             print("Instantiating Camembert model for French.")
             model = Camembert(device=device)
@@ -257,26 +318,26 @@ def train_models(base_dir, model_output_dir, log_output_dir):
             print("Instantiating Bert model for English.")
             model = Bert(device=device)
 
-        # Tente d'envoyer le modèle sur le device (si possible)
+        # Attempt to send the model to the device (if possible)
         try:
             model.to(device)
         except AttributeError:
-            print("Attention : Votre classe de modèle ne supporte peut-être pas .to(device).")
-            print("Veuillez vérifier l'API de vos classes Camembert / Bert.")
+            print("Warning: Your model class may not support .to(device).")
+            print("Please check the API of your Camembert / Bert classes.")
 
-        # Configure le Logger
+        # Configure the Logger
         log_filepath = os.path.join(log_output_dir, f"{model_name}_training_log.txt")
         print(f"Setting up logging to: {log_filepath}")
         logger = Logger(log_filepath)
         sys.stdout = logger
         print(f"[LOG] Logging started for {label} in {language}")
 
-        scores = None  # Initialisation des scores
+        scores = None  # Initialize scores
         train_label_counts = None
         test_label_counts = None
 
         try:
-            # Chargement des données d'entraînement et de validation
+            # Load training and validation data
             train_data = load_jsonl_to_dataframe(train_file)
             test_data = load_jsonl_to_dataframe(test_file)
             print(f"Data loaded successfully for label: {label}, language: {language}")
@@ -285,7 +346,7 @@ def train_models(base_dir, model_output_dir, log_output_dir):
                 print(f"Training or test data is empty for {label} in {language}")
                 raise ValueError("Training or test data is empty")
 
-            # Distribution des labels
+            # Label distribution
             train_label_counts = train_data['label'].value_counts()
             test_label_counts = test_data['label'].value_counts()
             print(f"Training label distribution for {label} in {language}:")
@@ -293,49 +354,49 @@ def train_models(base_dir, model_output_dir, log_output_dir):
             print(f"Validation label distribution for {label} in {language}:")
             print(test_label_counts)
 
-            # Vérifie s'il y a des valeurs positives dans les labels
+            # Check if there are positive values in the labels
             train_has_positive = (train_data['label'] > 0).any()
             test_has_positive = (test_data['label'] > 0).any()
 
             if not train_has_positive or not test_has_positive:
-                print(f"[SKIP] Les données d'entraînement ou de validation pour {label} en {language} contiennent uniquement des 0. Entraînement sauté.")
+                print(f"[SKIP] Training or validation data for {label} in {language} contain only 0s. Skipping.")
                 skipped_count += 1
-                raise SkipTrainingException("Données contenant uniquement des 0.")
+                raise SkipTrainingException("Data contain only 0s.")
 
-            # Vérifie s'il y a assez d'annotations
+            # Check if there are enough annotations
             min_annotations = 1
             if len(train_data) < min_annotations or len(test_data) < min_annotations:
                 print(f"Not enough annotations for {label} in {language}. Need at least {min_annotations} samples.")
                 raise ValueError("Not enough annotations")
 
-            # Prépare les DataLoader (ou équivalent) via la méthode encode() du modèle
+            # Prepare DataLoader (or equivalent) via the model's encode() method
             train_loader = model.encode(
                 train_data.text.values,
-                train_data.label.values.astype(int)  # Conversion explicite en int
+                train_data.label.values.astype(int)  # Explicit conversion to int
             )
             test_loader = model.encode(
                 test_data.text.values,
-                test_data.label.values.astype(int)  # Conversion explicite en int
+                test_data.label.values.astype(int)  # Explicit conversion to int
             )
             print(f"Data encoding completed for label: {label}, language: {language}")
 
-            # Chemin relatif (par rapport à model_output_dir) pour la sauvegarde
+            # Relative path (relative to model_output_dir) for saving
             relative_model_output_path = f"{model_name}.model"
             print(f"Saving model to (relative path): {relative_model_output_path}")
 
             # ----------------------------------------------------------------
-            # RÉCUPÉRATION DE LA MEILLEURE ÉPOQUE POUR CE MODÈLE
-            # (SI NON TROUVÉ, VALEUR PAR DÉFAUT = 20)
+            # RETRIEVE THE BEST EPOCH FOR THIS MODEL
+            # (IF NOT FOUND, DEFAULT VALUE = 20)
             # ----------------------------------------------------------------
             best_epoch_for_model = best_epoch_dict.get(model_name, 20)
-            print(f"[INFO] Training {model_name} pour {best_epoch_for_model} époque(s).")
+            print(f"[INFO] Training {model_name} for {best_epoch_for_model} epoch(s).")
 
-            # Entraîne et sauvegarde le modèle
+            # Train and save the model
             scores = model.run_training(
                 train_loader,
                 test_loader,
                 lr=5e-5,
-                n_epochs=best_epoch_for_model,  # On utilise la meilleure époque trouvée
+                n_epochs=best_epoch_for_model,  # Use the best epoch found
                 random_state=42,
                 save_model_as=relative_model_output_path
             )
@@ -348,32 +409,32 @@ def train_models(base_dir, model_output_dir, log_output_dir):
 
         except SkipTrainingException as ste:
             print(f"[INFO] {ste}")
-            # On considère ce modèle comme non entraîné
+            # Consider this model as non-trained
             non_trained_models.append({
                 "model_name": model_name,
                 "train_distribution": train_label_counts.to_dict() if train_label_counts is not None else {},
                 "test_distribution": test_label_counts.to_dict() if test_label_counts is not None else {}
             })
-            # Supprime le dossier du modèle s'il existe
+            # Remove the model directory if it exists
             if os.path.exists(model_dir):
                 shutil.rmtree(model_dir, ignore_errors=True)
-                print(f"Dossier supprimé pour le modèle non entraîné : {model_dir}")
+                print(f"Directory removed for the untrained model: {model_dir}")
 
         except Exception as e:
             print(f"Error during training for {model_name}: {e}")
-            # On considère ce modèle comme non entraîné aussi (pour "toute autre raison")
+            # Consider this model as non-trained as well (for "any other reason")
             non_trained_models.append({
                 "model_name": model_name,
                 "train_distribution": train_label_counts.to_dict() if train_label_counts is not None else {},
                 "test_distribution": test_label_counts.to_dict() if test_label_counts is not None else {}
             })
-            # Supprime le dossier du modèle s'il existe
+            # Remove the model directory if it exists
             if os.path.exists(model_dir):
                 shutil.rmtree(model_dir, ignore_errors=True)
-                print(f"Dossier supprimé pour le modèle non entraîné : {model_dir}")
+                print(f"Directory removed for the untrained model: {model_dir}")
 
         finally:
-            # Ferme le logger et restaure stdout
+            # Close the logger and restore stdout
             sys.stdout = sys.__stdout__
             logger.close()
             print(f"[LOG] Logging closed for {label} in {language}")
@@ -381,35 +442,34 @@ def train_models(base_dir, model_output_dir, log_output_dir):
         if scores is not None:
             print(f"[TRAIN] Training completed for {model_name}, scores: {scores}")
         else:
-            # Si pas de scores, entraînement non effectué ou abandonné
+            # If no scores, training was not performed or abandoned
             if train_label_counts is not None and test_label_counts is not None:
                 print(f"[TRAIN] Training skipped or failed for {model_name} (see logs).")
             else:
                 print(f"[TRAIN] Training not started for {model_name} (no data or exception before loading).")
 
     # ----------------------------------------------------------------
-    # 5) CRÉATION DU FICHIER CSV POUR LES MODÈLES NON ENTRAÎNÉS
+    # 5) CREATE CSV FILE FOR NON-TRAINED MODELS
     # ----------------------------------------------------------------
     if non_trained_models:
         non_trained_csv_path = os.path.join(training_data_dir, "non_trained_models.csv")
         df_non_trained = pd.DataFrame(non_trained_models)
         df_non_trained.to_csv(non_trained_csv_path, index=False, encoding='utf-8')
-        print(f"[INFO] Fichier 'non_trained_models.csv' créé dans : {non_trained_csv_path}")
+        print(f"[INFO] 'non_trained_models.csv' created at: {non_trained_csv_path}")
 
     # ----------------------------------------------------------------
-    # 6) AFFICHER UN RÉCAPITULATIF FINAL
+    # 6) DISPLAY A FINAL SUMMARY
     # ----------------------------------------------------------------
-    print("===== RÉCAPITULATIF FINAL =====")
-    print(f"Modèles entièrement entraînés : {fully_trained_count}")
-    print(f"Modèles non démarrés : {not_started_count}")
-    print(f"Modèles arrêtés en cours (partiels) : {partial_count}")
-    print(f"Modèles sautés (données uniquement 0) : {skipped_count}")
+    print("===== FINAL SUMMARY =====")
+    print(f"Fully trained models : {fully_trained_count}")
+    print(f"Not started models : {not_started_count}")
+    print(f"Partially trained models : {partial_count}")
+    print(f"Skipped models : {skipped_count}")
     print("================================")
 
 # --------------------------------------------------------------------
-# DÉMARRAGE DU PROCESSUS D'ENTRAÎNEMENT
+# START THE TRAINING PROCESS
 # --------------------------------------------------------------------
 train_models(annotation_base_dir, model_output_dir, log_output_dir)
 
-# Debugging print pour vérifier la fin de l'exécution
-print("Script ended.")
+print("Script ended.")  # Debugging print in English

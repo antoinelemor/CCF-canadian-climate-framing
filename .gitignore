@@ -1,0 +1,22 @@
+Database/Database/CCF.media_database.csv
+.venv/
+.vscode/
+Archives/
+Database/Database/CCF.media_database.csv
+Database/Database/CCF.media_processed_texts.csv
+Database/Database/CCF.media_processed_texts_annotated.csv
+Database/Raw_data
+Database/Training_data/manual_annotations_JSONL/Archives
+models/
+Scripts/Annotation/Archives
+Scripts/Database_creation/Archives
+.DS_Store
+Results/
+
+# Ignorer tous les fichiers Python
+Scripts/Database_creation/*.py
+
+# Ne pas ignorer les fichiers spécifiques 3_*.py et 4_*.py
+!1_Database_creation.py
+!2_Clean_and_create_database.py
+

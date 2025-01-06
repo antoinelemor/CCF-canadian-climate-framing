@@ -1,3 +1,42 @@
+"""
+PROJECT:
+-------
+CCF-Canadian-Climate-Framing
+
+TITLE:
+------
+4_JSONL_for_training.py
+
+MAIN OBJECTIVE:
+-------------------
+This script processes manually annotated JSONL sentences, splits them 
+into training and validation sets, and exports them as separate JSONL 
+files for subsequent model training.
+
+Dependencies:
+-------------
+- json
+- os
+- random
+- csv
+- collections.defaultdict
+
+MAIN FEATURES:
+----------------------------
+1) Loads label configuration to determine main labels and sub-labels.
+2) Creates directory structure for training and validation outputs.
+3) Processes manually annotated lines from a JSONL file.
+4) Handles main labels, sub-labels, and exception labels.
+5) Splits data into training (~80%) and validation (~20%) sets 
+   with a guaranteed minimum of 10% positives and 10% negatives in validation.
+6) Aggregates annotation counts per label, language, and data split.
+7) Exports final JSONL outputs and saves aggregated metrics in a CSV.
+
+Author :
+--------
+Antoine Lemor
+"""
+
 import json
 import os
 import random
@@ -99,43 +138,55 @@ with open(input_data_path, 'r', encoding='utf-8') as data_file:
             else:
                 counts[exception_label][language]['total']['negative'] += 1
 
-# Split annotations into training and validation sets (80% train, 20% validation)
 def split_annotations(annotations):
     """
-    Divise 'annotations' en un set d'entraînement (~80%) et un set de validation (~20%),
-    en assurant au moins 10% de positives (label == 1) et 10% de négatives (label == 0) dans la validation.
+    Divides 'annotations' into a training set (~80%) and a validation set (~20%), 
+    ensuring at least 10% positives (label == 1) and 10% negatives (label == 0) in 
+    the validation subset.
+
+    Parameters:
+    -----------
+    annotations (list): A list of annotation dictionaries where each dictionary 
+                        contains a 'label' key indicating a positive or 
+                        negative annotation.
+    
+    Returns:
+    --------
+    dict: 
+        A dictionary with two keys: 'train' and 'validation'. Each contains a list 
+        of annotations representing the respective subsets.
     """
     if not annotations:
         return {'train': [], 'validation': []}
 
-    # Mélange aléatoire
+    # Random shuffle
     random.shuffle(annotations)
 
-    # Séparation des annotations positives et négatives
+    # Separate positive and negative annotations
     positives = [ann for ann in annotations if ann['label'] == 1]
     negatives = [ann for ann in annotations if ann['label'] == 0]
 
-    # Calcul des minima requis pour la validation
+    # Compute minimum validation counts
     min_val_positives = max(1, int(0.1 * len(positives))) if positives else 0
     min_val_negatives = max(1, int(0.1 * len(negatives))) if negatives else 0
 
-    # Calcul des indices de séparation
+    # Compute split indices
     train_positives_count = max(len(positives) - min_val_positives, int(0.8 * len(positives)))
     train_negatives_count = max(len(negatives) - min_val_negatives, int(0.8 * len(negatives)))
 
-    # Split des positives
+    # Split positives
     train_positives = positives[:train_positives_count]
     validation_positives = positives[train_positives_count:]
 
-    # Split des négatives
+    # Split negatives
     train_negatives = negatives[:train_negatives_count]
     validation_negatives = negatives[train_negatives_count:]
 
-    # Combinaison des splits
+    # Combine splits
     train_part = train_positives + train_negatives
     validation_part = validation_positives + validation_negatives
 
-    # Mélange final
+    # Final shuffle
     random.shuffle(train_part)
     random.shuffle(validation_part)
 

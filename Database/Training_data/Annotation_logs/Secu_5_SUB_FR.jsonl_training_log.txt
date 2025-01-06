@@ -8,5 +8,5 @@ Validation label distribution for Secu_Detection in FR:
 label
 0    2
 Name: count, dtype: int64
-[SKIP] Les données d'entraînement ou de validation pour Secu_Detection en FR contiennent uniquement des 0. Entraînement sauté.
-[INFO] Données contenant uniquement des 0.
+[SKIP] Training skipped because data contained only zero labels.
+[INFO] Data containing only zeros.

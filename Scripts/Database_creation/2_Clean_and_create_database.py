@@ -2,6 +2,7 @@ import pandas as pd
 import re
 from datetime import datetime
 import locale
+from pathlib import Path
 
 # Définir la locale pour le format de date en français
 try:
@@ -10,9 +11,19 @@ except locale.Error:
     print("La locale 'fr_FR.UTF-8' n'est pas disponible sur votre système.")
     # Vous pouvez définir une autre locale ou gérer l'erreur selon vos besoins
 
-# Chemin vers la base de données à nettoyer
-chemin_db = '/Volumes/CLIMATE.FRAME/CLIMATE.FRAME/Database/Database/CCF.media_database.csv'
-chemin_export_csv = '/Volumes/CLIMATE.FRAME/CLIMATE.FRAME/Database/Database/Database_media_count.csv'
+# Définir le chemin de base relatif au script
+script_dir = Path(__file__).resolve().parent  # Répertoire du script
+base_dir = script_dir.parent.parent  # Supposons que le projet est structuré ainsi:
+                                    # CLIMATE.FRAME/
+                                    # ├── Scripts/
+                                    # │   └── Database_creation/
+                                    # │       └── 3_Database_creation.py
+                                    # └── Database/
+                                    #     └── Database/
+
+# Chemins relatifs vers les fichiers de base de données et d'export
+chemin_db = base_dir / 'Database' / 'Database' / 'CCF.media_database.csv'
+chemin_export_csv = base_dir / 'Database' / 'Database' / 'Database_media_count.csv'
 
 # Lire le fichier CSV dans un DataFrame
 df = pd.read_csv(chemin_db)

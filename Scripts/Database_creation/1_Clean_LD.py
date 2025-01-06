@@ -41,7 +41,7 @@ def lire_ris(fichier_ris):
     return articles
 
 # Chemin du répertoire fictif pour les fichiers .ris (à ajuster selon le cas d'utilisation)
-repertoire_ris = '/Volumes/CLIMATE.FRAME/Raw_data/Le_Devoir'  # Modifier selon le répertoire réel
+repertoire_ris = '/Volumes/CLIMATE.FRAME/Raw_data/Le_Devoir' 
 
 # Compilation des données de tous les fichiers .ris
 donnees_tous_les_fichiers = []

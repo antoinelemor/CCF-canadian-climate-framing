@@ -9,5 +9,5 @@ label
 0    6
 1    1
 Name: count, dtype: int64
-[SKIP] Les données d'entraînement ou de validation pour Pbh_Detection en EN contiennent uniquement des 0. Entraînement sauté.
-[INFO] Données contenant uniquement des 0.
+[SKIP] Training skipped because data contained only zero labels.
+[INFO] Data containing only zeros.
