@@ -1,5 +1,8 @@
-```markdown
 # CCF-Canadian-Climate-Framing
+
+## Introduction
+
+Welcome to the **CCF-Canadian-Climate-Framing** repository. This project is dedicated to studying the framing of climate change in the Canadian press. By analyzing media content, we aim to understand how climate change narratives are constructed and communicated to the public. This repository contains all the scripts, data processing tools, and machine learning models necessary for conducting this analysis.
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -27,10 +30,6 @@
 - [License](#license)
 - [Contact](#contact)
 
-## Introduction
-
-Welcome to the **CCF-Canadian-Climate-Framing** repository. This project is dedicated to studying the framing of climate change in the Canadian press. By analyzing media content, we aim to understand how climate change narratives are constructed and communicated to the public. This repository contains all the scripts, data processing tools, and machine learning models necessary for conducting this analysis.
-
 ## Members of the Project
 
 - **Alizée Pillod**, Université de Montréal
@@ -42,10 +41,8 @@ Welcome to the **CCF-Canadian-Climate-Framing** repository. This project is dedi
 The primary objectives of this project are:
 
 1. **Data Collection and Preprocessing:** Gather media articles from Canadian press sources and preprocess the data for analysis.
-2. **Manual Annotation:** Manually annotate sentences within the articles to identify key framing elements related to climate change.
-3. **Model Training:** Train machine learning models to automatically detect and classify framing elements in media content.
-4. **Evaluation and Refinement:** Evaluate model performance, refine models based on annotations, and ensure high accuracy in framing detection.
-5. **Analysis and Reporting:** Analyze the distribution and prevalence of different framing elements across various media outlets and over time.
+2. **Manual Annotatio and Model Training:** Manually annotate sentences within the articles to identify key elements and train machine learning models to automatically detect and classify these elements in the articles/
+3. **Evaluation and Refinement:** Evaluate models' performance, and ensure high accuracy in classifications.
 
 ## Repository Structure
 
