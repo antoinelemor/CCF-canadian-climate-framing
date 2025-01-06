@@ -1,4 +1,3 @@
-```markdown
 # CCF-Canadian-Climate-Framing
 
 ## Table of Contents
