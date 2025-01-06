@@ -6,7 +6,7 @@ Welcome to the **CCF-Canadian-Climate-Framing** repository. This project is dedi
 
 ### The database
 
-This repository includes a newly compiled database of climate change articles from 20 major Canadian newspapers (_non available in plain text at this time for copyright reasons_). The table below shows the distribution of articles per newspaper (_after filtering and preprocessing_).
+This repository includes a newly compiled database of climate change articles from 20 major Canadian newspapers (_non available in plain text at this time for copyright reasons_). The table and figure below shows the distribution of articles per newspaper (_after filtering and preprocessing_).
 
 | Media                     | Number of Articles |
 |---------------------------|--------------------:|
@@ -31,6 +31,8 @@ This repository includes a newly compiled database of climate change articles fr
 | Toronto Sun               | 262               |
 | Journal de Montreal       | 222               |
 | **Total**                 | **17140**         |
+
+![Number of Articles Per Year](Database/Database/articles_per_year.png)
 
 ## Table of Contents
 - [Introduction](#introduction)
