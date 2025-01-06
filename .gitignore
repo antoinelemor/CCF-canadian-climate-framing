@@ -11,7 +11,7 @@ models/
 Scripts/Annotation/Archives
 Scripts/Database_creation/Archives
 .DS_Store
-Results/
+Scripts/Results/
 
 # Ignorer tous les fichiers Python
 Scripts/Database_creation/*.py
