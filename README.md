@@ -2,7 +2,35 @@
 
 ## Introduction
 
-Welcome to the **CCF-Canadian-Climate-Framing** repository. This project is dedicated to studying the framing of climate change in the Canadian press. By analyzing media content, we aim to understand how climate change narratives are constructed and communicated to the public. This repository contains all the scripts, data processing tools, and machine learning models necessary for conducting this analysis.
+Welcome to the **CCF-Canadian-Climate-Framing** repository. This project is dedicated to studying the media covering of climate change in the Canadian press. This project aims to understand how climate change narratives are constructed and communicated to the public since the first media article published on the subject in 1988. This repository contains all the scripts, data processing tools, and machine learning models necessary for conducting this study.
+
+### The database
+
+This repository includes a newly compiled database of climate change articles from 20 major Canadian newspapers (_non available in plain text at this time for copyright reasons_). The table below shows the distribution of articles per newspaper (_after filtering and preprocessing_).
+
+| Media                     | Number of Articles |
+|---------------------------|--------------------:|
+| Toronto Star              | 2523              |
+| Globe and Mail            | 1588              |
+| Vancouver Sun             | 1456              |
+| Edmonton Journal          | 1179              |
+| Le Devoir                 | 1026              |
+| National Post             | 1005              |
+| Calgary Herald            | 1003              |
+| Whitehorse Daily Star     | 970               |
+| Montreal Gazette          | 900               |
+| Chronicle Herald          | 866               |
+| The Telegram              | 706               |
+| Times Colonist            | 652               |
+| La Presse Plus            | 641               |
+| La Presse                 | 596               |
+| Winnipeg Free Press       | 451               |
+| Acadie Nouvelle           | 420               |
+| Star Phoenix              | 342               |
+| Le Droit                  | 332               |
+| Toronto Sun               | 262               |
+| Journal de Montreal       | 222               |
+| **Total**                 | **17140**         |
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -26,15 +54,14 @@ Welcome to the **CCF-Canadian-Climate-Framing** repository. This project is dedi
     - [7_Annotation.py](#7_annotationpy)
     - [8_JSONL_for_Recheck.py](#8_jsonl_for_recheckpy)
 - [Dependencies](#dependencies)
-- [Contributing](#contributing)
-- [License](#license)
 - [Contact](#contact)
 
 ## Members of the Project
 
-- **Alizée Pillod**, Université de Montréal
-- **Antoine Lemor**, Université de Montréal
-- **Matthew Taylor**, Université de Montréal
+- [**Alizée Pillod**, Université de Montréal](https://pol.umontreal.ca/repertoire-departement/professeurs/professeur/in/in35292/sg/Aliz%C3%A9e%20Pillod/)
+- [**Antoine Lemor**, Université de Montréal](https://antoinelemor.github.io/)
+- [**Matthew Taylor**, Université de Montréal](https://www.chairedemocratie.com/fr/members/taylor-matthew/)
+
 
 ## Project Objectives
 
@@ -361,53 +388,19 @@ Generates a new JSONL dataset for manual revalidation of annotations post-model 
 
 ## Dependencies
 
-Ensure you have the following dependencies installed. You can install them using `pip`:
+Ensure you have the following dependencies installed (_requirements.txt might not contain all the needed dependencies_). You can install them using `pip`:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-**Key Libraries:**
-- 
-
-pandas
-
- for data manipulation.
-- `numpy` for numerical operations.
-- `torch` and `transformers` for machine learning models.
-- `spacy` for natural language processing.
-- `tqdm` for progress bars.
-- `AugmentedSocialScientist` for specialized models.
-
-## Contributing
-
-Contributions are welcome! Please follow these steps to contribute to the project:
-
-1. **Fork the Repository**
-2. **Create a Feature Branch**
-   ```bash
-   git checkout -b feature/YourFeatureName
-   ```
-3. **Commit Your Changes**
-   ```bash
-   git commit -m "Add some feature"
-   ```
-4. **Push to the Branch**
-   ```bash
-   git push origin feature/YourFeatureName
-   ```
-5. **Open a Pull Request**
-
-Please ensure your code adheres to the project's coding standards and includes appropriate documentation.
-
-## License
-
-This project is licensed under the MIT License.
-
 ## Contact
 
 For any inquiries or feedback, please contact:
 
+- **Alizée Pillod**
+- Email : [alizee.pillod@umontreal.ca](mailto:alizee.pillod@umontreal.ca)
 - **Antoine Lemor**
-- Email: [antoine.lemor@example.com](mailto:antoine.lemor@example.com)
-- GitHub: [@yourusername](https://github.com/yourusername)
+- Email: [antoine.lemor@umontreal.ca](mailto:antoine.lemor@umontreal.ca)
+- **Matthew Taylor**
+- Email : [matthew.taylor@umontreal.ca](mailto:matthew.taylor@umontreal.ca)
