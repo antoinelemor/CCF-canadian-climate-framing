@@ -12,6 +12,8 @@ Scripts/Annotation/Archives
 Scripts/Database_creation/Archives
 .DS_Store
 Scripts/Results/
+Training_data/manual_annotations_JSONL/
+Training_data/annotation_bases/
 
 # Ignorer tous les fichiers Python
 Scripts/Database_creation/*.py

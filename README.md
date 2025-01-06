@@ -83,12 +83,12 @@ CCF-Canadian-Climate-Framing/
 │   │   │   └── CCF.media_processed_texts_annotated.csv _absent from the repository due to file size_
 │   │   │   └── Database_media_count.csv 
 │   │   └── Training_data/
-│   │       ├── manual_annotations_JSONL/
-│   │       │   ├── Annotated_sentences.jsonl
-│   │       │   ├── label_config.json
-│   │       │   ├── sentences_to_annotate_EN.jsonl
-│   │       │   └── sentences_to_annotate_FR.jsonl
-│   │       ├── annotation_bases/
+│   │       ├── manual_annotations_JSONL/ _excluded until our first publication_
+│   │       │   ├── Annotated_sentences.jsonl _excluded until our first publication_
+│   │       │   ├── label_config.json _excluded until our first publication_
+│   │       │   ├── sentences_to_annotate_EN.jsonl _excluded until our first publication_
+│   │       │   └── sentences_to_annotate_FR.jsonl _excluded until our first publication_
+│   │       ├── annotation_bases/ _excluded until our first publication_
 │   │       ├── Annotation_logs/
 │   │       └── training_database_metrics.csv _contain the distribution of all annotations by language and labels_
 │   │       └── model_metrics_summary_advanced.csv _contain the metrics of the best selected model_
@@ -117,8 +117,7 @@ README.md
 └── requirements.txt
 ```
 
-**Note:** The `Database_creation` scripts are based on articles that have been scraped and aggregated into various `.txt` files within the `Raw_data` folder. Due to copyright restrictions, the 
-`Raw_data` folder is not currently available.
+**Note:** The `Database_creation` scripts are based on articles that have been scraped and aggregated (codes used for this purpose were not included in this repo) into various `.txt` files within the `Raw_data` folder. Due to copyright restrictions, the `Raw_data` folder is not currently available.
 
 ## Installation
 
@@ -154,7 +153,7 @@ The project is organized into several scripts, each responsible for different as
 
 ### Database Creation Scripts
 
-These scripts are responsible for creating and cleaning the database from scraped articles. **Note:** The `Raw_data` folder containing the scraped `.txt` files is not available due to copyright.
+These scripts are responsible for creating and cleaning the database from scraped articles. **Note:** The `Database_creation` scripts are based on articles that have been scraped and aggregated (codes used for this purpose were not included in this repo) into various `.txt` files within the `Raw_data` folder. Due to copyright restrictions, the `Raw_data` folder is not currently available.
 
 1. **Database Creation**
    ```bash
