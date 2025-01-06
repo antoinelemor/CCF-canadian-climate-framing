@@ -14,10 +14,7 @@ Scripts/Database_creation/Archives
 Scripts/Results/
 Database/Training_data/manual_annotations_JSONL/
 Database/Training_data/annotation_bases/
-Scripts/Results/
-
-# Ignorer tous les fichiers Python
-Scripts/Database_creation/*.py
+Scripts/Database_creation/Agregate/
 
 # Ne pas ignorer les fichiers spécifiques 3_*.py et 4_*.py
 !1_Database_creation.py
