@@ -14,6 +14,7 @@ Scripts/Database_creation/Archives
 Scripts/Results/
 Training_data/manual_annotations_JSONL/
 Training_data/annotation_bases/
+Scripts/Results
 
 # Ignorer tous les fichiers Python
 Scripts/Database_creation/*.py
