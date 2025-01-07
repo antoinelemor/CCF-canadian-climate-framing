@@ -63,7 +63,7 @@ csv_output_dir = os.path.join(
 )
 
 # Output file
-csv_output_path = os.path.join(csv_output_dir, "models_metrics_summary_advanced_2.csv")
+csv_output_path = os.path.join(csv_output_dir, "models_metrics_summary_advanced.csv")
 
 # --------------------------------------------------------------------------
 #     Automatic log recognition & grouping by model

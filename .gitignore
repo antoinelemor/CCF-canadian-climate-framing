@@ -15,6 +15,9 @@ Scripts/Results/
 Database/Training_data/manual_annotations_JSONL/
 Database/Training_data/annotation_bases/
 Scripts/Database_creation/Agregate/
+Database/Database/CAN_shp
+Database/Database/Canadian_Media_Articles_by_Province.csv
+Database/Database/dominant_frame_by_province.png
 
 # Ne pas ignorer les fichiers spécifiques 3_*.py et 4_*.py
 !1_Database_creation.py

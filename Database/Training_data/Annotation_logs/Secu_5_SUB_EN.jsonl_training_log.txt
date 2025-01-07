@@ -8,5 +8,5 @@ Validation label distribution for Secu_Detection in EN:
 label
 0    2
 Name: count, dtype: int64
-[SKIP] Training skipped because data contained only zero labels.
-[INFO] Data containing only zeros.
+[SKIP] Training skipped because there is no positive label in either train or test set.
+[INFO] Data containing no positive labels in train or test.

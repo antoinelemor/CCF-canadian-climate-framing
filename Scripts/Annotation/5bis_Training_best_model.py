@@ -386,9 +386,9 @@ def train_models(base_dir, model_output_dir, log_output_dir):
 
             # ----------------------------------------------------------------
             # RETRIEVE THE BEST EPOCH FOR THIS MODEL
-            # (IF NOT FOUND, DEFAULT VALUE = 20)
+            # (IF NOT FOUND, DEFAULT VALUE = 10)
             # ----------------------------------------------------------------
-            best_epoch_for_model = best_epoch_dict.get(model_name, 20)
+            best_epoch_for_model = best_epoch_dict.get(model_name, 10)
             print(f"[INFO] Training {model_name} for {best_epoch_for_model} epoch(s).")
 
             # Train and save the model

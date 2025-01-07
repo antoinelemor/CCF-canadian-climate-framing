@@ -14,27 +14,48 @@ label ids: {0: 0, 1: 1}
 label ids: {0: 0, 1: 1}
 Data encoding completed for label: Event_Detection, language: EN
 Saving model to (relative path): Event_Detection_EN.jsonl.model
-[INFO] Training Event_Detection_EN.jsonl pour 1 époque(s).
+[INFO] Training Event_Detection_EN.jsonl for 2 epoch(s).
 
-======== Epoch 1 / 1 ========
+======== Epoch 1 / 2 ========
 Training...
   Batch    40  of     41.    Elapsed: 0:00:15.
 
-  Average training loss: 0.51
+  Average training loss: 0.52
   Training took: 0:00:15
 
 Running Validation...
 
-  Average test loss: 0.44
+  Average test loss: 0.36
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
-           0       0.78      0.99      0.87       109
-           1       0.75      0.09      0.16        33
+           0       0.87      0.92      0.89       109
+           1       0.67      0.55      0.60        33
 
-    accuracy                           0.78       142
-   macro avg       0.77      0.54      0.52       142
-weighted avg       0.78      0.78      0.71       142
+    accuracy                           0.83       142
+   macro avg       0.77      0.73      0.75       142
+weighted avg       0.82      0.83      0.82       142
+
+
+======== Epoch 2 / 2 ========
+Training...
+  Batch    40  of     41.    Elapsed: 0:00:15.
+
+  Average training loss: 0.36
+  Training took: 0:00:15
+
+Running Validation...
+
+  Average test loss: 0.32
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.90      0.94      0.92       109
+           1       0.76      0.67      0.71        33
+
+    accuracy                           0.87       142
+   macro avg       0.83      0.80      0.81       142
+weighted avg       0.87      0.87      0.87       142
 
 
 Training complete!

@@ -370,17 +370,19 @@ def train_models(base_dir, model_output_dir, log_output_dir):
             print(f"Validation label distribution for {label} in {language}:")
             print(test_label_counts)
 
-            # Check if there are positive values in the labels
+            # ----------------------------------------------------------------
+            # Checking that there is at least 1 positive (label > 0) in TRAIN and TEST
+            # ----------------------------------------------------------------
             train_has_positive = (train_data['label'] > 0).any()
             test_has_positive = (test_data['label'] > 0).any()
 
             if not train_has_positive or not test_has_positive:
-                print(f"[SKIP] Training skipped because data contained only zero labels.")
+                print("[SKIP] Training skipped because there is no positive label in either train or test set.")
                 skipped_count += 1
-                raise SkipTrainingException("Data containing only zeros.")
+                raise SkipTrainingException("Data containing no positive labels in train or test.")
 
-            # Check if there are enough annotations
-            min_annotations = 4
+            # Check if there are enough annotations overall
+            min_annotations = 1
             if len(train_data) < min_annotations or len(test_data) < min_annotations:
                 print(f"Not enough annotations for {label} in {language}. Need at least {min_annotations} samples.")
                 raise ValueError("Not enough annotations")
@@ -405,7 +407,7 @@ def train_models(base_dir, model_output_dir, log_output_dir):
                 train_loader,
                 test_loader,
                 lr=5e-5,
-                n_epochs=1,
+                n_epochs=20,
                 random_state=42,
                 save_model_as=relative_model_output_path
             )
@@ -468,7 +470,7 @@ def train_models(base_dir, model_output_dir, log_output_dir):
     print(f"Models fully trained: {fully_trained_count}")
     print(f"Models not started: {not_started_count}")
     print(f"Models partially trained: {partial_count}")
-    print(f"Models skipped (only 0 labels): {skipped_count}")
+    print(f"Models skipped (no positive labels in train or test): {skipped_count}")
     print("================================")
 
 # --------------------------------------------------------------------

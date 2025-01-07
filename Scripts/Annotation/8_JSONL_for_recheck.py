@@ -73,7 +73,7 @@ OUTPUT_JSONL = os.path.join(
 )
 
 # Total number of sentences to annotate (adjustable)
-NB_SENTENCES_TOTAL = 400  # 200 EN + 200 FR, for example
+NB_SENTENCES_TOTAL = 1000  # 200 EN + 200 FR, for example
 
 
 ##############################################################################
