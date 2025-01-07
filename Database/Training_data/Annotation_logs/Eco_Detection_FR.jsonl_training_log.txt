@@ -14,12 +14,34 @@ label ids: {0: 0, 1: 1}
 label ids: {0: 0, 1: 1}
 Data encoding completed for label: Eco_Detection, language: FR
 Saving model to (relative path): Eco_Detection_FR.jsonl.model
+[INFO] Training Eco_Detection_FR.jsonl for 12 epoch(s).
 
-======== Epoch 1 / 20 ========
+======== Epoch 1 / 12 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:18.
+
+  Average training loss: 0.47
+  Training took: 0:00:19
+
+Running Validation...
+
+  Average test loss: 0.32
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.87      0.96      0.91       129
+           1       0.64      0.32      0.43        28
+
+    accuracy                           0.85       157
+   macro avg       0.75      0.64      0.67       157
+weighted avg       0.83      0.85      0.83       157
+
+
+======== Epoch 2 / 12 ========
 Training...
   Batch    40  of     45.    Elapsed: 0:00:17.
 
-  Average training loss: 0.47
+  Average training loss: 0.28
   Training took: 0:00:19
 
 Running Validation...
@@ -28,57 +50,15 @@ Running Validation...
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
-           0       0.83      1.00      0.91       129
-           1       1.00      0.07      0.13        28
+           0       0.87      0.99      0.93       129
+           1       0.90      0.32      0.47        28
 
-    accuracy                           0.83       157
-   macro avg       0.92      0.54      0.52       157
-weighted avg       0.86      0.83      0.77       157
-
-
-======== Epoch 2 / 20 ========
-Training...
-  Batch    40  of     45.    Elapsed: 0:00:17.
-
-  Average training loss: 0.31
-  Training took: 0:00:19
-
-Running Validation...
-
-  Average test loss: 0.39
-  Validation took: 0:00:00
-              precision    recall  f1-score   support
-
-           0       0.86      0.98      0.92       129
-           1       0.73      0.29      0.41        28
-
-    accuracy                           0.85       157
-   macro avg       0.80      0.63      0.66       157
-weighted avg       0.84      0.85      0.83       157
+    accuracy                           0.87       157
+   macro avg       0.89      0.66      0.70       157
+weighted avg       0.88      0.87      0.85       157
 
 
-======== Epoch 3 / 20 ========
-Training...
-  Batch    40  of     45.    Elapsed: 0:00:17.
-
-  Average training loss: 0.22
-  Training took: 0:00:19
-
-Running Validation...
-
-  Average test loss: 0.31
-  Validation took: 0:00:00
-              precision    recall  f1-score   support
-
-           0       0.90      0.97      0.93       129
-           1       0.78      0.50      0.61        28
-
-    accuracy                           0.89       157
-   macro avg       0.84      0.73      0.77       157
-weighted avg       0.88      0.89      0.88       157
-
-
-======== Epoch 4 / 20 ========
+======== Epoch 3 / 12 ========
 Training...
   Batch    40  of     45.    Elapsed: 0:00:17.
 
@@ -87,28 +67,7 @@ Training...
 
 Running Validation...
 
-  Average test loss: 0.28
-  Validation took: 0:00:00
-              precision    recall  f1-score   support
-
-           0       0.92      0.95      0.94       129
-           1       0.75      0.64      0.69        28
-
-    accuracy                           0.90       157
-   macro avg       0.84      0.80      0.82       157
-weighted avg       0.89      0.90      0.89       157
-
-
-======== Epoch 5 / 20 ========
-Training...
-  Batch    40  of     45.    Elapsed: 0:00:17.
-
-  Average training loss: 0.11
-  Training took: 0:00:19
-
-Running Validation...
-
-  Average test loss: 0.34
+  Average test loss: 0.26
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
@@ -120,28 +79,28 @@ Running Validation...
 weighted avg       0.91      0.92      0.92       157
 
 
-======== Epoch 6 / 20 ========
+======== Epoch 4 / 12 ========
 Training...
   Batch    40  of     45.    Elapsed: 0:00:17.
 
-  Average training loss: 0.10
+  Average training loss: 0.13
   Training took: 0:00:19
 
 Running Validation...
 
-  Average test loss: 0.32
+  Average test loss: 0.39
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
-           0       0.97      0.91      0.94       129
-           1       0.69      0.86      0.76        28
+           0       0.90      0.97      0.93       129
+           1       0.78      0.50      0.61        28
 
-    accuracy                           0.90       157
-   macro avg       0.83      0.89      0.85       157
-weighted avg       0.92      0.90      0.91       157
+    accuracy                           0.89       157
+   macro avg       0.84      0.73      0.77       157
+weighted avg       0.88      0.89      0.88       157
 
 
-======== Epoch 7 / 20 ========
+======== Epoch 5 / 12 ========
 Training...
   Batch    40  of     45.    Elapsed: 0:00:17.
 
@@ -150,61 +109,40 @@ Training...
 
 Running Validation...
 
-  Average test loss: 0.36
+  Average test loss: 0.33
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
-           0       0.95      0.94      0.95       129
-           1       0.73      0.79      0.76        28
+           0       0.96      0.93      0.94       129
+           1       0.72      0.82      0.77        28
 
     accuracy                           0.91       157
-   macro avg       0.84      0.86      0.85       157
-weighted avg       0.91      0.91      0.91       157
+   macro avg       0.84      0.88      0.86       157
+weighted avg       0.92      0.91      0.91       157
 
 
-======== Epoch 8 / 20 ========
+======== Epoch 6 / 12 ========
 Training...
   Batch    40  of     45.    Elapsed: 0:00:17.
 
-  Average training loss: 0.03
+  Average training loss: 0.04
   Training took: 0:00:19
 
 Running Validation...
 
-  Average test loss: 0.35
+  Average test loss: 0.40
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
-           0       0.95      0.95      0.95       129
-           1       0.79      0.79      0.79        28
+           0       0.96      0.93      0.94       129
+           1       0.72      0.82      0.77        28
 
-    accuracy                           0.92       157
-   macro avg       0.87      0.87      0.87       157
-weighted avg       0.92      0.92      0.92       157
-
-
-======== Epoch 9 / 20 ========
-Training...
-  Batch    40  of     45.    Elapsed: 0:00:17.
-
-  Average training loss: 0.03
-  Training took: 0:00:19
-
-Running Validation...
-
-  Average test loss: 0.48
-  Validation took: 0:00:00
-              precision    recall  f1-score   support
-
-           0       0.96      0.91      0.94       129
-           1       0.68      0.82      0.74        28
-
-    accuracy                           0.90       157
-   macro avg       0.82      0.87      0.84       157
-weighted avg       0.91      0.90      0.90       157
+    accuracy                           0.91       157
+   macro avg       0.84      0.88      0.86       157
+weighted avg       0.92      0.91      0.91       157
 
 
-======== Epoch 10 / 20 ========
+======== Epoch 7 / 12 ========
 Training...
   Batch    40  of     45.    Elapsed: 0:00:17.
 
@@ -213,112 +151,7 @@ Training...
 
 Running Validation...
 
-  Average test loss: 0.47
-  Validation took: 0:00:00
-              precision    recall  f1-score   support
-
-           0       0.97      0.91      0.94       129
-           1       0.69      0.86      0.76        28
-
-    accuracy                           0.90       157
-   macro avg       0.83      0.89      0.85       157
-weighted avg       0.92      0.90      0.91       157
-
-
-======== Epoch 11 / 20 ========
-Training...
-  Batch    40  of     45.    Elapsed: 0:00:17.
-
-  Average training loss: 0.01
-  Training took: 0:00:19
-
-Running Validation...
-
-  Average test loss: 0.47
-  Validation took: 0:00:00
-              precision    recall  f1-score   support
-
-           0       0.96      0.92      0.94       129
-           1       0.70      0.82      0.75        28
-
-    accuracy                           0.90       157
-   macro avg       0.83      0.87      0.85       157
-weighted avg       0.91      0.90      0.91       157
-
-
-======== Epoch 12 / 20 ========
-Training...
-  Batch    40  of     45.    Elapsed: 0:00:17.
-
-  Average training loss: 0.01
-  Training took: 0:00:19
-
-Running Validation...
-
-  Average test loss: 0.51
-  Validation took: 0:00:00
-              precision    recall  f1-score   support
-
-           0       0.97      0.92      0.94       129
-           1       0.71      0.86      0.77        28
-
-    accuracy                           0.91       157
-   macro avg       0.84      0.89      0.86       157
-weighted avg       0.92      0.91      0.91       157
-
-
-======== Epoch 13 / 20 ========
-Training...
-  Batch    40  of     45.    Elapsed: 0:00:17.
-
-  Average training loss: 0.01
-  Training took: 0:00:19
-
-Running Validation...
-
-  Average test loss: 0.52
-  Validation took: 0:00:00
-              precision    recall  f1-score   support
-
-           0       0.96      0.92      0.94       129
-           1       0.70      0.82      0.75        28
-
-    accuracy                           0.90       157
-   macro avg       0.83      0.87      0.85       157
-weighted avg       0.91      0.90      0.91       157
-
-
-======== Epoch 14 / 20 ========
-Training...
-  Batch    40  of     45.    Elapsed: 0:00:17.
-
-  Average training loss: 0.01
-  Training took: 0:00:19
-
-Running Validation...
-
-  Average test loss: 0.54
-  Validation took: 0:00:00
-              precision    recall  f1-score   support
-
-           0       0.94      0.93      0.94       129
-           1       0.70      0.75      0.72        28
-
-    accuracy                           0.90       157
-   macro avg       0.82      0.84      0.83       157
-weighted avg       0.90      0.90      0.90       157
-
-
-======== Epoch 15 / 20 ========
-Training...
-  Batch    40  of     45.    Elapsed: 0:00:17.
-
-  Average training loss: 0.01
-  Training took: 0:00:19
-
-Running Validation...
-
-  Average test loss: 0.54
+  Average test loss: 0.43
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
@@ -330,7 +163,7 @@ Running Validation...
 weighted avg       0.91      0.90      0.91       157
 
 
-======== Epoch 16 / 20 ========
+======== Epoch 8 / 12 ========
 Training...
   Batch    40  of     45.    Elapsed: 0:00:17.
 
@@ -339,19 +172,19 @@ Training...
 
 Running Validation...
 
-  Average test loss: 0.55
+  Average test loss: 0.44
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
-           0       0.95      0.93      0.94       129
-           1       0.71      0.79      0.75        28
+           0       0.95      0.95      0.95       129
+           1       0.76      0.79      0.77        28
 
-    accuracy                           0.90       157
-   macro avg       0.83      0.86      0.84       157
-weighted avg       0.91      0.90      0.91       157
+    accuracy                           0.92       157
+   macro avg       0.86      0.87      0.86       157
+weighted avg       0.92      0.92      0.92       157
 
 
-======== Epoch 17 / 20 ========
+======== Epoch 9 / 12 ========
 Training...
   Batch    40  of     45.    Elapsed: 0:00:17.
 
@@ -360,19 +193,19 @@ Training...
 
 Running Validation...
 
-  Average test loss: 0.52
+  Average test loss: 0.46
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
-           0       0.95      0.94      0.94       129
-           1       0.72      0.75      0.74        28
+           0       0.95      0.95      0.95       129
+           1       0.76      0.79      0.77        28
 
-    accuracy                           0.90       157
-   macro avg       0.83      0.84      0.84       157
-weighted avg       0.91      0.90      0.91       157
+    accuracy                           0.92       157
+   macro avg       0.86      0.87      0.86       157
+weighted avg       0.92      0.92      0.92       157
 
 
-======== Epoch 18 / 20 ========
+======== Epoch 10 / 12 ========
 Training...
   Batch    40  of     45.    Elapsed: 0:00:17.
 
@@ -381,28 +214,7 @@ Training...
 
 Running Validation...
 
-  Average test loss: 0.51
-  Validation took: 0:00:00
-              precision    recall  f1-score   support
-
-           0       0.95      0.94      0.94       129
-           1       0.72      0.75      0.74        28
-
-    accuracy                           0.90       157
-   macro avg       0.83      0.84      0.84       157
-weighted avg       0.91      0.90      0.91       157
-
-
-======== Epoch 19 / 20 ========
-Training...
-  Batch    40  of     45.    Elapsed: 0:00:17.
-
-  Average training loss: 0.01
-  Training took: 0:00:19
-
-Running Validation...
-
-  Average test loss: 0.52
+  Average test loss: 0.45
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
@@ -414,7 +226,7 @@ Running Validation...
 weighted avg       0.91      0.91      0.91       157
 
 
-======== Epoch 20 / 20 ========
+======== Epoch 11 / 12 ========
 Training...
   Batch    40  of     45.    Elapsed: 0:00:17.
 
@@ -423,16 +235,37 @@ Training...
 
 Running Validation...
 
-  Average test loss: 0.53
+  Average test loss: 0.45
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
-           0       0.96      0.92      0.94       129
-           1       0.70      0.82      0.75        28
+           0       0.95      0.94      0.95       129
+           1       0.73      0.79      0.76        28
 
-    accuracy                           0.90       157
-   macro avg       0.83      0.87      0.85       157
-weighted avg       0.91      0.90      0.91       157
+    accuracy                           0.91       157
+   macro avg       0.84      0.86      0.85       157
+weighted avg       0.91      0.91      0.91       157
+
+
+======== Epoch 12 / 12 ========
+Training...
+  Batch    40  of     45.    Elapsed: 0:00:17.
+
+  Average training loss: 0.01
+  Training took: 0:00:19
+
+Running Validation...
+
+  Average test loss: 0.45
+  Validation took: 0:00:00
+              precision    recall  f1-score   support
+
+           0       0.95      0.94      0.95       129
+           1       0.73      0.79      0.76        28
+
+    accuracy                           0.91       157
+   macro avg       0.84      0.86      0.85       157
+weighted avg       0.91      0.91      0.91       157
 
 
 Training complete!

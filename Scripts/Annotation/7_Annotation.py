@@ -9,7 +9,7 @@ TITLE:
 
 MAIN OBJECTIVE:
 ---------------
-This script loads the CCF.media_processed_texts.csv database and annotates 
+This script loads the CCF.media_processed_texts.csv database and annotates
 each sentence using trained English and French models. It also can save/resume
 progress to handle interruptions.
 
@@ -33,7 +33,7 @@ MAIN FEATURES:
 
 Author:
 -------
-Antoine Lemor (modifications by ChatGPT)
+Antoine Lemor 
 """
 
 import os
@@ -91,17 +91,17 @@ def parse_model_filename_strict(filename):
 ##############################################################################
 def load_all_models_strict(models_dir):
     """
-    Parcours tous les fichiers *.model et, pour chacun, détecte:
-      - base_category (ex: "Event_Detection")
-      - lang (EN/FR) strict
+    Scans all *.model files and for each one detects:
+      - base_category (e.g. "Event_Detection")
+      - lang (EN/FR) strictly
       - type (Detection/SUB/Other)
-    Construit ensuite un dict sous la forme:
+    Builds a dictionary of the form:
     {
       "Event_Detection": {"EN": "/path/Event_Detection_EN.model", "FR": ...},
       "Event_1_SUB": {"EN": ..., "FR": ...},
       ...
     }
-    Les modèles qui ne respectent pas la nomenclature sont ignorés (lang=None).
+    Models that do not follow the strict naming convention are skipped.
     """
     model_files = glob.glob(os.path.join(models_dir, "*.model"))
     model_dict = {}
@@ -121,7 +121,7 @@ def load_all_models_strict(models_dir):
         if base_cat not in model_dict:
             model_dict[base_cat] = {}
 
-        # On stocke juste le chemin. 
+        # On stocke juste le chemin.
         model_dict[base_cat][lang] = filepath
 
     return model_dict
@@ -213,25 +213,41 @@ def predict_labels(df, indices, text_column, model, tokenizer, device, output_co
 ##############################################################################
 def annotate_dataframe(df, model_dict, device, output_path):
     """
-    1) Récupère la liste des catégories (Detection, SUB, Other) en se basant sur la fin du nom.
-    2) Annoter chaque catégorie, langue par langue.
-    3) Après chaque catégorie, on affiche la distribution (0/1/NaN).
-    4) Sauvegarde intermédiaire après chaque catégorie.
-    5) À la fin, on affiche la distribution finale pour toutes les colonnes annotées.
+    1) Retrieves the list of categories (Detection, SUB, Other) by the suffix of the name.
+    2) Annotates each category, language by language.
+    3) After each language within each category, the distribution is printed (0/1/NaN).
+    4) An intermediate save is performed after each category-language pair.
+    5) At the end, prints the final distribution for all columns.
+
+    Parameters:
+    -----------
+    df : pandas.DataFrame
+        The DataFrame to be annotated.
+    model_dict : dict
+        Dictionary of model paths keyed by category and language.
+    device : torch.device
+        The computation device (CPU/CUDA/MPS).
+    output_path : str
+        CSV path to save the intermediate/final annotated DataFrame.
+
+    Returns:
+    --------
+    df : pandas.DataFrame
+        The updated DataFrame, annotated with new columns.
     """
 
     text_col = "sentences"
     lang_col = "language"
 
-    # On va classer strictement: 
-    #   - tout ce qui finit en "_Detection" => detection
-    #   - tout ce qui finit en "_SUB"       => sub
-    #   - sinon => other
+    # Classify categories strictly:
+    #   - those ending with "_Detection" => detection
+    #   - those ending with "_SUB"       => sub
+    #   - otherwise => other
     categories_detection = []
     categories_sub = []
     categories_other = []
 
-    # On trie simplement par ordre alphabétique pour avoir un ordre déterministe
+    # Sort categories alphabetically for deterministic order
     sorted_categories = sorted(model_dict.keys())
 
     for base_cat in sorted_categories:
@@ -242,21 +258,21 @@ def annotate_dataframe(df, model_dict, device, output_path):
         else:
             categories_other.append(base_cat)
 
-    # --- 1) Main categories: Annotate all rows
+    # --- 1) MAIN CATEGORIES (DETECTION) ---------------------------------------
     print("\n[ANNOTATION] Step 1: Main Categories (Detection)")
     for cat_det in categories_detection:
-        # Créer la colonne si elle n'existe pas
+        # Create the column if it doesn't exist
         if cat_det not in df.columns:
             df[cat_det] = np.nan
 
-        # Pour chaque langue (EN / FR) qu'on a dans model_dict[cat_det], on annote
+        # For each language (EN/FR) present in model_dict[cat_det], annotate separately
         for lang, model_path in model_dict[cat_det].items():
             print(f"\n -> Now annotating category='{cat_det}' (type=Detection) for lang='{lang}' with model='{model_path}'")
 
-            # Sélection des lignes à annoter : 
+            # Filter rows to annotate:
             #   - language == lang
-            #   - text_col non vide
-            #   - cat_det est NaN (non encore annoté)
+            #   - text_col not missing
+            #   - cat_det is NaN (not yet annotated)
             idx = df[
                 (df[lang_col] == lang) &
                 (df[text_col].notna()) &
@@ -267,60 +283,69 @@ def annotate_dataframe(df, model_dict, device, output_path):
                 print(f"   => No rows to annotate for '{cat_det}' / lang={lang}. (Already done or no data)")
                 continue
 
+            # Load model + tokenizer
             try:
                 model, tokenizer = load_model_and_tokenizer(model_path, lang, device)
             except Exception as e:
-                print(f"   [ERROR] Unable to load model '{model_path}'. Setting {cat_det} to NaN for these lines.\n   Reason: {e}")
-                df.loc[idx, cat_det] = np.nan  # on met tout à NaN pour relancer plus tard
-                continue
-
-            # Prévision
-            try:
-                predict_labels(df, idx, text_col, model, tokenizer, device, cat_det)
-            except Exception as e:
-                print(f"   [ERROR] Annotation failed for model '{model_path}'. Setting {cat_det} to NaN.\n   Reason: {e}")
+                print(f"   [ERROR] Unable to load model '{model_path}'. "
+                      f"Setting {cat_det} to NaN for these lines.\n   Reason: {e}")
                 df.loc[idx, cat_det] = np.nan
                 continue
 
-            # Sauvegarde intermédiaire
+            # Prediction
+            try:
+                predict_labels(df, idx, text_col, model, tokenizer, device, cat_det)
+            except Exception as e:
+                print(f"   [ERROR] Annotation failed for model '{model_path}'. "
+                      f"Setting {cat_det} to NaN.\n   Reason: {e}")
+                df.loc[idx, cat_det] = np.nan
+                continue
+
+            # Intermediate save
             df.to_csv(output_path, index=False)
 
-        # Après avoir annoté (EN + FR) pour cette catégorie, affichons sa distribution
-        dist_after = df[cat_det].value_counts(dropna=False)
-        print(f"Distribution for '{cat_det}' after annotation:\n{dist_after}")
+            # Print the distribution specifically for this language
+            dist_lang = df.loc[df[lang_col] == lang, cat_det].value_counts(dropna=False)
+            print(f"Distribution for '{cat_det}' (lang={lang}) after annotation:\n{dist_lang}")
 
-    # --- 2) Sub-categories (SUB): Annotate only rows where main_category == 1
+        # After annotating all languages for this category, print overall distribution
+        dist_after = df[cat_det].value_counts(dropna=False)
+        print(f"\nOverall distribution for '{cat_det}' after all languages:\n{dist_after}")
+
+    # --- 2) SUB-CATEGORIES (SUB) ----------------------------------------------
     print("\n[ANNOTATION] Step 2: Sub-categories (SUB)")
     for cat_sub in categories_sub:
         if cat_sub not in df.columns:
             df[cat_sub] = np.nan
 
-        # On déduit la catégorie mère: on retire "_X_SUB" ou "_SUB" et on ajoute "_Detection"
-        # par ex: "Solutions_2_SUB" => "Solutions_Detection"
-        main_category = re.sub(r'_?\d*_SUB$', '', cat_sub)  # enlève '_1_SUB', '_2_SUB', etc.
+        # We derive the parent category: remove "_X_SUB" or "_SUB" from the end and add "_Detection"
+        # For example: "Solutions_2_SUB" => "Solutions_Detection"
+        main_category = re.sub(r'_?\d*_SUB$', '', cat_sub)  # remove '_1_SUB', '_2_SUB', etc.
         main_category += '_Detection'
 
-        # Si la colonne parente n'existe pas, skip
+        # If the parent column doesn't exist, skip
         if main_category not in df.columns:
             print(f" - Warning: main category '{main_category}' does not exist for '{cat_sub}'. Skipping sub-annotation.")
             continue
 
-        # Pour chaque langue dispo (EN / FR)
+        # For each language (EN/FR)
         for lang, model_path in model_dict[cat_sub].items():
             print(f"\n -> Now annotating sub-category='{cat_sub}' (type=SUB) for lang='{lang}' with model='{model_path}'")
 
-            # On cible uniquement les lignes où main_category == 1
+            # We only target rows where main_category == 1
             idx = df[
                 (df[lang_col] == lang) &
                 (df[text_col].notna()) &
                 (df[main_category] == 1) &      # parent must be 1
-                (df[cat_sub].isna())           # sub-cat non encore annoté
+                (df[cat_sub].isna())           # sub-cat not yet annotated
             ].index
 
             if len(idx) == 0:
-                print(f"   => No rows to annotate for '{cat_sub}' / lang={lang}. (either no positives or already annotated).")
+                print(f"   => No rows to annotate for '{cat_sub}' / lang={lang}. "
+                      "(either no positives or already annotated).")
                 continue
 
+            # Load model + tokenizer
             try:
                 model, tokenizer = load_model_and_tokenizer(model_path, lang, device)
             except Exception as e:
@@ -328,6 +353,7 @@ def annotate_dataframe(df, model_dict, device, output_path):
                 df.loc[idx, cat_sub] = np.nan
                 continue
 
+            # Prediction
             try:
                 predict_labels(df, idx, text_col, model, tokenizer, device, cat_sub)
             except Exception as e:
@@ -335,21 +361,27 @@ def annotate_dataframe(df, model_dict, device, output_path):
                 df.loc[idx, cat_sub] = np.nan
                 continue
 
-            # Sauvegarde intermédiaire
+            # Intermediate save
             df.to_csv(output_path, index=False)
 
-        dist_after = df[cat_sub].value_counts(dropna=False)
-        print(f"Distribution for '{cat_sub}' after annotation:\n{dist_after}")
+            # Print the distribution specifically for this language
+            dist_lang = df.loc[df[lang_col] == lang, cat_sub].value_counts(dropna=False)
+            print(f"Distribution for '{cat_sub}' (lang={lang}) after annotation:\n{dist_lang}")
 
-    # --- 3) Other models: Annotate all rows
+        # After annotating all languages for this sub-category, print overall distribution
+        dist_after = df[cat_sub].value_counts(dropna=False)
+        print(f"\nOverall distribution for '{cat_sub}' after all languages:\n{dist_after}")
+
+    # --- 3) OTHER MODELS -------------------------------------------------------
     print("\n[ANNOTATION] Step 3: Other models (neither Detection nor SUB)")
     for cat_other in categories_other:
         if cat_other not in df.columns:
             df[cat_other] = np.nan
 
-        # Pour chaque langue
+        # For each language
         for lang, model_path in model_dict[cat_other].items():
-            print(f"\n -> Now annotating other-category='{cat_other}' (type=Other) for lang='{lang}' with model='{model_path}'")
+            print(f"\n -> Now annotating other-category='{cat_other}' (type=Other) for lang='{lang}' "
+                  f"with model='{model_path}'")
 
             idx = df[
                 (df[lang_col] == lang) &
@@ -358,9 +390,11 @@ def annotate_dataframe(df, model_dict, device, output_path):
             ].index
 
             if len(idx) == 0:
-                print(f"   => No rows to annotate for '{cat_other}' / lang={lang} (already done or no data).")
+                print(f"   => No rows to annotate for '{cat_other}' / lang={lang} "
+                      f"(already done or no data).")
                 continue
 
+            # Load model + tokenizer
             try:
                 model, tokenizer = load_model_and_tokenizer(model_path, lang, device)
             except Exception as e:
@@ -368,6 +402,7 @@ def annotate_dataframe(df, model_dict, device, output_path):
                 df.loc[idx, cat_other] = np.nan
                 continue
 
+            # Prediction
             try:
                 predict_labels(df, idx, text_col, model, tokenizer, device, cat_other)
             except Exception as e:
@@ -375,12 +410,18 @@ def annotate_dataframe(df, model_dict, device, output_path):
                 df.loc[idx, cat_other] = np.nan
                 continue
 
+            # Save intermediate
             df.to_csv(output_path, index=False)
 
-        dist_after = df[cat_other].value_counts(dropna=False)
-        print(f"Distribution for '{cat_other}' after annotation:\n{dist_after}")
+            # Print the distribution specifically for this language
+            dist_lang = df.loc[df[lang_col] == lang, cat_other].value_counts(dropna=False)
+            print(f"Distribution for '{cat_other}' (lang={lang}) after annotation:\n{dist_lang}")
 
-    # --- Distribution finale pour toutes les colonnes qu'on a annotées
+        # After annotating all languages for this "other" category, print overall distribution
+        dist_after = df[cat_other].value_counts(dropna=False)
+        print(f"\nOverall distribution for '{cat_other}' after all languages:\n{dist_after}")
+
+    # --- FINAL DISTRIBUTION FOR ALL ANNOTATED COLUMNS --------------------------
     print("\n[ANNOTATION] Final distribution for all annotated columns:")
     annotated_cols = categories_detection + categories_sub + categories_other
     for col in annotated_cols:
@@ -397,11 +438,11 @@ def annotate_dataframe(df, model_dict, device, output_path):
 def main():
     """
     Main pipeline:
-    1) Définition des chemins (données, modèles, sortie).
-    2) Lecture ou reprise du CSV déjà annoté (s'il existe).
-    3) Scan du répertoire de modèles (suffixes stricts).
-    4) Annotation (en 3 étapes: Detection, SUB, Other).
-    5) Sauvegarde et affichage final des distributions.
+    1) Define paths (data, models, output).
+    2) Read or resume an already-annotated CSV (if it exists).
+    3) Scan the model directory (strict suffix detection).
+    4) Annotation (3 steps: Detection, SUB, Other).
+    5) Save and display final distributions.
     """
     base_path = os.path.dirname(os.path.abspath(__file__))
 
@@ -410,7 +451,7 @@ def main():
     models_dir = os.path.join(base_path, "..", "..", "models")
     output_path = os.path.join(base_path, "..", "..", "Database", "Database", "CCF.media_processed_texts_annotated.csv")
 
-    # 2) Chargement ou reprise
+    # 2) Load or resume
     if os.path.exists(output_path):
         print(f"[main] Existing annotation file detected: '{output_path}'. Resuming annotation...")
         df = pd.read_csv(output_path, low_memory=False)
@@ -420,19 +461,19 @@ def main():
 
     print(f"[main] {len(df)} rows loaded into the DataFrame.")
 
-    # 3) Charger les modèles (strict)
+    # 3) Load models (strict)
     print("[main] Loading model files (strict matching)...")
     model_dict = load_all_models_strict(models_dir)
     print(f"[main] Number of detected base_categories: {len(model_dict)}")
 
-    # 4) Détecter GPU/CPU
+    # 4) Detect GPU/CPU
     device = get_device()
 
-    # 5) Annoter
+    # 5) Annotate
     print("[main] Starting annotation...")
     df_annotated = annotate_dataframe(df, model_dict, device, output_path)
 
-    # 6) Sauvegarde finale
+    # 6) Final save
     print("[main] Saving the fully annotated DataFrame...")
     df_annotated.to_csv(output_path, index=False)
     print(f"[main] Annotation complete. Output file: {output_path}")

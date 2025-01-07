@@ -9,5 +9,5 @@ label
 0    4
 1    1
 Name: count, dtype: int64
-[SKIP] Training skipped because there is no positive label in either train or test set.
-[INFO] Data containing no positive labels in train or test.
+[SKIP] Training or validation data for Pbh_Detection in FR contain only 0s. Skipping.
+[INFO] Data contain only 0s.
