@@ -10,7 +10,7 @@ Database/Training_data/manual_annotations_JSONL/Archives
 models/
 Scripts/Annotation/Archives
 Scripts/Database_creation/Archives
-.DS_Store/
+.DS_Store
 Scripts/Results/
 Database/Training_data/manual_annotations_JSONL/
 Database/Training_data/annotation_bases/
