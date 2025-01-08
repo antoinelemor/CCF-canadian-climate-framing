@@ -1,8 +1,8 @@
-# CCF-Canadian-Climate-Framing
+# CCF-canadian-climate-framing
 
 ## Introduction
 
-Welcome to the **CCF-Canadian-Climate-Framing** repository. This project is dedicated to studying the media covering of climate change in the Canadian press. This project aims to understand how climate change narratives are constructed and communicated to the public since the first media article published on the subject in 1988. This repository contains all the scripts, data processing tools, and machine learning models necessary for conducting this study.
+Welcome to the **CCF-canadian-climate-framing** repository. This project is dedicated to studying the media covering of climate change in the Canadian press. This project aims to understand how climate change narratives are constructed and communicated to the public since the first media article published on the subject in 1988. This repository contains all the scripts, data processing tools, and machine learning models necessary for conducting this study.
 
 ### The database
 
