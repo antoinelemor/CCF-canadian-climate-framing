@@ -1,12 +1,46 @@
+"""
+PROJECT:
+--------
+CCF-canadian-climate-framing
+
+TITLE:
+------
+1_Database_creation.py
+
+MAIN OBJECTIVE:
+---------------
+This script merges multiple CSV files (media articles scrapped online) into a single database, 
+assigns media names, renames columns to uniform naming, 
+and forces language assignment for each entry. 
+Finally, it saves the combined DataFrame to a CSV file.
+
+Dependencies:
+-------------
+- pandas
+- re
+- unidecode
+- pathlib
+
+MAIN FEATURES:
+--------------
+1) Aggregates multiple CSV files into a single dataset.
+2) Maps short media keys to their full names.
+3) Enforces the assignment of language based on media name.
+4) Exports the final DataFrame to a CSV file.
+
+Author:
+-------
+Antoine Lemor
+"""
 import pandas as pd
 import re
 from unidecode import unidecode
 from pathlib import Path
 
-# Définir le répertoire de base (racine du projet)
-base_dir = Path(__file__).resolve().parent.parent.parent  # Ajustez en fonction de la profondeur du script
+# Adjusted based on script depth
+base_dir = Path(__file__).resolve().parent.parent.parent
 
-# Chemins vers vos fichiers CSV relatifs au répertoire de base
+# Paths to your CSV files relative to the base directory
 chemins = {
     'CH': base_dir / 'Database/Raw_data/Calgary_Herald/clean_CH_data/articles_extraits.csv',
     'GM': base_dir / 'Database/Raw_data/Global_and_Mail/clean_GM_data/articles_extraits.csv',
@@ -30,7 +64,7 @@ chemins = {
     'WiFrPr': base_dir / 'Database/Raw_data/Winnipeg_Free_Press/Winnipeg_Free_Press_clean_data/articles_extraits.csv'
 }
 
-# Dictionnaire de mapping des clés à leurs noms complets de médias
+# Dictionary mapping keys to their full media names
 media_mapping = {
     'CH': 'Calgary Herald',
     'GM': 'Globe and Mail',
@@ -54,40 +88,40 @@ media_mapping = {
     'WiFrPr': 'Winnipeg Free Press'
 }
 
-# Vérifier que tous les clés de chemins sont dans media_mapping
+# Check that all path keys are in media_mapping
 missing_keys = set(chemins.keys()) - set(media_mapping.keys())
 if missing_keys:
-    print(f"Attention : Les clés suivantes ne sont pas dans le dictionnaire de mapping des médias : {missing_keys}")
-    # Vous pouvez décider d'ajouter les mappings manquants ou de gérer autrement
-    # Par exemple :
-    # media_mapping['NouvelleClé'] = 'Nom du Média'
-    # Ou lever une erreur
-    # raise ValueError(f"Mappings manquants pour les clés : {missing_keys}")
+    print(f"[WARNING] The following keys are not in the media mapping dictionary: {missing_keys}")
+    # You can decide to add the missing mappings or handle otherwise
+    # For example:
+    # media_mapping['NewKey'] = 'Media Name'
+    # Or raise an error
+    # raise ValueError(f"Missing mappings for keys: {missing_keys}")
 
-# Lire les fichiers CSV dans des DataFrames pandas
+# Read CSV files into pandas DataFrames
 dataframes = {}
 for key, chemin in chemins.items():
     try:
         df = pd.read_csv(chemin)
-        # Assigner la colonne 'Média' en utilisant le dictionnaire de mapping
-        media_nom = media_mapping.get(key, 'Média Inconnu')  # 'Média Inconnu' si la clé n'est pas trouvée
+        # Assign the 'Media' column using the mapping dictionary
+        media_nom = media_mapping.get(key, 'Unknown Media')  # 'Unknown Media' if the key is not found
         df['Média'] = media_nom
         dataframes[key] = df
     except FileNotFoundError:
-        print(f"Erreur : Le fichier {chemin} n'a pas été trouvé.")
+        print(f"[ERROR] The file {chemin} was not found.")
     except pd.errors.EmptyDataError:
-        print(f"Erreur : Le fichier {chemin} est vide.")
+        print(f"[ERROR] The file {chemin} is empty.")
     except Exception as e:
-        print(f"Erreur lors de la lecture du fichier {chemin} : {e}")
+        print(f"[ERROR] An error occurred while reading {chemin}: {e}")
 
-# Combiner les DataFrames en un seul
+# Combine the DataFrames into one
 if dataframes:
     df_combiné = pd.concat(dataframes.values(), ignore_index=True)
 else:
-    print("Aucun DataFrame à combiner. Vérifiez les erreurs précédentes.")
+    print("[INFO] No DataFrame to combine. Check previous errors.")
     exit(1)
 
-# Renommer les colonnes selon les nouvelles spécifications
+# Rename columns according to new specifications
 nouveaux_noms = {
     'Type de nouvelle': 'news_type',
     'Titre': 'title',
@@ -103,10 +137,10 @@ nouveaux_noms = {
 df_combiné.rename(columns=nouveaux_noms, inplace=True)
 
 # --------------------------------------------
-# Étape : Assignation forcée de la langue
+# Step: Forced language assignment
 # --------------------------------------------
 
-# Définir un dictionnaire de mapping des médias à la langue (avec clés normalisées)
+# Define a dictionary mapping media to language (with normalized keys)
 mapping_language = {
     'calgary herald': 'EN',
     'globe and mail': 'EN',
@@ -131,40 +165,44 @@ mapping_language = {
     'le droit': 'FR'
 }
 
-# Fonction de normalisation des noms de médias
+# Function to normalize media names
 def normalize_media(name):
+    """
+    Normalizes the media name by converting it to lowercase,
+    removing diacritics, and replacing multiple spaces with a single space.
+    """
     if pd.isnull(name):
         return ''
     name = unidecode(name.lower().strip())
-    name = re.sub(r'\s+', ' ', name)  # Remplacer multiples espaces par un seul
+    name = re.sub(r'\s+', ' ', name)  # Replace multiple spaces with a single one
     return name
 
-# Appliquer la normalisation
+# Apply normalization
 df_combiné['media_normalized'] = df_combiné['media'].apply(normalize_media)
 
-# Assigner la langue en fonction du mapping
+# Assign language based on the mapping
 df_combiné['language'] = df_combiné['media_normalized'].map(mapping_language).fillna('Unknown')
 
-# Optionnel : Vérifier les assignations
-print("\n=== Exemple d'assignation de la langue ===")
+# Optional: Check assignments
+print("\n=== Example of language assignment ===")
 print(df_combiné[['media', 'language']].drop_duplicates())
 
-# Identifier et afficher les médias non assignés (optionnel)
+# Identify and display unassigned media (optional)
 medias_unknown = df_combiné[df_combiné['language'] == 'Unknown']['media'].unique()
 if len(medias_unknown) > 0:
-    print("\n=== Médias non assignés ===")
+    print("\n=== Unassigned media ===")
     for media in medias_unknown:
         print(media)
 
-# Supprimer la colonne temporaire de normalisation
+# Remove the temporary normalization column
 df_combiné.drop(columns=['media_normalized'], inplace=True)
 
-# Chemin où sauvegarder la base de données combinée (chemin relatif)
+# Path to save the combined database (relative path)
 chemin_sauvegarde = base_dir / 'Database/Database/CCF.media_database.csv'
 
-# Sauvegarder le DataFrame combiné dans un nouveau fichier CSV
+# Save the combined DataFrame to a new CSV file
 try:
     df_combiné.to_csv(chemin_sauvegarde, index=False)
-    print("\nLa base de données a été créée et sauvegardée à l'emplacement suivant :", chemin_sauvegarde)
+    print("\nThe combined database has been created and saved here:", chemin_sauvegarde)
 except Exception as e:
-    print(f"Erreur lors de la sauvegarde du fichier {chemin_sauvegarde} : {e}")
+    print(f"Error saving the file {chemin_sauvegarde}: {e}")
