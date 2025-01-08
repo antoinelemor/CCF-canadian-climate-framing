@@ -18,6 +18,15 @@ Scripts/Database_creation/Agregate/
 Database/Database/CAN_shp
 Database/Database/Canadian_Media_Articles_by_Province.csv
 Database/Database/dominant_frame_by_province.png
+Scripts/.DS_Store
+Database/.DS_Store
+Database/Database/.DS_Store
+Database/Raw_data/.DS_Store
+Database/Training_data/.DS_Store
+models/.DS_Store
+Sripts/Annotation/.DS_Store
+Scripts/Database_creation/.DS_Store
+Scripts/Results/.DS_Store
 
 # Ne pas ignorer les fichiers spécifiques 3_*.py et 4_*.py
 !1_Database_creation.py
