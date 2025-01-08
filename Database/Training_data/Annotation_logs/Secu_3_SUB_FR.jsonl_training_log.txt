@@ -20,7 +20,7 @@ Saving model to (relative path): Secu_3_SUB_FR.jsonl.model
 Training...
 
   Average training loss: 0.69
-  Training took: 0:00:01
+  Training took: 0:00:00
 
 Running Validation...
 

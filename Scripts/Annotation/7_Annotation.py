@@ -9,22 +9,22 @@ TITLE:
 
 MAIN OBJECTIVE:
 ---------------
-Ce script charge la base de données CCF.media_processed_texts.csv et annote
-chaque phrase à l’aide de modèles anglais ou français déjà entraînés 
-(en utilisant la librairie AugmentedSocialScientist).
-Il peut sauvegarder/reprendre la progression pour gérer d’éventuelles interruptions.
+This script loads the CCF.media_processed_texts.csv database and annotates
+each sentence using pre-trained English or French models
+(using the AugmentedSocialScientist library).
+It can save/resume progress to handle potential interruptions.
 
-NOUVELLES FONCTIONNALITÉS:
+NEW FEATURES:
 --------------------------
-1) Les catégories _SUB ne sont annotées que pour les lignes où la
-   catégorie parente _Detection = 1 (on ne traite pas les autres).
-2) Un CSV `sentences_annotation_error.csv` est créé dans Database/Training_data
-   si certaines phrases dépassent la limite 512 tokens et déclenchent
-   l'avertissement de longueur ("Token indices sequence length is longer ...").
-   On y enregistre index, phrase, catégorie, etc.
-3) Un CSV `annotated_label_metrics.csv` est maintenu dans Database/Training_data.
-   À chaque catégorie/chaque langue annotée, on y inscrit la distribution
-   (value_counts) des labels (0,1,NaN).
+1) The _SUB categories are only annotated for rows where the
+   parent category _Detection = 1 (others are not processed).
+2) A CSV `sentences_annotation_error.csv` is created in Database/Training_data
+   if some sentences exceed the 512 token limit and trigger
+   the length warning ("Token indices sequence length is longer ...").
+   It records index, sentence, category, etc.
+3) A CSV `annotated_label_metrics.csv` is maintained in Database/Training_data.
+   For each annotated category/language, it records the distribution
+   (value_counts) of labels (0,1,NaN).
 
 Dependencies:
 -------------
@@ -38,13 +38,13 @@ Dependencies:
 - warnings
 - AugmentedSocialScientist (pip install AugmentedSocialScientist)
 
-MAIN FEATURES (héritées):
+MAIN FEATURES (inherited):
 -------------------------
-1) Charge la base CCF.media_processed_texts.csv.
-2) Recherche les modèles EN/FR dans un répertoire.
-3) Gère un système de suffixes stricts pour séparer (Detection, SUB, Other).
-4) Sauvegarde à chaque étape pour pouvoir reprendre si interrompu.
-5) Écrit le DataFrame final annoté dans CCF.media_processed_texts_annotated.csv
+1) Loads the CCF.media_processed_texts.csv database.
+2) Searches for EN/FR models in a directory.
+3) Manages a strict suffix system to separate (Detection, SUB, Other).
+4) Saves at each step to allow resuming if interrupted.
+5) Writes the final annotated DataFrame to CCF.media_processed_texts_annotated.csv
 
 Author:
 -------
@@ -60,36 +60,36 @@ import torch
 import warnings
 from tqdm.auto import tqdm
 
-# --- Import des modèles AugmentedSocialScientist ---
-# Pour le FR: Camembert
-# Pour l'EN: Bert
+# --- Importing AugmentedSocialScientist models ---
+# For FR: Camembert
+# For EN: Bert
 from AugmentedSocialScientist.models import Camembert, Bert
 
 ##############################################################################
-#                A. PARSING STRICT DES NOMS DE FICHIERS DE MODÈLES
+#                A. STRICT PARSING OF MODEL FILE NAMES
 ##############################################################################
 def parse_model_filename_strict(filename):
     """
-    Strictement, on cherche :
-      - "base_category" (ex: "Event_Detection" ou "Cult_1_SUB")
-      - la langue 'EN' ou 'FR' (doit se terminer par "_EN" ou "_FR")
-      - le type 'Detection', 'SUB' ou 'Other' (doit se terminer par "_Detection" ou "_SUB")
+    Strictly, we look for:
+      - "base_category" (e.g., "Event_Detection" or "Cult_1_SUB")
+      - the language 'EN' or 'FR' (must end with "_EN" or "_FR")
+      - the type 'Detection', 'SUB' or 'Other' (must end with "_Detection" or "_SUB")
 
-    Si le nom n'est pas conforme, on renvoie lang=None/type=None.
+    If the name is not compliant, we return lang=None/type=None.
     """
-    # Retirer les extensions possibles
+    # Remove possible extensions
     name = filename.replace('.jsonl.model', '').replace('.model', '')
 
-    # Langue
+    # Language
     lang = None
     if name.endswith('_EN'):
         lang = 'EN'
-        name = name[:-3]  # retire "_EN"
+        name = name[:-3]  # remove "_EN"
     elif name.endswith('_FR'):
         lang = 'FR'
-        name = name[:-3]  # retire "_FR"
+        name = name[:-3]  # remove "_FR"
 
-    # Type de modèle
+    # Model type
     if name.endswith('_Detection'):
         model_type = 'Detection'
         base_category = name
@@ -104,12 +104,12 @@ def parse_model_filename_strict(filename):
 
 
 ##############################################################################
-#          B. CHARGEMENT DE TOUS LES MODÈLES DANS UN DICT (NOM STRICT)
+#          B. LOADING ALL MODELS INTO A DICT (STRICT NAME)
 ##############################################################################
 def load_all_models_strict(models_dir):
     """
-    Parcourt tous les fichiers *.model du dossier et applique parse_model_filename_strict.
-    Renvoie un dictionnaire:
+    Scans all *.model files in the folder and applies parse_model_filename_strict.
+    Returns a dictionary:
     {
       "Event_Detection": {"EN": "/path/Event_Detection_EN.model", "FR": ...},
       "Cult_1_SUB":      {"EN": ..., "FR": ...},
@@ -124,10 +124,10 @@ def load_all_models_strict(models_dir):
         base_cat, lang, model_type = parse_model_filename_strict(filename)
 
         if lang is None:
-            print(f"[WARNING] Fichier '{filename}' ignoré (pas de suffixe _EN ou _FR).")
+            print(f"[WARNING] File '{filename}' ignored (no _EN or _FR suffix).")
             continue
 
-        print(f"[INFO] Modèle détecté : '{filename}' -> base='{base_cat}', lang='{lang}', type='{model_type}'")
+        print(f"[INFO] Model detected: '{filename}' -> base='{base_cat}', lang='{lang}', type='{model_type}'")
 
         if base_cat not in model_dict:
             model_dict[base_cat] = {}
@@ -138,14 +138,14 @@ def load_all_models_strict(models_dir):
 
 
 ##############################################################################
-#          C. DÉTECTION DU DEVICE (GPU / MPS / CPU)
+#          C. DEVICE DETECTION (GPU / MPS / CPU)
 ##############################################################################
 def get_device():
     """
-    Retourne un torch.device:
-      - GPU CUDA si torch.cuda.is_available()
-      - GPU MPS si torch.backends.mps.is_available()
-      - Sinon CPU
+    Returns a torch.device:
+      - GPU CUDA if torch.cuda.is_available()
+      - GPU MPS if torch.backends.mps.is_available()
+      - Otherwise CPU
     """
     if torch.cuda.is_available():
         print("Using CUDA GPU for computations.")
@@ -159,40 +159,40 @@ def get_device():
 
 
 ##############################################################################
-#       D. GESTION DES PHRASES TROP LONGUES -> CSV D'ERREUR
+#       D. HANDLING TOO LONG SENTENCES -> ERROR CSV
 ##############################################################################
 def check_text_exceeds_length_limit(text, tokenizer, max_length=512):
     """
-    Vérifie si la séquence tokenisée dépasse la limite imposée (512).
-    Retourne True si le texte dépasse 512 tokens (donc potentiellement
-    un message d'avertissement).
+    Checks if the tokenized sequence exceeds the imposed limit (512).
+    Returns True if the text exceeds 512 tokens (thus potentially
+    triggering a warning message).
     """
-    # On désactive le truncation pour mesurer la taille réelle
-    # add_special_tokens=True => inclut [CLS], [SEP]
+    # Disable truncation to measure the actual size
+    # add_special_tokens=True => includes [CLS], [SEP]
     encoded = tokenizer.encode(text, add_special_tokens=True, truncation=False)
     return (len(encoded) > max_length)
 
 
 ##############################################################################
-# E. PRÉPARATION DES CSV POUR ERREURS ET POUR LES MÉTRIQUES
+# E. PREPARING CSV FOR ERRORS AND METRICS
 ##############################################################################
 def init_error_csv(error_csv_path):
     """
-    Initialise (ou ouvre en mode append) le CSV qui contiendra
-    les phrases posant problème de longueur.
+    Initializes (or opens in append mode) the CSV that will contain
+    sentences with length issues.
     """
     if not os.path.exists(os.path.dirname(error_csv_path)):
         os.makedirs(os.path.dirname(error_csv_path), exist_ok=True)
 
     if not os.path.exists(error_csv_path):
-        # On crée le fichier avec un header
+        # Create the file with a header
         pd.DataFrame(columns=["row_id", "lang", "category", "text"]).to_csv(error_csv_path, index=False)
 
 
 def append_to_error_csv(error_csv_path, rows):
     """
-    Ajoute dans le CSV d'erreur (en mode append) la liste de dictionnaires `rows`.
-    Chaque élément de `rows` doit être un dict avec
+    Appends to the error CSV (in append mode) the list of dictionaries `rows`.
+    Each element of `rows` must be a dict with
     { "row_id":..., "lang":..., "category":..., "text":... }
     """
     if not rows:
@@ -203,7 +203,7 @@ def append_to_error_csv(error_csv_path, rows):
 
 def init_metrics_csv(metrics_csv_path):
     """
-    Initialise le CSV qui contiendra les métriques de distribution.
+    Initializes the CSV that will contain distribution metrics.
     """
     if not os.path.exists(os.path.dirname(metrics_csv_path)):
         os.makedirs(os.path.dirname(metrics_csv_path), exist_ok=True)
@@ -215,9 +215,9 @@ def init_metrics_csv(metrics_csv_path):
 
 def append_to_metrics_csv(metrics_csv_path, category, lang, value_counts):
     """
-    value_counts est une Series => index=label_value (0.0,1.0,NaN), values=count
-    On alimente un CSV "annotated_label_metrics.csv" en mode append,
-    avec les colonnes = category, lang, label_value, count
+    value_counts is a Series => index=label_value (0.0,1.0,NaN), values=count
+    Feeds a CSV "annotated_label_metrics.csv" in append mode,
+    with columns = category, lang, label_value, count
     """
     if value_counts.empty:
         return
@@ -235,7 +235,7 @@ def append_to_metrics_csv(metrics_csv_path, category, lang, value_counts):
 
 
 ##############################################################################
-#   F. FONCTION GÉNÉRIQUE D'ANNOTATION (PRÉDICTION) PAR LOTS + GESTION ERREURS
+#   F. GENERIC ANNOTATION (PREDICTION) FUNCTION BY BATCHES + ERROR HANDLING
 ##############################################################################
 def predict_labels(
     df,
@@ -246,45 +246,45 @@ def predict_labels(
     device,
     output_col,
     error_csv_path,
-    batch_size=100
+    batch_size=250
 ):
     """
-    Cette fonction annote df[output_col] sur les lignes 'indices' en utilisant
-    un modèle déjà entraîné (dont le dossier est model_path) via AugmentedSocialScientist.
+    This function annotates df[output_col] on the 'indices' rows using
+    a pre-trained model (whose folder is model_path) via AugmentedSocialScientist.
 
-    1) On récupère les textes dans df.loc[indices, text_column].
-    2) On instancie un modèle Camembert() ou Bert() selon lang, sur device.
-    3) Par batch, on encode => on vérifie la longueur pour détecter les "erreurs".
-       - Si un texte dépasse 512 tokens, on l'inscrit dans le CSV d'erreur.
-         On continue tout de même la prédiction (car huggingface va tronquer).
-    4) On fait 'predict_with_model' pour obtenir les probabilités, puis argmax => label (0/1).
-    5) On met à jour df[output_col] pour les lignes en question.
+    1) Retrieve texts in df.loc[indices, text_column].
+    2) Instantiate a Camembert() or Bert() model depending on lang, on device.
+    3) By batch, encode => check length to detect "errors".
+       - If a text exceeds 512 tokens, log it in the error CSV.
+         Continue prediction (as huggingface will truncate).
+    4) Use 'predict_with_model' to get probabilities, then argmax => label (0/1).
+    5) Update df[output_col] for the relevant rows.
     """
 
     if len(indices) == 0:
         return
 
-    # Sélection des textes
+    # Select texts
     texts = df.loc[indices, text_column].tolist()
 
-    # Instanciation du modèle
+    # Instantiate the model
     if lang == 'FR':
         model = Camembert(device=device)
     else:
         model = Bert(device=device)
 
-    # On prépare un itérateur sur les indices => pour logguer correctement l'erreur
-    indices_list = list(indices)  # afin de pouvoir itérer en même temps que texts
+    # Prepare an iterator on indices => to log the error correctly
+    indices_list = list(indices)  # to iterate along with texts
 
-    # Boucle par batch
+    # Batch loop
     predictions = []
     with tqdm(total=len(texts), desc=f"Annot '{output_col}'", unit="txt") as pbar:
         for start_i in range(0, len(texts), batch_size):
             batch_texts = texts[start_i:start_i + batch_size]
             batch_idx = indices_list[start_i:start_i + batch_size]
 
-            # On vérifie la longueur de chaque phrase avant encodage
-            # pour détecter celles qui dépasseront 512 tokens
+            # Check the length of each sentence before encoding
+            # to detect those that will exceed 512 tokens
             error_rows = []
             for local_i, t in enumerate(batch_texts):
                 if check_text_exceeds_length_limit(t, model.tokenizer, max_length=512):
@@ -296,59 +296,59 @@ def predict_labels(
                         "text": t
                     })
 
-            # On append ces éventuelles erreurs dans le CSV
+            # Append these potential errors to the CSV
             if error_rows:
                 append_to_error_csv(error_csv_path, error_rows)
 
-            # Encodage effectif
-            # (AugmentedSocialScientist sait gérer la truncation automatique,
-            # donc même si >512, ça ne crash pas, ça tronque. On a juste loggé.)
+            # Actual encoding
+            # (AugmentedSocialScientist handles automatic truncation,
+            # so even if >512, it won't crash, it will truncate. We just logged it.)
             batch_loader = model.encode(
                 batch_texts,
-                labels=None,         # on n'a pas de labels
+                labels=None,         # we don't have labels
                 batch_size=len(batch_texts),
                 progress_bar=False
             )
 
             try:
-                # Prediction => shape (N,2) si binaire
+                # Prediction => shape (N,2) if binary
                 probs = model.predict_with_model(
                     batch_loader,
                     model_path=model_path,
-                    proba=True,         # on veut des proba
+                    proba=True,         # we want probabilities
                     progress_bar=False
                 )
                 batch_preds = np.argmax(probs, axis=1).tolist()
 
             except Exception as e:
-                # En cas d'exception, on loggue et on met NaN
-                print(f"   [ERROR] Échec de predict_with_model sur '{model_path}'. Raison: {e}")
+                # In case of exception, log and set NaN
+                print(f"   [ERROR] Failed predict_with_model on '{model_path}'. Reason: {e}")
                 batch_preds = [np.nan] * len(batch_texts)
 
             predictions.extend(batch_preds)
 
             pbar.update(len(batch_texts))
 
-    # Mise à jour du DF
+    # Update the DF
     df.loc[indices, output_col] = predictions
 
 
 ##############################################################################
-#           G. LOGIQUE PRINCIPALE D'ANNOTATION (EN 3 ÉTAPES)
+#           G. MAIN ANNOTATION LOGIC (IN 3 STEPS)
 ##############################################################################
 def annotate_dataframe(df, model_dict, device, output_path, error_csv_path, metrics_csv_path):
     """
-    - On repère d'abord les catégories "Detection", "SUB", "Other"
-      via leur suffixe strict (_Detection, _SUB, sinon Other).
-    - On annote dans l'ordre : Detection => SUB => Other.
-    - Après chaque catégorie/langue, on sauvegarde le CSV + on met à jour
-      le CSV des métriques (annotated_label_metrics.csv).
+    - First, identify "Detection", "SUB", "Other" categories
+      via their strict suffix (_Detection, _SUB, otherwise Other).
+    - Annotate in order: Detection => SUB => Other.
+    - After each category/language, save the CSV + update
+      the metrics CSV (annotated_label_metrics.csv).
     """
 
     text_col = "sentences"
     lang_col = "language"
 
-    # 1) Classification des catégories selon suffixe
+    # 1) Classification of categories by suffix
     categories_detection = []
     categories_sub = []
     categories_other = []
@@ -367,15 +367,15 @@ def annotate_dataframe(df, model_dict, device, output_path, error_csv_path, metr
     # ----------------------------------------------------------------
     print("\n[ANNOTATION] Step 1: Main Categories (Detection)")
     for cat_det in categories_detection:
-        # Si la colonne n'existe pas déjà dans le DF, on la crée
+        # If the column does not already exist in the DF, create it
         if cat_det not in df.columns:
             df[cat_det] = np.nan
 
-        # On annote pour chaque langue où un modèle existe
+        # Annotate for each language where a model exists
         for lang, model_path in model_dict[cat_det].items():
             print(f"\n -> Now annotating '{cat_det}' (Detection) for lang='{lang}' with model='{model_path}'")
 
-            # On sélectionne les lignes qui n'ont pas encore de label (isna)
+            # Select rows that do not yet have a label (isna)
             idx = df[
                 (df[lang_col] == lang) &
                 (df[text_col].notna()) &
@@ -383,10 +383,10 @@ def annotate_dataframe(df, model_dict, device, output_path, error_csv_path, metr
             ].index
 
             if len(idx) == 0:
-                print(f"   => Pas de lignes à annoter pour '{cat_det}' / lang={lang}.")
+                print(f"   => No rows to annotate for '{cat_det}' / lang={lang}.")
                 continue
 
-            # Prédiction
+            # Prediction
             predict_labels(
                 df, idx, text_col, 
                 model_path=model_path,
@@ -394,19 +394,19 @@ def annotate_dataframe(df, model_dict, device, output_path, error_csv_path, metr
                 device=device,
                 output_col=cat_det,
                 error_csv_path=error_csv_path,
-                batch_size=100
+                batch_size=250
             )
-            # Sauvegarde intermédiaire
+            # Intermediate save
             df.to_csv(output_path, index=False)
 
-            # Distribution partielle pour la langue
+            # Partial distribution for the language
             dist_lang = df.loc[df[lang_col] == lang, cat_det].value_counts(dropna=False)
-            print(f"Distribution pour '{cat_det}' (lang={lang}):\n{dist_lang}")
+            print(f"Distribution for '{cat_det}' (lang={lang}):\n{dist_lang}")
 
-            # On alimente le CSV des métriques
+            # Feed the metrics CSV
             append_to_metrics_csv(metrics_csv_path, cat_det, lang, dist_lang)
 
-        # Distribution globale
+        # Overall distribution
         dist_after = df[cat_det].value_counts(dropna=False)
         print(f"Overall distribution for '{cat_det}':\n{dist_after}")
 
@@ -418,24 +418,24 @@ def annotate_dataframe(df, model_dict, device, output_path, error_csv_path, metr
         if cat_sub not in df.columns:
             df[cat_sub] = np.nan
 
-        # On détermine la catégorie parente
-        # (ex: "Cult_1_SUB" => parent = "Cult_Detection")
-        main_category = re.sub(r'_?\d*_SUB$', '', cat_sub)  # retire '_1_SUB', '_2_SUB', ...
+        # Determine the parent category
+        # (e.g., "Cult_1_SUB" => parent = "Cult_Detection")
+        main_category = re.sub(r'_?\d*_SUB$', '', cat_sub)  # remove '_1_SUB', '_2_SUB', ...
         main_category += '_Detection'
 
         if main_category not in df.columns:
-            print(f"   [WARN] Catégorie parent '{main_category}' manquante pour '{cat_sub}'. On skip.")
+            print(f"   [WARN] Parent category '{main_category}' missing for '{cat_sub}'. Skipping.")
             continue
 
-        # Pour chaque langue
+        # For each language
         for lang, model_path in model_dict[cat_sub].items():
             print(f"\n -> Now annotating '{cat_sub}' (SUB) for lang='{lang}' with model='{model_path}'")
 
-            # Contrairement aux "Detection", on n’annote que là où:
+            # Unlike "Detection", annotate only where:
             # - language = lang
             # - sentences notna
-            # - la parent detection = 1
-            # - cat_sub est NaN (pas encore annoté)
+            # - parent detection = 1
+            # - cat_sub is NaN (not yet annotated)
             idx = df[
                 (df[lang_col] == lang) &
                 (df[text_col].notna()) &
@@ -444,7 +444,7 @@ def annotate_dataframe(df, model_dict, device, output_path, error_csv_path, metr
             ].index
 
             if len(idx) == 0:
-                print(f"   => Pas de lignes positives à annoter pour '{cat_sub}' / lang={lang}.")
+                print(f"   => No positive rows to annotate for '{cat_sub}' / lang={lang}.")
                 continue
 
             predict_labels(
@@ -454,14 +454,14 @@ def annotate_dataframe(df, model_dict, device, output_path, error_csv_path, metr
                 device=device,
                 output_col=cat_sub,
                 error_csv_path=error_csv_path,
-                batch_size=100
+                batch_size=250
             )
             df.to_csv(output_path, index=False)
 
             dist_lang = df.loc[df[lang_col] == lang, cat_sub].value_counts(dropna=False)
-            print(f"Distribution pour '{cat_sub}' (lang={lang}):\n{dist_lang}")
+            print(f"Distribution for '{cat_sub}' (lang={lang}):\n{dist_lang}")
 
-            # Ajout au CSV de métriques
+            # Add to metrics CSV
             append_to_metrics_csv(metrics_csv_path, cat_sub, lang, dist_lang)
 
         dist_after = df[cat_sub].value_counts(dropna=False)
@@ -485,7 +485,7 @@ def annotate_dataframe(df, model_dict, device, output_path, error_csv_path, metr
             ].index
 
             if len(idx) == 0:
-                print(f"   => Pas de lignes à annoter pour '{cat_other}' / lang={lang}.")
+                print(f"   => No rows to annotate for '{cat_other}' / lang={lang}.")
                 continue
 
             predict_labels(
@@ -495,20 +495,20 @@ def annotate_dataframe(df, model_dict, device, output_path, error_csv_path, metr
                 device=device,
                 output_col=cat_other,
                 error_csv_path=error_csv_path,
-                batch_size=100
+                batch_size=250
             )
             df.to_csv(output_path, index=False)
 
             dist_lang = df.loc[df[lang_col] == lang, cat_other].value_counts(dropna=False)
-            print(f"Distribution pour '{cat_other}' (lang={lang}):\n{dist_lang}")
+            print(f"Distribution for '{cat_other}' (lang={lang}):\n{dist_lang}")
 
-            # Ajout au CSV de métriques
+            # Add to metrics CSV
             append_to_metrics_csv(metrics_csv_path, cat_other, lang, dist_lang)
 
         dist_after = df[cat_other].value_counts(dropna=False)
         print(f"Overall distribution for '{cat_other}':\n{dist_after}")
 
-    # --- Résumé final
+    # --- Final summary
     print("\n[ANNOTATION] Final distribution summary:")
     all_cols = categories_detection + categories_sub + categories_other
     for col in all_cols:
@@ -520,58 +520,58 @@ def annotate_dataframe(df, model_dict, device, output_path, error_csv_path, metr
 
 
 ##############################################################################
-#                           H. FONCTION PRINCIPALE
+#                           H. MAIN FUNCTION
 ##############################################################################
 def main():
     """
-    1) Définit les chemins (data, models, output).
-    2) Charge ou reprend le CSV si déjà annoté.
-    3) Scanne le répertoire de modèles (suffixes stricts).
-    4) Annote !
-    5) Sauvegarde finale.
-    6) Les éventuelles phrases >512 tokens sont loggées dans sentences_annotation_error.csv
-    7) Les distributions de labels sont loggées au fil de l'eau dans annotated_label_metrics.csv
+    1) Define paths (data, models, output).
+    2) Load or resume the CSV if already annotated.
+    3) Scan the model directory (strict suffixes).
+    4) Annotate!
+    5) Final save.
+    6) Sentences >512 tokens are logged in sentences_annotation_error.csv
+    7) Label distributions are logged incrementally in annotated_label_metrics.csv
     """
 
     base_path = os.path.dirname(os.path.abspath(__file__))
 
-    # Fichiers d'entrée / sortie
+    # Input / output files
     data_path = os.path.join(base_path, "..", "..", "Database", "Database", "CCF.media_processed_texts.csv")
     output_path = os.path.join(base_path, "..", "..", "Database", "Database", "CCF.media_processed_texts_annotated.csv")
 
-    # Répertoire des modèles
+    # Model directory
     models_dir = os.path.join(base_path, "..", "..", "models")
 
-    # CSV d'erreurs (token length)
+    # Error CSV (token length)
     error_csv_path = os.path.join(base_path, "..", "..", "Database", "Training_data", "sentences_annotation_error.csv")
 
-    # CSV de métriques
+    # Metrics CSV
     metrics_csv_path = os.path.join(base_path, "..", "..", "Database", "Training_data", "annotated_label_metrics.csv")
 
-    # Chargement / reprise
+    # Loading / resuming
     if os.path.exists(output_path):
-        print(f"[main] Fichier d'annotation déjà existant : '{output_path}'. Reprise...")
+        print(f"[main] Annotation file already exists: '{output_path}'. Resuming...")
         df = pd.read_csv(output_path, low_memory=False)
     else:
-        print("[main] Aucun fichier d'annotation existant. Chargement initial du CSV...")
+        print("[main] No existing annotation file. Initial loading of CSV...")
         df = pd.read_csv(data_path, low_memory=False)
 
-    print(f"[main] {len(df)} lignes chargées dans le DataFrame.")
+    print(f"[main] {len(df)} rows loaded into DataFrame.")
 
-    # Chargement des modèles disponibles
-    print("[main] Chargement des fichiers de modèles (suffixes stricts)...")
+    # Loading available models
+    print("[main] Loading model files (strict suffixes)...")
     model_dict = load_all_models_strict(models_dir)
-    print(f"[main] Nombre de catégories détectées : {len(model_dict)}")
+    print(f"[main] Number of detected categories: {len(model_dict)}")
 
     # Device
     device = get_device()
 
-    # Initialisation CSV d'erreurs & métriques
+    # Initialize error & metrics CSV
     init_error_csv(error_csv_path)
     init_metrics_csv(metrics_csv_path)
 
-    # Annotation principale
-    print("[main] Démarrage de l'annotation...")
+    # Main annotation
+    print("[main] Starting annotation...")
     df_annotated = annotate_dataframe(
         df=df,
         model_dict=model_dict,
@@ -581,10 +581,10 @@ def main():
         metrics_csv_path=metrics_csv_path
     )
 
-    # Sauvegarde finale
-    print("[main] Sauvegarde du DataFrame annoté final...")
+    # Final save
+    print("[main] Saving final annotated DataFrame...")
     df_annotated.to_csv(output_path, index=False)
-    print(f"[main] Annotation terminée. Fichier final : {output_path}")
+    print(f"[main] Annotation completed. Final file: {output_path}")
 
 
 if __name__ == "__main__":

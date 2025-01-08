@@ -64,7 +64,7 @@ Training...
 
 Running Validation...
 
-  Average test loss: 0.26
+  Average test loss: 0.27
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
@@ -84,7 +84,7 @@ Training...
 
 Running Validation...
 
-  Average test loss: 0.22
+  Average test loss: 0.18
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
@@ -99,12 +99,12 @@ weighted avg       0.97      0.97      0.97        38
 ======== Epoch 5 / 10 ========
 Training...
 
-  Average training loss: 0.10
+  Average training loss: 0.09
   Training took: 0:00:05
 
 Running Validation...
 
-  Average test loss: 0.10
+  Average test loss: 0.15
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
@@ -124,7 +124,7 @@ Training...
 
 Running Validation...
 
-  Average test loss: 0.28
+  Average test loss: 0.27
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
@@ -144,7 +144,7 @@ Training...
 
 Running Validation...
 
-  Average test loss: 0.23
+  Average test loss: 0.17
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
@@ -159,12 +159,12 @@ weighted avg       0.97      0.97      0.97        38
 ======== Epoch 8 / 10 ========
 Training...
 
-  Average training loss: 0.07
+  Average training loss: 0.06
   Training took: 0:00:05
 
 Running Validation...
 
-  Average test loss: 0.07
+  Average test loss: 0.04
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
@@ -184,7 +184,7 @@ Training...
 
 Running Validation...
 
-  Average test loss: 0.03
+  Average test loss: 0.02
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
@@ -199,12 +199,12 @@ weighted avg       1.00      1.00      1.00        38
 ======== Epoch 10 / 10 ========
 Training...
 
-  Average training loss: 0.06
+  Average training loss: 0.05
   Training took: 0:00:05
 
 Running Validation...
 
-  Average test loss: 0.03
+  Average test loss: 0.02
   Validation took: 0:00:00
               precision    recall  f1-score   support
 

@@ -20,7 +20,7 @@ Saving model to (relative path): Eco_5_SUB_FR.jsonl.model
 Training...
 
   Average training loss: 0.63
-  Training took: 0:00:03
+  Training took: 0:00:02
 
 Running Validation...
 
@@ -104,7 +104,7 @@ Training...
 
 Running Validation...
 
-  Average test loss: 0.42
+  Average test loss: 0.43
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
@@ -124,16 +124,16 @@ Training...
 
 Running Validation...
 
-  Average test loss: 0.43
+  Average test loss: 0.42
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
-           0       0.83      1.00      0.90        19
-           1       1.00      0.50      0.67         8
+           0       0.86      1.00      0.93        19
+           1       1.00      0.62      0.77         8
 
-    accuracy                           0.85        27
-   macro avg       0.91      0.75      0.79        27
-weighted avg       0.88      0.85      0.83        27
+    accuracy                           0.89        27
+   macro avg       0.93      0.81      0.85        27
+weighted avg       0.90      0.89      0.88        27
 
 
 ======== Epoch 7 / 16 ========
@@ -164,7 +164,7 @@ Training...
 
 Running Validation...
 
-  Average test loss: 0.51
+  Average test loss: 0.52
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
@@ -184,7 +184,7 @@ Training...
 
 Running Validation...
 
-  Average test loss: 0.51
+  Average test loss: 0.55
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
@@ -204,7 +204,7 @@ Training...
 
 Running Validation...
 
-  Average test loss: 0.62
+  Average test loss: 0.63
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
@@ -224,7 +224,7 @@ Training...
 
 Running Validation...
 
-  Average test loss: 0.62
+  Average test loss: 0.51
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
@@ -244,16 +244,16 @@ Training...
 
 Running Validation...
 
-  Average test loss: 0.58
+  Average test loss: 0.51
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
-           0       0.83      1.00      0.90        19
-           1       1.00      0.50      0.67         8
+           0       0.86      0.95      0.90        19
+           1       0.83      0.62      0.71         8
 
     accuracy                           0.85        27
-   macro avg       0.91      0.75      0.79        27
-weighted avg       0.88      0.85      0.83        27
+   macro avg       0.85      0.79      0.81        27
+weighted avg       0.85      0.85      0.84        27
 
 
 ======== Epoch 13 / 16 ========
@@ -264,16 +264,16 @@ Training...
 
 Running Validation...
 
-  Average test loss: 0.52
+  Average test loss: 0.51
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
-           0       0.83      1.00      0.90        19
-           1       1.00      0.50      0.67         8
+           0       0.86      1.00      0.93        19
+           1       1.00      0.62      0.77         8
 
-    accuracy                           0.85        27
-   macro avg       0.91      0.75      0.79        27
-weighted avg       0.88      0.85      0.83        27
+    accuracy                           0.89        27
+   macro avg       0.93      0.81      0.85        27
+weighted avg       0.90      0.89      0.88        27
 
 
 ======== Epoch 14 / 16 ========

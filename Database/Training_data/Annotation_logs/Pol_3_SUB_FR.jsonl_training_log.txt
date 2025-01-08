@@ -84,7 +84,7 @@ Training...
 
 Running Validation...
 
-  Average test loss: 0.32
+  Average test loss: 0.31
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
@@ -99,7 +99,7 @@ weighted avg       0.88      0.94      0.91        48
 ======== Epoch 5 / 5 ========
 Training...
 
-  Average training loss: 0.28
+  Average training loss: 0.27
   Training took: 0:00:04
 
 Running Validation...

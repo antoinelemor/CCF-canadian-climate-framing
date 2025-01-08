@@ -50,12 +50,12 @@ Running Validation...
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
-           0       0.91      0.93      0.92        96
-           1       0.84      0.80      0.82        46
+           0       0.90      0.93      0.91        96
+           1       0.84      0.78      0.81        46
 
-    accuracy                           0.89       142
-   macro avg       0.87      0.87      0.87       142
-weighted avg       0.89      0.89      0.89       142
+    accuracy                           0.88       142
+   macro avg       0.87      0.85      0.86       142
+weighted avg       0.88      0.88      0.88       142
 
 
 Training complete!

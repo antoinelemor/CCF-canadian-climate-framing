@@ -40,7 +40,7 @@ weighted avg       0.56      0.75      0.64        32
 Training...
 
   Average training loss: 0.44
-  Training took: 0:00:03
+  Training took: 0:00:04
 
 Running Validation...
 

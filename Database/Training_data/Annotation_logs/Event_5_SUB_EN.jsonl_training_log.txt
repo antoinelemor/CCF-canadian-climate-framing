@@ -20,7 +20,7 @@ Saving model to (relative path): Event_5_SUB_EN.jsonl.model
 Training...
 
   Average training loss: 0.51
-  Training took: 0:00:03
+  Training took: 0:00:04
 
 Running Validation...
 
@@ -80,7 +80,7 @@ weighted avg       0.67      0.82      0.74        33
 Training...
 
   Average training loss: 0.27
-  Training took: 0:00:04
+  Training took: 0:00:03
 
 Running Validation...
 

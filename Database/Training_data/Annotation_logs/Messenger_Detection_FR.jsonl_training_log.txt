@@ -18,19 +18,19 @@ Saving model to (relative path): Messenger_Detection_FR.jsonl.model
 
 ======== Epoch 1 / 5 ========
 Training...
-  Batch    40  of     45.    Elapsed: 0:00:18.
+  Batch    40  of     45.    Elapsed: 0:00:17.
 
   Average training loss: 0.49
   Training took: 0:00:19
 
 Running Validation...
 
-  Average test loss: 0.29
+  Average test loss: 0.30
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
-           0       0.88      0.92      0.90        75
-           1       0.92      0.89      0.91        81
+           0       0.90      0.88      0.89        75
+           1       0.89      0.91      0.90        81
 
     accuracy                           0.90       156
    macro avg       0.90      0.90      0.90       156
@@ -41,21 +41,21 @@ weighted avg       0.90      0.90      0.90       156
 Training...
   Batch    40  of     45.    Elapsed: 0:00:17.
 
-  Average training loss: 0.28
+  Average training loss: 0.25
   Training took: 0:00:19
 
 Running Validation...
 
-  Average test loss: 0.28
+  Average test loss: 0.33
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
-           0       0.91      0.92      0.91        75
-           1       0.93      0.91      0.92        81
+           0       0.85      0.96      0.90        75
+           1       0.96      0.84      0.89        81
 
-    accuracy                           0.92       156
-   macro avg       0.92      0.92      0.92       156
-weighted avg       0.92      0.92      0.92       156
+    accuracy                           0.90       156
+   macro avg       0.90      0.90      0.90       156
+weighted avg       0.90      0.90      0.90       156
 
 
 ======== Epoch 3 / 5 ========
@@ -83,21 +83,21 @@ weighted avg       0.90      0.90      0.90       156
 Training...
   Batch    40  of     45.    Elapsed: 0:00:17.
 
-  Average training loss: 0.13
+  Average training loss: 0.11
   Training took: 0:00:19
 
 Running Validation...
 
-  Average test loss: 0.31
+  Average test loss: 0.38
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
-           0       0.91      0.92      0.91        75
-           1       0.93      0.91      0.92        81
+           0       0.89      0.91      0.90        75
+           1       0.91      0.90      0.91        81
 
-    accuracy                           0.92       156
-   macro avg       0.92      0.92      0.92       156
-weighted avg       0.92      0.92      0.92       156
+    accuracy                           0.90       156
+   macro avg       0.90      0.90      0.90       156
+weighted avg       0.90      0.90      0.90       156
 
 
 ======== Epoch 5 / 5 ========
@@ -109,12 +109,12 @@ Training...
 
 Running Validation...
 
-  Average test loss: 0.33
+  Average test loss: 0.39
   Validation took: 0:00:00
               precision    recall  f1-score   support
 
-           0       0.89      0.91      0.90        75
-           1       0.91      0.90      0.91        81
+           0       0.90      0.88      0.89        75
+           1       0.89      0.91      0.90        81
 
     accuracy                           0.90       156
    macro avg       0.90      0.90      0.90       156

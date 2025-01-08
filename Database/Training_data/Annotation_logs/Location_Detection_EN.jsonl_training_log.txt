@@ -18,7 +18,7 @@ Saving model to (relative path): Location_Detection_EN.jsonl.model
 
 ======== Epoch 1 / 1 ========
 Training...
-  Batch    40  of     41.    Elapsed: 0:00:14.
+  Batch    40  of     41.    Elapsed: 0:00:13.
 
   Average training loss: 0.46
   Training took: 0:00:14
