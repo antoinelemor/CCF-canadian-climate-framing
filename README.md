@@ -8,29 +8,11 @@ Welcome to the **CCF-canadian-climate-framing** repository. This project is dedi
 
 This repository includes a newly compiled database of climate change articles from 20 major Canadian newspapers (_non available in plain text at this time for copyright reasons_). The table and figure below shows the distribution of articles per newspaper (_after filtering and preprocessing_).
 
-| Media                     | Number of Articles |
-|---------------------------|--------------------:|
-| Toronto Star              | 2523              |
-| Globe and Mail            | 1588              |
-| Vancouver Sun             | 1456              |
-| Edmonton Journal          | 1179              |
-| Le Devoir                 | 1026              |
-| National Post             | 1005              |
-| Calgary Herald            | 1003              |
-| Whitehorse Daily Star     | 970               |
-| Montreal Gazette          | 900               |
-| Chronicle Herald          | 866               |
-| The Telegram              | 706               |
-| Times Colonist            | 652               |
-| La Presse Plus            | 641               |
-| La Presse                 | 596               |
-| Winnipeg Free Press       | 451               |
-| Acadie Nouvelle           | 420               |
-| Star Phoenix              | 342               |
-| Le Droit                  | 332               |
-| Toronto Sun               | 262               |
-| Journal de Montreal       | 222               |
-| **Total**                 | **17140**         |
+Voici le tableau inversé avec les journaux en première ligne :
+
+| Toronto Star | Globe and Mail | Vancouver Sun | Edmonton Journal | Le Devoir | National Post | Calgary Herald | Whitehorse Daily Star | Montreal Gazette | Chronicle Herald | The Telegram | Times Colonist | La Presse Plus | La Presse | Winnipeg Free Press | Acadie Nouvelle | Star Phoenix | Le Droit | Toronto Sun | Journal de Montreal | **Total** |
+|--------------|----------------|---------------|------------------|-----------|---------------|----------------|-----------------------|------------------|------------------|--------------|----------------|----------------|----------|----------------------|-----------------|--------------|----------|-------------|---------------------|-----------|
+| 2523         | 1588           | 1456          | 1179             | 1026      | 1005          | 1003           | 970                   | 900              | 866              | 706          | 652            | 641            | 596      | 451                  | 420             | 342          | 332      | 262         | 222                 | **17140** |
 
 ![Number of Articles Per Year](Database/Database/articles_per_year.png)
 
