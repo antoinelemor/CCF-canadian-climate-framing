@@ -6,9 +6,8 @@ Welcome to the **CCF-canadian-climate-framing** repository. This project is dedi
 
 ### The database
 
-This repository includes a newly compiled database of climate change articles from 20 major Canadian newspapers (_non available in plain text at this time for copyright reasons_). The table and figure below shows the distribution of articles per newspaper (_after filtering and preprocessing_).
+This repository includes a newly compiled database of climate change articles from 20 major Canadian newspapers (n=17,140) (_non available in plain text at this time for copyright reasons_). The table and figure below shows the distribution of articles per newspaper (_after filtering and preprocessing_).
 
-Voici le tableau inversé avec les journaux en première ligne :
 
 | Toronto Star | Globe and Mail | Vancouver Sun | Edmonton Journal | Le Devoir | National Post | Calgary Herald | Whitehorse Daily Star | Montreal Gazette | Chronicle Herald | The Telegram | Times Colonist | La Presse Plus | La Presse | Winnipeg Free Press | Acadie Nouvelle | Star Phoenix | Le Droit | Toronto Sun | Journal de Montreal | **Total** |
 |--------------|----------------|---------------|------------------|-----------|---------------|----------------|-----------------------|------------------|------------------|--------------|----------------|----------------|----------|----------------------|-----------------|--------------|----------|-------------|---------------------|-----------|
