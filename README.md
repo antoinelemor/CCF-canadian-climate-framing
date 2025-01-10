@@ -34,6 +34,12 @@ This repository includes a newly compiled database of climate change articles fr
 
 ![Number of Articles Per Year](Database/Database/articles_per_year.png)
 
+### Example of analysis
+
+Below is an illustrative example of the analyses conducted in this project. The animated GIF shows how the **dominant climate-change frame** evolves from year to year across Canadian provinces. For each article, the proportion of sentences mentioning a given frame is calculated; the frame with the highest average proportion in each province for each year is designated as the **dominant frame**. Gray-hatched provinces indicate insufficient data for that year.
+
+![Yearly Dominant Frames by Province](Database/Database/dominant_frames_yearly.gif)
+
 ## Table of Contents
 - [Introduction](#introduction)
 - [Members of the Project](#members-of-the-project)
