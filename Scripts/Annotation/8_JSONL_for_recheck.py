@@ -5,7 +5,7 @@ CCF-Canadian-Climate-Framing
 
 TITLE:
 ------
-7_Produce_JSON_for_Recheck.py
+8_Produce_JSON_for_Recheck.py
 
 MAIN OBJECTIVE:
 -------------------
@@ -27,16 +27,20 @@ MAIN FEATURES:
 1) Reads the annotated database (e.g., CCF.media_processed_texts_annotated.csv).
 2) Detects and filters out sentences already used in previous manual 
    annotations (sentences_to_annotate_EN.jsonl, sentences_to_annotate_FR.jsonl).
-3) Randomly selects with oversampling (or "weighting") 
-   of underrepresented categories to ensure a more equitable coverage of all classes 
-   (detection, sub, etc.).
-4) Maintains a 50/50 distribution between English and French languages.
+3) Randomly selects with oversampling (or "weighting") **each** underrepresented 
+   category to ensure a more equitable coverage of all classes (detection, sub, etc.).
+4) Ensures a strict 50/50 distribution between English and French, 
+   to reach exactly NB_SENTENCES_TOTAL = 1000 sentences total 
+   (500 EN + 500 FR), if enough data is available in each language subset.
+   If a category has fewer than 10 total positive rows in the entire CSV, 
+   include all those rows in the final sample (for both EN and FR subsets)
 5) Produces a multilingual JSONL file where each entry contains:
    - "text": the sentence itself,
    - "label": the list of active categories (==1) for that sentence,
-   - "meta": a dictionary containing all article metadata 
-             (e.g., title, source, date, etc.).
-         
+   - "meta": a dictionary containing all article metadata (e.g., title, source, date, etc.).
+6) Prints out the proportion of underrepresented categories 
+   and the proportion of all categories in the final JSONL sample.
+
 Author : 
 --------
 Antoine Lemor
@@ -67,13 +71,26 @@ MANUAL_ANNOTATIONS_DIR = os.path.join(
 MANUAL_ANNOTATIONS_EN = os.path.join(MANUAL_ANNOTATIONS_DIR, "sentences_to_annotate_EN.jsonl")
 MANUAL_ANNOTATIONS_FR = os.path.join(MANUAL_ANNOTATIONS_DIR, "sentences_to_annotate_FR.jsonl")
 
-# Output file (a single multilingual JSONL, 50/50 EN/FR)
+# Output file (a single multilingual JSONL, strictly 50/50 EN/FR if possible)
 OUTPUT_JSONL = os.path.join(
     MANUAL_ANNOTATIONS_DIR, "sentences_to_recheck_multiling.jsonl"
 )
 
 # Total number of sentences to annotate (adjustable)
-NB_SENTENCES_TOTAL = 1000  # 200 EN + 200 FR, for example
+NB_SENTENCES_TOTAL = 1000  # ideally 500 EN + 500 FR if data allows
+
+# For categories that are underrepresented but have >=10 rows in a given language,
+# we sample up to this number from that category. 
+PER_CAT_LIMIT = 50
+
+# If a category has fewer than this many positive rows overall, we consider it 
+# underrepresented. (Adjust as needed.)
+UNDERREP_THRESHOLD = 5000
+
+# If a category has fewer than MIN_POSITIVE_THRESHOLD (i.e., <10) positives 
+# in the entire dataset, we include *all* of them unconditionally. 
+# This requirement overrides the half-of-n_target logic.
+MIN_POSITIVE_THRESHOLD = 10
 
 
 ##############################################################################
@@ -82,7 +99,7 @@ NB_SENTENCES_TOTAL = 1000  # 200 EN + 200 FR, for example
 def load_already_annotated_texts(jsonl_path):
     """
     Loads a JSONL file previously used for manual annotations
-    and returns the set of 'text' (sentences) it contains, 
+    and returns the set of 'text' (sentences) it contains,
     to exclude them.
     """
     if not os.path.exists(jsonl_path):
@@ -105,18 +122,21 @@ def load_already_annotated_texts(jsonl_path):
 
 def identify_annotation_columns(df):
     """
-    Identifies the columns corresponding to annotation categories.
-    Typically, we can take all binary columns (0/1) 
-    excluding clearly metadata columns (e.g., 'language', 'sentences', etc.).
-    Adjust as per the actual CSV structure.
+    Identifies columns corresponding to annotation categories (binary 0/1),
+    excluding metadata columns like 'language', 'sentences', 'doc_ID', etc.
+    Adjust this set as needed based on the CSV structure.
     """
-    excluded_cols = {"language", "sentences", "id_article", "Unnamed: 0"}
+    excluded_cols = {
+        "language", "sentences", "id_article", "Unnamed: 0",
+        "doc_ID", "sentence_id", "words_count_updated", "words_count"
+    }
+
     annotation_cols = []
     for col in df.columns:
         if col in excluded_cols:
             continue
-        # Check if the content is 0/1 or NaN/1, etc.
-        # Simple heuristic: numeric type + at least one '1' in it
+        # We'll do a numeric cast step below, but let's see if pandas 
+        # already recognizes it as numeric
         if pd.api.types.is_numeric_dtype(df[col]):
             nb_ones = df[col].sum(skipna=True)
             if nb_ones > 0:
@@ -141,51 +161,167 @@ def get_underrepresented_categories(df, annotation_cols, threshold=50):
 
 def build_doccano_jsonl_entry(row, annotation_cols):
     """
-    Constructs a Doccano-compliant JSONL entry.
-    - "text": the sentence itself,
-    - "label": the list of active categories (==1) for that sentence,
-    - "meta": a dictionary containing all article metadata
-               (e.g., title, source, date, etc.).
-               Fields corresponding to non-positive annotations are excluded.
-               NaN values are replaced with null.
+    Constructs a Doccano-compliant JSONL entry:
+      - "text": the sentence itself,
+      - "label": the list of active categories (==1) for that sentence,
+      - "meta": a dictionary of non-annotation metadata columns.
     """
     text = row["sentences"]
 
-    # 1) Identify positive labels
-    active_labels = [col for col in annotation_cols if pd.notna(row[col]) and row[col] == 1]
+    # Identify positive labels
+    active_labels = []
+    for col in annotation_cols:
+        val = row[col]
+        # We cast to int previously, so val==1 suffices
+        if pd.notna(val) and val == 1:
+            active_labels.append(col)
 
-    # 2) Build the meta dictionary excluding annotations
+    # Build metadata dictionary
     meta = {}
     for col in row.index:
-        if col == "sentences":
+        # Exclude text column and annotation columns
+        if col == "sentences" or col in annotation_cols:
             continue
-        if col in annotation_cols:
-            continue
-        value = row[col]
         # Replace NaN with None
+        value = row[col]
         if isinstance(value, float) and math.isnan(value):
             meta[col] = None
         else:
             meta[col] = value
 
-    # 3) Validate JSON serialization
+    # Validate JSON serialization
     try:
-        json.dumps(meta)  # Check that 'meta' is serializable
+        json.dumps(meta)
     except (TypeError, ValueError) as e:
         print(f"[ERROR] Meta not serializable for text: {text}\nError: {e}")
-        meta = None  # Or handle otherwise as needed
+        meta = None
 
-    # 4) Build the JSON entry
-    entry = {
+    return {
         "text": text,
         "label": active_labels,
         "meta": meta
     }
-    return entry
 
 
 ##############################################################################
-#                    C. MAIN GENERATION FUNCTION
+#    C. SAMPLING FUNCTION (PER-LANGUAGE) WITH GUARANTEED COVERAGE
+##############################################################################
+def sample_language_subset_with_guaranteed_coverage(
+    df_lang,
+    annotation_cols,
+    n_target,
+    under_cat,
+    per_cat_limit=PER_CAT_LIMIT,
+    random_state=42,
+    min_positive_threshold=MIN_POSITIVE_THRESHOLD
+):
+    """
+    Samples exactly n_target rows from df_lang, ensuring each underrepresented
+    category is included. Specifically:
+
+    1) For each category in under_cat, we find df_cat = rows with cat==1.
+       - If df_cat has < min_positive_threshold (e.g. <10) rows in the entire DB,
+         we take them **all** (since the user wants to keep every instance 
+         of extremely rare categories).
+       - Else, we sample up to 'per_cat_limit' from df_cat. 
+         (e.g., if per_cat_limit=50, we sample up to 50 rows for that cat.)
+    2) We union all these sets (so we have guaranteed coverage of each cat).
+    3) If the union alone is bigger than n_target//2, we downsample it
+       to n_target//2, but we **never** remove the extremely rare categories 
+       that have < min_positive_threshold. We only remove the "larger" cat 
+       rows if needed.
+    4) We then fill the remainder from the rest of df_lang (the "normal" rows
+       not in the union). This ensures we reach n_target total, or fewer if
+       df_lang is too small.
+
+    This approach ensures that if a category has fewer than min_positive_threshold 
+    positives, all of them are included and can't be dropped by half-of-n_target 
+    logic, guaranteeing they appear in the final sample.
+
+    Returns a DataFrame with up to n_target rows from df_lang.
+    """
+    if len(df_lang) == 0 or n_target <= 0:
+        return df_lang.head(0)  # empty
+
+    # 1) Collect rows for each underrepresented category individually
+    cat_dfs_for_union = []
+    half_limit = n_target // 2
+    # We'll track separate sets for "extremely rare categories" (below threshold) 
+    # vs. "normal underrepresented" (above min_positive_threshold).
+    extremely_rare_rows = []
+
+    for cat in under_cat:
+        if cat not in df_lang.columns:
+            continue
+
+        df_cat = df_lang[df_lang[cat] == 1]
+        cat_total = len(df_cat)
+
+        # If there are no rows for that cat in this language subset, skip
+        if cat_total == 0:
+            continue
+
+        # If cat_total < min_positive_threshold, we take them all unconditionally
+        if cat_total < min_positive_threshold:
+            extremely_rare_rows.append(df_cat)
+        else:
+            # Otherwise, sample up to per_cat_limit
+            if cat_total > per_cat_limit:
+                df_cat_sample = df_cat.sample(per_cat_limit, random_state=random_state)
+            else:
+                df_cat_sample = df_cat
+            cat_dfs_for_union.append(df_cat_sample)
+
+    # Combine extremely rare categories first (they are forced in full)
+    df_extremely_rare = pd.concat(extremely_rare_rows, axis=0).drop_duplicates()
+
+    # Combine normal under-cat samples
+    df_normal_under = pd.concat(cat_dfs_for_union, axis=0).drop_duplicates()
+
+    # Union them
+    df_union_under = pd.concat([df_extremely_rare, df_normal_under], axis=0).drop_duplicates()
+
+    # 2) If union alone is bigger than n_target//2, we downsample 
+    #    only from df_normal_under, to avoid removing extremely rare categories
+    #    that must be included in full. 
+    union_size = len(df_union_under)
+    if union_size > half_limit:
+        # We must see how many we can keep from normal under-cat
+        # Keep all extremely rare rows; only reduce the normal under-cat part
+        forced_rare_count = len(df_extremely_rare.drop_duplicates())
+
+        # The remaining capacity for "normal under-cat" after forced rare
+        # is half_limit - forced_rare_count
+        capacity_for_normal = half_limit - forced_rare_count
+        if capacity_for_normal < 0:
+            capacity_for_normal = 0  # if extremely rare alone surpasses half-limit
+
+        # Now downsample df_normal_under to that capacity
+        if capacity_for_normal < len(df_normal_under):
+            df_normal_under = df_normal_under.sample(capacity_for_normal, random_state=random_state)
+
+        # Rebuild the union
+        df_union_under = pd.concat([df_extremely_rare, df_normal_under], axis=0).drop_duplicates()
+
+    # 3) Fill the remainder from the "normal" part of df_lang
+    #    i.e. rows not in df_union_under
+    df_lang_rest = df_lang.drop(df_union_under.index, errors="ignore")
+    remainder_needed = n_target - len(df_union_under)
+    if remainder_needed < 0:
+        remainder_needed = 0
+
+    if len(df_lang_rest) > remainder_needed:
+        df_lang_rest = df_lang_rest.sample(remainder_needed, random_state=random_state)
+
+    # Combine final result
+    df_result = pd.concat([df_union_under, df_lang_rest], axis=0).drop_duplicates()
+    # Shuffle
+    df_result = df_result.sample(frac=1.0, random_state=random_state).reset_index(drop=True)
+    return df_result
+
+
+##############################################################################
+#                    D. MAIN GENERATION FUNCTION
 ##############################################################################
 def main():
     # ----------------------------------------------------------------------
@@ -205,6 +341,12 @@ def main():
     print(f"[INFO] Detected annotation columns: {annotation_cols}")
 
     # ----------------------------------------------------------------------
+    # 2.1) Convert annotation columns to numeric so that '1' or '1.0' 
+    #      are recognized as integer 1
+    for col in annotation_cols:
+        df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0).astype(int)
+
+    # ----------------------------------------------------------------------
     # 3) Exclude sentences already manually annotated
     # ----------------------------------------------------------------------
     print("[INFO] Excluding sentences already manually annotated...")
@@ -221,99 +363,84 @@ def main():
     # ----------------------------------------------------------------------
     # 4) Identify underrepresented categories
     # ----------------------------------------------------------------------
-    # For example, we set a threshold of "threshold=50" (adjustable). 
-    # We can then oversample (or force the inclusion) 
-    # of a larger number of sentences from these categories.
-    under_cat = get_underrepresented_categories(df, annotation_cols, threshold=50)
-    print(f"[INFO] Underrepresented categories (less than 50 occurrences): {under_cat}")
+    # e.g., threshold=UNDERREP_THRESHOLD=5000 => categories with <5000 positives
+    under_cat = []
+    for col in annotation_cols:
+        nb_positives = df[col].sum(skipna=True)
+        if nb_positives < UNDERREP_THRESHOLD:
+            under_cat.append(col)
+    print(f"[INFO] Underrepresented categories (less than {UNDERREP_THRESHOLD} occurrences): {under_cat}")
 
     # ----------------------------------------------------------------------
-    # 5) Sample composition in two steps:
-    #    a) Oversample positive sentences for under_cat
-    #    b) Complete the rest to reach NB_SENTENCES_TOTAL, 
-    #       maintaining 50% EN and 50% FR
+    # 5) Build separate subsets for EN and FR
     # ----------------------------------------------------------------------
-
-    # a) Oversample underrepresented categories
-    #    We retrieve all sentences that have at least 
-    #    one underrepresented category = 1 (union).
-    #    Then, we can take a certain number at random.
-    df_under = df.copy()
-    mask_under = False
-    for cat in under_cat:
-        mask_under |= (df_under[cat] == 1)
-    df_candidates_under = df_under[mask_under]
-
-    # To avoid taking only underrepresented categories, we will limit 
-    # this selection if it is too large. For example, we can take 
-    # min(len(df_candidates_under), 200) if we want to limit to 200 
-    # (or a certain ratio).
-    random_under_limit = max(50, int(0.5 * NB_SENTENCES_TOTAL))  # 50% of the total, for example.
-    if len(df_candidates_under) > random_under_limit:
-        df_candidates_under = df_candidates_under.sample(random_under_limit, random_state=42)
-    # We now have a first set relatively oversampling the under_cat
-    # without exceeding half of the final target sample.
-
-    # b) Complete the sample (in addition to df_candidates_under) 
-    #    from the rest of the DF. 
-    #    We want NB_SENTENCES_TOTAL - len(df_candidates_under) sentences in total.
-    df_rest = df.drop(df_candidates_under.index, errors="ignore")
-    nb_rest_needed = NB_SENTENCES_TOTAL - len(df_candidates_under)
-    if nb_rest_needed < 0:
-        nb_rest_needed = 0
-
-    if len(df_rest) > nb_rest_needed:
-        df_rest = df_rest.sample(nb_rest_needed, random_state=42)
-
-    # c) Combine
-    df_final = pd.concat([df_candidates_under, df_rest], axis=0)
-    # Shuffle the set to avoid any particular order
-    df_final = df_final.sample(frac=1.0, random_state=42).reset_index(drop=True)
+    df_en = df[df["language"] == "EN"].copy()
+    df_fr = df[df["language"] == "FR"].copy()
 
     # ----------------------------------------------------------------------
-    # 6) Ensure a 50/50 EN/FR Split
-    #    - Strategy: Separate into two dataframes (EN and FR) and balance as 
-    #      close to 50/50 as possible, randomly.
+    # 6) We want NB_SENTENCES_TOTAL = 1000 => 500 EN + 500 FR
     # ----------------------------------------------------------------------
-    df_en = df_final[df_final["language"] == "EN"].copy()
-    df_fr = df_final[df_final["language"] == "FR"].copy()
+    half_target = NB_SENTENCES_TOTAL // 2  # 500
+    en_needed = half_target
+    fr_needed = half_target
 
-    # Maximum number per language: NB_SENTENCES_TOTAL // 2 (e.g., 200)
-    half_target = NB_SENTENCES_TOTAL // 2
+    print("[INFO] Sampling English subset with guaranteed coverage (and rare-cat inclusion)...")
+    sampled_en = sample_language_subset_with_guaranteed_coverage(
+        df_lang=df_en,
+        annotation_cols=annotation_cols,
+        n_target=en_needed,
+        under_cat=under_cat,
+        per_cat_limit=PER_CAT_LIMIT,   
+        random_state=42,
+        min_positive_threshold=MIN_POSITIVE_THRESHOLD
+    )
 
-    if len(df_en) > half_target:
-        df_en = df_en.sample(half_target, random_state=42)
-    if len(df_fr) > half_target:
-        df_fr = df_fr.sample(half_target, random_state=42)
+    print("[INFO] Sampling French subset with guaranteed coverage (and rare-cat inclusion)...")
+    sampled_fr = sample_language_subset_with_guaranteed_coverage(
+        df_lang=df_fr,
+        annotation_cols=annotation_cols,
+        n_target=fr_needed,
+        under_cat=under_cat,
+        per_cat_limit=PER_CAT_LIMIT,   
+        random_state=42,
+        min_positive_threshold=MIN_POSITIVE_THRESHOLD
+    )
 
-    # If one of the two is smaller than half_target, 
-    # we can take it in its entirety and adjust the other
-    final_en = len(df_en)
-    final_fr = len(df_fr)
-    # We can leave it as is if we want exactly NB_SENTENCES_TOTAL 
-    # or we can accept a slightly smaller total if one of the two 
-    # does not reach half_target.
-    # Here we choose flexibility: we take everything possible 
-    # up to 50/50. 
-    # => We readjust the other group to have the same size.
-    if final_en < half_target and final_en > 0:
-        # Reduce FR to the same number
-        df_fr = df_fr.sample(final_en, random_state=42)
-    elif final_fr < half_target and final_fr > 0:
-        # Reduce EN to the same number
-        df_en = df_en.sample(final_fr, random_state=42)
-
-    # Final reconstruction
-    df_final_balanced = pd.concat([df_en, df_fr], axis=0)
-    # Final shuffle
+    # Combine and shuffle
+    df_final_balanced = pd.concat([sampled_en, sampled_fr], axis=0)
     df_final_balanced = df_final_balanced.sample(frac=1.0, random_state=42).reset_index(drop=True)
 
-    print(f"[INFO] Final sample: {len(df_final_balanced)} rows.")
-    print(f"       -> EN: {(df_final_balanced['language'] == 'EN').sum()}")
-    print(f"       -> FR: {(df_final_balanced['language'] == 'FR').sum()}")
+    # ----------------------------------------------------------------------
+    # 7) Display final stats and proportions
+    # ----------------------------------------------------------------------
+    n_final = len(df_final_balanced)
+    print(f"[INFO] Final sample: {n_final} rows.")
+    n_en = (df_final_balanced["language"] == "EN").sum()
+    n_fr = (df_final_balanced["language"] == "FR").sum()
+    print(f"       -> EN: {n_en}")
+    print(f"       -> FR: {n_fr}")
+
+    # 7a) Show proportion of underrepresented categories in final sample
+    if under_cat:
+        print("[INFO] Proportions of underrepresented categories in final sample:")
+        for cat in under_cat:
+            if cat not in df_final_balanced.columns:
+                continue
+            cat_count = df_final_balanced[cat].sum()
+            cat_percent = (cat_count / n_final) * 100 if n_final > 0 else 0
+            print(f"    - {cat}: {cat_count} rows ({cat_percent:.2f}%)")
+
+    # 7b) Show proportion of *all* annotation categories in final sample
+    print("[INFO] Proportions of all annotation categories in final sample:")
+    for col in annotation_cols:
+        if col not in df_final_balanced.columns:
+            continue
+        count_pos = df_final_balanced[col].sum()
+        percent_pos = (count_pos / n_final) * 100 if n_final > 0 else 0
+        print(f"    - {col}: {count_pos} rows ({percent_pos:.2f}%)")
 
     # ----------------------------------------------------------------------
-    # 7) Produce the JSONL
+    # 8) Write the final multilingual JSONL
     # ----------------------------------------------------------------------
     print("[INFO] Writing the final multilingual JSONL...")
     with open(OUTPUT_JSONL, 'w', encoding='utf-8') as out_f:

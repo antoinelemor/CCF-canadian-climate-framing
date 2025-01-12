@@ -246,7 +246,7 @@ def predict_labels(
     device,
     output_col,
     error_csv_path,
-    batch_size=250
+    batch_size=25
 ):
     """
     This function annotates df[output_col] on the 'indices' rows using
@@ -394,7 +394,7 @@ def annotate_dataframe(df, model_dict, device, output_path, error_csv_path, metr
                 device=device,
                 output_col=cat_det,
                 error_csv_path=error_csv_path,
-                batch_size=250
+                batch_size=25
             )
             # Intermediate save
             df.to_csv(output_path, index=False)
@@ -454,7 +454,7 @@ def annotate_dataframe(df, model_dict, device, output_path, error_csv_path, metr
                 device=device,
                 output_col=cat_sub,
                 error_csv_path=error_csv_path,
-                batch_size=250
+                batch_size=25
             )
             df.to_csv(output_path, index=False)
 
@@ -495,7 +495,7 @@ def annotate_dataframe(df, model_dict, device, output_path, error_csv_path, metr
                 device=device,
                 output_col=cat_other,
                 error_csv_path=error_csv_path,
-                batch_size=250
+                batch_size=25
             )
             df.to_csv(output_path, index=False)
 
