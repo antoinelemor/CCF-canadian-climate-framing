@@ -266,7 +266,16 @@ Preprocess the media database CSV by loading data, generating sentence contexts,
 #### 2_JSONL.py
 
 **Purpose:**  
-[Content not provided. Please refer to the script for details.]
+This script loads processed text data from a CSV file, removes duplicates based on `doc_ID` and `sentence_id`, and produces separate JSONL files for French and English samples intended for manual annotation.
+
+**Key Features:**  
+- Loads a CSV file containing processed text data. 
+- Removes duplicates and updates specific date entries by `doc_ID`
+- Separates French and English sentences and randomly selects a subset for annotation
+- Produces JSONL files with detailed metadata.
+
+**Dependencies:**  
+`os`, `pandas`, `json`, `sklearn.utils.shuffle`  
 
 #### 3_Manual_annotations.py
 
