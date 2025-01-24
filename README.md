@@ -1,13 +1,15 @@
+```markdown
 # CCF-canadian-climate-framing
 
 ## Introduction
 
-Welcome to the **CCF-canadian-climate-framing** repository. This project is dedicated to studying the media covering of climate change in the Canadian press. This project aims to understand how climate change narratives are constructed and communicated to the public since the first media article published on the subject in 1988. This repository contains all the scripts, data processing tools, and machine learning models necessary for conducting this study.
+Welcome to the **CCF-canadian-climate-framing** repository. This project is dedicated to studying the media coverage of climate change in the Canadian press. It aims to understand how climate change narratives are constructed and communicated to the public since the first media article published on the subject in 1988. This repository contains all the scripts, data processing tools, and machine learning models necessary for conducting this study.
+
+![CCf_icone](CCF_icone.jpg)
 
 ### The database
 
-This repository includes a newly compiled database of climate change articles from 20 major Canadian newspapers (n=17,140) (_non available in plain text at this time for copyright reasons_). The table and figure below shows the distribution of articles per newspaper (_after filtering and preprocessing_).
-
+This repository includes a newly compiled database of climate change articles from 20 major Canadian newspapers (n=17,140) (_not available in plain text at this time for copyright reasons_). The table below shows the distribution of articles per newspaper (_after filtering and preprocessing_):
 
 | Toronto Star | Globe and Mail | Vancouver Sun | Edmonton Journal | Le Devoir | National Post | Calgary Herald | Whitehorse Daily Star | Montreal Gazette | Chronicle Herald | The Telegram | Times Colonist | La Presse Plus | La Presse | Winnipeg Free Press | Acadie Nouvelle | Star Phoenix | Le Droit | Toronto Sun | Journal de Montreal | **Total** |
 |--------------|----------------|---------------|------------------|-----------|---------------|----------------|-----------------------|------------------|------------------|--------------|----------------|----------------|----------|----------------------|-----------------|--------------|----------|-------------|---------------------|-----------|
@@ -21,7 +23,10 @@ Below is an illustrative example of the analyses conducted in this project. The 
 
 ![Yearly Dominant Frames by Province](Database/Database/dominant_frames_yearly.gif)
 
+---
+
 ## Table of Contents
+
 - [Introduction](#introduction)
 - [Members of the Project](#members-of-the-project)
 - [Project Objectives](#project-objectives)
@@ -39,11 +44,17 @@ Below is an illustrative example of the analyses conducted in this project. The 
     - [4_JSONL_for_training.py](#4_jsonl_for_trainingpy)
     - [5_Training.py](#5_trainingpy)
     - [5bis_Training_best_model.py](#5bis_training_best_modelpy)
+    - [5bis2_Personalised_retraining_model.py](#5bis2_personalised_retraining_modelpy)
     - [6_Compile_annotations_logs.py](#6_compile_annotations_logspy)
     - [7_Annotation.py](#7_annotationpy)
+    - [7bis_Annotation.py](#7bis_annotationpy)
     - [8_JSONL_for_Recheck.py](#8_jsonl_for_recheckpy)
+    - [8bis_JSONL_for_recheck.py](#8bis_jsonl_for_recheckpy)
+    - [9_Annotation_metrics.py](#9_annotation_metricspy)
 - [Dependencies](#dependencies)
 - [Contact](#contact)
+
+---
 
 ## Members of the Project
 
@@ -51,38 +62,46 @@ Below is an illustrative example of the analyses conducted in this project. The 
 - [**Antoine Lemor**, Université de Montréal](https://antoinelemor.github.io/)
 - [**Matthew Taylor**, Université de Montréal](https://www.chairedemocratie.com/fr/members/taylor-matthew/)
 
+---
 
 ## Project Objectives
 
 The primary objectives of this project are:
 
 1. **Data Collection and Preprocessing:** Gather media articles from Canadian press sources and preprocess the data for analysis.
-2. **Manual Annotatio and Model Training:** Manually annotate sentences within the articles to identify key elements and train machine learning models to automatically detect and classify these elements in the articles/
-3. **Evaluation and Refinement:** Evaluate models' performance, and ensure high accuracy in classifications.
+2. **Manual Annotation and Model Training:** Manually annotate sentences within the articles to identify key elements and train machine learning models to automatically detect and classify these elements in the articles.
+3. **Evaluation and Refinement:** Evaluate model performance, iteratively refine annotations, and ensure high accuracy in classifications.
+
+---
 
 ## Repository Structure
 
 ```
 CCF-Canadian-Climate-Framing/
-├── Data/
+├── Database/
 │   ├── Database/
-│   │   ├── Database/
-│   │   │   ├── CCF.media_database.csv _absent from the repository due to file size_
-│   │   │   └── CCF.media_processed_texts.csv _absent from the repository due to file size_
-│   │   │   └── CCF.media_processed_texts_annotated.csv _absent from the repository due to file size_
-│   │   │   └── Database_media_count.csv 
-│   │   └── Training_data/
-│   │       ├── manual_annotations_JSONL/ _excluded until our first publication_
-│   │       │   ├── Annotated_sentences.jsonl _excluded until our first publication_
-│   │       │   ├── label_config.json _excluded until our first publication_
-│   │       │   ├── sentences_to_annotate_EN.jsonl _excluded until our first publication_
-│   │       │   └── sentences_to_annotate_FR.jsonl _excluded until our first publication_
-│   │       ├── annotation_bases/ _excluded until our first publication_
-│   │       ├── Annotation_logs/
-│   │       └── training_database_metrics.csv _contain the distribution of all annotations by language and labels_
-│   │       └── model_metrics_summary_advanced.csv _contain the metrics of the best selected model_
-│   │       └── non_trained_models.csv _contain the non-trained model due to a lack of annotations_
-│   │       └── manual_annotations_metrics.csv _contain the distribution of instances among lables in the training and test databases_
+│   │   ├── CCF.media_database.csv _absent from the repository due to file size_
+│   │   ├── CCF.media_processed_texts.csv _absent from the repository due to file size_
+│   │   ├── CCF.media_processed_texts_annotated.csv _absent from the repository due to file size_
+│   │   ├── Database_media_count.csv
+│   │   └── articles_per_year.png
+│   └── Training_data/
+│       ├── manual_annotations_JSONL/ _excluded until our first publication_
+│       │   ├── Annotated_sentences.jsonl _excluded_
+│       │   ├── label_config.json _excluded_
+│       │   ├── sentences_to_annotate_EN.jsonl _excluded_
+│       │   ├── sentences_to_annotate_FR.jsonl _excluded_
+│       │   ├── sentences_to_recheck_multiling.jsonl _excluded_
+│       │   └── sentences_to_recheck_multiling_done.jsonl _excluded_
+│       ├── annotation_bases/ _excluded until our first publication_
+│       ├── Annotation_logs/
+│       ├── training_database_metrics.csv
+│       ├── models_metrics_summary_advanced.csv
+│       ├── non_trained_models.csv
+│       ├── manual_annotations_metrics.csv
+│       ├── sentences_annotation_error.csv
+│       ├── annotated_label_metrics.csv
+│       └── final_annotation_metrics.csv
 ├── Models/
 │   ├── _Sorted by label names (absent from the repository due to file size)_
 ├── Scripts/
@@ -96,17 +115,22 @@ CCF-Canadian-Climate-Framing/
 │       ├── 4_JSONL_for_training.py
 │       ├── 5_Training.py
 │       ├── 5bis_Training_best_model.py
+│       ├── 5bis2_Personalised_retraining_model.py
 │       ├── 6_Compile_annotations_logs.py
 │       ├── 7_Annotation.py
-│       └── 8_JSONL_for_Recheck.py
-├── 
+│       ├── 7bis_Annotation.py
+│       ├── 8_JSONL_for_Recheck.py
+│       ├── 8bis_JSONL_for_recheck.py
+│       └── 9_Annotation_metrics.py
+└── requirements.txt
 
 README.md
-
-└── requirements.txt
 ```
 
-**Note:** The `Database_creation` scripts are based on articles that have been scraped and aggregated (codes used for this purpose were not included in this repo) into various `.txt` files within the `Raw_data` folder. Due to copyright restrictions, the `Raw_data` folder is not currently available.
+**Note:**  
+The `Database_creation` scripts rely on articles that were originally scraped and aggregated into various `.txt` files in a `Raw_data` folder (not included here). Due to copyright restrictions, those raw files are not publicly available.
+
+---
 
 ## Installation
 
@@ -118,8 +142,8 @@ To set up the project locally, follow these steps:
    cd CCF-Canadian-Climate-Framing
    ```
 
-2. **Set Up a Virtual Environment**
-   It's recommended to use a virtual environment to manage dependencies.
+2. **Set Up a Virtual Environment**  
+   It's recommended to use a virtual environment to manage dependencies:
    ```bash
    python3 -m venv venv
    source venv/bin/activate
@@ -136,13 +160,15 @@ To set up the project locally, follow these steps:
    python -m spacy download en_core_web_lg
    ```
 
+---
+
 ## Usage
 
-The project is organized into several scripts, each responsible for different aspects of data processing and analysis. Below is an overview of how to use each script.
+The project is organized into several scripts, each responsible for different aspects of data processing, annotation, and model training. Below is an overview of how to use them.
 
 ### Database Creation Scripts
 
-These scripts are responsible for creating and cleaning the database from scraped articles. **Note:** The `Database_creation` scripts are based on articles that have been scraped and aggregated (codes used for this purpose were not included in this repo) into various `.txt` files within the `Raw_data` folder. Due to copyright restrictions, the `Raw_data` folder is not currently available.
+These scripts are responsible for creating and cleaning the database from scraped articles. Note that the raw data collection process is not part of this repository due to copyright restrictions.
 
 1. **Database Creation**
    ```bash
@@ -156,52 +182,76 @@ These scripts are responsible for creating and cleaning the database from scrape
 
 ### Annotation Scripts
 
-These scripts handle data preprocessing, manual annotations, model training, and annotation processes.
-
-1. **Preprocess Data**
+1. **Preprocess Data**  
    ```bash
    python Scripts/Annotation/1_Preprocess.py
    ```
 
-2. **Generate JSONL Files**
+2. **Generate JSONL Files**  
    ```bash
    python Scripts/Annotation/2_JSONL.py
    ```
 
-3. **Manual Annotations**
+3. **Manual Annotations**  
    ```bash
    python Scripts/Annotation/3_Manual_annotations.py
    ```
 
-4. **Prepare JSONL for Training**
+4. **Prepare JSONL for Training**  
    ```bash
    python Scripts/Annotation/4_JSONL_for_training.py
    ```
 
-5. **Train Models**
+5. **Train Models**  
    ```bash
    python Scripts/Annotation/5_Training.py
    ```
 
-6. **Train Best Models**
+6. **Train Best Models**  
    ```bash
    python Scripts/Annotation/5bis_Training_best_model.py
    ```
 
-7. **Compile Annotation Logs**
+7. **Personalised Retraining for a Single Model**  
+   ```bash
+   python Scripts/Annotation/5bis2_Personalised_retraining_model.py
+   ```
+   Allows you to specifically retrain one model with custom epoch settings without re-training all models.
+
+8. **Compile Annotation Logs**  
    ```bash
    python Scripts/Annotation/6_Compile_annotations_logs.py
    ```
 
-8. **Annotation Process**
+9. **Annotation Process**  
    ```bash
    python Scripts/Annotation/7_Annotation.py
    ```
 
-9. **Generate JSONL for Rechecking**
+10. **Personalised Annotation of Selected Models**  
+    ```bash
+    python Scripts/Annotation/7bis_Annotation.py
+    ```
+    Enables selective re-annotation of the final database with one or more *retrained* models, clearing old labels for those models before applying fresh predictions.
+
+11. **Generate JSONL for Rechecking**  
     ```bash
     python Scripts/Annotation/8_JSONL_for_Recheck.py
     ```
+
+12. **Re-generate JSONL to Compare Updated Annotations**  
+    ```bash
+    python Scripts/Annotation/8bis_JSONL_for_recheck.py
+    ```
+    Produces a JSONL containing the *same sentences* but with newly-updated annotations, facilitating comparison with previous annotation versions.
+
+13. **Final Annotation Metrics**  
+    ```bash
+    python Scripts/Annotation/9_Annotation_metrics.py
+    ```
+    Compares predicted labels to manually verified labels to compute precision, recall, and F1-scores for each category (in both English and French). Outputs results in `final_annotation_metrics.csv`.
+
+---
 
 ## Scripts Overview
 
@@ -210,16 +260,13 @@ These scripts handle data preprocessing, manual annotations, model training, and
 #### 1_Database_Creation.py
 
 **Purpose:**  
-Creates a unified media database by aggregating articles from various Canadian press sources. This script reads cleaned article data from multiple CSV files, maps media codes to their full names, and consolidates the data into a single CSV file.
+Creates a unified media database by aggregating articles from various Canadian press sources into a single CSV file.
 
 **Key Features:**
-- Defines paths to raw article CSV files from different media outlets.
-- Maps media codes to their full media names.
-- Reads each CSV file into a pandas DataFrame and assigns the corresponding media name.
-- Combines all DataFrames into a single consolidated DataFrame.
-- Renames columns to standardized names.
-- Assigns language labels based on media sources.
-- Saves the combined database to `CCF.media_database.csv`.
+- Defines paths to raw article data from multiple CSVs.
+- Maps media codes to their full names.
+- Combines all DataFrames into a consolidated database.
+- Standardizes column names and language labels.
 
 **Dependencies:**  
 `pandas`, `re`, `unidecode`, `pathlib`
@@ -227,114 +274,107 @@ Creates a unified media database by aggregating articles from various Canadian p
 #### 2_Clean_and_Create_Database.py
 
 **Purpose:**  
-Cleans the combined media database by standardizing date formats, removing irrelevant entries, and ensuring data consistency. The script also exports metrics related to the number of articles per media outlet.
+Cleans and filters the combined media database.
 
 **Key Features:**
-- Identifies different date formats present in the dataset.
-- Standardizes date formats to `MM/DD/YYYY`.
-- Removes articles with less than 100 words.
-- Drops the `URL` column.
-- Filters out duplicate or highly similar titles to maintain data quality.
-- Cleans the `author` column by removing unwanted text.
-- Assigns language labels based on media sources.
-- Saves the cleaned database and exports the count of articles per media.
+- Standardizes date formats.
+- Removes short/duplicate articles.
+- Assigns language based on media source.
+- Saves final cleaned CSV with summary metrics.
 
 **Dependencies:**  
-`pandas`, `re`, `datetime`, `locale`, `pathlib`, `collections`
-
-**Note:**  
-These scripts utilize articles that were scraped and compiled into various `.txt` files within the `Raw_data` folder. Due to copyright restrictions,
-the `Raw_data` folder is not currently available.
+`pandas`, `re`, `datetime`, `pathlib`
 
 ### Annotation Scripts
 
 #### 1_Preprocess.py
 
 **Purpose:**  
-Preprocess the media database CSV by loading data, generating sentence contexts, counting words, converting and verifying date formats, and saving the processed data.
+Preprocesses the media database CSV by generating sentence contexts and verifying date formats.
 
 **Key Features:**
-- Loads and preprocesses CSV data.
-- Tokenizes text into two-sentence contexts.
+- Splits texts into two-sentence contexts.
 - Counts words and updates relevant columns.
-- Validates and standardizes date formats.
-- Saves processed data into a new CSV file.
+- Saves processed data to a new CSV.
 
 **Dependencies:**  
-`os`, `pandas`, `spacy`, `datetime`, `locale`
+`os`, `pandas`, `spacy`
 
 #### 2_JSONL.py
 
 **Purpose:**  
-This script loads processed text data from a CSV file, removes duplicates based on `doc_ID` and `sentence_id`, and produces separate JSONL files for French and English samples intended for manual annotation.
+Converts processed text data into JSONL files for manual annotation, separating French and English sentences.
 
 **Key Features:**  
-- Loads a CSV file containing processed text data. 
-- Removes duplicates and updates specific date entries by `doc_ID`
-- Separates French and English sentences and randomly selects a subset for annotation
-- Produces JSONL files with detailed metadata.
+- Loads and cleans CSV data.
+- Removes duplicates.
+- Splits data by language.
+- Creates JSONL with metadata fields.
 
 **Dependencies:**  
-`os`, `pandas`, `json`, `sklearn.utils.shuffle`  
+`os`, `pandas`, `json`
 
 #### 3_Manual_annotations.py
 
 **Purpose:**  
-Processes manual annotations from a JSONL file, counts label usage, and exports annotation metrics (counts and proportions) per language to a CSV file.
+Reads manual annotations from a JSONL file, counts label usage, and exports annotation metrics.
 
 **Key Features:**
-- Reads and parses manual annotations from a JSONL file.
-- Counts label usage for English and French sentences.
-- Calculates proportions of each label usage.
-- Exports the results to a CSV file for further analysis.
+- Calculates label usage distribution.
+- Outputs CSV with label proportions.
 
 **Dependencies:**  
-`json`, `csv`, `os`, `collections`, `defaultdict`
+`json`, `csv`, `os`
 
 #### 4_JSONL_for_training.py
 
 **Purpose:**  
-Processes manually annotated JSONL sentences, splits them into training and validation sets, and exports them as separate JSONL files for subsequent model training.
+Prepares manually annotated JSONL data for training/validation splits.
 
 **Key Features:**
-- Loads label configuration to determine main and sub-labels.
-- Creates directory structures for training and validation outputs.
-- Processes manually annotated lines from a JSONL file.
-- Handles main labels, sub-labels, and exception labels.
-- Ensures stratified splitting with a minimum presence of positive and negative samples.
-- Aggregates annotation counts per label, language, and data split.
-- Exports processed data and metrics.
+- Splits data into train/validation sets.
+- Handles stratification for main/sub labels.
+- Exports annotation metrics to a CSV.
 
 **Dependencies:**  
-`json`, `os`, `random`, `csv`, `collections.defaultdict`
+`json`, `os`, `random`, `csv`
 
 #### 5_Training.py
 
 **Purpose:**  
-Manages the training process for Camembert (French) and Bert (English) models by loading data, detecting necessary files, and orchestrating training routines.
+Trains Camembert and Bert models on prepared data.
 
 **Key Features:**
-- Detects model training status (fully trained, partially trained, not started).
-- Loads training and validation data from JSONL into pandas DataFrames.
-- Instantiates and trains appropriate models based on language.
-- Handles resumption of training in case of interruptions.
-- Logs training progress and outcomes.
-- Produces a CSV listing untrained models.
+- Detects model status (fully trained, partial, etc.).
+- Loads training/validation from JSONL.
+- Handles logging and resumption of training.
+- Outputs list of non-trained models if needed.
 
 **Dependencies:**  
-`os`, `json`, `sys`, `glob`, `shutil`, `pandas`, `torch`, `AugmentedSocialScientist (Camembert, Bert)`
+`os`, `json`, `sys`, `glob`, `shutil`, `pandas`, `torch`, `AugmentedSocialScientist`
 
 #### 5bis_Training_best_model.py
 
 **Purpose:**  
-Manages training processes for selecting the best-performing Camembert/Bert models using labeled data. It checks for completed or partial trainings, handles directories/logs, and summarizes trained/untrained models.
+Trains selected best models using advanced metrics from cross-validation.
 
 **Key Features:**
-- Detects available computing devices (CUDA/MPS/CPU).
-- Loads and manages training data.
-- Summarizes model training statuses.
-- Logs processes and handles directory structures.
-- Produces summaries of model performances.
+- Loads best epoch from `models_metrics_summary_advanced.csv`.
+- Summarizes fully trained/partial/not trained status.
+- Logs results and error handling.
+
+**Dependencies:**  
+`os`, `sys`, `glob`, `shutil`, `json`, `pandas`, `torch`, `AugmentedSocialScientist`
+
+#### 5bis2_Personalised_retraining_model.py
+
+**Purpose:**  
+Facilitates *selective retraining* of exactly one Camembert/Bert model without retraining all other models.
+
+**Key Features:**
+- Lists all models in the annotation bases.
+- Prompts user to select a single model and specify epoch count.
+- Retrains the chosen model from scratch, removing its previous directory.
 
 **Dependencies:**  
 `os`, `sys`, `glob`, `shutil`, `json`, `pandas`, `torch`, `AugmentedSocialScientist`
@@ -342,14 +382,12 @@ Manages training processes for selecting the best-performing Camembert/Bert mode
 #### 6_Compile_annotations_logs.py
 
 **Purpose:**  
-Compiles logs from annotation processes to evaluate and select the best-performing epochs based on various metrics.
+Compiles various logs from annotation/training sessions to identify best-performing epochs and aggregates metrics.
 
 **Key Features:**
-- Selects the best epoch using macro-F1, weighted-F1, and recall metrics.
-- Performs cross-validation with k-folds to aggregate metrics.
-- Calculates a final score for each epoch.
-- Handles tie-breaking using test and train loss.
-- Appends additional information to CSV outputs.
+- Merges logs from multiple training runs.
+- Identifies best epoch via macro/weighted F1.
+- Generates summary CSV outputs.
 
 **Dependencies:**  
 `pandas`, `re`, `os`, `numpy`
@@ -357,47 +395,107 @@ Compiles logs from annotation processes to evaluate and select the best-performi
 #### 7_Annotation.py
 
 **Purpose:**  
-Loads the annotated database and applies trained English and French models to annotate sentences. It supports saving and resuming progress to handle interruptions.
+Applies trained English and French models to annotate the main database, saving or resuming progress as needed.
 
 **Key Features:**
-- Loads annotated data.
-- Utilizes approximate string matching for suffix recognition.
-- Manages model loading and device allocation.
-- Predicts labels using trained models.
-- Saves annotations and handles interruptions gracefully.
+- Loads/updates existing annotation columns.
+- Performs annotation for detection, sub-categories, etc.
+- Logs and saves partial results to handle interruptions.
 
 **Dependencies:**  
-`transformers`, `tqdm`, `difflib`, `pandas`, `numpy`, `torch`
+`torch`, `tqdm`, `pandas`, `numpy`
+
+#### 7bis_Annotation.py
+
+**Purpose:**  
+Provides *selective re-annotation* of the main database using one or more retrained models, clearing old labels for those models before applying fresh predictions.
+
+**Key Features:**
+- Interactive menu to pick models for annotation.
+- Error logging for sentences exceeding token limits.
+- Updates distribution metrics in `annotated_label_metrics.csv`.
+
+**Dependencies:**  
+`os`, `glob`, `re`, `sys`, `pandas`, `numpy`, `torch`, `tqdm`, `AugmentedSocialScientist`
 
 #### 8_JSONL_for_Recheck.py
 
 **Purpose:**  
-Generates a new JSONL dataset for manual revalidation of annotations post-model processing, focusing on underrepresented categories to ensure quality across all scenarios.
+Builds a JSONL dataset focusing on underrepresented categories for manual revalidation.
 
 **Key Features:**
-- Reads annotated data and filters out previously annotated sentences.
-- Randomly selects samples with oversampling of underrepresented categories.
-- Maintains a balanced distribution between English and French languages.
-- Produces a multilingual JSONL file with necessary annotations and metadata.
+- Filters out previously annotated sentences.
+- Balances English/French distributions.
+- Oversamples rare labels.
+- Exports a final JSONL for manual checks.
 
 **Dependencies:**  
 `os`, `json`, `random`, `pandas`, `math`
 
+#### 8bis_JSONL_for_recheck.py
+
+**Purpose:**  
+Regenerates a JSONL (`sentences_to_recheck_multiling_bis.jsonl`) with the *same text sentences* from the original re-check file, but updates labels to reflect newly retrained models.
+
+**Key Features:**
+- Loads old JSONL to preserve exact text.
+- Gathers updated annotations from the latest CSV.
+- Produces a new JSONL with fresh labels for direct comparison.
+
+**Dependencies:**  
+`os`, `sys`, `json`, `pandas`, `numpy`
+
+#### 9_Annotation_metrics.py
+
+**Purpose:**  
+Compares predicted labels to manually verified labels in order to compute final precision, recall, and F1-scores for each category. Outputs the results to `final_annotation_metrics.csv`.
+
+**Key Features:**
+- Loads predicted vs. gold (manually verified) annotations.
+- Computes confusion stats (TP, FP, FN).
+- Derives precision, recall, F1 by label and language.
+- Exports final metrics to CSV.
+
+**Dependencies:**  
+`os`, `json`, `csv`, `pandas`, `math`, `collections`
+
+---
+
+## Additional Notice: Iterative Retraining & Comparison
+
+The scripts (`5bis2_Personalised_retraining_model.py`, `7bis_Annotation.py`, `8bis_JSONL_for_recheck.py`, and optionally `9_Annotation_metrics.py`) enable an **iterative process**:
+
+1. **Retrain specific models** to improve precision (`5bis2_Personalised_retraining_model.py`).  
+2. **Re-annotate** only those categories using the updated models (`7bis_Annotation.py`).  
+3. **Regenerate JSONL** files containing the *same sentences* but with new labels for **direct comparison** to previous annotations (`8bis_JSONL_for_recheck.py`).  
+4. Finally, **evaluate** updated model predictions against manually verified annotations (`9_Annotation_metrics.py`), producing comprehensive performance metrics in `Database/Training_data/final_annotation_metrics.csv`.
+
+This iterative workflow ensures continuous refinement of model accuracy and traceable comparisons between old and new annotations.
+
+---
+
 ## Dependencies
 
-Ensure you have the following dependencies installed (_requirements.txt might not contain all the needed dependencies_). You can install them using `pip`:
+Make sure you have the following Python packages installed. You can install them via:
 
 ```bash
 pip install -r requirements.txt
 ```
 
+The project may also require additional packages such as `torch`, `transformers`, `AugmentedSocialScientist`, and spaCy models (`en_core_web_lg`, `fr_dep_news_trf`). Refer to the script headers for detailed dependency listings.
+
+---
+
 ## Contact
 
 For any inquiries or feedback, please contact:
 
-- **Alizée Pillod**
-- Email : [alizee.pillod@umontreal.ca](mailto:alizee.pillod@umontreal.ca)
-- **Antoine Lemor**
-- Email: [antoine.lemor@umontreal.ca](mailto:antoine.lemor@umontreal.ca)
-- **Matthew Taylor**
-- Email : [matthew.taylor@umontreal.ca](mailto:matthew.taylor@umontreal.ca)
+- **Alizée Pillod**  
+  Email: [alizee.pillod@umontreal.ca](mailto:alizee.pillod@umontreal.ca)
+
+- **Antoine Lemor**  
+  Email: [antoine.lemor@umontreal.ca](mailto:antoine.lemor@umontreal.ca)
+
+- **Matthew Taylor**  
+  Email: [matthew.taylor@umontreal.ca](mailto:matthew.taylor@umontreal.ca)
+```

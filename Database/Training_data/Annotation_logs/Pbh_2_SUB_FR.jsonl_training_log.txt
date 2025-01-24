@@ -1,13 +1,11 @@
 [LOG] Logging started for Pbh_Detection in FR
 Data loaded successfully for label: Pbh_Detection, language: FR
 Training label distribution for Pbh_Detection in FR:
-label
 0    36
-Name: count, dtype: int64
+Name: label, dtype: int64
 Validation label distribution for Pbh_Detection in FR:
-label
 0    4
 1    1
-Name: count, dtype: int64
+Name: label, dtype: int64
 [SKIP] Training or validation data for Pbh_Detection in FR contain only 0s. Skipping.
 [INFO] Data contain only 0s.
