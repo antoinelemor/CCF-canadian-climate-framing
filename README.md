@@ -1,4 +1,3 @@
-```markdown
 # CCF-canadian-climate-framing
 
 ## Introduction
@@ -498,4 +497,3 @@ For any inquiries or feedback, please contact:
 
 - **Matthew Taylor**  
   Email: [matthew.taylor@umontreal.ca](mailto:matthew.taylor@umontreal.ca)
-```
