@@ -12,7 +12,7 @@ This repository includes a newly compiled database of climate change articles fr
 
 | Toronto Star | Globe and Mail | Vancouver Sun | Edmonton Journal | Le Devoir | National Post | Calgary Herald | Whitehorse Daily Star | Montreal Gazette | Chronicle Herald | The Telegram | Times Colonist | La Presse Plus | La Presse | Winnipeg Free Press | Acadie Nouvelle | Star Phoenix | Le Droit | Toronto Sun | Journal de Montreal | **Total** |
 |--------------|----------------|---------------|------------------|-----------|---------------|----------------|-----------------------|------------------|------------------|--------------|----------------|----------------|----------|----------------------|-----------------|--------------|----------|-------------|---------------------|-----------|
-| 46980         | 29442           | 17871          | 18162             | 13685      | 20032          | 19336           | 7603                   | 9567              | 10770              | 5841          | 11800            | 9548            | 6917      | 12421                  | 5143             | 7794          | 4727      | 3174         | 5458                 | **266 271** |
+| 46980         | 29442           | 17871          | 18162             | 13685      | 20032          | 19336           | 7603                   | 9567              | 10770              | 5841          | 11800            | 9548            | 6917      | 12421                  | 5143             | 7794          | 4727      | 3174         | 5458                 | **266271** |
 
 ![Number of Articles Per Year](Database/Database/articles_per_year.png)
 
