@@ -9,62 +9,64 @@ TITLE:
 
 MAIN OBJECTIVE:
 ---------------
-Preprocess the media database CSV by loading data, generating sentence contexts, 
-counting words, converting and verifying date formats, then saving the processed data.
+Preprocess the media database CSV by loading data, generating sentence contexts in parallel,
+and saving the processed data. No date conversion or word recounting is required this time.
 
 Dependencies:
 -------------
 - os
 - pandas
 - spacy
-- datetime
-- locale
+- tqdm
+- joblib
 
 MAIN FEATURES:
 -------------
 1) Load and preprocess CSV data.
-2) Tokenize text into 2-sentence contexts.
-3) Count words and update columns.
-4) Validate and convert dates to a standard format.
-5) Store processed data into a new CSV file.
+2) Remove any existing 'doc_id' and create a new one.
+3) Tokenize text into 2-sentence contexts in parallel.
+4) Store processed data into a new CSV file.
 
 Author:
 -------
 Antoine Lemor
 """
 
+# ----------------------------------------------------
 # Import necessary libraries
+# ----------------------------------------------------
 import os
 import pandas as pd
 import spacy
-from datetime import datetime
-import locale
+from tqdm import tqdm  # For progress bars
+from joblib import Parallel, delayed
 
-# Relative path to the folder containing the script
-script_dir = os.path.dirname(__file__)
-
-# Relative path to the CSV file in the Database folder
-csv_path = os.path.join(script_dir, '..', '..', 'Database', 'Database', 'CCF.media_database.csv')
-
-# Load spaCy models for English and French
-nlp_fr = spacy.load('fr_dep_news_trf')
-nlp_en = spacy.load('en_core_web_lg')
-
-def count_words(text):
+# ----------------------------------------------------
+# Instead of global spaCy model loading here,
+# we define a helper function to load models on demand
+# within each worker process.
+# ----------------------------------------------------
+def get_nlp(language):
     """
-    Count the number of words in the given text.
-
-    Parameters:
-    ----------
-    text : str
-        The text to be analyzed.
-
-    Returns:
-    -------
-    int
-        The number of words in the text.
+    Lazily load and return the spaCy model corresponding to the language.
+    This ensures that each worker process has its own instance, avoiding
+    shared read-only memory issues.
     """
-    return len(text.split())
+    global _nlp_models
+    try:
+        _nlp_models
+    except NameError:
+        _nlp_models = {}
+    
+    language = language.upper()
+    if language == 'FR':
+        if 'FR' not in _nlp_models:
+            _nlp_models['FR'] = spacy.load('fr_dep_news_trf')
+        return _nlp_models['FR']
+    else:
+        if 'EN' not in _nlp_models:
+            _nlp_models['EN'] = spacy.load('en_core_web_lg')
+        return _nlp_models['EN']
 
 def tokenize_and_context(text, language):
     """
@@ -82,7 +84,7 @@ def tokenize_and_context(text, language):
     list
         A list of sentence contexts with up to two sentences joined together.
     """
-    nlp = nlp_fr if language == 'FR' else nlp_en
+    nlp = get_nlp(language)  # Use the lazy-loaded model per process
     doc = nlp(text)
     sentences = [sent.text.strip() for sent in doc.sents]
     contexts = []
@@ -94,103 +96,148 @@ def tokenize_and_context(text, language):
             contexts.append(sentences[i])
     return contexts if contexts else ['']
 
-# Set locale for date formatting
-locale.setlocale(locale.LC_TIME, 'fr_FR' if os.name != 'nt' else 'French_France')
-
-def convert_date(date_str):
+def process_chunk(df_chunk, start_doc_id):
     """
-    Convert the provided date string to 'YYYY-MM-DD' format if possible.
+    Process a chunk of the DataFrame by:
+      - Assigning a new doc_id for each article.
+      - Tokenizing text into up to two-sentence contexts.
+      - Building a list of processed items.
 
     Parameters:
     ----------
-    date_str : str
-        The original date string.
+    df_chunk : pd.DataFrame
+        A slice of the main DataFrame.
+    start_doc_id : int
+        Starting document ID for this chunk to ensure unique IDs overall.
 
     Returns:
     -------
-    str
-        The converted date in 'YYYY-MM-DD' format, or 'date : not provided'.
+    list
+        A list of dictionaries containing processed rows (split by sentence contexts).
+    int
+        The last doc_id used (for chaining to next chunk).
     """
-    # List of possible date formats
-    date_formats = ['%Y-%m-%d', '%m/%d/%Y', '%d %b %Y', '%d %B %Y']
-    
-    for date_format in date_formats:
-        try:
-            date_obj = datetime.strptime(date_str, date_format)
-            return date_obj.strftime('%Y-%m-%d')
-        except ValueError:
-            continue
-    
-    print(f"Date format error: {date_str}")
-    return 'date : not provided'
+    processed_texts = []
+    current_doc_id = start_doc_id
 
-def verify_dates_format(dates):
+    for _, row in df_chunk.iterrows():
+        current_doc_id += 1  # Increment ID for each article
+        contexts = tokenize_and_context(row['text'], row['language'])
+
+        for sentence_id, context in enumerate(contexts):
+            processed_texts.append({
+                # New doc_id
+                'doc_id': current_doc_id,
+                'news_type': row['news_type'],
+                'title': row['title'],
+                'author': row['author'],
+                'media': row['media'] if pd.notna(row['media']) else 'media : not provided',
+                'words_count': row['words_count'],  # We keep the original words_count
+                'date': row['date'],
+                'language': row['language'],
+                'page_number': row['page_number'],
+                'sentences': context
+            })
+    
+    return processed_texts, current_doc_id
+
+def split_dataframe(df, n_splits):
     """
-    Verify that each date in the given series is correctly formatted as 'YYYY-MM-DD'.
+    Split a DataFrame into n_splits roughly equal chunks.
 
     Parameters:
     ----------
-    dates : pd.Series
-        A series containing date strings.
+    df : pd.DataFrame
+        The DataFrame to be split.
+    n_splits : int
+        Number of parts to split into.
 
     Returns:
     -------
-    bool
-        True if all dates match the correct format, otherwise False.
+    list of pd.DataFrame
+        A list of DataFrame chunks.
     """
-    for date in dates:
-        try:
-            datetime.strptime(date, '%Y-%m-%d')
-        except ValueError:
-            print(f"Incorrect date detected: {date}")
-            return False
-    return True
+    chunk_size = len(df) // n_splits
+    chunks = []
+    for i in range(n_splits):
+        start_i = i * chunk_size
+        # For the last chunk, take everything remaining
+        end_i = len(df) if i == (n_splits - 1) else (i + 1) * chunk_size
+        chunk = df.iloc[start_i:end_i]
+        chunks.append(chunk)
+    return chunks
 
-# Load the CSV file
-df = pd.read_csv(csv_path)
+# ---------------------------------------------
+# Main section of the script
+# ---------------------------------------------
+if __name__ == "__main__":
 
-# Add the 'words_count_updated' column
-df['words_count_updated'] = df['text'].apply(count_words)
+    # Relative path to the folder containing the script
+    script_dir = os.path.dirname(__file__)
 
-# Convert dates
-df['date'] = df['date'].apply(convert_date)
+    # Relative path to the CSV file in the Database folder
+    csv_path = os.path.join(script_dir, '..', '..', 'Database', 'Database', 'CCF.media_database.csv')
 
-# Verify date formats
-if verify_dates_format(df['date']):
-    print("All dates are in 'yyyy-mm-dd' format.")
-else:
-    print("Some dates are in an incorrect format.")
+    # ---------------------------
+    # Step 1: Load the CSV file
+    # ---------------------------
+    print("Loading CSV file...")
+    with tqdm(total=1, desc="Loading CSV file") as pbar:
+        df = pd.read_csv(csv_path)
+        pbar.update(1)
 
-# Create a new DataFrame for processed texts
-processed_texts = []
+    # ----------------------------------------------------------------
+    # Step 2: Remove any existing doc_id column and prepare DataFrame
+    # ----------------------------------------------------------------
+    if 'doc_id' in df.columns:
+        print("Dropping existing 'doc_id' column...")
+        df.drop(columns=['doc_id'], inplace=True)
 
-doc_id = 0  # Initialize unique document ID
-for _, row in df.iterrows():
-    doc_id += 1  # Increment ID for each new article
-    contexts = tokenize_and_context(row['text'], row['language'])
-    for sentence_id, context in enumerate(contexts):
-        processed_texts.append({
-            'doc_ID': doc_id,
-            'sentence_id': sentence_id,
-            'news_type': row['news_type'],
-            'title': row['title'],
-            'author': row['author'],
-            'media': row['media'] if pd.notna(row['media']) else 'media : not provided',
-            'words_count': row['words_count'],
-            'words_count_updated': row['words_count_updated'],
-            'date': row['date'],
-            'language': row['language'],
-            'page_number': row['page_number'],
-            'sentences': context
-        })
+    # -----------------------------------------------
+    # Step 3: Parallel tokenization & new doc_id
+    # -----------------------------------------------
+    print("Tokenizing texts and building two-sentence contexts in parallel...")
 
-        if sentence_id == 0 and doc_id <= 10:  # Print limit for first documents
-            print("Sample entry in processed_texts:", processed_texts[-1])
+    # Determine number of cores (note: on Mac with a M2 Ultra, os.cpu_count() can be high)
+    n_cores = os.cpu_count()  # Alternatively, force a specific number if besoin: n_cores = 8
+    print(f"Using {n_cores} CPU cores for parallel processing.")
 
-processed_df = pd.DataFrame(processed_texts)
+    # Split DataFrame into chunks
+    df_chunks = split_dataframe(df, n_cores)
 
-# Relative path for saving the new DataFrame
-output_path = os.path.join(script_dir, '..', '..', 'Database', 'Database', 'CCF.media_processed_texts.csv')
+    # We'll keep track of the last doc_id used for each chunk
+    # Start from 0 so the first chunk's doc_id will begin at 1
+    start_doc_id = 0
 
-# Save the new dataframe
-processed_df.to_csv(output_path, index=False, header=True)
+    # Prepare arguments for each chunk to pass to joblib.Parallel
+    tasks = []
+    for chunk in df_chunks:
+        tasks.append((chunk, start_doc_id))
+        # Estimate next start_doc_id
+        start_doc_id += len(chunk)
+
+    # Run parallel processing using delayed
+    # Each item in tasks is (df_chunk, chunk_start_doc_id)
+    results = Parallel(n_jobs=n_cores)(
+        delayed(process_chunk)(t[0], t[1]) for t in tqdm(tasks, desc="Processing chunks")
+    )
+
+    # Combine all processed results into a single list
+    # Each element of 'results' is (processed_texts, last_doc_id_for_chunk)
+    all_processed = []
+    for processed_texts, _ in results:
+        all_processed.extend(processed_texts)
+
+    # Create a new DataFrame from the processed data
+    processed_df = pd.DataFrame(all_processed)
+
+    # ------------------------------------------------
+    # Step 4: Save the new DataFrame to CSV
+    # ------------------------------------------------
+    output_path = os.path.join(script_dir, '..', '..', 'Database', 'Database', 'CCF.media_processed_texts.csv')
+    print("Saving the processed DataFrame to CSV...")
+    with tqdm(total=1, desc="Saving to CSV") as pbar:
+        processed_df.to_csv(output_path, index=False, header=True)
+        pbar.update(1)
+
+    print("Processing and saving completed.")
