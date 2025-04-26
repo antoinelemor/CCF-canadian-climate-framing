@@ -24,7 +24,7 @@ Below is an illustrative example of the analyses conducted in this project. The 
 
 ---
 
-## Table of Contents
+## Table of contents
 
 - [Introduction](#introduction)
 - [Members of the project](#members-of-the-project)
