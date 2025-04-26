@@ -36,6 +36,9 @@ Database/Database/articles_per_region.png
 Database/Training_data/sentences_annotation_error.csv
 Scripts/Annotation/llm_annotation_tool_EN.py
 Scripts/Annotation/llm_annotation_tool_FR.py
+Scripts/Annotation/7bis_fusion.py
+Scripts/Annotation/7bis2_fusion.py
+Database/ 
 
 # Ne pas ignorer les fichiers spécifiques 3_*.py et 4_*.py
 !1_Database_creation.py

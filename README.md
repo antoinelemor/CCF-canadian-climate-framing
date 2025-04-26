@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to the **CCF-canadian-climate-framing** repository. This project is dedicated to studying the media coverage of climate change in the Canadian press. It aims to understand how climate change narratives are constructed and communicated to the public since the first media article published on the subject in 1988. This repository contains all the scripts, data processing tools, and machine learning models necessary for conducting this study.
+Welcome to the **CCF-canadian-climate-framing** repository. This project is dedicated to studying the media coverage of climate change in the Canadian press. It aims to understand how climate change narratives are constructed and communicated to the public since the first media article published on the subject in 1978. This repository contains all the scripts, data processing tools, and machine learning models necessary for conducting this study.
 
 ![CCf_icone](CCF_icone.jpg)
 
@@ -27,16 +27,16 @@ Below is an illustrative example of the analyses conducted in this project. The 
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Members of the Project](#members-of-the-project)
-- [Project Objectives](#project-objectives)
-- [Repository Structure](#repository-structure)
+- [Members of the project](#members-of-the-project)
+- [Project objectives](#project-objectives)
+- [Repository structure](#repository-structure)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Scripts Overview](#scripts-overview)
-  - [Database Creation Scripts](#database-creation-scripts)
+- [Scripts overview](#scripts-overview)
+  - [Database creation scripts](#database-creation-scripts)
     - [1_Database_Creation.py](#1_database_creationpy)
     - [2_Clean_and_Create_Database.py](#2_clean_and_create_databasepy)
-  - [Annotation Scripts](#annotation-scripts)
+  - [Annotation scripts](#annotation-scripts)
     - [1_Preprocess.py](#1_preprocesspy)
     - [2_JSONL.py](#2_jsonlpy)
     - [3_Manual_annotations.py](#3_manual_annotationspy)
@@ -55,7 +55,7 @@ Below is an illustrative example of the analyses conducted in this project. The 
 
 ---
 
-## Members of the Project
+## Members of the project
 
 - [**Alizée Pillod**, Université de Montréal](https://pol.umontreal.ca/repertoire-departement/professeurs/professeur/in/in35292/sg/Aliz%C3%A9e%20Pillod/)
 - [**Antoine Lemor**, Université de Montréal](https://antoinelemor.github.io/)
@@ -63,17 +63,17 @@ Below is an illustrative example of the analyses conducted in this project. The 
 
 ---
 
-## Project Objectives
+## Project objectives
 
 The primary objectives of this project are:
 
-1. **Data Collection and Preprocessing:** Gather media articles from Canadian press sources and preprocess the data for analysis.
-2. **Manual Annotation and Model Training:** Manually annotate sentences within the articles to identify key elements and train machine learning models to automatically detect and classify these elements in the articles.
-3. **Evaluation and Refinement:** Evaluate model performance, iteratively refine annotations, and ensure high accuracy in classifications.
+1. **Data collection and preprocessing:** gather media articles from Canadian press sources and preprocess the data for analysis.
+2. **Manual annotation and model training:** manually annotate sentences within the articles to identify key elements and train machine learning models to automatically detect and classify these elements in the articles.
+3. **Evaluation and refinement:** evaluate model performance, iteratively refine annotations, and ensure high accuracy in classifications.
 
 ---
 
-## Repository Structure
+## Repository structure
 
 ```
 CCF-Canadian-Climate-Framing/
@@ -165,86 +165,86 @@ To set up the project locally, follow these steps:
 
 The project is organized into several scripts, each responsible for different aspects of data processing, annotation, and model training. Below is an overview of how to use them.
 
-### Database Creation Scripts
+### Database creation scripts
 
 These scripts are responsible for creating and cleaning the database from scraped articles. Note that the raw data collection process is not part of this repository due to copyright restrictions.
 
-1. **Database Creation**
+1. **Database creation**
    ```bash
    python Scripts/Database_creation/1_Database_Creation.py
    ```
 
-2. **Clean and Create Database**
+2. **Clean and create database**
    ```bash
    python Scripts/Database_creation/2_Clean_and_Create_Database.py
    ```
 
-### Annotation Scripts
+### Annotation scripts
 
-1. **Preprocess Data**  
+1. **Preprocess data**  
    ```bash
    python Scripts/Annotation/1_Preprocess.py
    ```
 
-2. **Generate JSONL Files**  
+2. **Generate JSONL files**  
    ```bash
    python Scripts/Annotation/2_JSONL.py
    ```
 
-3. **Manual Annotations**  
+3. **Manual annotations**  
    ```bash
    python Scripts/Annotation/3_Manual_annotations.py
    ```
 
-4. **Prepare JSONL for Training**  
+4. **Prepare JSONL for training**  
    ```bash
    python Scripts/Annotation/4_JSONL_for_training.py
    ```
 
-5. **Train Models**  
+5. **Train models**  
    ```bash
    python Scripts/Annotation/5_Training.py
    ```
 
-6. **Train Best Models**  
+6. **Train Best models**  
    ```bash
    python Scripts/Annotation/5bis_Training_best_model.py
    ```
 
-7. **Personalised Retraining for a Single Model**  
+7. **Personalised retraining for a single model**  
    ```bash
    python Scripts/Annotation/5bis2_Personalised_retraining_model.py
    ```
    Allows you to specifically retrain one model with custom epoch settings without re-training all models.
 
-8. **Compile Annotation Logs**  
+8. **Compile annotation logs**  
    ```bash
    python Scripts/Annotation/6_Compile_annotations_logs.py
    ```
 
-9. **Annotation Process**  
+9. **Annotation process**  
    ```bash
    python Scripts/Annotation/7_Annotation.py
    ```
 
-10. **Personalised Annotation of Selected Models**  
+10. **Personalised annotation of selected models**  
     ```bash
     python Scripts/Annotation/7bis_Annotation.py
     ```
     Enables selective re-annotation of the final database with one or more *retrained* models, clearing old labels for those models before applying fresh predictions.
 
-11. **Generate JSONL for Rechecking**  
+11. **Generate JSONL for rechecking**  
     ```bash
     python Scripts/Annotation/8_JSONL_for_Recheck.py
     ```
 
-12. **Re-generate JSONL to Compare Updated Annotations**  
+12. **Re-generate JSONL to compare updated annotations**  
     ```bash
     python Scripts/Annotation/8bis_JSONL_for_recheck.py
     ```
     Produces a JSONL containing the *same sentences* but with newly-updated annotations, facilitating comparison with previous annotation versions.
 
-13. **Final Annotation Metrics**  
+13. **Final annotation metrics**  
     ```bash
     python Scripts/Annotation/9_Annotation_metrics.py
     ```
@@ -252,16 +252,16 @@ These scripts are responsible for creating and cleaning the database from scrape
 
 ---
 
-## Scripts Overview
+## Scripts overview
 
-### Database Creation Scripts
+### Database creation scripts
 
 #### 1_Database_Creation.py
 
 **Purpose:**  
 Creates a unified media database by aggregating articles from various Canadian press sources into a single CSV file.
 
-**Key Features:**
+**Key features:**
 - Defines paths to raw article data from multiple CSVs.
 - Maps media codes to their full names.
 - Combines all DataFrames into a consolidated database.
@@ -275,7 +275,7 @@ Creates a unified media database by aggregating articles from various Canadian p
 **Purpose:**  
 Cleans and filters the combined media database.
 
-**Key Features:**
+**Key features:**
 - Standardizes date formats.
 - Removes short/duplicate articles.
 - Assigns language based on media source.
@@ -284,14 +284,14 @@ Cleans and filters the combined media database.
 **Dependencies:**  
 `pandas`, `re`, `datetime`, `pathlib`
 
-### Annotation Scripts
+### Annotation scripts
 
 #### 1_Preprocess.py
 
 **Purpose:**  
 Preprocesses the media database CSV by generating sentence contexts and verifying date formats.
 
-**Key Features:**
+**Key features:**
 - Splits texts into two-sentence contexts.
 - Counts words and updates relevant columns.
 - Saves processed data to a new CSV.
@@ -304,7 +304,7 @@ Preprocesses the media database CSV by generating sentence contexts and verifyin
 **Purpose:**  
 Converts processed text data into JSONL files for manual annotation, separating French and English sentences.
 
-**Key Features:**  
+**Key features:**  
 - Loads and cleans CSV data.
 - Removes duplicates.
 - Splits data by language.
@@ -318,7 +318,7 @@ Converts processed text data into JSONL files for manual annotation, separating 
 **Purpose:**  
 Reads manual annotations from a JSONL file, counts label usage, and exports annotation metrics.
 
-**Key Features:**
+**Key features:**
 - Calculates label usage distribution.
 - Outputs CSV with label proportions.
 
@@ -330,7 +330,7 @@ Reads manual annotations from a JSONL file, counts label usage, and exports anno
 **Purpose:**  
 Prepares manually annotated JSONL data for training/validation splits.
 
-**Key Features:**
+**Key features:**
 - Splits data into train/validation sets.
 - Handles stratification for main/sub labels.
 - Exports annotation metrics to a CSV.
@@ -343,7 +343,7 @@ Prepares manually annotated JSONL data for training/validation splits.
 **Purpose:**  
 Trains Camembert and Bert models on prepared data.
 
-**Key Features:**
+**Key features:**
 - Detects model status (fully trained, partial, etc.).
 - Loads training/validation from JSONL.
 - Handles logging and resumption of training.
@@ -357,7 +357,7 @@ Trains Camembert and Bert models on prepared data.
 **Purpose:**  
 Trains selected best models using advanced metrics from cross-validation.
 
-**Key Features:**
+**Key features:**
 - Loads best epoch from `models_metrics_summary_advanced.csv`.
 - Summarizes fully trained/partial/not trained status.
 - Logs results and error handling.
@@ -370,7 +370,7 @@ Trains selected best models using advanced metrics from cross-validation.
 **Purpose:**  
 Facilitates *selective retraining* of exactly one Camembert/Bert model without retraining all other models.
 
-**Key Features:**
+**Key features:**
 - Lists all models in the annotation bases.
 - Prompts user to select a single model and specify epoch count.
 - Retrains the chosen model from scratch, removing its previous directory.
@@ -383,7 +383,7 @@ Facilitates *selective retraining* of exactly one Camembert/Bert model without r
 **Purpose:**  
 Compiles various logs from annotation/training sessions to identify best-performing epochs and aggregates metrics.
 
-**Key Features:**
+**Key features:**
 - Merges logs from multiple training runs.
 - Identifies best epoch via macro/weighted F1.
 - Generates summary CSV outputs.
@@ -396,7 +396,7 @@ Compiles various logs from annotation/training sessions to identify best-perform
 **Purpose:**  
 Applies trained English and French models to annotate the main database, saving or resuming progress as needed.
 
-**Key Features:**
+**Key features:**
 - Loads/updates existing annotation columns.
 - Performs annotation for detection, sub-categories, etc.
 - Logs and saves partial results to handle interruptions.
@@ -409,7 +409,7 @@ Applies trained English and French models to annotate the main database, saving 
 **Purpose:**  
 Provides *selective re-annotation* of the main database using one or more retrained models, clearing old labels for those models before applying fresh predictions.
 
-**Key Features:**
+**Key features:**
 - Interactive menu to pick models for annotation.
 - Error logging for sentences exceeding token limits.
 - Updates distribution metrics in `annotated_label_metrics.csv`.
@@ -422,7 +422,7 @@ Provides *selective re-annotation* of the main database using one or more retrai
 **Purpose:**  
 Builds a JSONL dataset focusing on underrepresented categories for manual revalidation.
 
-**Key Features:**
+**Key features:**
 - Filters out previously annotated sentences.
 - Balances English/French distributions.
 - Oversamples rare labels.
@@ -436,7 +436,7 @@ Builds a JSONL dataset focusing on underrepresented categories for manual revali
 **Purpose:**  
 Regenerates a JSONL (`sentences_to_recheck_multiling_bis.jsonl`) with the *same text sentences* from the original re-check file, but updates labels to reflect newly retrained models.
 
-**Key Features:**
+**Key features:**
 - Loads old JSONL to preserve exact text.
 - Gathers updated annotations from the latest CSV.
 - Produces a new JSONL with fresh labels for direct comparison.
@@ -449,7 +449,7 @@ Regenerates a JSONL (`sentences_to_recheck_multiling_bis.jsonl`) with the *same 
 **Purpose:**  
 Compares predicted labels to manually verified labels in order to compute final precision, recall, and F1-scores for each category. Outputs the results to `final_annotation_metrics.csv`.
 
-**Key Features:**
+**Key features:**
 - Loads predicted vs. gold (manually verified) annotations.
 - Computes confusion stats (TP, FP, FN).
 - Derives precision, recall, F1 by label and language.
@@ -460,7 +460,7 @@ Compares predicted labels to manually verified labels in order to compute final 
 
 ---
 
-## Additional Notice: Iterative Retraining & Comparison
+## Additional notice: iterative retraining & comparison
 
 The scripts (`5bis2_Personalised_retraining_model.py`, `7bis_Annotation.py`, `8bis_JSONL_for_recheck.py`, and optionally `9_Annotation_metrics.py`) enable an **iterative process**:
 

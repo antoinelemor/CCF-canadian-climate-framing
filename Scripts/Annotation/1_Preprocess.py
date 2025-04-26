@@ -1,7 +1,7 @@
 """
 PROJECT:
 -------
-CLIMATE.FRAME
+CCF-Canadian-Climate-Framing
 
 TITLE:
 ------

@@ -138,7 +138,7 @@ def main():
     bars_year = plt.bar(years, values_year, color=bar_color, edgecolor="black", width=0.8)
 
     # Title, axes labels, and ticks (x-tick labels with reduced font size)
-    plt.title("Total climate change-related articles per year (CCF Database)")
+    plt.title("Total articles per year talking about climate in the CCF Database")
     plt.xlabel("Year")
     plt.ylabel("Number of articles")
     plt.xticks(years, rotation=45, ha="right", fontsize=9)
@@ -172,7 +172,7 @@ def main():
 
     # Reduce the external border spacing and increase the bottom margin for x-axis labels
     plt.tight_layout(pad=1.0)
-    plt.subplots_adjust(left=0.11, right=0.95, top=0.90, bottom=0.14)
+    plt.subplots_adjust(left=0.15, right=0.95, top=0.90, bottom=0.25)
 
     # Save the figure for total articles per year
     year_plot_path = db_dir / "articles_per_year.png"
@@ -252,7 +252,7 @@ def main():
     # Group by region and count the articles
     articles_per_region = df_merged.groupby("region").size().sort_values(ascending=False)
 
-    plt.figure(figsize=(10, 8))
+    plt.figure(figsize=(10, 6))
     region_indices = articles_per_region.index
     values_region = articles_per_region.values
 
@@ -288,14 +288,14 @@ def main():
 
     # Add legend text at the bottom-left corner
     ax_region.text(
-        0.0, -0.35, "Canadian-climate-framing (CCF) Project",
+        0.0, -0.12, "Canadian-climate-framing (CCF) Project",
         transform=ax_region.transAxes,
         ha="left", va="top", fontsize=9
     )
 
     # Reduce external margins so the graph occupies more of the image area
     plt.tight_layout(pad=1.0)
-    plt.subplots_adjust(left=0.15, right=0.95, top=0.90, bottom=0.25)
+    plt.subplots_adjust(left=0.15, right=0.95, top=0.90, bottom=0.15)
 
     # Save the figure for articles per region
     region_plot_path = db_dir / "articles_per_region.png"

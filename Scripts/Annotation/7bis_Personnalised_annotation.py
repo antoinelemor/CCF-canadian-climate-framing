@@ -268,7 +268,7 @@ def predict_labels(
     device,
     output_col,
     error_csv_path,
-    batch_size=25
+    batch_size=200
 ):
     """
     Given a list of indices in 'df', predict labels for df[output_col] using the 
@@ -432,7 +432,7 @@ def annotate_one_category(df, category, lang, model_path, device, error_csv_path
         device=device,
         output_col=category,
         error_csv_path=error_csv_path,
-        batch_size=25
+        batch_size=200
     )
 
     # Intermediate save
