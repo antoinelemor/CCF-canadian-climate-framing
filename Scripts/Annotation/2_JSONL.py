@@ -75,17 +75,6 @@ if not df['language'].isin(possible_values).all():
 else:
     print("The 'language' column contains only valid values ('FR' or 'EN').")
 
-# Update the 'date' column based on 'doc_ID'
-specific_dates = {
-    16807: '2005-03-11',
-    13366: '2005-11-05',
-    9740: '2013-07-04',
-    5187: '2002-11-27'
-}
-
-# Apply the specific dates to corresponding rows
-df['date'] = df.apply(lambda row: specific_dates.get(row['doc_ID'], row['date']), axis=1)
-
 # Filter out already used sentences by checking 'doc_ID' and 'sentence_id'
 df_filtered = df[~df.apply(lambda row: (row['doc_ID'], row['sentence_id']) in existing_entries, axis=1)]
 

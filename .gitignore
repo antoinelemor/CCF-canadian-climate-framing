@@ -39,8 +39,10 @@ Scripts/Annotation/llm_annotation_tool_FR.py
 Scripts/Annotation/7bis_fusion.py
 Scripts/Annotation/7bis2_fusion.py
 Database/ 
+Scripts/Database_creation
+models_savegard/
+Database/Training_data/Annotation_logs
 
-# Ne pas ignorer les fichiers spécifiques 3_*.py et 4_*.py
-!1_Database_creation.py
-!2_Clean_and_create_database.py
+
+
 

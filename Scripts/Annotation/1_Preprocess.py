@@ -32,20 +32,19 @@ Author:
 Antoine Lemor
 """
 
-# ----------------------------------------------------
+# ###################################################
 # Import necessary libraries
-# ----------------------------------------------------
+# ###################################################
 import os
 import pandas as pd
 import spacy
-from tqdm import tqdm  # For progress bars
+from tqdm import tqdm 
 from joblib import Parallel, delayed
 
-# ----------------------------------------------------
-# Instead of global spaCy model loading here,
-# we define a helper function to load models on demand
-# within each worker process.
-# ----------------------------------------------------
+# ###################################################
+# Functions for spaCy models
+# ###################################################
+
 def get_nlp(language):
     """
     Lazily load and return the spaCy model corresponding to the language.
@@ -167,9 +166,9 @@ def split_dataframe(df, n_splits):
         chunks.append(chunk)
     return chunks
 
-# ---------------------------------------------
+# ######################################
 # Main section of the script
-# ---------------------------------------------
+# ######################################
 if __name__ == "__main__":
 
     # Relative path to the folder containing the script
@@ -178,24 +177,24 @@ if __name__ == "__main__":
     # Relative path to the CSV file in the Database folder
     csv_path = os.path.join(script_dir, '..', '..', 'Database', 'Database', 'CCF.media_database.csv')
 
-    # ---------------------------
+    # ###########################
     # Step 1: Load the CSV file
-    # ---------------------------
+    # ###########################
     print("Loading CSV file...")
     with tqdm(total=1, desc="Loading CSV file") as pbar:
         df = pd.read_csv(csv_path)
         pbar.update(1)
 
-    # ----------------------------------------------------------------
+    # ###############################################################
     # Step 2: Remove any existing doc_id column and prepare DataFrame
-    # ----------------------------------------------------------------
+    # ###############################################################
     if 'doc_id' in df.columns:
         print("Dropping existing 'doc_id' column...")
         df.drop(columns=['doc_id'], inplace=True)
 
-    # -----------------------------------------------
+    # ###############################################
     # Step 3: Parallel tokenization & new doc_id
-    # -----------------------------------------------
+    # ###############################################
     print("Tokenizing texts and building two-sentence contexts in parallel...")
 
     # Determine number of cores (note: on Mac with a M2 Ultra, os.cpu_count() can be high)
@@ -231,9 +230,9 @@ if __name__ == "__main__":
     # Create a new DataFrame from the processed data
     processed_df = pd.DataFrame(all_processed)
 
-    # ------------------------------------------------
+    # ################################################
     # Step 4: Save the new DataFrame to CSV
-    # ------------------------------------------------
+    # ################################################
     output_path = os.path.join(script_dir, '..', '..', 'Database', 'Database', 'CCF.media_processed_texts.csv')
     print("Saving the processed DataFrame to CSV...")
     with tqdm(total=1, desc="Saving to CSV") as pbar:

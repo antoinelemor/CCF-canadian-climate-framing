@@ -42,13 +42,17 @@ import os
 import random
 import csv
 from collections import defaultdict
+from math import ceil
+from pathlib import Path
+from typing import List, Dict, Literal, TypedDict
+
 
 # Paths (relative)
 base_path = os.path.dirname(os.path.abspath(__file__))
 input_data_path = os.path.join(base_path, "..", "..", "Database", "Training_data", "manual_annotations_JSONL", "annotated_sentences.jsonl")
 label_config_path = os.path.join(base_path, "..", "..", "Database", "Training_data", "manual_annotations_JSONL", "label_config.json")
-output_base_dir = os.path.join(base_path, "..", "..", "Database", "Training_data", "annotation_bases")
-output_csv_path = os.path.join(os.path.dirname(input_data_path), "training_database_metrics.csv")
+output_base_dir = os.path.join(base_path, "..", "..", "Database", "Training_data", "annotation_bases_2")
+output_csv_path = os.path.join(os.path.dirname(input_data_path), "training_database_metrics_2.csv")
 
 # Load label configuration to get annotation labels
 with open(label_config_path, 'r', encoding='utf-8') as label_file:
@@ -101,30 +105,25 @@ with open(input_data_path, 'r', encoding='utf-8') as data_file:
 
         # Handle main labels and their sub-labels
         for main_label, sub_labels in main_labels.items():
-            if main_label in labels:
-                main_annotation = {
-                    "text": data.get("text", ""),
-                    "label": 1
-                }
-                main_annotations[main_label][language].append(main_annotation)
-                counts[main_label][language]['total']['positive'] += 1
-                for sub_label in sub_labels:
-                    sub_annotation = {
-                        "text": data.get("text", ""),
-                        "label": 1 if sub_label in labels else 0
-                    }
-                    sub_annotations[main_label][sub_label][language].append(sub_annotation)
-                    if sub_annotation['label'] == 1:
-                        counts[sub_label][language]['total']['positive'] += 1
-                    else:
-                        counts[sub_label][language]['total']['negative'] += 1
-            else:
-                main_annotation = {
-                    "text": data.get("text", ""),
-                    "label": 0
-                }
-                main_annotations[main_label][language].append(main_annotation)
-                counts[main_label][language]['total']['negative'] += 1
+            # 1.  Traiter l’étiquette principale (comme aujourd’hui)
+            is_main_present = main_label in labels
+            main_annotations[main_label][language].append(
+                {"text": data["text"], "label": int(is_main_present)}
+            )
+            counts[main_label][language]['total'][
+                'positive' if is_main_present else 'negative'
+            ] += 1
+
+            # 2.  Traiter *toujours* chaque sous-étiquette
+            for sub_label in sub_labels:
+                is_sub_present = sub_label in labels
+                sub_annotations[main_label][sub_label][language].append(
+                    {"text": data["text"], "label": int(is_sub_present)}
+                )
+                counts[sub_label][language]['total'][
+                    'positive' if is_sub_present else 'negative'
+                ] += 1
+
 
         # Handle exception labels
         for exception_label in exception_labels:
@@ -138,62 +137,95 @@ with open(input_data_path, 'r', encoding='utf-8') as data_file:
             else:
                 counts[exception_label][language]['total']['negative'] += 1
 
-def split_annotations(annotations):
+def safe_mkdir(path: str | Path) -> None:
     """
-    Divides 'annotations' into a training set (~80%) and a validation set (~20%), 
-    ensuring at least 10% positives (label == 1) and 10% negatives (label == 0) in 
-    the validation subset.
+    Create *all* parent directories if they do not exist already.
 
-    Parameters:
-    -----------
-    annotations (list): A list of annotation dictionaries where each dictionary 
-                        contains a 'label' key indicating a positive or 
-                        negative annotation.
-    
-    Returns:
-    --------
-    dict: 
-        A dictionary with two keys: 'train' and 'validation'. Each contains a list 
-        of annotations representing the respective subsets.
+    Parameters
+    ----------
+    path : str | Path
+        Directory path to create.
+
+    Notes
+    -----
+    - Silently returns if the directory hierarchy exists.
+    - Uses ``Path.mkdir`` with ``parents=True`` and ``exist_ok=True`` for
+      atomic-ish behaviour (thread-safe on POSIX).
     """
+    Path(path).expanduser().mkdir(parents=True, exist_ok=True)
+
+class SplitDict(TypedDict):
+    train: List[dict]
+    validation: List[dict]
+
+
+def split_annotations(
+    annotations: List[dict],
+    val_ratio: float = 0.20,
+    min_val_share: float = 0.10,
+) -> SplitDict:
+    """
+    Split a list of annotations into *train* and *validation* subsets.
+
+    The function guarantees **both** of the following:
+    1. Approximately ``val_ratio`` of the data end up in the validation set.
+    2. The validation set contains **at least** ``min_val_share`` positives
+       **and** negatives if such labels exist.
+
+    Parameters
+    ----------
+    annotations : List[dict]
+        Each dict must contain a boolean-like key ``'label'`` (1 = positive).
+    val_ratio : float, default 0.20
+        Target share of the validation set (0 < val_ratio < 1).
+    min_val_share : float, default 0.10
+        Minimum share *per class* required in the validation set.
+
+    Returns
+    -------
+    SplitDict
+        Two keys: ``'train'`` and ``'validation'`` — each a list of annotations.
+
+    Raises
+    ------
+    ValueError
+        If ``val_ratio`` or ``min_val_share`` are outside (0, 1).
+    """
+    if not 0.0 < val_ratio < 1.0 or not 0.0 < min_val_share < 1.0:
+        raise ValueError("val_ratio and min_val_share must be in the open interval (0, 1).")
+
     if not annotations:
-        return {'train': [], 'validation': []}
+        return {"train": [], "validation": []}
 
-    # Random shuffle
-    random.shuffle(annotations)
+    rng = random.Random(42)  # deterministic shuffling for reproducibility
+    rng.shuffle(annotations)
 
-    # Separate positive and negative annotations
-    positives = [ann for ann in annotations if ann['label'] == 1]
-    negatives = [ann for ann in annotations if ann['label'] == 0]
+    pos = [a for a in annotations if a["label"] == 1]
+    neg = [a for a in annotations if a["label"] == 0]
 
-    # Compute minimum validation counts
-    min_val_positives = max(1, int(0.1 * len(positives))) if positives else 0
-    min_val_negatives = max(1, int(0.1 * len(negatives))) if negatives else 0
+    # -- compute absolute minima ------------------------------------------------
+    min_val_pos = ceil(min_val_share * len(pos)) if pos else 0
+    min_val_neg = ceil(min_val_share * len(neg)) if neg else 0
 
-    # Compute split indices
-    train_positives_count = max(len(positives) - min_val_positives, int(0.8 * len(positives)))
-    train_negatives_count = max(len(negatives) - min_val_negatives, int(0.8 * len(negatives)))
+    # -- compute nominal split sizes -------------------------------------------
+    val_size = ceil(val_ratio * len(annotations))
+    # Ensure class minima are honoured
+    val_pos = max(min_val_pos, ceil(val_ratio * len(pos)))
+    val_neg = max(min_val_neg, val_size - val_pos)
 
-    # Split positives
-    train_positives = positives[:train_positives_count]
-    validation_positives = positives[train_positives_count:]
+    # Correct potential overflow (e.g., extremely imbalanced data)
+    val_pos = min(val_pos, len(pos))
+    val_neg = min(val_neg, len(neg))
+    val_size = val_pos + val_neg
 
-    # Split negatives
-    train_negatives = negatives[:train_negatives_count]
-    validation_negatives = negatives[train_negatives_count:]
+    # -- slice ------------------------------------------------------------------
+    val_set = pos[:val_pos] + neg[:val_neg]
+    train_set = pos[val_pos:] + neg[val_neg:]
 
-    # Combine splits
-    train_part = train_positives + train_negatives
-    validation_part = validation_positives + validation_negatives
+    rng.shuffle(train_set)
+    rng.shuffle(val_set)
 
-    # Final shuffle
-    random.shuffle(train_part)
-    random.shuffle(validation_part)
-
-    return {
-        'train': train_part,
-        'validation': validation_part
-    }
+    return {"train": train_set, "validation": val_set}
 
 # Split main annotations and update counts
 for label, lang_annotations in main_annotations.items():
