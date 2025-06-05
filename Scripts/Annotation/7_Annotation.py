@@ -133,8 +133,8 @@ DB_PARAMS: Dict[str, Any] = {
     "host": "localhost",
     "port": 5432,
     "dbname": "CCF",
-    "user": "antoine",
-    "password": "Absitreverentiavero19!",
+    "user": "",
+    "password": "",
 }
 
 TABLE_NAME = "CCF_processed_data"
@@ -286,8 +286,8 @@ def safe_get_connection() -> psycopg2.extensions.connection:
                 new_host = input("host (default=localhost): ").strip() or "localhost"
                 new_port_str = input("port (default=5432): ").strip() or "5432"
                 new_dbname = input("dbname (default=CCF): ").strip() or "CCF"
-                new_user = input("user (default=antoine): ").strip() or "antoine"
-                new_password = input("password (default=Absitreverentiavero19!): ").strip() or "Absitreverentiavero19!"
+                new_user = input("user (default=): ").strip() or ""
+                new_password = input("password (default=): ").strip() or ""
 
                 DB_PARAMS.update({
                     "host": new_host,
