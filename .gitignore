@@ -41,7 +41,8 @@ Scripts/Annotation/7bis2_fusion.py
 Database/ 
 Scripts/Database_creation
 models_savegard/
-Database/Training_data/Annotation_logs
+Database/Training_data/Annotation_logs/
+
 
 
 
