@@ -1,7 +1,7 @@
 # CCF-canadian-climate-framing
 
 <p align="center">
-   <img src="CCF_icone.jpg" alt="CCF Project Logo" width="200" />
+   <img src="CCF_icone.jpg" alt="CCF Project Logo" width="300" />
 </p>
 
 ## Introduction
@@ -55,7 +55,9 @@ This repository includes a newly compiled database of climate change articles fr
 
 ## The project's main idea and objectives
 
-The overarching goal of the project is to establish the first pan-Canadian database—comprehensive across time and space—of media articles on climate change, and to perform an in-depth sentence-level analysis of each article’s content. The primary purpose is to understand the determinants of climate change media coverage in Canada, in order to inform future research and, ultimately, enhance communication on this topic.
+> **The overarching goal of the project is to establish the first pan-Canadian database—comprehensive across time and space—of media articles on climate change, and to perform an in-depth sentence-level analysis of each article’s content.**
+
+The primary purpose is to understand the determinants of climate change media coverage in Canada, in order to inform future research and, ultimately, enhance communication on this topic.
 
 To carry out this overarching research idea, the project is organized around the following objectives, which are currently underway:
 
@@ -89,7 +91,7 @@ The research workflow for this project is structured as follows:
 ## What do we annotate and extract from texts ?
 
 
-> **We annotate at the sentence level over 60 pieces of information and categories (frames, actors, sentiments, etc.) :**
+> **We annotate at the sentence level over 60 pieces of information and categories (frames, actors, emotions, etc.) :**
 
 
 | Count (N) | Main category or frame                  | Sub-category            | What the sub-category captures                                                               |
