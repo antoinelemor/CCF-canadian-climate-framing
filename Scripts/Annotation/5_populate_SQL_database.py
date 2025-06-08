@@ -71,8 +71,8 @@ from tqdm.auto import tqdm
 DB_PARAMS: Dict[str, Any] = {
     "host": "localhost",
     "port": 5432,
-    "user": "",
-    "password": "",  
+    "user": "antoine",
+    "password": "Absitreverentiavero19!",  
 }
 DB_NAME: str = "CCF"
 FULL_CSV: Path = Path("Database/Database/CCF.media_database.csv")
