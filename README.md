@@ -8,7 +8,7 @@
 
 ## Introduction
 
-> Welcome to the **CCF-canadian-climate-framing** repository. This project is dedicated to studying media coverage of climate change in the Canadian press. It aims to understand how climate change narratives are constructed and communicated to the public using a database of over 250,000 articles and advanced machine learning techniques. This is the first initiative of this scale in Canada known to the authors.
+Welcome to the **CCF-canadian-climate-framing** repository. This project is dedicated to studying media coverage of climate change in the Canadian press. It aims to understand how climate change narratives are constructed and communicated to the public using a database of over 250,000 articles and advanced machine learning techniques. This is the first initiative of this scale in Canada known to the authors.
 
 This work focuses on identifying and extracting a multitude of information by annotating the full texts of articles at the sentence level in order to analyze their complete content in the most detailed way, over time and across different Canadian regions and media outlets. We annotate [more than 60 categories](#what-do-we-annotate-and-extract-from-texts-) and extract all named entities (persons, organizations, locations). This repository contains all the scripts, data processing tools, and machine learning models necessary for conducting this study.
 
