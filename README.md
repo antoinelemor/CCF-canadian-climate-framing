@@ -1,10 +1,10 @@
 # CCF-canadian-climate-framing
 
 <p align="center">
-   <img src="CCF_icone.jpeg" alt="CCF Project Logo" width="600" />
+   <img src="CCF_icone.jpeg" alt="CCF Project Logo" width="500" />
 </p>
 
-[Have a look on our website here!](https://ccf-project.ca/Database)
+# [Have a look on our website here!](https://ccf-project.ca/Database)
 
 ## Introduction
 
