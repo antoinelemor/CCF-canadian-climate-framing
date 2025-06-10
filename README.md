@@ -98,7 +98,7 @@ The research workflow for this project is structured as follows:
 > **We annotate at the sentence level over 60 pieces of information and categories (frames, actors, emotions, etc.) :**
 
 
-| Count (N) | Main category or frame                  | Sub-category            | What the sub-category captures                                                               |
+| Count (N) | Main category or frame                  | What the category captures            | What it means                                                              |
 | --------- | --------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------------------- |
 | **1**     | **Geographical Focus**                      | Canadian Context                | Situates climate change in Canada (places, actors, data, policies).                          |
 | **2**     | **Events**                              | *Any Climate-Related Event*     | Mentions at least one of the following five event types.                      |
