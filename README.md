@@ -168,7 +168,7 @@ The research workflow for this project is structured as follows:
 | **65**    |                                         | Organization Mentions           | Institutions, corporations, agencies (ORG).                                                  |
 | **66**    |                                         | Location Mentions               | Geographic places such as cities, provinces, countries (LOC).                                |
 
-## Illustrative Results and Analyses
+## Illustrative results and analyses
 
 Below is an illustrative example of the analyses conducted in this project. The animated GIF shows how the **dominant climate-change frame** evolves from year to year across Canadian provinces. For each article, the proportion of sentences mentioning a given frame is calculated; the frame with the highest average proportion in each province for each year is designated as the **dominant frame**. Gray-hatched provinces indicate insufficient data for that year.
 
