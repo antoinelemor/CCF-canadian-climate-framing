@@ -31,7 +31,7 @@ This repository includes a newly compiled database of climate change articles fr
 - [Project objectives](#project-objectives)
 - [Methodology](#methodology)
 - [What do we annotate and extract from texts?](#what-do-we-annotate-and-extract-from-texts-)
-- [Illustrative Results and Analyses](#illustrative-results-and-analyses)
+- [Illustrative results and analyses](#illustrative-results-and-analyses)
 - [Citation](#citation)
 - [Repository structure](#repository-structure)
 - [Usage](#usage)
