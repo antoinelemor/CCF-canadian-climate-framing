@@ -47,6 +47,8 @@ This repository includes a newly compiled database of climate change articles fr
     - [8_NER.py](#8_nerpy)
     - [9_JSONL_for_recheck.py](#9_jsonl_for_recheckpy)
     - [10_Annotation_metrics.py](#10_annotation_metricspy)
+    - [11_Blind_verification.py](#11_blind_verificationpy)
+
 
 --- 
 
@@ -226,6 +228,7 @@ CCF-Canadian-Climate-Framing/
 │       ├── 8_NER.py
 │       ├── 9_JSONL_for_recheck.py
 │       └── 10_Annotation_metrics.py
+│       └── 11_Blind_verification.py
 └── Models/ _contents are excluded due to file size and ongoing research_
 └── requirements.txt
 
@@ -238,47 +241,63 @@ The project is organized into several scripts, each responsible for different as
 
 ### Annotation scripts
 
+### Annotation scripts
+
 1. **Preprocess data**
    ```bash
    python Scripts/Annotation/1_Preprocess.py
-   ```
+   ````
+
 2. **Generate JSONL files**
+
    ```bash
    python Scripts/Annotation/2_JSONL.py
    ```
 3. **Manual annotations**
+
    ```bash
    python Scripts/Annotation/3_Manual_annotations.py
    ```
 4. **Prepare JSONL for training**
+
    ```bash
    python Scripts/Annotation/4_JSONL_for_training.py
    ```
 5. **Populate SQL database**
+
    ```bash
    python Scripts/Annotation/5_populate_SQL_database.py
    ```
 6. **Training best models**
+
    ```bash
    python Scripts/Annotation/6_Training_best_models.py
    ```
 7. **Annotation process**
+
    ```bash
    python Scripts/Annotation/7_Annotation.py
    ```
 8. **NER (Named Entity Recognition)**
+
    ```bash
    python Scripts/Annotation/8_NER.py
    ```
 9. **Generate JSONL for rechecking**
+
    ```bash
    python Scripts/Annotation/9_JSONL_for_recheck.py
    ```
 10. **Final annotation metrics**
+
     ```bash
     python Scripts/Annotation/10_Annotation_metrics.py
     ```
+11. **Blind verification of manual annotations**
 
+    ```bash
+    python Scripts/Annotation/11_Blind_verification.py
+    ```
 
 ## Scripts overview
 
@@ -363,9 +382,41 @@ Dependencies:
 **Purpose:**
 This script performs large-scale Named Entity Recognition (PER, ORG, LOC) on the sentence-level data stored in the PostgreSQL table CCF_processed_data.
 
-
 Key features:
 Language-aware NER pipelines in French (spaCy for PER + CamemBERT for ORG/LOC) and English (BERT-base-NER for PER/ORG/LOC).
 
 Dependencies:
 `psycopg2`, `pandas`, `torch`, `tqdm`, `joblib`, `spacy`, `transformers`
+
+#### 9_JSONL_for_recheck.py
+
+**Purpose:**  
+Builds a multilingual JSONL file to re-check models annotations directly from the PostgreSQL table `CCF_processed_data` to ensure statistically robust sub-class evaluation.
+
+Key features:
+Uses root-inverse weighted sampling with hard constraints to ensure balanced representation across rare and common labels while maintaining language distribution and excluding previously annotated sentences.
+
+Dependencies: 
+`pandas`, `psycopg2`, `tqdm`, `json`, `math`, `random`
+
+#### 10_Annotation_metrics.py
+
+**Purpose:**
+Benchmarks the model-generated sentence annotations (stored in `CCF_processed_data`) against a gold-standard JSONL and outputs a CSV with precision, recall, and F1 for each label, both classes (1 = positive, 0 = negative), each language (EN, FR) and the combined corpus (ALL), plus micro, macro, and weighted averages.
+
+**Key features:**
+PostgreSQL pull with automatic dtype coercion, language-aware confusion matrices, per-class metrics, aggregated “ALL” row, four-decimal wide-format CSV export, tqdm progress bar, and clear console logging.
+
+**Dependencies:**
+`csv`, `json`, `os`, `pathlib`, `collections`, `typing`, `pandas`, `psycopg2`, `tqdm`.
+
+#### 11_Blind_verification.py
+
+**Purpose:**  
+Creates a blind-verification copy of any manual-annotation JSONL by wiping all labels, so annotators can re-label sentences without bias.
+
+Key features:
+Efficiently processes large JSONL files with streaming I/O, automatic output directory creation, CLI arguments with sensible defaults, optional progress tracking, and robust error handling.
+
+Dependencies: 
+`argparse`, `json`, `pathlib`, `sys`, `tqdm`.
