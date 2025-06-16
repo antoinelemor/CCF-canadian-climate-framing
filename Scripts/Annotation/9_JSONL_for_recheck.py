@@ -1,439 +1,296 @@
 """
-PROJECT:
+PROJECT
 -------
 CCF-Canadian-Climate-Framing
 
-TITLE:
-------
+TITLE
+-----
 9_JSONL_for_recheck.py
 
-MAIN OBJECTIVE:
----------------
-This script cross-checks model predictions stored in a PostgreSQL table
-(CCF_processed_data) against a manually-annotated JSONL “gold” file,
-computes exhaustive binary-classification metrics per label and per
-language (EN, FR, ALL), and writes the results to a clean, analysis-ready
-CSV file.
-
-DEPENDENCIES:
--------------
-- os, json, csv, random, collections.Counter / defaultdict
-- typing (Dict, List, Tuple, Any)
-- pandas ≥ 2.0
-- psycopg2-binary ≥ 2.9
-
-MAIN FEATURES:
+MAIN OBJECTIVE
 --------------
-1) Robust PostgreSQL connection
-   - Credentials can be overridden via environment variables  
-   - Graceful termination with clear fatal error messages
+Produce a multilingual JSONL for re-checking model annotations with a sampling
+scheme tailored to robust re-training and per-subclass F1 evaluation.
 
-2) Automatic label discovery  
-   - Detects every numeric prediction column that is not a metadata
-     field, so the script adapts to schema changes without manual edits
+1. Min / Max constraints per label
+    MIN_PER_LABEL = 40 → guarantees enough positives (≥ ~20 for each
+     train/validation split) to compute meaningful recall/F1.
+    MAX_LABEL_PCT = 0.35 → caps very prolific labels, preventing the sample
+     from being monopolised by Messenger or Location sentences.
+2. Dynamic sample size
+    `NB_SENTENCES_TOTAL` is now a lower bound.  The script automatically
+     upsizes the draw if the sum of min quotas would otherwise exceed the
+     target.
+3. Root-inverse weighting
+    Row weights ∝ Σ (1/√fᵢ) instead of 1/fᵢ.  This still favours rare labels
+     but tempers the boost for extremely sparse ones, yielding smoother
+     distributions.
+4. Iterative post-processing
+    After the weighted draw we add rows for any label below its min and
+     trim rows for labels above their max share, always respecting the
+     other labels present in multi-label rows.
+5. Fully parameterised
+    All thresholds (`MIN_PER_LABEL`, `MAX_LABEL_PCT`) and the weighting
+     function exponent (`BETA = 0.5` ⇒ 1/√f) are constants at the top of the
+     file for quick tuning.
 
-3) Gold-standard loader  
-   - Reads a JSONL file of manually verified sentences  
-   - Explodes the list of labels into a wide binary matrix  
-   - Keeps only rows with both doc_id and sentence_id keys
+The combination « root-inverse weights + min/max constraints » corresponds to an
+optimum allocation under inequality constraints (Kish 1965; Särndal et al.
+1992). It approximates Neyman allocation for multi-label strata while enforcing
+practical bounds for variance estimation.
 
-4) Data alignment  
-   - Inner join on (doc_id, sentence_id) to ensure one-to-one
-     comparison between predictions and gold annotations
-
-5) Per-label confusion matrices  
-   - Computes TP, FP, FN, TN ignoring rows with NaN predictions  
-   - Derives precision, recall, F1 for class 1 and class 0  
-     (named `precision_1`, `recall_0`, `F1_1`, `F1_0`, etc.)
-
-6) Language-specific breakdowns  
-   - Metrics are produced for ALL rows, English only, and French only
-
-7) Aggregate scores  
-   - Micro, macro, and weighted averages across labels for each language
-
-8) Deterministic, well-formatted output  
-   - Fixed column order for easy downstream use  
-   - Floats rounded to four decimals; other fields left untouched  
-   - Saved to Database/Training_data/final_annotation_metrics.csv
-
-9) Reproducibility & safety  
-   - Global `RANDOM_STATE` for any stochastic process  
-   - Comprehensive sanity checks with fatal exits on empty merges,
-     missing columns, or empty gold data sets
-
-AUTHOR :
---------
+Author
+------
 Antoine Lemor
 """
 
-##############################################################################
-#                          IMPORTS & CONFIGURATION                           #
-##############################################################################
-
 from __future__ import annotations
 
-import csv
+# ───────────────────────── Imports ────────────────────────── #
 import json
+import math
 import os
 import random
-from collections import Counter, defaultdict
-from typing import Any, Dict, List, Tuple
+from collections import Counter
+from pathlib import Path
+from typing import Any, Dict, List, Set
 
 import pandas as pd
 import psycopg2
-from psycopg2 import sql
 from psycopg2.extensions import connection as _PGConnection
+from psycopg2 import sql
+from tqdm.auto import tqdm
 
+# ──────────────────────── Configuration ──────────────────────── #
+BASE_DIR = Path(__file__).resolve().parent
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# Existing manual JSONL (to exclude)
+MANUAL_ANNOT_DIR = (
+    BASE_DIR / ".." / ".." / "Database" / "Training_data" / "manual_annotations_JSONL"
+)
+MANUAL_ANNOT_EN = MANUAL_ANNOT_DIR / "sentences_to_annotate_EN.jsonl"
+MANUAL_ANNOT_FR = MANUAL_ANNOT_DIR / "sentences_to_annotate_FR.jsonl"
 
+# Output template
+OUTPUT_JSONL = MANUAL_ANNOT_DIR / "sentences_to_recheck_multiling_{ts}.jsonl"
+
+# ---- Sampling hyper-parameters ---- #
+NB_SENTENCES_TOTAL = 2_000         # lower bound; may grow to honour MIN_PER_LABEL
+MIN_PER_LABEL      = 40            # ≥ this many positives per label (if available)
+MAX_LABEL_PCT      = 0.35          # ≤ 35 % of sample per label
+BETA               = 0.5           # weight exponent ⇒ 1/f^β (β=0.5 → root-inverse)
+RANDOM_STATE       = 42
+random.seed(RANDOM_STATE)
+
+# PostgreSQL credentials
 DB_PARAMS: Dict[str, Any] = {
     "host":     os.getenv("CCF_DB_HOST", "localhost"),
     "port":     int(os.getenv("CCF_DB_PORT", 5432)),
     "dbname":   os.getenv("CCF_DB_NAME", "CCF"),
-    "user":     os.getenv("CCF_DB_USER", ""),
-    "password": os.getenv("CCF_DB_PASS", ""),
+    "user":     os.getenv("CCF_DB_USER", "antoine"),
+    "password": os.getenv("CCF_DB_PASS", "Absitreverentiavero19!"),
     "options":  "-c client_min_messages=warning",
 }
 TABLE_NAME = "CCF_processed_data"
 
-GOLD_JSONL = os.path.join(
-    BASE_DIR,
-    "..",
-    "..",
-    "Database",
-    "Training_data",
-    "manual_annotations_JSONL",
-    "sentences_to_recheck_multiling_done.jsonl",
-)
-OUTPUT_CSV = os.path.join(
-    BASE_DIR,
-    "..",
-    "..",
-    "Database",
-    "Training_data",
-    "final_annotation_metrics.csv",
-)
-
-# ######## Constants ######## #
-RANDOM_STATE = 42
-random.seed(RANDOM_STATE)
-
-# Columns that are not annotation labels
-NON_LABEL_COLS = {
-    "language",
-    "sentences",
-    "id_article",
-    "Unnamed: 0",
-    "doc_id",
-    "sentence_id",
-    "words_count_updated",
-    "words_count",
+# Non-annotation columns kept as metadata
+NON_ANNOT_COLS: Set[str] = {
+    "language", "sentences", "id_article", "Unnamed: 0", "doc_id",
+    "sentence_id", "words_count_updated", "words_count",
 }
 
-##############################################################################
-#                          HELPER UTILITIES                                  #
-##############################################################################
-
+# ─────────────────────── Helper Utilities ─────────────────────── #
 
 def open_pg(params: Dict[str, Any]) -> _PGConnection:
-    """Open a PostgreSQL connection or exit gracefully."""
     try:
         return psycopg2.connect(**params)
-    except Exception as exc:
+    except Exception as exc:  # pragma: no cover
         raise SystemExit(f"[FATAL] PostgreSQL connection failed: {exc}") from exc
 
 
-def fetch_predictions(conn: _PGConnection) -> pd.DataFrame:
-    """Fetch the full prediction table into a pandas DataFrame."""
-    query = sql.SQL("SELECT * FROM {};").format(sql.Identifier(TABLE_NAME)).as_string(
-        conn
-    )
-    return pd.read_sql_query(query, conn)
+def fetch_df(conn: _PGConnection) -> pd.DataFrame:
+    q = sql.SQL("SELECT * FROM {};").format(sql.Identifier(TABLE_NAME)).as_string(conn)
+    return pd.read_sql_query(q, conn)
 
 
-def detect_label_columns(df: pd.DataFrame) -> List[str]:
-    """Return every numeric column that is *not* listed in NON_LABEL_COLS."""
+def load_existing(jsonl_path: Path) -> Set[str]:
+    if not jsonl_path.exists():
+        return set()
+    texts: Set[str] = set()
+    for line in jsonl_path.read_text("utf-8").splitlines():
+        try:
+            payload = json.loads(line)
+            texts.add(payload.get("text", ""))
+        except json.JSONDecodeError:
+            continue
+    return texts
+
+
+def detect_labels(df: pd.DataFrame) -> List[str]:
     return [
-        col
-        for col in df.columns
-        if col not in NON_LABEL_COLS
-        and pd.api.types.is_numeric_dtype(df[col])
+        c for c in df.columns
+        if c not in NON_ANNOT_COLS and pd.api.types.is_numeric_dtype(df[c]) and df[c].sum() > 0
     ]
 
+# ─────────── Core sampling functions ─────────── #
 
-def load_gold_jsonl(path: str) -> pd.DataFrame:
-    """
-    Load the manually verified JSONL into a tidy DataFrame with one binary
-    column per label.
-
-    Returns
-    -------
-    DataFrame with columns:
-        doc_id | sentence_id | language | <label_1> ... <label_n>
-    """
-    records: List[Dict[str, Any]] = []
-    with open(path, "r", encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if not line:
-                continue
-            try:
-                entry = json.loads(line)
-            except json.JSONDecodeError as err:  # pragma: no cover
-                print(f"[WARN] Skipped malformed line: {err}")
-                continue
-
-            meta = entry.get("meta", {}) or {}
-            doc_id = meta.get("doc_id")
-            sent_id = meta.get("sentence_id")
-            language = meta.get("language")
-            if doc_id is None or sent_id is None:
-                continue  # cannot match without keys
-            labels = set(entry.get("label", []))
-            records.append(
-                {
-                    "doc_id": doc_id,
-                    "sentence_id": sent_id,
-                    "language": language,
-                    "labels": labels,
-                }
-            )
-
-    gold_df = pd.DataFrame.from_records(records)
-    if gold_df.empty:
-        raise SystemExit("[FATAL] Gold JSONL contains zero usable rows.")
-
-    # Explode label lists → wide binary matrix
-    all_labels = sorted({lab for labels in gold_df["labels"] for lab in labels})
-    for lab in all_labels:
-        gold_df[lab] = gold_df["labels"].apply(lambda s: int(lab in s))
-
-    return gold_df.drop(columns="labels")
-
-##############################################################################
-#                           METRICS COMPUTATION                              #  
-##############################################################################
-
-def compute_confusion_per_label(
-    df: pd.DataFrame, label: str
-) -> Tuple[int, int, int, int]:
-    """
-    Compute TP, FP, FN, TN for `label` given a DataFrame that must contain
-    columns `<label>_pred` and `<label>_gold`.
-
-    Rows where the prediction is NaN are *ignored* for this label.
-    """
-    mask_eval = df[f"{label}_pred"].notna()
-    if mask_eval.sum() == 0:
-        return 0, 0, 0, 0  # nothing to evaluate
-
-    pred = df.loc[mask_eval, f"{label}_pred"].astype(int)
-    gold = df.loc[mask_eval, f"{label}_gold"].astype(int)
-
-    tp = int(((pred == 1) & (gold == 1)).sum())
-    fp = int(((pred == 1) & (gold == 0)).sum())
-    fn = int(((pred == 0) & (gold == 1)).sum())
-    tn = int(((pred == 0) & (gold == 0)).sum())
-    return tp, fp, fn, tn
+def row_weights(df_lang: pd.DataFrame, ann_cols: List[str]) -> pd.Series:
+    freq = df_lang[ann_cols].sum().clip(lower=1)
+    inv_freq_beta = 1.0 / (freq ** BETA)  # 1 / f^β
+    w = df_lang[ann_cols].dot(inv_freq_beta)
+    w = w.mask(w == 0, other=w[w > 0].min())  # rows with no positives → min weight
+    return w
 
 
-def binary_scores(tp: int, fp: int, fn: int) -> Tuple[float, float, float]:
-    """
-    Return precision, recall, F1 given TP/FP/FN (standard definitions).
-    """
-    prec = tp / (tp + fp) if (tp + fp) else 0.0
-    rec = tp / (tp + fn) if (tp + fn) else 0.0
-    f1 = 2 * prec * rec / (prec + rec) if (prec + rec) else 0.0
-    return prec, rec, f1
+def guarantee_min(sample: pd.DataFrame, pool: pd.DataFrame, ann_cols: List[str]) -> pd.DataFrame:
+    """Add rows until every label ≥ MIN_PER_LABEL (when possible)."""
+    counts = sample[ann_cols].sum()
+    lacking = [lab for lab, n in counts.items() if n < MIN_PER_LABEL and pool[lab].sum() > n]
+    for lab in lacking:
+        need = MIN_PER_LABEL - int(counts[lab])
+        add_rows = pool.loc[pool[lab] == 1].sample(
+            n=min(need, len(pool.loc[pool[lab] == 1])),
+            random_state=random.randint(0, 9999),
+        )
+        sample = pd.concat([sample, add_rows])
+        pool = pool.drop(index=add_rows.index)
+        counts[lab] += len(add_rows)
+    return sample.reset_index(drop=True), pool
 
 
-def class0_scores(tp: int, fp: int, fn: int, tn: int) -> Tuple[float, float, float]:
-    """
-    Metrics for the negative class (0).  Here the “positive” events are the
-    *negatives* of the original label, hence:
+def enforce_max(sample: pd.DataFrame, ann_cols: List[str]) -> pd.DataFrame:
+    """Randomly drop rows until every label ≤ MAX_LABEL_PCT of sample."""
+    max_allowed = MAX_LABEL_PCT * len(sample)
+    counts = Counter({lab: int(sample[lab].sum()) for lab in ann_cols})
+    over = [lab for lab, n in counts.items() if n > max_allowed]
+    while over:
+        lab = over.pop()
+        excess = counts[lab] - int(max_allowed)
+        # rows eligible for removal: contain *lab* but not any label currently under-represented
+        candidates = sample[sample[lab] == 1]
+        protect = [l for l, n in counts.items() if n < MIN_PER_LABEL]
+        if protect:
+            protect_mask = candidates[protect].any(axis=1)
+            candidates = candidates.loc[~protect_mask]
+        if not len(candidates):
+            continue  # cannot trim without hurting other mins
+        drop_rows = candidates.sample(n=min(excess, len(candidates)), random_state=random.randint(0, 9999))
+        sample = sample.drop(index=drop_rows.index)
+        counts[lab] -= len(drop_rows)
+        # re-compute max_allowed because sample size changed
+        max_allowed = MAX_LABEL_PCT * len(sample)
+        # update over list if needed
+        over = [l for l, n in counts.items() if n > max_allowed]
+    return sample.reset_index(drop=True)
 
-    TP₀ ≡ TN₁ ; FP₀ ≡ FN₁ ; FN₀ ≡ FP₁
-    """
-    tp0, fp0, fn0 = tn, fn, fp
-    return binary_scores(tp0, fp0, fn0)
 
+def sample_language(df_lang: pd.DataFrame, ann_cols: List[str], quota: int) -> pd.DataFrame:
+    if quota <= 0 or df_lang.empty:
+        return df_lang.head(0).copy()
 
-def aggregate_scores(
-    per_label: Dict[str, Dict[str, Any]],
-    labels: List[str],
-    weights: Dict[str, int] | None = None,
-) -> Dict[str, float]:
-    """
-    Compute micro, macro and weighted averages over *labels*.
+    weights = row_weights(df_lang, ann_cols)
+    initial = df_lang.sample(n=quota, weights=weights, random_state=RANDOM_STATE)
+    pool = df_lang.drop(index=initial.index)
 
-    Parameters
-    ----------
-    per_label : dict
-        Mapping label → metrics dict produced by `collect_metrics`.
-    labels : list[str]
-        Which labels to aggregate (can exclude *_sub for the top-level average).
-    weights : dict[str, int] or None
-        Optional support weights for the weighted average.  If None,
-        the gold support is used.
-    """
-    # micro: sum over numerators / sum over denominators
-    sum_tp = sum(per_label[l]["tp"] for l in labels)
-    sum_fp = sum(per_label[l]["fp"] for l in labels)
-    sum_fn = sum(per_label[l]["fn"] for l in labels)
-    micro_p, micro_r, micro_f1 = binary_scores(sum_tp, sum_fp, sum_fn)
+    # Ensure minimum per label
+    initial, pool = guarantee_min(initial, pool, ann_cols)
 
-    # macro: un-weighted arithmetic mean
-    macro_p = sum(per_label[l]["precision_1"] for l in labels) / len(labels)
-    macro_r = sum(per_label[l]["recall_1"] for l in labels) / len(labels)
-    macro_f1 = sum(per_label[l]["F1_1"] for l in labels) / len(labels)
+    # If sample grew beyond quota, randomly drop surplus (without violating mins)
+    while len(initial) > quota:
+        # identify removable rows (all labels above min)
+        counts = initial[ann_cols].sum()
+        safe_labels = [lab for lab, n in counts.items() if n > MIN_PER_LABEL]
+        removable = initial[initial[safe_labels].any(axis=1)]
+        if removable.empty:
+            break  # cannot shrink without breaking mins
+        to_drop = removable.sample(n=len(initial) - quota, random_state=random.randint(0, 9999))
+        initial = initial.drop(index=to_drop.index)
 
-    # weighted: weighted by support (default) or custom weights
-    if weights is None:
-        weights = {l: per_label[l]["support_gold"] for l in labels}
-    total_w = sum(weights.values()) or 1  # avoid ÷0
-    w_p = sum(per_label[l]["precision_1"] * weights[l] for l in labels) / total_w
-    w_r = sum(per_label[l]["recall_1"] * weights[l] for l in labels) / total_w
-    w_f1 = sum(per_label[l]["F1_1"] * weights[l] for l in labels) / total_w
+    # Enforce max percentage
+    initial = enforce_max(initial, ann_cols)
+    return initial
 
-    return {
-        "precision_micro": micro_p,
-        "recall_micro": micro_r,
-        "F1_micro": micro_f1,
-        "precision_macro": macro_p,
-        "recall_macro": macro_r,
-        "F1_macro": macro_f1,
-        "precision_weighted": w_p,
-        "recall_weighted": w_r,
-        "F1_weighted": w_f1,
+# ─────────────────────── Serialization ─────────────────────── #
+
+def doccano_entry(row: pd.Series, ann_cols: List[str]) -> Dict[str, Any]:
+    labels = [c for c in ann_cols if row[c] == 1]
+    meta = {
+        c: (None if pd.isna(v) else v)
+        for c, v in row.items() if c not in ("sentences", *ann_cols)
     }
+    return {"text": row["sentences"], "label": labels, "meta": meta}
 
-##############################################################################
-#                         MAIN                                               #
-##############################################################################
+# ─────────────────────────── Main ──────────────────────────── #
 
 def main() -> None:  # noqa: C901
     # 1 — Load data
     print("[INFO] Connecting to PostgreSQL…")
     with open_pg(DB_PARAMS) as conn:
-        pred_df = fetch_predictions(conn)
-    print(f"[INFO] {len(pred_df):,} predicted rows retrieved.")
+        df = fetch_df(conn)
+    print(f"[INFO] {len(df):,} rows retrieved.")
 
-    print("[INFO] Loading gold annotations…")
-    gold_df = load_gold_jsonl(GOLD_JSONL)
-    print(f"[INFO] {len(gold_df):,} gold rows loaded.")
+    # 2 — Detect annotation columns
+    ann_cols = detect_labels(df)
+    df[ann_cols] = df[ann_cols].apply(pd.to_numeric, errors="coerce").fillna(0).astype(int)
 
-    # 2 — Detect label columns in predictions
-    label_cols = detect_label_columns(pred_df)
-    if not label_cols:
-        raise SystemExit("[FATAL] No numeric prediction columns detected.")
+    # 3 — Exclude already-annotated sentences
+    print("[INFO] Excluding already-annotated sentences…")
+    excl_en, excl_fr = load_existing(MANUAL_ANNOT_EN), load_existing(MANUAL_ANNOT_FR)
+    before = len(df)
+    df = df[~(
+        (df["language"] == "EN") & df["sentences"].isin(excl_en) | (df["language"] == "FR") & df["sentences"].isin(excl_fr)
+    )]
+    print(f"[INFO] {before - len(df):,} sentences excluded. {len(df):,} remain.")
 
-    # 3 — Keep only intersection of doc_id + sentence_id
-    cols_to_merge = ["doc_id", "sentence_id"]
-    merged = pd.merge(
-        gold_df, pred_df, on=cols_to_merge, how="inner", suffixes=("_gold", "_pred")
-    )
-    if merged.empty:
-        raise SystemExit("[FATAL] No matching rows between gold and predictions.")
-    print(f"[INFO] {len(merged):,} rows matched for evaluation.")
+    # 4 — Compute language quotas (initial)
+    quota_half = NB_SENTENCES_TOTAL // 2
+    en_quota = min(quota_half, len(df[df["language"] == "EN"]))
+    fr_quota = min(quota_half, len(df[df["language"] == "FR"]))
+    # redistribute if one language lacks sentences
+    if en_quota < quota_half:
+        fr_quota = min(fr_quota + (quota_half - en_quota), len(df[df["language"] == "FR"]))
+    if fr_quota < quota_half:
+        en_quota = min(en_quota + (quota_half - fr_quota), len(df[df["language"] == "EN"]))
 
-    # 4 — Add gold binary columns (already there) & make sure predictions are int
-    for lab in label_cols:
-        merged[f"{lab}_pred"] = merged[lab].astype("Int64")  # keep NA
-    merged.drop(columns=label_cols, inplace=True)  # tidy up
+    # 5 — Adaptive upscale to satisfy MIN_PER_LABEL
+    total_labels = len(ann_cols)
+    min_total_needed = MIN_PER_LABEL * total_labels * 0.5  # heuristic: multi-label overlap ≈ 50 %
+    target_total = max(NB_SENTENCES_TOTAL, int(min_total_needed))
+    scale = target_total / (en_quota + fr_quota)
+    en_quota, fr_quota = int(en_quota * scale), int(fr_quota * scale)
 
-    # 5 — Evaluate per language
-    results: List[Dict[str, Any]] = []
-    languages = {
-        "ALL": slice(None),
-        "EN": merged["language"] == "EN",
-        "FR": merged["language"] == "FR",
-    }
+    print(f"[INFO] Target sample size adjusted to ≈ {en_quota + fr_quota:,} rows (EN {en_quota} / FR {fr_quota}).")
 
-    for lang_code, mask in languages.items():
-        df_lang = merged.loc[mask].copy()
-        if df_lang.empty:
-            continue
-        per_label_metrics: Dict[str, Dict[str, Any]] = {}
-        for lab in label_cols:
-            tp, fp, fn, tn = compute_confusion_per_label(df_lang, lab)
-            prec1, rec1, f1_1 = binary_scores(tp, fp, fn)
-            prec0, rec0, f1_0 = class0_scores(tp, fp, fn, tn)
-            per_label_metrics[lab] = {
-                "tp": tp,
-                "fp": fp,
-                "fn": fn,
-                "tn": tn,
-                "precision_1": prec1,
-                "recall_1": rec1,
-                "F1_1": f1_1,
-                "precision_0": prec0,
-                "recall_0": rec0,
-                "F1_0": f1_0,
-                "support_gold": int(df_lang[f"{lab}_gold"].sum()),
-                "support_pred": int(df_lang[f"{lab}_pred"].fillna(0).astype(int).sum()),
-                "support_eval": int(df_lang[f"{lab}_pred"].notna().sum()),
-            }
+    # 6 — Sample per language
+    print("[INFO] Sampling English subset…")
+    df_en = df[df["language"] == "EN"].copy()
+    sample_en = sample_language(df_en, ann_cols, en_quota)
 
-            results.append(
-                {
-                    "label": lab,
-                    "language": lang_code,
-                    **per_label_metrics[lab],
-                }
-            )
+    print("[INFO] Sampling French subset…")
+    df_fr = df[df["language"] == "FR"].copy()
+    sample_fr = sample_language(df_fr, ann_cols, fr_quota)
 
-        # 6 — Aggregated (micro / macro / weighted)
-        agg = aggregate_scores(per_label_metrics, label_cols)
-        results.append(
-            {
-                "label": "__aggregate__",
-                "language": lang_code,
-                **{k: None for k in ("tp", "fp", "fn", "tn")},
-                **agg,
-            }
-        )
+    df_final = pd.concat([sample_en, sample_fr], ignore_index=True).sample(frac=1.0, random_state=RANDOM_STATE)
 
-    # 7 — Save CSV
-    # Ensure deterministic ordering
-    field_order = [
-        "label",
-        "language",
-        "tp",
-        "fp",
-        "fn",
-        "tn",
-        "precision_1",
-        "recall_1",
-        "F1_1",
-        "precision_0",
-        "recall_0",
-        "F1_0",
-        "support_gold",
-        "support_pred",
-        "support_eval",
-        "precision_micro",
-        "recall_micro",
-        "F1_micro",
-        "precision_macro",
-        "recall_macro",
-        "F1_macro",
-        "precision_weighted",
-        "recall_weighted",
-        "F1_weighted",
-    ]
-    with open(OUTPUT_CSV, "w", encoding="utf-8", newline="") as fo:
-        writer = csv.DictWriter(fo, fieldnames=field_order, extrasaction="ignore")
-        writer.writeheader()
-        for row in results:
-            writer.writerow(
-                {k: (f"{v:.4f}" if isinstance(v, float) else v) for k, v in row.items()}
-            )
+    # 7 — Stats
+    print("[INFO] Final sample size:", len(df_final))
+    print("       ├─ EN:", (df_final["language"] == "EN").sum())
+    print("       └─ FR:", (df_final["language"] == "FR").sum())
 
-    print(f"[INFO] Metrics written → {OUTPUT_CSV}")
+    print("\n[INFO] Coverage per label:")
+    for col in ann_cols:
+        n = int(df_final[col].sum())
+        print(f"• {col:<30} {n:>4} ({n / len(df_final):6.2%})")
+
+    # 8 — Write JSONL
+    ts = pd.Timestamp.now(tz="America/Toronto").strftime("%Y_%m_%d_%H%M")
+    out_path = OUTPUT_JSONL.with_name(OUTPUT_JSONL.name.format(ts=ts))
+    print("\n[INFO] Writing JSONL →", out_path.name)
+    with out_path.open("w", encoding="utf-8") as fo:
+        for _, row in tqdm(df_final.iterrows(), total=len(df_final), desc="Serialising"):
+            fo.write(json.dumps(doccano_entry(row, ann_cols), ensure_ascii=False, separators=(",", ":")) + "\n")
+
     print("[INFO] Done ✔")
-
 
 if __name__ == "__main__":
     try:
