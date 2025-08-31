@@ -6,36 +6,16 @@
 
 # [Have a look at our website here!](https://ccf-project.ca/Home)
 
-## Technical Paper
-
-### [CCF Database: A Machine-Learning-Preprocessed Media Corpus of 266,000 Climate Articles with 65 Sentence-Level Annotations (1978–2024)](paper/CCF_Methodology.pdf)
-
-[![View PDF](https://img.shields.io/badge/View-PDF-red.svg)](paper/CCF_Methodology.pdf)
-[![Pages](https://img.shields.io/badge/Pages-41-blue.svg)](paper/CCF_Methodology.pdf)
-[![Status](https://img.shields.io/badge/Status-Complete-green.svg)](paper/CCF_Methodology.pdf)
-
-**[📖 View PDF directly in browser](https://github.com/antoinelemor/CCF-canadian-climate-framing/blob/main/paper/CCF_Methodology.pdf)** | **[⬇️ Download PDF](https://github.com/antoinelemor/CCF-canadian-climate-framing/raw/main/paper/CCF_Methodology.pdf)**
-
-The comprehensive methodology paper detailing the CCF database architecture, machine learning pipeline, and validation procedures is available in this repository. This technical document provides:
-
-- Complete annotation framework with 65 hierarchical categories
-- Machine learning training procedures achieving F1=0.866 across all categories
-- Stratified validation methodology with root-inverse probability weighting
-- Database structure and implementation details
-- Four analytical applications demonstrating the database capabilities
-
-**Key Statistics:**
-- 266,271 articles from 20 Canadian newspapers
-- 9.2 million annotated sentences
-- 47 years of coverage (1978-2025)
-- Bilingual corpus (82.9% English, 17.1% French)
-- 65 annotation categories + Named Entity Recognition 
-
 ## Introduction
 
-Welcome to the **CCF-canadian-climate-framing** repository. This project is dedicated to studying media coverage of climate change in the Canadian press. It aims to understand how climate change narratives are constructed and communicated to the public using a database of over 250,000 articles and advanced machine learning techniques. This is the first initiative of this scale in Canada known to the authors.
+[![View Technical Paper](https://img.shields.io/badge/View-PDF-red.svg)](https://github.com/antoinelemor/CCF-canadian-climate-framing/blob/main/paper/CCF_Methodology.pdf)
+[![Download](https://img.shields.io/badge/Download-PDF-blue.svg)](https://github.com/antoinelemor/CCF-canadian-climate-framing/raw/main/paper/CCF_Methodology.pdf)
+[![Pages](https://img.shields.io/badge/Pages-41-green.svg)](paper/CCF_Methodology.pdf)
+[![F1 Score](https://img.shields.io/badge/F1%20Score-0.866-orange.svg)](paper/CCF_Methodology.pdf)
 
-This work focuses on identifying and extracting a multitude of information by annotating the full texts of articles at the sentence level in order to analyze their complete content in the most detailed way, over time and across different Canadian regions and media outlets. We annotate [more than 60 categories](#what-do-we-annotate-and-extract-from-texts-) and extract all named entities (persons, organizations, locations). This repository contains all the scripts, data processing tools, and machine learning models necessary for conducting this study.
+Welcome to the **CCF-canadian-climate-framing** repository. This project is dedicated to studying media coverage of climate change in the Canadian press through the most comprehensive machine-learning-preprocessed corpus of climate discourse available for research. The **[CCF Database](https://github.com/antoinelemor/CCF-canadian-climate-framing/blob/main/paper/CCF_Methodology.pdf)** comprises 266,271 articles from 20 Canadian newspapers (1978–2025) processed into 9.2 million sentence-level analytical units with 65 hierarchical annotations, achieving a macro F1 score of 0.866 across all categories. This is the first initiative of this scale in Canada known to the authors.
+
+This work focuses on identifying and extracting a multitude of information by annotating the full texts of articles at the sentence level in order to analyze their complete content in the most detailed way, over time and across different Canadian regions and media outlets. We annotate [more than 60 categories](#what-do-we-annotate-and-extract-from-texts-) including eight thematic frames (economic, health, security, justice, political, scientific, environmental, cultural), actor networks, climate events, policy responses, emotional tone, and geographic focus. The database structure, implemented in PostgreSQL with indexed boolean columns, supports complex queries combining temporal, linguistic, geographic, and thematic dimensions. This repository contains all the scripts, data processing tools, and machine learning models necessary for conducting this study.
 
 ### The database
 
@@ -45,7 +25,7 @@ This repository includes a newly compiled database of climate change articles fr
 |--------------|----------------|---------------|------------------|-----------|---------------|----------------|-----------------------|------------------|------------------|--------------|----------------|----------------|----------|----------------------|-----------------|--------------|----------|-------------|---------------------|-----------|
 | 46980         | 29442           | 17871          | 18162             | 13685      | 20032          | 19336           | 7603                   | 9567              | 10770              | 5841          | 11800            | 9548            | 6917      | 12421                  | 5143             | 7794          | 4727      | 3174         | 5458                 | **266271** |
 
-![Number of Climate Change Articles Per Year in the Canadian Press Corpus (1978-Present)](Database/Database/articles_per_year.png)
+![Number of Climate Change Articles Per Province in the CCF Corpus (1978-Present)](Database/Database/articles_per_province.png)
 
 ---
 
@@ -227,7 +207,6 @@ CCF-Canadian-Climate-Framing/
 │   │   ├── Canadian_Media_Articles_by_Province.csv
 │   │   ├── Canadian_Media_by_Group.csv
 │   │   ├── Database_media_count.csv
-│   │   ├── articles_per_year.png
 │   │   └── dominant_frames_yearly.gif
 │   └── Training_data/
 │       ├── manual_annotations_JSONL/ _excluded until our first publication_

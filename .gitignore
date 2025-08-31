@@ -99,3 +99,4 @@ Database/**
 !Database/Training_data/manual_annotations_metrics.csv
 !Database/Training_data/non_trained_models.csv
 !Database/Training_data/training_database_metrics.csv
+!Database/Database/articles_by_province.png
