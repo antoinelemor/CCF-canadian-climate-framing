@@ -14,7 +14,22 @@
 [![Pages](https://img.shields.io/badge/Pages-41-blue.svg)](paper/CCF_Methodology.pdf)
 [![Status](https://img.shields.io/badge/Status-Complete-green.svg)](paper/CCF_Methodology.pdf)
 
-The comprehensive methodology paper detailing the CCF database architecture, machine learning pipeline, and validation procedures is available in this repository. 
+**[📖 View PDF directly in browser](https://github.com/antoinelemor/CCF-canadian-climate-framing/blob/main/paper/CCF_Methodology.pdf)** | **[⬇️ Download PDF](https://github.com/antoinelemor/CCF-canadian-climate-framing/raw/main/paper/CCF_Methodology.pdf)**
+
+The comprehensive methodology paper detailing the CCF database architecture, machine learning pipeline, and validation procedures is available in this repository. This technical document provides:
+
+- Complete annotation framework with 65 hierarchical categories
+- Machine learning training procedures achieving F1=0.866 across all categories
+- Stratified validation methodology with root-inverse probability weighting
+- Database structure and implementation details
+- Four analytical applications demonstrating the database capabilities
+
+**Key Statistics:**
+- 266,271 articles from 20 Canadian newspapers
+- 9.2 million annotated sentences
+- 47 years of coverage (1978-2025)
+- Bilingual corpus (82.9% English, 17.1% French)
+- 65 annotation categories + Named Entity Recognition 
 
 ## Introduction
 
