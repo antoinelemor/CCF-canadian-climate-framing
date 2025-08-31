@@ -93,10 +93,13 @@ Database/**
 # Re-allow the Training_data directory so file exceptions work
 !Database/Training_data/
 
+# Re-allow the Database/Database directory for specific files
+!Database/Database/
+
 # Keep this specific file tracked
 !Database/Training_data/all_best_models.csv
 !Database/Training_data/final_annotation_metrics.csv
 !Database/Training_data/manual_annotations_metrics.csv
 !Database/Training_data/non_trained_models.csv
 !Database/Training_data/training_database_metrics.csv
-!Database/Database/articles_by_province.png
+!Database/Database/articles_per_region.png
