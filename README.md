@@ -25,7 +25,7 @@ This repository includes a newly compiled database of climate change articles fr
 |--------------|----------------|---------------|------------------|-----------|---------------|----------------|-----------------------|------------------|------------------|--------------|----------------|----------------|----------|----------------------|-----------------|--------------|----------|-------------|---------------------|-----------|
 | 46980         | 29442           | 17871          | 18162             | 13685      | 20032          | 19336           | 7603                   | 9567              | 10770              | 5841          | 11800            | 9548            | 6917      | 12421                  | 5143             | 7794          | 4727      | 3174         | 5458                 | **266271** |
 
-![Number of Climate Change Articles Per Province in the CCF Corpus (1978-Present)](Database/Database/articles_per_province.png)
+![Number of Climate Change Articles Per Province in the CCF Corpus (1978-Present)](Database/Database/articles_by_province.png)
 
 ---
 
