@@ -1,9 +1,9 @@
 model_name,train_distribution,test_distribution
-Pbh_4_SUB_EN.jsonl,{0: 56},"{0: 6, 1: 1}"
-Pbh_2_SUB_EN.jsonl,{0: 56},"{0: 6, 1: 1}"
-Pbh_2_SUB_FR.jsonl,{0: 36},"{0: 4, 1: 1}"
-Pbh_4_SUB_FR.jsonl,{0: 37},{0: 4}
-Secu_5_SUB_EN.jsonl,{0: 19},{0: 2}
-Secu_1_SUB_EN.jsonl,{0: 18},"{0: 2, 1: 1}"
-Secu_2_SUB_EN.jsonl,{0: 18},"{0: 2, 1: 1}"
-Secu_5_SUB_FR.jsonl,{0: 19},{0: 2}
+Health_Sector_Footprint_EN.jsonl,{0: 56},"{0: 6, 1: 1}"
+Positive_Health_Impacts_EN.jsonl,{0: 56},"{0: 6, 1: 1}"
+Positive_Health_Impacts_FR.jsonl,{0: 36},"{0: 4, 1: 1}"
+Health_Sector_Footprint_FR.jsonl,{0: 37},{0: 4}
+Defense_Sector_Footprint_EN.jsonl,{0: 19},{0: 2}
+Military_Disaster_Response_EN.jsonl,{0: 18},"{0: 2, 1: 1}"
+Military_Base_Disruption_EN.jsonl,{0: 18},"{0: 2, 1: 1}"
+Defense_Sector_Footprint_FR.jsonl,{0: 19},{0: 2}

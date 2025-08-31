@@ -70,6 +70,7 @@ import csv
 import json
 import os
 from collections import defaultdict
+from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Set, Tuple
 
@@ -84,11 +85,11 @@ BASE_DIR = Path(__file__).resolve().parent
 
 # PostgreSQL connection parameters (env variables have priority)
 DB_PARAMS: Dict[str, Any] = {
-    "host":     os.getenv("CCF_DB_HOST", "localhost"),
+    "host":     os.getenv("CCF_DB_HOST", "192.168.0.205"),
     "port":     int(os.getenv("CCF_DB_PORT", 5432)),
     "dbname":   os.getenv("CCF_DB_NAME", "CCF"),
-    "user":     os.getenv("CCF_DB_USER", ""),
-    "password": os.getenv("CCF_DB_PASS", ""),
+    "user":     os.getenv("CCF_DB_USER", "antoine"),
+    "password": os.getenv("CCF_DB_PASS", "Absitreverentiavero19!"),
     "options":  "-c client_min_messages=warning",
 }
 
@@ -99,9 +100,11 @@ MANUAL_DIR = (BASE_DIR / ".." / ".." / "Database" / "Training_data" /
               "manual_annotations_JSONL").resolve()
 GOLD_JSONL = MANUAL_DIR / "all.jsonl"
 
-# Output CSV path
+# Output CSV paths
 OUTPUT_CSV = (BASE_DIR / ".." / ".." / "Database" / "Training_data" /
-              "final_annotation_metrics_v3.csv").resolve()
+              "final_annotation_metrics.csv").resolve()
+TEMPORAL_CSV = (BASE_DIR / ".." / ".." / "Database" / "Training_data" /
+                "temporal_drift_metrics.csv").resolve()
 
 # Columns we never treat as "annotation" (nor do we measure them):
 # We also exclude the typical metadata columns. We keep doc_id and sentence_id
@@ -116,6 +119,256 @@ NON_ANNOT_COLS: Set[str] = {
 ##############################################################################
 #                          HELPER UTILITIES                                  #
 ##############################################################################
+
+# Label mapping dictionary for better readability
+LABEL_MAPPING = {
+    # Geographic Focus
+    "detect_location": "Canadian Context",
+    "Location_Detection": "Canadian Context",
+    "detect_location_SUB": "Canadian Context",
+    "Canadian Context": "Canadian Context",  # Identity mapping
+    
+    # Events - Main Detection
+    "detect_event": "Event Detection",
+    "Event_Detection": "Event Detection",
+    "event_Detection": "Event Detection",
+    
+    # Events - Subcategories
+    "event_1": "Extreme Weather Event",
+    "event_2": "Meeting/Conference",
+    "event_3": "Publication",
+    "event_4": "Election",
+    "event_5": "Policy Announcement",
+    "event_6": "Judiciary Decision",
+    "event_7": "Cultural Event",
+    "event_8": "Protest",
+    "Event_1_SUB": "Extreme Weather Event",
+    "Event_2_SUB": "Meeting/Conference",
+    "Event_3_SUB": "Publication",
+    "Event_4_SUB": "Election",
+    "Event_5_SUB": "Policy Announcement",
+    "Event_6_SUB": "Judiciary Decision",
+    "Event_7_SUB": "Cultural Event",
+    "Event_8_SUB": "Protest",
+    
+    # Messengers - Main Detection
+    "detect_messenger": "Messenger Detection",
+    "Messenger_Detection": "Messenger Detection",
+    "messenger_Detection": "Messenger Detection",
+    
+    # Messengers - Subcategories
+    "messenger_1": "Health Expert",
+    "messenger_2": "Economic Expert",
+    "messenger_3": "Security Expert",
+    "messenger_4": "Legal Expert",
+    "messenger_5": "Cultural Expert",
+    "messenger_6": "Natural Scientist",
+    "messenger_7": "Social Scientist",
+    "messenger_8": "Activist",
+    "messenger_9": "Public Official",
+    "Messenger_1_SUB": "Health Expert",
+    "Messenger_2_SUB": "Economic Expert",
+    "Messenger_3_SUB": "Security Expert",
+    "Messenger_4_SUB": "Legal Expert",
+    "Messenger_5_SUB": "Cultural Expert",
+    "Messenger_6_SUB": "Natural Scientist",
+    "Messenger_7_SUB": "Social Scientist",
+    "Messenger_8_SUB": "Activist",
+    "Messenger_9_SUB": "Public Official",
+    
+    # Solutions - Main Detection
+    "detect_solutions": "Solutions Detection",
+    "Solutions_Detection": "Solutions Detection",
+    "solutions_Detection": "Solutions Detection",
+    
+    # Solutions - Subcategories
+    "solutions_1": "Mitigation Strategy",
+    "solutions_2": "Adaptation Strategy",
+    "Solutions_1_SUB": "Mitigation Strategy",
+    "Solutions_2_SUB": "Adaptation Strategy",
+    
+    # Public Health Frame - Main Detection
+    "detect_PBH": "Health Frame Detection",
+    "Pbh_Detection": "Health Frame Detection",
+    "PBH_Detection": "Health Frame Detection",
+    
+    # Public Health Frame - Subcategories
+    "Pbh_1": "Negative Health Impacts",
+    "Pbh_2": "Positive Health Impacts",
+    "Pbh_3": "Health Co-benefits",
+    "Pbh_4": "Health Sector Footprint",
+    "Pbh_1_SUB": "Negative Health Impacts",
+    "Pbh_2_SUB": "Positive Health Impacts",
+    "Pbh_3_SUB": "Health Co-benefits",
+    "Pbh_4_SUB": "Health Sector Footprint",
+    "PBH_1_SUB": "Negative Health Impacts",
+    "PBH_2_SUB": "Positive Health Impacts",
+    "PBH_3_SUB": "Health Co-benefits",
+    "PBH_4_SUB": "Health Sector Footprint",
+    
+    # Economic Frame - Main Detection
+    "detect_ECO": "Economic Frame Detection",
+    "Eco_Detection": "Economic Frame Detection",
+    "ECO_Detection": "Economic Frame Detection",
+    
+    # Economic Frame - Subcategories
+    "Eco_1": "Negative Economic Impacts",
+    "Eco_2": "Positive Economic Impacts", 
+    "Eco_3": "Costs of Climate Action",
+    "Eco_4": "Benefits of Climate Action",
+    "Eco_5": "Economic Sector Footprint",
+    "Eco_1_SUB": "Negative Economic Impacts",
+    "Eco_2_SUB": "Positive Economic Impacts",
+    "Eco_3_SUB": "Costs of Climate Action",
+    "Eco_4_SUB": "Benefits of Climate Action",
+    "Eco_5_SUB": "Economic Sector Footprint",
+    "ECO_1_SUB": "Negative Economic Impacts",
+    "ECO_2_SUB": "Positive Economic Impacts",
+    "ECO_3_SUB": "Costs of Climate Action",
+    "ECO_4_SUB": "Benefits of Climate Action",
+    "ECO_5_SUB": "Economic Sector Footprint",
+    
+    # Security Frame - Main Detection
+    "detect_SECU": "Security Frame Detection",
+    "Secu_Detection": "Security Frame Detection",
+    "SECU_Detection": "Security Frame Detection",
+    
+    # Security Frame - Subcategories
+    "Secu_1": "Military Disaster Response",
+    "Secu_2": "Military Base Disruption",
+    "Secu_3": "Climate-Driven Displacement",
+    "Secu_4": "Resource Conflict",
+    "Secu_5": "Defense Sector Footprint",
+    "Secu_1_SUB": "Military Disaster Response",
+    "Secu_2_SUB": "Military Base Disruption",
+    "Secu_3_SUB": "Climate-Driven Displacement",
+    "Secu_4_SUB": "Resource Conflict",
+    "Secu_5_SUB": "Defense Sector Footprint",
+    "SECU_1_SUB": "Military Disaster Response",
+    "SECU_2_SUB": "Military Base Disruption",
+    "SECU_3_SUB": "Climate-Driven Displacement",
+    "SECU_4_SUB": "Resource Conflict",
+    "SECU_5_SUB": "Defense Sector Footprint",
+    
+    # Justice Frame - Main Detection
+    "detect_JUST": "Justice Frame Detection",
+    "Just_Detection": "Justice Frame Detection",
+    "JUST_Detection": "Justice Frame Detection",
+    
+    # Justice Frame - Subcategories
+    "Just_1": "Winners & Losers",
+    "Just_2": "North-South Responsibility",
+    "Just_3": "Unequal Impacts",
+    "Just_4": "Unequal Access",
+    "Just_5": "Intergenerational Justice",
+    "Just_1_SUB": "Winners & Losers",
+    "Just_2_SUB": "North-South Responsibility",
+    "Just_3_SUB": "Unequal Impacts",
+    "Just_4_SUB": "Unequal Access",
+    "Just_5_SUB": "Intergenerational Justice",
+    "JUST_1_SUB": "Winners & Losers",
+    "JUST_2_SUB": "North-South Responsibility",
+    "JUST_3_SUB": "Unequal Impacts",
+    "JUST_4_SUB": "Unequal Access",
+    "JUST_5_SUB": "Intergenerational Justice",
+    
+    # Cultural Frame - Main Detection
+    "detect_CULT": "Cultural Frame Detection",
+    "Cult_Detection": "Cultural Frame Detection",
+    "CULT_Detection": "Cultural Frame Detection",
+    
+    # Cultural Frame - Subcategories
+    "Cult_1": "Artistic Representation",
+    "Cult_2": "Event Disruption",
+    "Cult_3": "Loss of Indigenous Practices",
+    "Cult_4": "Cultural Sector Footprint",
+    "Cult_1_SUB": "Artistic Representation",
+    "Cult_2_SUB": "Event Disruption",
+    "Cult_3_SUB": "Loss of Indigenous Practices",
+    "Cult_4_SUB": "Cultural Sector Footprint",
+    "CULT_1_SUB": "Artistic Representation",
+    "CULT_2_SUB": "Event Disruption",
+    "CULT_3_SUB": "Loss of Indigenous Practices",
+    "CULT_4_SUB": "Cultural Sector Footprint",
+    
+    # Scientific Frame - Main Detection
+    "detect_SCI": "Scientific Frame Detection",
+    "Sci_Detection": "Scientific Frame Detection",
+    "SCI_Detection": "Scientific Frame Detection",
+    
+    # Scientific Frame - Subcategories
+    "Sci_1": "Scientific Controversy",
+    "Sci_2": "Discovery & Innovation",
+    "Sci_3": "Scientific Uncertainty",
+    "Sci_4": "Scientific Certainty",
+    "Sci_1_SUB": "Scientific Controversy",
+    "Sci_2_SUB": "Discovery & Innovation",
+    "Sci_3_SUB": "Scientific Uncertainty",
+    "Sci_4_SUB": "Scientific Certainty",
+    "SCI_1_SUB": "Scientific Controversy",
+    "SCI_2_SUB": "Discovery & Innovation",
+    "SCI_3_SUB": "Scientific Uncertainty",
+    "SCI_4_SUB": "Scientific Certainty",
+    
+    # Environmental Frame - Main Detection
+    "detect_ENVT": "Environmental Frame Detection",
+    "Envt_Detection": "Environmental Frame Detection",
+    "ENVT_Detection": "Environmental Frame Detection",
+    
+    # Environmental Frame - Subcategories
+    "Envt_1": "Habitat Loss",
+    "Envt_2": "Species Loss",
+    "Envt_1_SUB": "Habitat Loss",
+    "Envt_2_SUB": "Species Loss",
+    "ENVT_1_SUB": "Habitat Loss",
+    "ENVT_2_SUB": "Species Loss",
+    
+    # Political Frame - Main Detection
+    "detect_POL": "Political Frame Detection",
+    "Pol_Detection": "Political Frame Detection",
+    "POL_Detection": "Political Frame Detection",
+    
+    # Political Frame - Subcategories
+    "Pol_1": "Policy Measures",
+    "Pol_2": "Political Debate",
+    "Pol_3": "Political Positioning",
+    "Pol_4": "Public Opinion",
+    "Pol_1_SUB": "Policy Measures",
+    "Pol_2_SUB": "Political Debate",
+    "Pol_3_SUB": "Political Positioning",
+    "Pol_4_SUB": "Public Opinion",
+    "POL_1_SUB": "Policy Measures",
+    "POL_2_SUB": "Political Debate",
+    "POL_3_SUB": "Political Positioning",
+    "POL_4_SUB": "Public Opinion",
+    
+    # Emotions and Urgency
+    "detect_red": "Urgency/Alarmism",
+    "RED_Detection": "Urgency/Alarmism",
+    "emotion_pos": "Positive Emotion",
+    "emotion_neu": "Neutral Emotion",
+    "emotion_neg": "Negative Emotion",
+    "Emotion:_Positive": "Positive Emotion",
+    "Emotion:_Negative": "Negative Emotion",
+    "Emotion:_Neutral": "Neutral Emotion",
+    "Emotion_Classification": "Emotion Classification",
+    
+    # Extreme Weather
+    "Extreme_Weather_Detection": "Extreme Weather Mentions",
+    "detect_extreme_weather": "Extreme Weather Mentions",
+    
+    # Named Entities
+    "PER": "Person Mentions",
+    "ORG": "Organization Mentions",
+    "LOC": "Location Mentions"
+}
+
+def get_readable_label(label: str) -> str:
+    """
+    Convert technical label to readable format using the mapping dictionary.
+    Returns the original label if no mapping is found.
+    """
+    return LABEL_MAPPING.get(label, label)
 
 def open_pg(params: Dict[str, Any]) -> _PGConnection:
     """
@@ -184,8 +437,8 @@ def fetch_predictions(conn: _PGConnection) -> pd.DataFrame:
 def load_gold_jsonl(path: Path) -> List[Dict[str, Any]]:
     """
     Loads the gold-standard JSONL, ignoring all metadata except doc_id,
-    sentence_id, and language (needed to match DB rows). `label` is read
-    as the gold annotation set.
+    sentence_id, language, and date (needed to match DB rows and temporal analysis).
+    `label` is read as the gold annotation set.
     """
     entries: List[Dict[str, Any]] = []
     with path.open("r", encoding="utf-8") as fo:
@@ -194,11 +447,12 @@ def load_gold_jsonl(path: Path) -> List[Dict[str, Any]]:
                 continue
             rec = json.loads(ln)
 
-            # We do NOT use meta fields except doc_id, sentence_id, language
+            # We do NOT use meta fields except doc_id, sentence_id, language, date
             meta = rec.get("meta", {})
             doc_id = meta.get("doc_id")
             sentence_id = meta.get("sentence_id")
             language = meta.get("language")
+            date_str = meta.get("date")  # format: "mm-dd-yyyy"
 
             # The gold labels are in rec['label'] (a list)
             gold_labels = set(rec.get("label", []))
@@ -207,6 +461,7 @@ def load_gold_jsonl(path: Path) -> List[Dict[str, Any]]:
                 "doc_id":      doc_id,
                 "sentence_id": sentence_id,
                 "language":    language,
+                "date":        date_str,
                 "gold_labels": gold_labels
             })
     return entries
@@ -225,6 +480,92 @@ def detect_annotation_columns(df: pd.DataFrame) -> List[str]:
         if c not in NON_ANNOT_COLS
     ]
     return annot_cols
+
+##############################################################################
+#                          TEMPORAL DRIFT ANALYSIS                           #
+##############################################################################
+
+def parse_date(date_str: str) -> Tuple[int, str]:
+    """
+    Parse date string in format "mm-dd-yyyy" and return year and decade.
+    Returns (year, decade_str) or (None, None) if parsing fails.
+    """
+    if not date_str:
+        return None, None
+    
+    try:
+        # Parse date in format "mm-dd-yyyy"
+        date_obj = datetime.strptime(date_str, "%m-%d-%Y")
+        year = date_obj.year
+        decade = f"{(year // 10) * 10}s"  # e.g., "1990s", "2000s"
+        return year, decade
+    except (ValueError, TypeError):
+        return None, None
+
+def get_time_period(date_str: str, period_type: str = "decade") -> str:
+    """
+    Get time period from date string.
+    period_type can be "year", "decade", or "5year"
+    """
+    year, decade = parse_date(date_str)
+    
+    if year is None:
+        return "Unknown"
+    
+    if period_type == "year":
+        return str(year)
+    elif period_type == "decade":
+        return decade
+    elif period_type == "5year":
+        # Group into 5-year periods
+        period_start = (year // 5) * 5
+        period_end = period_start + 4
+        return f"{period_start}-{period_end}"
+    else:
+        return "Unknown"
+
+class TemporalConfusionDict(defaultdict):
+    """
+    Extended confusion dictionary that also tracks temporal information.
+    Structure: (label, class, language, time_period) -> {"TP": int, "FP": int, "FN": int}
+    """
+    def __init__(self):
+        super().__init__(lambda: {"TP": 0, "FP": 0, "FN": 0})
+    
+    def increment(self, label: str, cls: int, lang: str, period: str,
+                  tp: int=0, fp: int=0, fn: int=0) -> None:
+        key = (label, cls, lang, period)
+        self[key]["TP"] += tp
+        self[key]["FP"] += fp
+        self[key]["FN"] += fn
+    
+    def update_counts(self, label: str, gold: int, pred: int, lang: str, period: str) -> None:
+        """
+        Update confusion matrix for temporal analysis.
+        """
+        # Handle class=1
+        if gold == 1 and pred == 1:
+            self.increment(label, 1, lang, period, tp=1)
+            self.increment(label, 1, "ALL", period, tp=1)
+        elif gold == 1 and pred == 0:
+            self.increment(label, 1, lang, period, fn=1)
+            self.increment(label, 1, "ALL", period, fn=1)
+        elif gold == 0 and pred == 1:
+            self.increment(label, 1, lang, period, fp=1)
+            self.increment(label, 1, "ALL", period, fp=1)
+        
+        # Handle class=0
+        gold_0 = 1 - gold
+        pred_0 = 1 - pred
+        if gold_0 == 1 and pred_0 == 1:
+            self.increment(label, 0, lang, period, tp=1)
+            self.increment(label, 0, "ALL", period, tp=1)
+        elif gold_0 == 1 and pred_0 == 0:
+            self.increment(label, 0, lang, period, fn=1)
+            self.increment(label, 0, "ALL", period, fn=1)
+        elif gold_0 == 0 and pred_0 == 1:
+            self.increment(label, 0, lang, period, fp=1)
+            self.increment(label, 0, "ALL", period, fp=1)
 
 ##############################################################################
 #                          CONFUSION MATRIX STORAGE                          #
@@ -304,38 +645,55 @@ def main() -> None:
     gold_entries = load_gold_jsonl(GOLD_JSONL)
     print(f"[INFO] {len(gold_entries):,} gold sentences loaded.")
 
-    # Build confusion dictionary
+    # Build confusion dictionaries
     conf = ConfusionDict()
+    temporal_conf = TemporalConfusionDict()
 
-    # Populate confusion matrix
+    # Process entries directly without parallelization for better performance on small datasets
+    print("[INFO] Processing gold annotations...")
+    
     for entry in tqdm(gold_entries, desc="Scoring"):
         key = (entry["doc_id"], entry["sentence_id"])
         lang = entry["language"] or "UNK"
         gold_set = entry["gold_labels"]
-
+        date_str = entry.get("date")
+        
         if key not in pred_lookup:
-            # If we have no predicted row, skip
             continue
+            
         pred_row = pred_lookup[key]
-
+        
+        # Get time period for temporal analysis
+        decade = get_time_period(date_str, "decade")
+        
         # For each label column in the DB, compare to gold
         for label in annot_cols:
             pred_val = pred_row.get(label)
             # If DB has no prediction (NaN), skip
             if pd.isna(pred_val):
                 continue
-
+            
             # gold=1 if this label is in the gold set, else 0
             gold_bin = 1 if label in gold_set else 0
             pred_bin = int(pred_val)
-
-            # Update confusion
+            
+            # Update regular confusion
             conf.update_counts(
                 label=label,
                 gold=gold_bin,
                 pred=pred_bin,
                 lang=lang
             )
+            
+            # Update temporal confusion for different time periods
+            if date_str:  # Only if we have a valid date
+                temporal_conf.update_counts(
+                    label=label,
+                    gold=gold_bin,
+                    pred=pred_bin,
+                    lang=lang,
+                    period=decade
+                )
 
     print("[INFO] Confusion matrix complete. Building final metrics…")
 
@@ -437,7 +795,7 @@ def main() -> None:
             )
 
             metric_rows.append({
-                "label": lab,
+                "label": get_readable_label(lab),
                 "language": lng,
 
                 "TP_1": tp_1,
@@ -558,31 +916,226 @@ def main() -> None:
             "support_total": all_avg["support_total"],
         })
 
-    # Step 3: Write out the final CSV in wide format
-    # We'll keep 4-decimal rounding for all P/R/F measures
+    # Step 3: Write out the final CSV with improved formatting
     OUTPUT_CSV.parent.mkdir(parents=True, exist_ok=True)
+    
+    # Sort rows for better presentation: by label (ALL last), then by language
+    metric_rows.sort(key=lambda x: (
+        x["label"] == "ALL",  # Put ALL at the end
+        x["label"],
+        {"EN": 0, "FR": 1, "ALL": 2}.get(x["language"], 3)  # Order languages
+    ))
+    
     with OUTPUT_CSV.open("w", newline="", encoding="utf-8") as fo:
+        # Reorganized fieldnames for clearer presentation
         fieldnames = [
             "label", "language",
-            "TP_1", "FP_1", "FN_1", "precision_1", "recall_1", "f1_1", "support_1",
-            "TP_0", "FP_0", "FN_0", "precision_0", "recall_0", "f1_0", "support_0",
-            "precision_micro", "recall_micro", "f1_micro",
-            "precision_macro", "recall_macro", "f1_macro",
-            "precision_weighted", "recall_weighted", "f1_weighted",
+            # Core metrics
+            "f1_macro", "f1_micro", "f1_weighted",
+            "precision_macro", "recall_macro",
+            "precision_micro", "recall_micro", 
+            "precision_weighted", "recall_weighted",
+            # Class-specific metrics
+            "f1_1", "precision_1", "recall_1", "support_1",
+            "f1_0", "precision_0", "recall_0", "support_0",
+            # Raw counts (optional, can be removed if too detailed)
+            "TP_1", "FP_1", "FN_1",
+            "TP_0", "FP_0", "FN_0",
             "support_total"
         ]
         writer = csv.DictWriter(fo, fieldnames=fieldnames)
         writer.writeheader()
 
         for row in metric_rows:
-            # Round float fields
+            # Round float fields to 3 decimals for cleaner presentation
             for k in fieldnames:
-                val = row[k]
+                val = row.get(k)
                 if isinstance(val, float):
-                    row[k] = f"{val:.4f}"
+                    row[k] = f"{val:.3f}"
             writer.writerow(row)
 
     print(f"[INFO] Metrics CSV saved → {OUTPUT_CSV}")
+    
+    # ========================================================================
+    # TEMPORAL DRIFT ANALYSIS
+    # ========================================================================
+    print("\n[INFO] Computing temporal drift metrics...")
+    
+    # Get unique time periods and labels from temporal confusion
+    unique_periods = sorted(set(period for (_, _, _, period) in temporal_conf.keys()))
+    unique_labels_temporal = sorted(set(lab for (lab, _, _, _) in temporal_conf.keys()))
+    
+    temporal_rows: List[Dict[str, Any]] = []
+    
+    # For each label and time period, calculate metrics
+    for lab in unique_labels_temporal:
+        for period in unique_periods:
+            if period == "Unknown":
+                continue  # Skip entries without valid dates
+            
+            # Calculate for each language
+            for lng in ("EN", "FR", "ALL"):
+                # Get stats for class=1
+                tp_1 = temporal_conf[(lab, 1, lng, period)]["TP"]
+                fp_1 = temporal_conf[(lab, 1, lng, period)]["FP"]
+                fn_1 = temporal_conf[(lab, 1, lng, period)]["FN"]
+                p_1, r_1, f1_1 = prf(tp_1, fp_1, fn_1)
+                s_1 = tp_1 + fn_1
+                
+                # Get stats for class=0
+                tp_0 = temporal_conf[(lab, 0, lng, period)]["TP"]
+                fp_0 = temporal_conf[(lab, 0, lng, period)]["FP"]
+                fn_0 = temporal_conf[(lab, 0, lng, period)]["FN"]
+                p_0, r_0, f0_0 = prf(tp_0, fp_0, fn_0)
+                s_0 = tp_0 + fn_0
+                
+                # Calculate macro F1
+                macro_f1 = (f1_1 + f0_0) / 2
+                
+                # Only add row if there's actual data
+                if s_1 + s_0 > 0:
+                    temporal_rows.append({
+                        "label": get_readable_label(lab),
+                        "language": lng,
+                        "time_period": period,
+                        "precision_1": p_1,
+                        "recall_1": r_1,
+                        "f1_1": f1_1,
+                        "support_1": s_1,
+                        "precision_0": p_0,
+                        "recall_0": r_0,
+                        "f1_0": f0_0,
+                        "support_0": s_0,
+                        "macro_f1": macro_f1,
+                        "total_support": s_1 + s_0
+                    })
+    
+    # Also create aggregated "ALL" label rows for each time period
+    overall_temporal_conf = TemporalConfusionDict()
+    
+    for (lab, cls, lng, period), dct in temporal_conf.items():
+        if lab == "ALL":
+            continue
+        # Add to overall statistics
+        overall_temporal_conf.increment(
+            "ALL", cls, lng, period,
+            tp=dct["TP"], fp=dct["FP"], fn=dct["FN"]
+        )
+    
+    # Add overall rows
+    for period in unique_periods:
+        if period == "Unknown":
+            continue
+        
+        for lng in ("EN", "FR", "ALL"):
+            # Get overall stats for class=1
+            atp_1 = overall_temporal_conf[("ALL", 1, lng, period)]["TP"]
+            afp_1 = overall_temporal_conf[("ALL", 1, lng, period)]["FP"]
+            afn_1 = overall_temporal_conf[("ALL", 1, lng, period)]["FN"]
+            p_1, r_1, f1_1 = prf(atp_1, afp_1, afn_1)
+            s_1 = atp_1 + afn_1
+            
+            # Get overall stats for class=0
+            atp_0 = overall_temporal_conf[("ALL", 0, lng, period)]["TP"]
+            afp_0 = overall_temporal_conf[("ALL", 0, lng, period)]["FP"]
+            afn_0 = overall_temporal_conf[("ALL", 0, lng, period)]["FN"]
+            p_0, r_0, f0_0 = prf(atp_0, afp_0, afn_0)
+            s_0 = atp_0 + afn_0
+            
+            # Calculate macro F1
+            macro_f1 = (f1_1 + f0_0) / 2
+            
+            if s_1 + s_0 > 0:
+                temporal_rows.append({
+                    "label": "ALL",
+                    "language": lng,
+                    "time_period": period,
+                    "precision_1": p_1,
+                    "recall_1": r_1,
+                    "f1_1": f1_1,
+                    "support_1": s_1,
+                    "precision_0": p_0,
+                    "recall_0": r_0,
+                    "f1_0": f0_0,
+                    "support_0": s_0,
+                    "macro_f1": macro_f1,
+                    "total_support": s_1 + s_0
+                })
+    
+    # Write temporal drift CSV with improved formatting
+    TEMPORAL_CSV.parent.mkdir(parents=True, exist_ok=True)
+    
+    # Sort for better presentation
+    temporal_rows.sort(key=lambda x: (
+        x["label"] == "ALL",  # ALL labels at the end
+        x["label"],
+        x["time_period"],
+        {"EN": 0, "FR": 1, "ALL": 2}.get(x["language"], 3)
+    ))
+    
+    with TEMPORAL_CSV.open("w", newline="", encoding="utf-8") as fo:
+        fieldnames = [
+            "label", "time_period", "language",
+            # Primary metric
+            "macro_f1",
+            # Class-specific metrics
+            "f1_1", "precision_1", "recall_1", "support_1",
+            "f1_0", "precision_0", "recall_0", "support_0",
+            "total_support"
+        ]
+        writer = csv.DictWriter(fo, fieldnames=fieldnames)
+        writer.writeheader()
+        
+        for row in temporal_rows:
+            # Round float fields to 3 decimals
+            for k in fieldnames:
+                val = row.get(k)
+                if isinstance(val, float):
+                    row[k] = f"{val:.3f}"
+            writer.writerow(row)
+    
+    print(f"[INFO] Temporal drift metrics CSV saved → {TEMPORAL_CSV}")
+    print(f"[INFO] Found {len(unique_periods)-1} time periods (excluding 'Unknown')")
+    print(f"[INFO] Analyzed {len(unique_labels_temporal)} labels across time")
+    
+    # ========================================================================
+    # SUMMARY STATISTICS
+    # ========================================================================
+    print("\n" + "="*70)
+    print("SUMMARY STATISTICS")
+    print("="*70)
+    
+    # Find the overall "ALL" metrics for summary
+    overall_metrics = [row for row in metric_rows 
+                      if row["label"] == "ALL" and row["language"] == "ALL"]
+    
+    if overall_metrics:
+        overall = overall_metrics[0]
+        print(f"\nOVERALL PERFORMANCE (All Labels, All Languages):")
+        print(f"  • F1 Score (Macro):    {float(overall['f1_macro']):.3f}")
+        print(f"  • F1 Score (Micro):    {float(overall['f1_micro']):.3f}")
+        print(f"  • F1 Score (Weighted): {float(overall['f1_weighted']):.3f}")
+        print(f"  • Precision (Macro):   {float(overall['precision_macro']):.3f}")
+        print(f"  • Recall (Macro):      {float(overall['recall_macro']):.3f}")
+        print(f"  • Total Support:       {int(overall['support_total']):,}")
+    
+    # Calculate average performance by language
+    en_metrics = [row for row in metric_rows 
+                  if row["label"] == "ALL" and row["language"] == "EN"]
+    fr_metrics = [row for row in metric_rows 
+                  if row["label"] == "ALL" and row["language"] == "FR"]
+    
+    if en_metrics:
+        print(f"\nENGLISH Performance:")
+        print(f"  • F1 Score (Macro):    {float(en_metrics[0]['f1_macro']):.3f}")
+        print(f"  • F1 Score (Weighted): {float(en_metrics[0]['f1_weighted']):.3f}")
+    
+    if fr_metrics:
+        print(f"\nFRENCH Performance:")
+        print(f"  • F1 Score (Macro):    {float(fr_metrics[0]['f1_macro']):.3f}")
+        print(f"  • F1 Score (Weighted): {float(fr_metrics[0]['f1_weighted']):.3f}")
+    
+    print("\n" + "="*70)
 
 
 if __name__ == "__main__":

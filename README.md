@@ -6,6 +6,29 @@
 
 # [Have a look at our website here!](https://ccf-project.ca/Home)
 
+## Technical Paper
+
+### [CCF Database: A Machine-Learning-Preprocessed Media Corpus of 266,000 Climate Articles with 65 Sentence-Level Annotations (1978–2024)](paper/CCF_Methodology.pdf)
+
+[![View PDF](https://img.shields.io/badge/View-PDF-red.svg)](paper/CCF_Methodology.pdf)
+[![Pages](https://img.shields.io/badge/Pages-41-blue.svg)](paper/CCF_Methodology.pdf)
+[![Status](https://img.shields.io/badge/Status-Complete-green.svg)](paper/CCF_Methodology.pdf)
+
+The comprehensive methodology paper detailing the CCF database architecture, machine learning pipeline, and validation procedures is available in this repository. This technical document provides:
+
+- Complete annotation framework with 65 hierarchical categories
+- Machine learning training procedures achieving F1=0.866 across all categories
+- Stratified validation methodology with root-inverse probability weighting
+- Database structure and implementation details
+- Four analytical applications demonstrating the database capabilities
+
+**Key Statistics:**
+- 266,271 articles from 20 Canadian newspapers
+- 9.2 million annotated sentences
+- 47 years of coverage (1978-2025)
+- Bilingual corpus (82.9% English, 17.1% French)
+- 65 annotation categories + Named Entity Recognition
+
 ## Introduction
 
 Welcome to the **CCF-canadian-climate-framing** repository. This project is dedicated to studying media coverage of climate change in the Canadian press. It aims to understand how climate change narratives are constructed and communicated to the public using a database of over 250,000 articles and advanced machine learning techniques. This is the first initiative of this scale in Canada known to the authors.
@@ -158,17 +181,20 @@ The research workflow for this project is structured as follows:
 | **54**    |                                         | Policy Measures                 | Concrete climate laws, regulations, or programmes under debate or in force.                  |
 | **55**    |                                         | Political Debate & Opinion      | Parliamentary disputes, party platforms, public-opinion polls on climate.                    |
 | **56**    | **Extreme-Weather Mentions**            | Weather Hazards                 | Any specific storm, heatwave, flood, wildfire, drought, ice-melt referenced.                 |
-| **57**    | **Framing – Gains vs Losses**           | Gains Frame                     | Narratives emphasising economic or societal gains.                                           |
-| **58**    |                                         | Loss Frame                      | Narratives emphasising economic or societal costs or damages.                                |
-| **59**    |                                         | Balanced Frame                  | Coverage giving roughly equal weight to gains and losses.                                    |
-| **60**    | **Emotional Tone**                      | *Emotion Classification*        | Detects presence and valence of emotion.                                        |
-| **61**    |                                         | Positive Emotion                | Hope, optimism, pride, inspiration.                                                          |
-| **62**    |                                         | Negative Emotion                | Fear, anger, sadness, anxiety, loss.                                                         |
-| **63**    |                                         | Neutral / No Emotion            | Factual or analytical coverage with no clear emotional tone.                                 |
+| **57**    | **Emotional Tone**                      | *Emotion Classification*        | Detects presence and valence of emotion.                                        |
+| **58**    |                                         | Positive Emotion                | Hope, optimism, pride, inspiration.                                                          |
+| **59**    |                                         | Negative Emotion                | Fear, anger, sadness, anxiety, loss.                                                         |
+| **60**    |                                         | Neutral / No Emotion            | Factual or analytical coverage with no clear emotional tone.                                 |
 |    | **Named Entities**                      | *Entity Extraction*             | Detection of people, organisations and locations mentioned in the text.         |
-| **64**    |                                         | Person Mentions                 | Named individuals (PER).                                                                     |
-| **65**    |                                         | Organization Mentions           | Institutions, corporations, agencies (ORG).                                                  |
-| **66**    |                                         | Location Mentions               | Geographic places such as cities, provinces, countries (LOC).                                |
+| **61**    |                                         | Person Mentions                 | Named individuals (PER).                                                                     |
+| **62**    |                                         | Organization Mentions           | Institutions, corporations, agencies (ORG).                                                  |
+| **63**    |                                         | Location Mentions               | Geographic places such as cities, provinces, countries (LOC).                                |
+
+### Additional Event sub-categories (aligned with Table A5)
+
+- Protest: organization or occurrence of a protest or demonstration (e.g., climate strike, anti‑pipeline protest, union rally).
+- Cultural event: organization or hosting of sports, artistic, or cultural events (e.g., Olympics, local marathon, film screening, concert, theatre).
+- Judiciary decision or trial: trials, court rulings, legal proceedings, or regulatory hearings (e.g., ruling on carbon pricing, decision on pipeline approval).
 
 ## Illustrative results and analyses
 

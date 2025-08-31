@@ -51,8 +51,8 @@ from typing import List, Dict, Literal, TypedDict
 base_path = os.path.dirname(os.path.abspath(__file__))
 input_data_path = os.path.join(base_path, "..", "..", "Database", "Training_data", "manual_annotations_JSONL", "annotated_sentences.jsonl")
 label_config_path = os.path.join(base_path, "..", "..", "Database", "Training_data", "manual_annotations_JSONL", "label_config.json")
-output_base_dir = os.path.join(base_path, "..", "..", "Database", "Training_data", "annotation_bases_2")
-output_csv_path = os.path.join(os.path.dirname(input_data_path), "training_database_metrics_2.csv")
+output_base_dir = os.path.join(base_path, "..", "..", "Database", "Training_data", "annotation_bases")
+output_csv_path = os.path.join(os.path.dirname(input_data_path), "training_database_metrics.csv")
 
 # Load label configuration to get annotation labels
 with open(label_config_path, 'r', encoding='utf-8') as label_file:

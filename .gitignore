@@ -1,49 +1,101 @@
-Database/Database/CCF.media_database.csv
+#############################
+# Global OS / Editor clutter
+#############################
+.DS_Store
+**/.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.tmp
+*.bak
+*~
+
+
+#############
+# Python misc
+#############
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+*.egg-info/
+.eggs/
+build/
+dist/
+htmlcov/
+.tox/
+.pytest_cache/
+.mypy_cache/
+.pytype/
+.pyre/
+.coverage
+coverage.xml
+
+
+#########################
+# Virtual envs & tooling
+#########################
 .venv/
+venv/
+env/
+.hypothesis/
+
+
+########
+# IDEs
+########
 .vscode/
-Archives/
-Database/Database/CCF.media_database.csv
-Database/Database/CCF.media_processed_texts.csv
-Database/Database/CCF.media_processed_texts_annotated.csv
-Database/Raw_data
-Database/Training_data/manual_annotations_JSONL/Archives
+.idea/
+
+
+####################
+# Project-specific
+####################
+# Models & checkpoints
 models/
+models_savegard/
+
+# Archives & results
+Archives/
 Scripts/Annotation/Archives
 Scripts/Database_creation/Archives
-.DS_Store
 Scripts/Results/
-Database/Training_data/manual_annotations_JSONL/
-Database/Training_data/annotation_bases/
+
+# Generated aggregates
 Scripts/Database_creation/Agregate/
-Database/Database/CAN_shp
-Database/Database/dominant_frame_by_province.png
-Scripts/.DS_Store
-Database/.DS_Store
-Database/Database/.DS_Store
-Database/Raw_data/.DS_Store
-Database/Training_data/.DS_Store
-models/.DS_Store
-Sripts/Annotation/.DS_Store
-Scripts/Database_creation/.DS_Store
-Scripts/Results/.DS_Store
-Scripts/Annotation/llm_annotation_tool.py
-Scripts/Annotation/second_phase
-Scripts/Database_creation/3bis_clean_database.py
-Prompt
-Database/Database/archives
-Database/Database/articles_per_media.png
-Database/Database/articles_per_region.png
-Database/Training_data/sentences_annotation_error.csv
-Scripts/Annotation/llm_annotation_tool_EN.py
-Scripts/Annotation/llm_annotation_tool_FR.py
-Scripts/Annotation/7bis_fusion.py
-Scripts/Annotation/7bis2_fusion.py
-Database/ 
+
+# Optional: ignore whole DB-creation scripts (you listed it explicitly)
+# Comment this out if you want to track code here.
 Scripts/Database_creation
-models_savegard/
-Database/Training_data/Annotation_logs/
+
+# Misc paths seen in repo
+Prompt
+
+# Paper directory - track only CCF_Methodology LaTeX and PDF
+paper/**
+!paper/
+!paper/CCF_Methodology.tex
+!paper/CCF_Methodology.pdf
+
+# Any auxiliary subtrees you mentioned earlier
+Scripts/Annotation/second_phase
 
 
+##############################
+# Database (ignore by default)
+##############################
+# Ignore everything under Database; re-allow specific paths/files below.
+Database/**
+!Database/
 
+# Re-allow the Training_data directory so file exceptions work
+!Database/Training_data/
 
-
+# Keep this specific file tracked
+!Database/Training_data/all_best_models.csv
+!Database/Training_data/final_annotation_metrics.csv
+!Database/Training_data/manual_annotations_metrics.csv
+!Database/Training_data/non_trained_models.csv
+!Database/Training_data/training_database_metrics.csv
