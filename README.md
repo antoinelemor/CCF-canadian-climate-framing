@@ -6,14 +6,25 @@
 
 # [Have a look at our website here!](https://ccf-project.ca/Home)
 
+## Technical Paper: Complete Methodology and Framework
+
+### **[Read the Full Technical Paper Here](https://github.com/antoinelemor/CCF-canadian-climate-framing/blob/main/paper/CCF_Methodology/Latex/CCF_Methodology.pdf)**
+
+[![View Technical Paper](https://img.shields.io/badge/View-PDF-red.svg)](https://github.com/antoinelemor/CCF-canadian-climate-framing/blob/main/paper/CCF_Methodology/Latex/CCF_Methodology.pdf)
+[![Download](https://img.shields.io/badge/Download-PDF-blue.svg)](https://github.com/antoinelemor/CCF-canadian-climate-framing/raw/main/paper/CCF_Methodology/Latex/CCF_Methodology.pdf)
+[![Pages](https://img.shields.io/badge/Pages-41-green.svg)](paper/CCF_Methodology/Latex/CCF_Methodology.pdf)
+[![F1 Score](https://img.shields.io/badge/F1%20Score-0.866-orange.svg)](paper/CCF_Methodology/Latex/CCF_Methodology.pdf)
+
+The technical paper provides documentation of:
+- **Complete annotation framework** with 65 hierarchical categories
+- **Machine learning methodology** including model selection, training, and validation
+- **Performance metrics** for all categories (macro F1 = 0.866)
+- **Database architecture** and PostgreSQL implementation
+- **Detailed validation protocols** and inter-coder reliability assessments
+
 ## Introduction
 
-[![View Technical Paper](https://img.shields.io/badge/View-PDF-red.svg)](https://github.com/antoinelemor/CCF-canadian-climate-framing/blob/main/paper/CCF_Methodology.pdf)
-[![Download](https://img.shields.io/badge/Download-PDF-blue.svg)](https://github.com/antoinelemor/CCF-canadian-climate-framing/raw/main/paper/CCF_Methodology.pdf)
-[![Pages](https://img.shields.io/badge/Pages-41-green.svg)](paper/CCF_Methodology.pdf)
-[![F1 Score](https://img.shields.io/badge/F1%20Score-0.866-orange.svg)](paper/CCF_Methodology.pdf)
-
-Welcome to the **CCF-canadian-climate-framing** repository. This project is dedicated to studying media coverage of climate change in the Canadian press through the most comprehensive machine-learning-preprocessed corpus of climate discourse available for research. The **[CCF Database](https://github.com/antoinelemor/CCF-canadian-climate-framing/blob/main/paper/CCF_Methodology.pdf)** comprises 266,271 articles from 20 Canadian newspapers (1978–2025) processed into 9.2 million sentence-level analytical units with 65 hierarchical annotations, achieving a macro F1 score of 0.866 across all categories. This is the first initiative of this scale in Canada known to the authors.
+Welcome to the **CCF-canadian-climate-framing** repository. This project is dedicated to studying media coverage of climate change in the Canadian press through the most comprehensive machine-learning-preprocessed corpus of climate discourse available for research. The **[CCF Database](https://github.com/antoinelemor/CCF-canadian-climate-framing/blob/main/paper/CCF_Methodology/Latex/CCF_Methodology.pdf)** comprises 266,271 articles from 20 Canadian newspapers (1978–2025) processed into 9.2 million sentence-level analytical units with 65 hierarchical annotations, achieving a macro F1 score of 0.866 across all categories. This is the first initiative of this scale in Canada known to the authors.
 
 This work focuses on identifying and extracting a multitude of information by annotating the full texts of articles at the sentence level in order to analyze their complete content in the most detailed way, over time and across different Canadian regions and media outlets. We annotate [more than 60 categories](#what-do-we-annotate-and-extract-from-texts-) including eight thematic frames (economic, health, security, justice, political, scientific, environmental, cultural), actor networks, climate events, policy responses, emotional tone, and geographic focus. The database structure, implemented in PostgreSQL with indexed boolean columns, supports complex queries combining temporal, linguistic, geographic, and thematic dimensions. This repository contains all the scripts, data processing tools, and machine learning models necessary for conducting this study.
 

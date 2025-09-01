@@ -42,6 +42,9 @@ venv/
 env/
 .hypothesis/
 
+# Modules directory (contains sensitive DB config)
+modules/
+
 
 ########
 # IDEs
@@ -73,14 +76,20 @@ Scripts/Database_creation
 # Misc paths seen in repo
 Prompt
 
-# Paper directory - track only CCF_Methodology LaTeX and PDF
+# Paper directory - track only LaTeX and PDF files in Latex subdirectories
 paper/**
 !paper/
-!paper/CCF_Methodology.tex
-!paper/CCF_Methodology.pdf
+!paper/CCF_Methodology/
+!paper/CCF_Methodology/Latex/
+!paper/CCF_Methodology/Latex/CCF_Methodology.tex
+!paper/CCF_Methodology/Latex/CCF_Methodology.pdf
 
 # Any auxiliary subtrees you mentioned earlier
 Scripts/Annotation/second_phase
+
+# Archive folders
+paper/CCF_Methodology/Results/Scripts/Archives/
+paper/CCF_Science_to_policymakers/Results/Scripts/Archives/
 
 
 ##############################
