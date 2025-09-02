@@ -170,18 +170,20 @@ The research workflow for this project is structured as follows:
 | **50**    | **Science & Climate**                 | *Any Science Link*              | Mentions any scientific aspect.                                             |
 | **51**    |                                         | Scientific Controversy          | Debates on climate change reality, causes, thresholds, geo-engineering ethics.               |
 | **52**    |                                         | Discovery & Innovation          | New findings on climate impacts or emerging technologies (e.g., carbon capture).             |
-| **53**    | **Politics & Policy Process**           | *Any Policy / Political Debate* | Mentions any policy measure or political discussion.                        |
-| **54**    |                                         | Policy Measures                 | Concrete climate laws, regulations, or programmes under debate or in force.                  |
-| **55**    |                                         | Political Debate & Opinion      | Parliamentary disputes, party platforms, public-opinion polls on climate.                    |
-| **56**    | **Extreme-Weather Mentions**            | Weather Hazards                 | Any specific storm, heatwave, flood, wildfire, drought, ice-melt referenced.                 |
-| **57**    | **Emotional Tone**                      | *Emotion Classification*        | Detects presence and valence of emotion.                                        |
-| **58**    |                                         | Positive Emotion                | Hope, optimism, pride, inspiration.                                                          |
-| **59**    |                                         | Negative Emotion                | Fear, anger, sadness, anxiety, loss.                                                         |
-| **60**    |                                         | Neutral / No Emotion            | Factual or analytical coverage with no clear emotional tone.                                 |
+| **53**    |                                         | Scientific Uncertainty          | Expressions of doubt or uncertainty about climate science.                                   |
+| **54**    |                                         | Scientific Certainty            | Strong consensus statements about climate science.                                           |
+| **55**    | **Politics & Policy Process**           | *Any Policy / Political Debate* | Mentions any policy measure or political discussion.                        |
+| **56**    |                                         | Policy Measures                 | Concrete climate laws, regulations, or programmes under debate or in force.                  |
+| **57**    |                                         | Political Debate & Opinion      | Parliamentary disputes, party platforms, public-opinion polls on climate.                    |
+| **58**    | **Extreme-Weather Mentions**            | Weather Hazards                 | Any specific storm, heatwave, flood, wildfire, drought, ice-melt referenced.                 |
+| **59**    | **Emotional Tone**                      | *Emotion Classification*        | Detects presence and valence of emotion.                                        |
+| **60**    |                                         | Positive Emotion                | Hope, optimism, pride, inspiration.                                                          |
+| **61**    |                                         | Negative Emotion                | Fear, anger, sadness, anxiety, loss.                                                         |
+| **62**    |                                         | Neutral / No Emotion            | Factual or analytical coverage with no clear emotional tone.                                 |
 |    | **Named Entities**                      | *Entity Extraction*             | Detection of people, organisations and locations mentioned in the text.         |
-| **61**    |                                         | Person Mentions                 | Named individuals (PER).                                                                     |
-| **62**    |                                         | Organization Mentions           | Institutions, corporations, agencies (ORG).                                                  |
-| **63**    |                                         | Location Mentions               | Geographic places such as cities, provinces, countries (LOC).                                |
+| **63**    |                                         | Person Mentions                 | Named individuals (PER).                                                                     |
+| **64**    |                                         | Organization Mentions           | Institutions, corporations, agencies (ORG).                                                  |
+| **65**    |                                         | Location Mentions               | Geographic places such as cities, provinces, countries (LOC).                                |
 
 ### Additional Event sub-categories (aligned with Table A5)
 
