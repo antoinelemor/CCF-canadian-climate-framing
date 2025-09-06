@@ -6,11 +6,11 @@
 
 # [Have a look at our website here!](https://ccf-project.ca/Home)
 
-## Technical Paper: Complete Methodology and Framework
+## Technical paper
 
-### **[Read the Full Technical Paper Here](https://github.com/antoinelemor/CCF-canadian-climate-framing/blob/main/paper/CCF_Methodology/Latex/CCF_Methodology.pdf)**
+### **[Read the full technical paper here](https://github.com/antoinelemor/CCF-canadian-climate-framing/blob/main/paper/CCF_Methodology/Latex/CCF_Methodology.pdf)**
 
-[![View Technical Paper](https://img.shields.io/badge/View-PDF-red.svg)](https://github.com/antoinelemor/CCF-canadian-climate-framing/blob/main/paper/CCF_Methodology/Latex/CCF_Methodology.pdf)
+[![View technical paper](https://img.shields.io/badge/View-PDF-red.svg)](https://github.com/antoinelemor/CCF-canadian-climate-framing/blob/main/paper/CCF_Methodology/Latex/CCF_Methodology.pdf)
 [![Download](https://img.shields.io/badge/Download-PDF-blue.svg)](https://github.com/antoinelemor/CCF-canadian-climate-framing/raw/main/paper/CCF_Methodology/Latex/CCF_Methodology.pdf)
 [![Pages](https://img.shields.io/badge/Pages-41-green.svg)](paper/CCF_Methodology/Latex/CCF_Methodology.pdf)
 [![F1 Score](https://img.shields.io/badge/F1%20Score-0.866-orange.svg)](paper/CCF_Methodology/Latex/CCF_Methodology.pdf)
