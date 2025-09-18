@@ -842,21 +842,23 @@ These distributional analyses demonstrate several key characteristics of the CCF
 
 \subsection{Examples of Analytical Applications}
 
-\begin{figure}[!b]
-\vspace*{\fill}
-\centering
-\includegraphics[width=0.7\textwidth]{../Results/Outputs/Figures/political_entities_front_page.png}
-\caption{Front page placement probability for political entities mentioned in articles with political framing. Bars represent the probability that an article mentioning each entity appears on the front page, with error bars showing 95\% confidence intervals. The baseline (0.122) indicates the average front page probability for all articles with political framing.}
-\label{fig:political_entities}
-\vspace*{0pt}
-\end{figure}
-
 While the descriptive statistics provide a foundation, the true potential of the CCF database lies in its capacity for sophisticated yet accessible analyses as data are already preprocessed, annotated and validated. Here we present four scientifically grounded applications that showcase this potential: (1) first, we examine how specific political actors systematically achieve higher editorial prominence (i.e., media salience measured as first-page placement probability); (2) second, we map the geographic polarization of climate science discourse across provinces; (3) third, we analyze how different climate frames and themes (e.g., economy, politics, science, environment, justice, culture) influence newspapers' decisions about front-page placement; and (4) fourth, we visualize the network structure of epistemic authorities—identified through our \emph{Messenger/actor} detection categories and named entity recognition, these are the individuals and organizations cited as sources and whose co-citation can reveal the underlying social architecture of climate communication in Canadian media.
 
 
 \subsubsection{Political Entities and Editorial Prominence}
 
-The CCF database can enable analysis of how specific actors, such as politicians (and others, see Table \ref{tab:complete_framework}), can influence editorial decisions in climate coverage. As illustrated in Figure \ref{fig:political_entities}, we can identify political entities mentioned in at least 50 sentences and calculates their associated probability of front page placement. Several patterns emerge from this analysis. First, certain political figures consistently achieve front page placement rates exceeding 60\%, suggesting their involvement signals newsworthy climate developments. Second, the variation in placement probability (ranging from 0.531 to 0.750) indicates differential news value assigned to various political actors, potentially reflecting their policy influence or controversial positions. Third, all entities shown exceed the baseline rate of 0.122 for political articles, confirming that named political actors enhance news prominence. This pattern analysis capability enables researchers to study how specific actors shapes editorial decisions and public attention to climate issues.
+The CCF database enables analysis of how specific individuals shape editorial decisions in climate coverage through, for instance, their association with political debate framing. Figure \ref{fig:political_entities} presents the front page placement probability for persons mentioned in sentences where political debate about climate change is detected (Pol\_2\_SUB category). This category specifically captures political disagreements about climate policies, debates over governmental responsibilities, and discussions about the effectiveness of climate actions.
+
+\begin{figure}[!h]
+\vspace*{\fill}
+\centering
+\includegraphics[width=0.7\textwidth]{/Users/antoine/Documents/GitHub/CCF-canadian-climate-framing/paper/CCF_Methodology/Results/Outputs/Figures/proba_front_PER.png}
+\caption{Front page placement probability for persons mentioned in sentences containing political debate framing (Pol\_2\_SUB). This analysis identifies individuals appearing in at least 50 sentences where political debate about climate policies is detected. Bars represent the probability that articles mentioning each person appear on the front page, with error bars showing 95\% Wilson confidence intervals.}
+\label{fig:political_entities}
+\vspace*{0pt}
+\end{figure}
+
+We identify all sentences containing political debate framing through our trained classifiers; second, we extract named entities (PER) from these politically-framed sentences using our Named Entity Recognition variable. The analysis reveals interesting patterns in editorial prioritization. Individuals appearing in political debate contexts show considerable variation in their front page placement rates. This variation likely reflects differential news value assigned to various political actors based on their policy influence, controversial positions, or role in climate governance debates. The pattern analysis capability demonstrates how the database can reveal relationships between specific actors, framing contexts, and editorial decisions that shape public attention to climate issues.
 
 \subsubsection{Geographic Polarization of Climate Science Discourse}
 
@@ -864,7 +866,7 @@ The CCF database can also be used to produce a detailed geographic analysis of h
 
 The analysis shows pronounced geographic variation in how climate science is framed through the lens of uncertainty. Among sentences with scientific content, the proportion expressing uncertainty ranges from 0.0\% in New Brunswick to 10.0\% in Saskatchewan. The Prairie provinces—Saskatchewan (10.0\%), Manitoba (9.6\%)—along with British Columbia (9.6\%) show the highest rates of scientific uncertainty framing. Nova Scotia (9.3\%), Newfoundland and Labrador (8.9\%), and Alberta (8.8\%) also exhibit notable rates, while Ontario shows moderate levels (7.5\%). The pattern is particularly striking in Quebec (2.1\%) and New Brunswick (0.0\%), which show minimal scientific uncertainty framing. This geographic distribution suggests that regions with significant fossil fuel economies are more likely to express uncertainty about climate science, despite the overwhelming scientific consensus on anthropogenic climate change.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
 \centering
 \includegraphics[width=0.48\textwidth]{../Results/Outputs/Figures/science_acceptance_maps.png}
 \caption{Geographic distribution of scientific debate in Canadian climate coverage. Values represent the proportion of sentences referring to scientific debate among all sentences with scientific content (\emph{Scientific Frame}=1). Scientific debate includes references to past or ongoing disagreements within the scientific community about climate science, contested data interpretations, methodological disputes, or ethical debates on solutions.}
@@ -886,7 +888,7 @@ Figure \ref{fig:frames_front_page} shows a clear hierarchy in editorial prioriti
 
 \subsubsection{Network Structure of Epistemic Authorities}
 
-\begin{figure}[b!]
+\begin{figure}[t!]
 \centering
 \includegraphics[width=0.7\textwidth]{../Results/Outputs/Figures/network.pdf}
 \caption{Co-citation network of epistemic authorities in Canadian climate media discourse (year=2024). Node size represents degree centrality, edge thickness indicates co-citation frequency, and colors denote community detection clusters. The network reveals a hierarchical structure with political figures at the core (Trudeau: degree centrality 0.899, Poilievre: 0.879, Trump: 0.848) surrounded by specialized thematic clusters including environmental policy experts (Guilbeault, McKenna), provincial leaders (Ford, Smith, Legault), and economic authorities (Carney, Bank of Canada officials).}
