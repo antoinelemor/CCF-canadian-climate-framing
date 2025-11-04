@@ -83,6 +83,22 @@ paper/**
 !paper/CCF_Methodology/Latex/
 !paper/CCF_Methodology/Latex/CCF_Methodology.tex
 !paper/CCF_Methodology/Latex/CCF_Methodology.pdf
+# Figures referenced by the methodology paper
+!paper/CCF_Methodology/Results/
+!paper/CCF_Methodology/Results/Outputs/
+!paper/CCF_Methodology/Results/Outputs/Figures/
+paper/CCF_Methodology/Results/Outputs/Figures/*
+!paper/CCF_Methodology/Results/Outputs/Figures/articles_by_media.png
+!paper/CCF_Methodology/Results/Outputs/Figures/articles_by_year.png
+!paper/CCF_Methodology/Results/Outputs/Figures/articles_by_province.png
+!paper/CCF_Methodology/Results/Outputs/Figures/temporal_f1_evolution.png
+!paper/CCF_Methodology/Results/Outputs/Figures/combined_distributions.png
+!paper/CCF_Methodology/Results/Outputs/Figures/temporal_frames_evolution.png
+!paper/CCF_Methodology/Results/Outputs/Figures/top3_frames_by_province.png
+!paper/CCF_Methodology/Results/Outputs/Figures/image.png
+!paper/CCF_Methodology/Results/Outputs/Figures/science_acceptance_maps.png
+!paper/CCF_Methodology/Results/Outputs/Figures/frames_front_page_probability.png
+!paper/CCF_Methodology/Results/Outputs/Figures/network.pdf
 
 # Any auxiliary subtrees you mentioned earlier
 Scripts/Annotation/second_phase
