@@ -1,0 +1,66 @@
+number,category,code,train_pos_en,train_neg_en,val_pos_en,val_neg_en,train_pos_fr,train_neg_fr,val_pos_fr,val_neg_fr
+1,Economic Frame (Primary Category),economic_frame,218,1067,24,118,252,1164,28,129
+2,Negative impacts of climate change on the economy,eco_neg_impact,61,158,6,17,75,178,8,19
+3,Positive impacts of climate change on the economy,eco_pos_impact,14,205,1,22,7,245,1,27
+4,Economic disadvantages of climate action,eco_cost,63,156,6,17,42,211,4,23
+5,Economic benefits of climate action,eco_benefit,36,183,3,20,48,205,5,22
+6,Carbon footprint of the economic sector,eco_footprint,67,152,7,16,77,176,8,19
+7,Health Frame (Primary Category),health_frame,57,1228,6,136,37,1379,4,153
+8,Negative impacts of climate change on health,health_neg_impact,47,10,5,1,32,5,3,1
+9,Health co-benefits of climate action,health_cobenefit,8,49,1,5,4,33,1,3
+10,Security Frame (Primary Category),security_frame,19,1266,2,140,19,1397,2,155
+11,Presence of climate refugees,security_refugees,10,9,1,1,7,12,1,1
+12,Conflict,security_conflict,6,13,1,1,7,12,1,1
+13,Post-disaster military assistance,security_military,0,18,1,2,4,15,1,1
+14,Disruption of military operations,security_disruption,0,18,1,2,1,18,1,1
+15,Justice Frame (Primary Category),justice_frame,90,1196,9,132,81,1335,9,148
+16,Winners and losers of climate action,justice_winners,20,70,2,7,20,62,2,6
+17,Differentiated responsibility,justice_responsibility,38,52,4,5,41,41,4,4
+18,Unequal vulnerability to climate change,justice_vulnerability,8,81,1,9,9,72,1,8
+19,Unequal access to climate action,justice_access,21,69,2,7,20,62,2,6
+20,Intergenerational justice,justice_intergen,14,76,1,8,6,75,1,8
+21,Political Frame (Primary Category),political_frame,416,869,46,96,440,977,48,108
+22,Policy action,pol_action,62,355,6,39,58,382,6,42
+23,Political debate,pol_debate,344,72,38,8,396,45,43,4
+24,Political positioning,pol_position,61,356,6,39,35,405,3,45
+25,Public opinion data,pol_opinion,21,396,2,43,20,420,2,46
+26,Scientific Frame (Primary Category),scientific_frame,243,1042,27,115,185,1232,20,136
+27,Scientific debate,sci_debate,98,146,10,16,46,139,5,15
+28,Popularisation or scientific discovery,sci_discovery,126,117,14,13,144,41,16,4
+29,Questioning of climate science,sci_skepticism,50,194,5,21,17,169,1,18
+30,Defense of climate science,sci_defense,37,207,4,22,32,153,3,17
+31,Environmental Frame (Primary Category),environmental_frame,84,1201,9,133,63,1354,6,150
+32,Loss of natural environments,env_habitat,50,35,5,3,35,28,3,3
+33,Loss of fauna and flora,env_species,42,43,4,4,32,31,3,3
+34,Cultural Frame (Primary Category),cultural_frame,44,1242,4,137,45,1371,5,152
+35,Artistic representation,cult_art,20,24,2,2,18,27,2,3
+36,Difficulty to host cultural or sports events,cult_event_impact,11,33,1,3,21,25,2,2
+37,Loss of indigenous practices,cult_indigenous,10,34,1,3,4,41,1,4
+38,Carbon footprint of the cultural and sports sectors,cult_footprint,1,42,1,4,2,43,1,4
+39,Presence of Messengers (Primary Category),messenger,657,629,72,69,736,681,81,75
+40,Health expert,msg_health,10,647,1,71,8,728,1,80
+41,Economic expert,msg_economic,55,602,6,66,67,669,7,74
+42,Security expert,msg_security,3,653,1,72,10,726,1,80
+43,Legal expert,msg_legal,1,655,1,72,4,731,1,81
+44,Cultural or Sport expert,msg_cultural,13,644,1,71,9,727,1,80
+45,Natural scientist,msg_scientist,107,550,11,61,117,620,12,68
+46,Social scientist,msg_social,9,648,1,71,26,711,2,78
+47,Activist,msg_activist,53,604,5,67,55,681,6,75
+48,Public official,msg_official,171,486,18,54,223,513,24,57
+49,Presence of Events (Primary Category),event,298,987,33,109,355,1062,39,117
+50,Extreme meteorological event,evt_weather,72,226,8,25,59,297,6,32
+51,Meeting,evt_meeting,75,224,8,24,100,255,11,28
+52,Publication,evt_publication,74,225,8,24,114,242,12,26
+53,Election,evt_election,16,283,1,31,18,337,2,37
+54,New policy,evt_policy,55,243,6,27,60,296,6,32
+55,Judiciary decision,evt_judiciary,10,288,1,32,10,345,1,38
+56,Cultural or Sports event,evt_cultural,2,296,1,32,11,344,1,38
+57,Protest,evt_protest,11,288,1,31,8,347,1,38
+58,Presence of Solutions (Primary Category),solution,314,972,34,107,415,1001,46,111
+59,Mitigation strategy,sol_mitigation,279,35,31,3,360,55,40,6
+60,Adaptation strategy,sol_adaptation,46,268,5,29,64,351,7,39
+61,Emotion: positive,tone_positive,103,1182,11,131,151,1266,16,140
+62,Emotion: negative,tone_negative,491,794,54,88,537,880,59,97
+63,Emotion: neutral,tone_neutral,686,599,76,66,726,691,80,76
+64,Mention of Canada,canada,445,840,49,93,493,924,54,102
+65,Urgency to act,urgency,66,1219,7,135,63,1354,6,150

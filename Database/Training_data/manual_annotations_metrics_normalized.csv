@@ -1,0 +1,67 @@
+number,category,code,count_en,proportion_en,count_fr,proportion_fr
+1,Economic Frame (Primary Category),economic_frame,324,0.1681370005189413,365.0,0.1760733236854799
+2,Negative impacts of climate change on the economy,eco_neg_impact,107,0.0555267254800207,102.0,0.0492040520984081
+3,Positive impacts of climate change on the economy,eco_pos_impact,21,0.0108977685521536,11.0,0.0053063193439459
+4,Economic disadvantages of climate action,eco_cost,89,0.0461857810067462,69.0,0.0332850940665701
+5,Economic benefits of climate action,eco_benefit,53,0.0275038920601971,80.0,0.0385914134105161
+6,Carbon footprint of the economic sector,eco_footprint,88,0.0456668396471198,109.0,0.0525808007718282
+7,Health Frame (Primary Category),health_frame,85,0.0441100155682407,70.0,0.0337674867342016
+8,Negative impacts of climate change on health,health_neg_impact,73,0.0378827192527244,62.0,0.02990834539315
+9,Health co-benefits of climate action,health_cobenefit,10,0.0051894135962636,7.0,0.0033767486734201
+10,Security Frame (Primary Category),security_frame,57,0.0295796574987026,54.0,0.0260492040520984
+11,Presence of climate refugees,security_refugees,37,0.0192008303061754,27.0,0.0130246020260492
+12,Conflict,security_conflict,23,0.0119356512714063,24.0,0.0115774240231548
+13,Post-disaster military assistance,security_military,1,0.0005189413596263,7.0,0.0033767486734201
+14,Disruption of military operations,security_disruption,1,0.0005189413596263,4.0,0.0019295706705258
+15,Justice Frame (Primary Category),justice_frame,160,0.0830306175402179,147.0,0.0709117221418234
+16,Winners and losers of climate action,justice_winners,33,0.0171250648676699,40.0,0.019295706705258
+17,Differentiated responsibility,justice_responsibility,62,0.0321743642968344,70.0,0.0337674867342016
+18,Unequal vulnerability to climate change,justice_vulnerability,27,0.0140114167099117,25.0,0.0120598166907863
+19,Unequal access to climate action,justice_access,32,0.0166061235080435,43.0,0.0207428847081524
+20,Intergenerational justice,justice_intergen,32,0.0166061235080435,12.0,0.0057887120115774
+21,Political Frame (Primary Category),political_frame,644,0.3341982355993773,665.0,0.3207911239749156
+22,Policy action,pol_action,83,0.043072132848988,81.0,0.0390738060781476
+23,Political debate,pol_debate,559,0.2900882200311365,615.0,0.2966714905933429
+24,Political positioning,pol_position,90,0.0467047223663726,49.0,0.0236372407139411
+25,Public opinion data,pol_opinion,27,0.0140114167099117,24.0,0.0115774240231548
+26,Scientific Frame (Primary Category),scientific_frame,378,0.1961598339387649,277.0,0.1336227689339122
+27,Scientific debate,sci_debate,138,0.0716139076284379,57.0,0.0274963820549927
+28,Popularisation or scientific discovery,sci_discovery,224,0.1162428645563051,226.0,0.1090207428847081
+29,Questioning of climate science,sci_skepticism,59,0.0306175402179553,19.0,0.0091654606849975
+30,Defense of climate science,sci_defense,54,0.0280228334198235,37.0,0.0178485287023637
+31,Environmental Frame (Primary Category),environmental_frame,116,0.060197197716658,86.0,0.0414857694163048
+32,Loss of natural environments,env_habitat,73,0.0378827192527244,53.0,0.0255668113844669
+33,Loss of fauna and flora,env_species,58,0.030098598858329,43.0,0.0207428847081524
+34,Cultural Frame (Primary Category),cultural_frame,116,0.060197197716658,120.0,0.0578871201157742
+35,Artistic representation,cult_art,58,0.030098598858329,57.0,0.0274963820549927
+36,Difficulty to host cultural or sports events,cult_event_impact,32,0.0166061235080435,51.0,0.024602026049204
+37,Loss of indigenous practices,cult_indigenous,25,0.012973533990659,9.0,0.004341534008683
+38,Carbon footprint of the cultural and sports sectors,cult_footprint,5,0.0025947067981318,5.0,0.0024119633381572
+39,Presence of Messengers (Primary Category),messenger,1029,0.5339906590555267,1135.0,0.5475156777616981
+40,Health expert,msg_health,28,0.0145303580695381,30.0,0.0144717800289435
+41,Economic expert,msg_economic,83,0.043072132848988,102.0,0.0492040520984081
+42,Security expert,msg_security,7,0.0036325895173845,25.0,0.0120598166907863
+43,Legal expert,msg_legal,7,0.0036325895173845,26.0,0.0125422093584177
+44,Cultural or Sport expert,msg_cultural,42,0.0217955371043072,41.0,0.0197780993728895
+45,Natural scientist,msg_scientist,185,0.096004151530877,181.0,0.0873130728412928
+46,Social scientist,msg_social,33,0.0171250648676699,57.0,0.0274963820549927
+47,Activist,msg_activist,91,0.0472236637259989,95.0,0.0458273034249879
+48,Public official,msg_official,264,0.1370005189413596,320.0,0.1543656536420646
+49,Presence of Events (Primary Category),event,488,0.2532433834976648,562.0,0.271104679208876
+50,Extreme meteorological event,evt_weather,105,0.054488842760768,80.0,0.0385914134105161
+51,Meeting,evt_meeting,125,0.0648676699532952,142.0,0.0684997588036661
+52,Publication,evt_publication,121,0.0627919045147898,160.0,0.0771828268210323
+53,Election,evt_election,31,0.0160871821484172,25.0,0.0120598166907863
+54,New policy,evt_policy,76,0.0394395433316035,84.0,0.0405209840810419
+55,Judiciary decision,evt_judiciary,23,0.0119356512714063,49.0,0.0236372407139411
+56,Cultural or Sports event,evt_cultural,21,0.0108977685521536,44.0,0.0212252773757838
+57,Protest,evt_protest,24,0.0124545926310326,26.0,0.0125422093584177
+58,Presence of Solutions (Primary Category),solution,449,0.2330046704722366,606.0,0.2923299565846599
+59,Mitigation strategy,sol_mitigation,394,0.2044628956927867,525.0,0.2532561505065123
+60,Adaptation strategy,sol_adaptation,75,0.0389206019719771,102.0,0.0492040520984081
+61,Emotion: positive,tone_positive,139,0.0721328489880643,206.0,0.0993728895320791
+62,Emotion: negative,tone_negative,759,0.3938764919564089,788.0,0.3801254220935842
+63,Emotion: neutral,tone_neutral,1024,0.5313959522573949,1071.0,0.516642547033285
+64,Mention of Canada,canada,676,0.3508043591074208,739.0,0.356488181379643
+64,Mention of Canada,canada,1412,0.7327451997924235,1431.0,0.6903039073806078
+65,Urgency to act,urgency,100,0.0518941359626362,95.0,0.0458273034249879

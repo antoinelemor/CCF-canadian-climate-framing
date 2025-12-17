@@ -158,3 +158,9 @@ Database/**
 !Database/Training_data/non_trained_models.csv
 !Database/Training_data/training_database_metrics.csv
 !Database/Database/articles_by_province.png
+
+# Normalized CSVs produced by Scripts/Annotation/14_normalization.py
+!Database/Training_data/all_best_models_normalized.csv
+!Database/Training_data/final_annotation_metrics_normalized.csv
+!Database/Training_data/manual_annotations_metrics_normalized.csv
+!Database/Training_data/training_database_metrics_normalized.csv
