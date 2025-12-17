@@ -87,8 +87,8 @@ To carry out this overarching research idea, the project is organized around the
 |-----------|-------------|--------|
 | **Establish a comprehensive pan-Canadian database of climate change media articles** | Establish a comprehensive and representative database covering the entire country's media landscape with historical coverage across both time and space. | **Completed** |
 | **Deploy an advanced sentence-level annotation pipeline** | Deploy an annotation pipeline that combines the precision of manual annotations and the scale of machine learning along with named entity extraction to process and annotate articles at the sentence level. | **Completed** |
-| **Implement a rigorous, scientifically robust validation process for machine learning models** | Conduct comprehensive performance evaluations using statistical analyses and manual annotations to verify high classification accuracy and ensure research-grade reliability. | *In Progress* |
-| **Publish the database and initial analyses** | Release the processed database and preliminary research findings for public use. | *Upcoming* |
+| **Implement a rigorous, scientifically robust validation process for machine learning models** | Conduct comprehensive performance evaluations using statistical analyses and manual annotations to verify high classification accuracy and ensure research-grade reliability. | **Completed** |
+| **Publish the database and initial analyses** | Release the processed database and preliminary research findings for public use. | *In Progress* |
 
 ## Methodology
 
