@@ -32,11 +32,11 @@ This work focuses on identifying and extracting a multitude of information by an
 
 This repository includes a newly compiled database of climate change articles from 20 major Canadian newspapers (n=266,271) (_not available in plain text at this time for copyright reasons_). The table below shows the distribution of articles per newspaper (_after filtering and preprocessing_), and the figure the distribution of articles through time.
 
-| Toronto Star | Globe and Mail | Vancouver Sun | Edmonton Journal | Le Devoir | National Post | Calgary Herald | Whitehorse Daily Star | Montreal Gazette | Chronicle Herald | The Telegram | Times Colonist | La Presse Plus | La Presse | Winnipeg Free Press | Acadie Nouvelle | Star Phoenix | Le Droit | Toronto Sun | Journal de Montreal | **Total** |
-|--------------|----------------|---------------|------------------|-----------|---------------|----------------|-----------------------|------------------|------------------|--------------|----------------|----------------|----------|----------------------|-----------------|--------------|----------|-------------|---------------------|-----------|
-| 46980         | 29442           | 17871          | 18162             | 13685      | 20032          | 19336           | 7603                   | 9567              | 10770              | 5841          | 11800            | 9548            | 6917      | 12421                  | 5143             | 7794          | 4727      | 3174         | 5458                 | **266271** |
+| Toronto Star | Globe and Mail | National Post | Calgary Herald | Edmonton Journal | Vancouver Sun | Le Devoir | Winnipeg Free Press | Times Colonist | Chronicle Herald | Montreal Gazette | La Presse Plus | Star Phoenix | Whitehorse Daily Star | La Presse | The Telegram | Journal de Montreal | Acadie Nouvelle | Le Droit | Toronto Sun | **Total** |
+|--------------|----------------|---------------|----------------|------------------|---------------|-----------|---------------------|----------------|------------------|------------------|----------------|--------------|----------------------|-----------|--------------|---------------------|-----------------|----------|-------------|-----------|
+| 46,980 | 29,442 | 20,032 | 19,336 | 18,162 | 17,871 | 13,685 | 12,421 | 11,800 | 10,770 | 9,567 | 9,548 | 7,794 | 7,603 | 6,917 | 5,841 | 5,458 | 5,143 | 4,727 | 3,174 | **266,271** |
 
-![Number of Climate Change Articles Per Region in the CCF Corpus (1978-Present)](Database/Database/articles_by_province.png)
+![Number of Climate Change Articles Per Region in the CCF Corpus (1978-Present)](paper/CCF_Methodology/Results/Outputs/Figures/articles_by_province.png)
 
 ---
 
@@ -113,83 +113,93 @@ The research workflow for this project is structured as follows:
 ## What do we annotate and extract from texts ?
 
 
-> **We annotate at the sentence level over 60 pieces of information and categories (frames, actors, emotions, etc.) :**
+> **We annotate at the sentence level 65 categories organized hierarchically (frames, actors, events, solutions, emotions, etc.). See Table B1 in the [methodology paper](paper/CCF_Methodology/Latex/CCF_Methodology.pdf) for complete definitions.**
 
-
-| Count (N) | Main category or frame                  | What the category captures            | What it means                                                              |
-| --------- | --------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------------------- |
-| **1**     | **Geographical Focus**                      | Canadian Context                | Situates climate change in Canada (places, actors, data, policies).                          |
-| **2**     | **Events**                              | *Any Climate-Related Event*     | Mentions at least one of the following five event types.                      |
-| **3**     |                                         | Natural Disaster Imminence      | Arrival or unfolding of floods, wildfires, hurricanes, heatwaves, etc.                       |
-| **4**     |                                         | Climate Conference / Summit     | International meetings such as COP, UN summits, major national conferences.                  |
-| **5**     |                                         | Report Release                  | Publication of governmental, NGO or scientific reports (e.g., IPCC, Lancet Countdown).       |
-| **6**     |                                         | Election Campaign               | Climate issues raised during local, provincial or national elections.                        |
-| **7**     |                                         | Policy Announcement             | Debut or unveiling of new climate laws, regulations or action plans.                         |
-| **8**     | **Actors & Messengers** | *Any messenger quoted*             | Presence of any messenger, expert or authority figure.                                  |
-| **9**     |                                         | Medical & Public-Health Experts | Physicians, epidemiologists, health ministers, public-health officials.                      |
-| **10**    |                                         | Economic & Finance Experts      | Economists, finance ministers, market analysts, central-bank officials.                      |
-| **11**    |                                         | Security & Defense Experts      | Military officers, defense strategists, security scholars.                                   |
-| **12**    |                                         | Legal Experts                   | Lawyers, judges, legal scholars, justice ministers.                                          |
-| **13**    |                                         | Cultural Figures                | Artists, writers, athletes, arts scholars commenting on climate change.                      |
-| **14**    |                                         | Scientists (Natural or Social)  | Researchers or academics speaking in a scientific capacity.                                  |
-| **15**    |                                         | Environmental Activists         | NGO spokespeople or well-known climate activists.                                            |
-| **16**    |                                         | Political Actors                | Politicians, government officials, political scientists.                                     |
-| **17**    | **Climate Solutions**                   | *Any Solution Mentioned*        | Mentions any mitigation or adaptation measure.                              |
-| **18**    |                                         | Mitigation Strategies           | Measures to reduce GHG emissions or enhance carbon sinks.                                    |
-| **19**    |                                         | Adaptation Strategies           | Measures to increase social or ecological resilience to climate impacts.                     |
-| **20**    | **Health & Climate**                    | *Any Health Link*               | Mentions any relationship between climate and health.                       |
-| **21**    |                                         | Negative Health Impacts         | Heat stress, disease spread, respiratory issues, mental-health burdens, mortality.           |
-| **22**    |                                         | Positive Health Impacts         | Benefits such as fewer cold-related deaths.                                                  |
-| **23**    |                                         | Health Co-benefits of Action    | Better air quality, improved diets, avoided premature deaths, mental well-being.             |
-| **24**    |                                         | Health-Sector Footprint         | Emissions generated by hospitals, pharma supply chains, medical equipment.                   |
-| **25**    | **Economy & Climate**                   | *Any Economic Link*             | Mentions any economic dimension of climate change.                          |
-| **26**    |                                         | Negative Economic Impacts       | Crop losses, tourism decline, productivity drops, rising insurance costs.                    |
-| **27**    |                                         | Positive Economic Impacts       | New growing zones, Arctic shipping routes, renewable-energy jobs.                            |
-| **28**    |                                         | Costs of Climate Action         | Debt burdens, competitiveness concerns, job displacement, budget trade-offs.                 |
-| **29**    |                                         | Benefits of Climate Action      | Economic growth, innovation leadership, job creation, cost savings.                          |
-| **30**    |                                         | Economic Sector Footprint       | Emissions from industry, transport, energy; accounting or reduction targets.                 |
-| **31**    | **Security & Climate**                  | *Any Security Link*             | Mentions any security dimension.                                   |
-| **32**    |                                         | Military Disaster Response      | Army called in for fires, floods, evacuations or relief.                                     |
-| **33**    |                                         | Military Base Disruption        | Climate impacts on bases or military infrastructure readiness.                               |
-| **34**    |                                         | Climate-Driven Displacement     | Military management of evacuations or refugee camps.                                         |
-| **35**    |                                         | Resource Conflict               | Tensions or violence over water, land or minerals worsened by climate change.                |
-| **36**    |                                         | Defense-Sector Footprint        | Emissions and energy use of armed forces and defense contractors.                            |
-| **37**    | **Justice & Climate**                   | *Any Justice Link*              | Mentions any social-justice angle.                                          |
-| **38**    |                                         | Winners & Losers                | Groups that benefit or suffer from climate measures (workers, vulnerable populations, etc.). |
-| **39**    |                                         | North–South Responsibility      | Common-but-differentiated responsibilities between high-income and low-income countries.     |
-| **40**    |                                         | Legitimacy of Responses         | Public trust, fairness, acceptability of climate policies.                                   |
-| **41**    |                                         | Climate Litigation              | Court cases or legal challenges over climate responsibility.                                 |
-| **42**    | **Culture & Climate**                   | *Any Culture Link*              | Mentions any cultural aspect.                                               |
-| **43**    |                                         | Artistic Representation         | Books, documentaries, plays, exhibitions portraying climate themes.                          |
-| **44**    |                                         | Event Disruption                | Sports or cultural events threatened or cancelled due to climate conditions.                 |
-| **45**    |                                         | Loss of Indigenous Practices    | Erosion of traditional hunting, fishing, or cultural rituals linked to climate.              |
-| **46**    |                                         | Cultural-Sector Footprint       | Emissions from film production, fashion, large festivals, etc.                               |
-| **47**    | **Environment & Climate**           | *Any Biodiversity Link*         | Mentions any biodiversity concern.                                          |
-| **48**    |                                         | Habitat Loss                    | Glacier melt, coral bleaching, forest die-off, wetland drying.                               |
-| **49**    |                                         | Species Loss                    | Local or global extinction risk for animals or plants.                                       |
-| **50**    | **Science & Climate**                 | *Any Science Link*              | Mentions any scientific aspect.                                             |
-| **51**    |                                         | Scientific Controversy          | Debates on climate change reality, causes, thresholds, geo-engineering ethics.               |
-| **52**    |                                         | Discovery & Innovation          | New findings on climate impacts or emerging technologies (e.g., carbon capture).             |
-| **53**    |                                         | Scientific Uncertainty          | Expressions of doubt or uncertainty about climate science.                                   |
-| **54**    |                                         | Scientific Certainty            | Strong consensus statements about climate science.                                           |
-| **55**    | **Politics & Policy Process**           | *Any Policy / Political Debate* | Mentions any policy measure or political discussion.                        |
-| **56**    |                                         | Policy Measures                 | Concrete climate laws, regulations, or programmes under debate or in force.                  |
-| **57**    |                                         | Political Debate & Opinion      | Parliamentary disputes, party platforms, public-opinion polls on climate.                    |
-| **58**    | **Extreme-Weather Mentions**            | Weather Hazards                 | Any specific storm, heatwave, flood, wildfire, drought, ice-melt referenced.                 |
-| **59**    | **Emotional Tone**                      | *Emotion Classification*        | Detects presence and valence of emotion.                                        |
-| **60**    |                                         | Positive Emotion                | Hope, optimism, pride, inspiration.                                                          |
-| **61**    |                                         | Negative Emotion                | Fear, anger, sadness, anxiety, loss.                                                         |
-| **62**    |                                         | Neutral / No Emotion            | Factual or analytical coverage with no clear emotional tone.                                 |
-|    | **Named Entities**                      | *Entity Extraction*             | Detection of people, organisations and locations mentioned in the text.         |
-| **63**    |                                         | Person Mentions                 | Named individuals (PER).                                                                     |
-| **64**    |                                         | Organization Mentions           | Institutions, corporations, agencies (ORG).                                                  |
-| **65**    |                                         | Location Mentions               | Geographic places such as cities, provinces, countries (LOC).                                |
-
-### Additional Event sub-categories (aligned with Table A5)
-
-- Protest: organization or occurrence of a protest or demonstration (e.g., climate strike, anti‑pipeline protest, union rally).
-- Cultural event: organization or hosting of sports, artistic, or cultural events (e.g., Olympics, local marathon, film screening, concert, theatre).
-- Judiciary decision or trial: trials, court rulings, legal proceedings, or regulatory hearings (e.g., ruling on carbon pricing, decision on pipeline approval).
+| # | Category | Code | Description |
+|---|----------|------|-------------|
+| | **THEMATIC FRAMES** | | |
+| | *Economic Frame* | | |
+| 1 | Economic Frame (Primary) | `economic_frame` | Climate change framed as an economic issue |
+| 2 | Negative impacts on economy | `eco_neg_impact` | Economic losses from climate change |
+| 3 | Positive impacts on economy | `eco_pos_impact` | Economic gains from climate change |
+| 4 | Economic costs of action | `eco_cost` | Financial burdens of climate policies |
+| 5 | Economic benefits of action | `eco_benefit` | Financial gains from climate policies |
+| 6 | Economic sector footprint | `eco_footprint` | Carbon footprint of economic/industrial sectors |
+| | *Health Frame* | | |
+| 7 | Health Frame (Primary) | `health_frame` | Climate change framed as a health issue |
+| 8 | Negative health impacts | `health_neg_impact` | Health harms from climate change |
+| 9 | Health co-benefits of action | `health_cobenefit` | Health benefits from climate policies |
+| | *Security Frame* | | |
+| 10 | Security Frame (Primary) | `security_frame` | Climate change framed as a security issue |
+| 11 | Climate refugees | `security_refugees` | Displacement due to climate impacts |
+| 12 | Resource conflict | `security_conflict` | Conflicts over resources due to climate |
+| 13 | Post-disaster military assistance | `security_military` | Military deployment after disasters |
+| 14 | Disruption of military operations | `security_disruption` | Climate impacts on military infrastructure |
+| | *Justice Frame* | | |
+| 15 | Justice Frame (Primary) | `justice_frame` | Climate change framed as a justice/moral issue |
+| 16 | Winners and losers | `justice_winners` | Distributional outcomes of climate policy |
+| 17 | Differentiated responsibility | `justice_responsibility` | Unequal responsibility for causing climate change |
+| 18 | Unequal vulnerability | `justice_vulnerability` | Unequal exposure to climate impacts |
+| 19 | Unequal access to action | `justice_access` | Unequal capacity to act on climate |
+| 20 | Intergenerational justice | `justice_intergen` | Rights of future generations |
+| | *Political Frame* | | |
+| 21 | Political Frame (Primary) | `political_frame` | Climate change framed as a political issue |
+| 22 | Policy action | `pol_action` | Adoption of climate policies |
+| 23 | Political debate | `pol_debate` | Disagreements on climate policies |
+| 24 | Political positioning | `pol_position` | Stances of politicians/parties on climate |
+| 25 | Public opinion data | `pol_opinion` | Polls/surveys on climate attitudes |
+| | *Scientific Frame* | | |
+| 26 | Scientific Frame (Primary) | `scientific_frame` | Climate change framed as a scientific issue |
+| 27 | Scientific debate | `sci_debate` | Debates within the scientific community |
+| 28 | Scientific discovery | `sci_discovery` | Explanations or discoveries in climate science |
+| 29 | Questioning of climate science | `sci_skepticism` | Challenges to validity of climate science |
+| 30 | Defense of climate science | `sci_defense` | Affirmations of climate science validity |
+| | *Environmental Frame* | | |
+| 31 | Environmental Frame (Primary) | `environmental_frame` | Climate change framed as an environmental issue |
+| 32 | Loss of natural environments | `env_habitat` | Degradation/loss of habitats |
+| 33 | Loss of fauna and flora | `env_species` | Impacts on animal and plant species |
+| | *Cultural Frame* | | |
+| 34 | Cultural Frame (Primary) | `cultural_frame` | Climate change framed as a cultural issue |
+| 35 | Artistic representation | `cult_art` | Cultural depictions of climate change |
+| 36 | Event disruption | `cult_event_impact` | Climate impacts on cultural/sports events |
+| 37 | Loss of Indigenous practices | `cult_indigenous` | Erosion of Indigenous cultural practices |
+| 38 | Cultural sector footprint | `cult_footprint` | Carbon footprint of cultural/sports sectors |
+| | **PRIMARY CATEGORIES** | | |
+| | *Actors/Messengers* | | |
+| 39 | Messenger (Primary) | `messenger` | Presence of quoted sources or experts |
+| 40 | Health expert | `msg_health` | Medical or public health expertise |
+| 41 | Economic expert | `msg_economic` | Economic or financial expertise |
+| 42 | Security expert | `msg_security` | Security or defense expertise |
+| 43 | Legal expert | `msg_legal` | Legal expertise |
+| 44 | Cultural/Sport expert | `msg_cultural` | Cultural, artistic, or sports expertise |
+| 45 | Natural scientist | `msg_scientist` | Natural/hard science expertise |
+| 46 | Social scientist | `msg_social` | Social science expertise |
+| 47 | Activist | `msg_activist` | Advocacy or activism |
+| 48 | Public official | `msg_official` | Politicians or government representatives |
+| | *Events* | | |
+| 49 | Event (Primary) | `event` | Presence of climate-related events |
+| 50 | Extreme weather event | `evt_weather` | Storms, floods, wildfires, heatwaves, etc. |
+| 51 | Meeting/Conference | `evt_meeting` | Summits, conferences, official visits |
+| 52 | Publication | `evt_publication` | Release of reports, studies, articles |
+| 53 | Election | `evt_election` | Electoral campaigns or votes |
+| 54 | Policy announcement | `evt_policy` | Unveiling of new policies or plans |
+| 55 | Judiciary decision | `evt_judiciary` | Court rulings or legal proceedings |
+| 56 | Cultural/Sports event | `evt_cultural` | Organization of cultural or sports events |
+| 57 | Protest | `evt_protest` | Demonstrations or protests |
+| | *Solutions* | | |
+| 58 | Solution (Primary) | `solution` | Presence of climate solutions |
+| 59 | Mitigation strategy | `sol_mitigation` | Measures to reduce GHG emissions |
+| 60 | Adaptation strategy | `sol_adaptation` | Measures to cope with climate impacts |
+| | **EMOTIONAL TONE** | | |
+| 61 | Positive emotion | `tone_positive` | Optimistic, hopeful, reassuring tone |
+| 62 | Negative emotion | `tone_negative` | Alarming, critical, pessimistic tone |
+| 63 | Neutral emotion | `tone_neutral` | Informative, balanced, factual tone |
+| | **GEOGRAPHIC FOCUS** | | |
+| 64 | Canadian context | `canada` | References to Canada |
+| | **URGENCY** | | |
+| 65 | Urgency to act | `urgency` | Sense of urgency or alarmism |
+| | **NAMED ENTITIES** | | |
+| — | Named Entity Recognition | `ner_entities` | Extraction of PER, ORG, LOC entities (JSON) |
 
 ## Illustrative results and analyses
 
@@ -247,8 +257,34 @@ CCF-Canadian-Climate-Framing/
 │       ├── 7_Annotation.py
 │       ├── 8_NER.py
 │       ├── 9_JSONL_for_recheck.py
-│       └── 10_Annotation_metrics.py
-│       └── 11_Blind_verification.py
+│       ├── 10_Annotation_metrics.py
+│       ├── 11_Blind_verification.py
+│       ├── 12_Intercoder_reliability.py
+│       ├── 13_create_intercoder_progression_plot.py
+│       └── 14_normalization.py
+├── paper/
+│   └── CCF_Methodology/
+│       ├── Latex/
+│       │   ├── CCF_Methodology.tex
+│       │   ├── CCF_Methodology.pdf
+│       │   └── references.bib
+│       └── Results/
+│           ├── Scripts/
+│           │   ├── 1_overview_plots.py
+│           │   ├── 2_temporal_f1_validation.py
+│           │   ├── 3_categories_distributions.py
+│           │   ├── 4_temporal_frames_evolution.py
+│           │   ├── 5_political_entities_front_page.py
+│           │   ├── 6_trudeau_poilievre_scientific_framing.py
+│           │   ├── 6b_political_debate_entities_2024.py
+│           │   ├── 7_science_acceptance_maps.py
+│           │   ├── 8_frames_front_page_probability.py
+│           │   ├── 9_network_cocitation.py
+│           │   └── generate_latex_tables.py
+│           └── Outputs/
+│               ├── Figures/ (PNG/PDF figures for the paper)
+│               ├── Tables/ (LaTeX table files B2-B6)
+│               └── Stats/ (CSV statistics files)
 └── Models/ _contents are excluded due to file size and ongoing research_
 └── requirements.txt
 
@@ -432,11 +468,83 @@ PostgreSQL pull with automatic dtype coercion, language-aware confusion matrices
 
 #### 11_Blind_verification.py
 
-**Purpose:**  
+**Purpose:**
 Creates a blind-verification copy of any manual-annotation JSONL by wiping all labels, so annotators can re-label sentences without bias.
 
 Key features:
 Efficiently processes large JSONL files with streaming I/O, automatic output directory creation, CLI arguments with sensible defaults, optional progress tracking, and robust error handling.
 
-Dependencies: 
+Dependencies:
 `argparse`, `json`, `pathlib`, `sys`, `tqdm`.
+
+#### 12_Intercoder_reliability.py
+
+**Purpose:**
+Computes inter-coder reliability metrics (Krippendorff's alpha, Cohen's kappa, percent agreement) between multiple annotation rounds to validate annotation quality.
+
+Key features:
+Compares original and blind verification annotations, calculates reliability metrics for each category, exports detailed CSV reports with confidence intervals.
+
+Dependencies:
+`pandas`, `json`, `krippendorff`, `sklearn`, `numpy`.
+
+#### 13_create_intercoder_progression_plot.py
+
+**Purpose:**
+Generates visualization showing the progression of inter-coder agreement across annotation categories, used in the methodology paper.
+
+Key features:
+Creates publication-ready plots of Krippendorff's alpha values with confidence intervals for each category.
+
+Dependencies:
+`pandas`, `matplotlib`, `seaborn`.
+
+#### 14_normalization.py
+
+**Purpose:**
+Normalizes annotation category names across all CSV files and generates LaTeX tables (B2-B6) for the methodology paper appendix.
+
+Key features:
+Maps all category labels to standardized 68-category reference system, generates longtable LaTeX output with proper formatting, connects to CCF_Database for Table B6 distribution statistics.
+
+Dependencies:
+`pandas`, `pathlib`, `psycopg2`.
+
+---
+
+### Paper analysis scripts
+
+The `paper/CCF_Methodology/Results/Scripts/` directory contains scripts that generate figures and statistics for the methodology paper.
+
+#### 1_overview_plots.py
+Generates overview figures showing article distribution by media outlet, year, and province.
+
+#### 2_temporal_f1_validation.py
+Creates temporal F1 score evolution plot showing model performance stability over time.
+
+#### 3_categories_distributions.py
+Produces combined distribution plots for annotation categories across the corpus.
+
+#### 4_temporal_frames_evolution.py
+Generates temporal evolution visualization of climate frames across the full time period.
+
+#### 5_political_entities_front_page.py
+Analyzes relationship between political entity mentions and front page placement.
+
+#### 6_trudeau_poilievre_scientific_framing.py
+Examines differential scientific skepticism framing associated with political leaders.
+
+#### 6b_political_debate_entities_2024.py
+Generates 2024-specific analysis of political entities in climate debate coverage.
+
+#### 7_science_acceptance_maps.py
+Creates geographic maps showing regional patterns in scientific skepticism framing.
+
+#### 8_frames_front_page_probability.py
+Models the relationship between frame intensity and editorial prominence (front page probability).
+
+#### 9_network_cocitation.py
+Constructs and analyzes co-citation network of epistemic authorities in climate discourse.
+
+#### generate_latex_tables.py
+Generates LaTeX table code for framework definition tables in the paper.

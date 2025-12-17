@@ -19,8 +19,9 @@ labels). The script produces detailed reliability statistics including Cohen's
 Kappa, Krippendorff's Alpha, Gwet's AC, and other standard agreement measures
 for all annotation categories. Additionally, it tracks the second coder's
 learning progression by computing metrics in cumulative 100-label increments,
-creates a consensus-based gold standard by reconciling both coders' judgments,
-and evaluates model performance against this enhanced gold standard.
+analyzes reliability separately for sentences before and after #600 (where
+after 600 the annotation was completely blind without discussions), and
+creates a consensus-based gold standard by reconciling both coders' judgments.
 
 Dependencies:
 -------------
@@ -28,11 +29,9 @@ Dependencies:
 - csv
 - os
 - pathlib.Path
-- collections.defaultdict
+- collections.Counter
 - typing (Any, Dict, List, Tuple, Set)
-- pandas ≥ 1.5
 - numpy ≥ 1.20
-- psycopg2 ≥ 2.9
 - scikit-learn ≥ 1.0
 - tqdm ≥ 4.65
 - krippendorff (install via: pip install krippendorff)
@@ -48,10 +47,10 @@ MAIN FEATURES:
    all labels and category-specific reliability statistics
 4) Learning curve detection – Tracks second coder's progression by computing
    cumulative agreement metrics in 100-label increments
-5) Consensus gold standard creation – Generates enhanced gold standard using
+5) Before/After 600 analysis – Separately analyzes reliability for sentences
+   before and after #600 (with meetings vs. completely blind annotation)
+6) Consensus gold standard creation – Generates enhanced gold standard using
    multiple reconciliation strategies (consensus, union, intersection)
-6) Model performance evaluation – Benchmarks trained models against the new
-   consensus gold standard, comparing with original single-coder performance
 7) Publication-ready CSV export – Outputs comprehensive, well-formatted tables
    with all metrics, organized by analysis type and category
 
@@ -68,16 +67,12 @@ from __future__ import annotations
 import csv
 import json
 import os
-from collections import Counter, defaultdict
+from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from typing import Any, Dict, List, Set, Tuple
 
 import numpy as np
-import pandas as pd
-import psycopg2
-from psycopg2 import sql
-from psycopg2.extensions import connection as _PGConnection
 from sklearn.metrics import cohen_kappa_score, f1_score
 from tqdm.auto import tqdm
 
@@ -93,18 +88,6 @@ except ImportError:
 
 # Adjust this BASE_DIR according to your directory structure
 BASE_DIR = Path(__file__).resolve().parent
-
-# PostgreSQL connection parameters (env variables have priority)
-DB_PARAMS: Dict[str, Any] = {
-    "host":     os.getenv("CCF_DB_HOST", "192.168.0.205"),
-    "port":     int(os.getenv("CCF_DB_PORT", 5432)),
-    "dbname":   os.getenv("CCF_DB_NAME", "CCF"),
-    "user":     os.getenv("CCF_DB_USER", "antoine"),
-    "password": os.getenv("CCF_DB_PASS", "Absitreverentiavero19!"),
-    "options":  "-c client_min_messages=warning",
-}
-
-TABLE_NAME = "CCF_processed_data"
 
 # Input paths
 MANUAL_DIR = (BASE_DIR / ".." / ".." / "Database" / "Training_data" /
@@ -127,14 +110,6 @@ NON_ANNOT_COLS: Set[str] = {
 ##############################################################################
 #                          HELPER UTILITIES                                  #
 ##############################################################################
-
-def open_pg(params: Dict[str, Any]) -> _PGConnection:
-    """Opens a PostgreSQL connection using the provided parameters."""
-    try:
-        return psycopg2.connect(**params)
-    except Exception as exc:
-        raise SystemExit(f"[FATAL] PostgreSQL connection failed: {exc}") from exc
-
 
 def load_label_mapping(path: Path) -> Dict[str, str]:
     """
@@ -242,8 +217,6 @@ def gwet_ac1(labels1: np.ndarray, labels2: np.ndarray) -> float:
     """
     if len(labels1) != len(labels2) or len(labels1) == 0:
         return 0.0
-
-    n = len(labels1)
 
     # Observed agreement
     p_o = np.mean(labels1 == labels2)
@@ -596,6 +569,75 @@ def compute_reliability_metrics(
     return results
 
 
+def compute_reliability_metrics_split_600(
+    coder1_entries: List[Dict[str, Any]],
+    coder2_entries: List[Dict[str, Any]],
+    all_labels: Set[str],
+    threshold: int = 600
+) -> Tuple[Dict[str, Dict[str, float]], Dict[str, Dict[str, float]]]:
+    """
+    Compute reliability metrics split at sentence threshold (default 600).
+
+    Before 600: sentences annotated with meetings between coders
+    After 600: sentences annotated completely blind without discussion
+
+    Returns
+    -------
+    Tuple of (before_600_metrics, after_600_metrics)
+    """
+    # Create lookups
+    lookup1 = {(e["doc_id"], e["sentence_id"]): e for e in coder1_entries}
+    lookup2 = {(e["doc_id"], e["sentence_id"]): e for e in coder2_entries}
+
+    # Get ordered common keys (by order in second_coder file for chronological order)
+    coder2_keys = [(e["doc_id"], e["sentence_id"]) for e in coder2_entries]
+    common_keys = [k for k in coder2_keys if k in lookup1]
+
+    if not common_keys:
+        print("[WARNING] No overlapping sentences between coders")
+        return {}, {}
+
+    # Split keys before and after threshold
+    keys_before = common_keys[:threshold]
+    keys_after = common_keys[threshold:]
+
+    sorted_labels = sorted(all_labels)
+
+    # Compute metrics for before 600
+    print(f"\n[INFO] Computing metrics for first {threshold} sentences (with meetings)...")
+    if keys_before:
+        coder1_matrix_before, coder2_matrix_before = _build_binary_matrices(
+            lookup1, lookup2, keys_before, sorted_labels
+        )
+        print(f"      Found {len(keys_before)} sentences before threshold")
+        results_before = _compute_metrics_from_matrices(
+            coder1_matrix_before, coder2_matrix_before, sorted_labels, show_progress=True
+        )
+        if "OVERALL" in results_before:
+            results_before["OVERALL"]["sample_size"] = len(keys_before)
+            results_before["OVERALL"]["num_labels"] = len(sorted_labels)
+    else:
+        results_before = {}
+
+    # Compute metrics for after 600
+    print(f"\n[INFO] Computing metrics for sentences after {threshold} (completely blind)...")
+    if keys_after:
+        coder1_matrix_after, coder2_matrix_after = _build_binary_matrices(
+            lookup1, lookup2, keys_after, sorted_labels
+        )
+        print(f"      Found {len(keys_after)} sentences after threshold")
+        results_after = _compute_metrics_from_matrices(
+            coder1_matrix_after, coder2_matrix_after, sorted_labels, show_progress=True
+        )
+        if "OVERALL" in results_after:
+            results_after["OVERALL"]["sample_size"] = len(keys_after)
+            results_after["OVERALL"]["num_labels"] = len(sorted_labels)
+    else:
+        results_after = {}
+
+    return results_before, results_after
+
+
 ##############################################################################
 #                      LEARNING PROGRESSION ANALYSIS                         #
 ##############################################################################
@@ -712,133 +754,6 @@ def create_consensus_gold_standard(
     return consensus
 
 
-##############################################################################
-#                      MODEL PERFORMANCE EVALUATION                          #
-##############################################################################
-
-def fetch_predictions(conn: _PGConnection) -> pd.DataFrame:
-    """
-    Query the full table of model predictions.
-    Adapted from 10_Annotation_metrics.py
-    """
-    query = sql.SQL("SELECT * FROM {};").format(
-        sql.Identifier(TABLE_NAME)
-    ).as_string(conn)
-
-    import warnings
-    warnings.filterwarnings("ignore", message="pandas only supports SQLAlchemy")
-
-    df = pd.read_sql_query(query, conn)
-
-    # Identify annotation columns
-    annot_cols = [c for c in df.columns if c not in NON_ANNOT_COLS]
-
-    # Convert to numeric
-    for col in annot_cols:
-        df[col] = pd.to_numeric(df[col], errors="coerce")
-        uniq = set(df[col].dropna().unique().tolist())
-        if uniq.issubset({0, 1, 0.0, 1.0}):
-            df[col] = df[col].astype("Int8", copy=False)
-
-    return df
-
-
-def evaluate_model_performance(
-    gold_entries: List[Dict[str, Any]],
-    df_pred: pd.DataFrame,
-    gold_label: str = "consensus"
-) -> Dict[str, Dict[str, float]]:
-    """
-    Evaluate model performance against gold standard.
-
-    Parameters
-    ----------
-    gold_entries : List[Dict]
-        Gold standard annotations
-    df_pred : pd.DataFrame
-        Model predictions from database
-    gold_label : str
-        Label for this gold standard ("primary", "second", "consensus")
-
-    Returns
-    -------
-    Dict with F1, precision, recall for each label and language
-    """
-    from sklearn.metrics import precision_recall_fscore_support
-
-    # Create prediction lookup
-    pred_lookup = {
-        (row["doc_id"], row["sentence_id"]): row
-        for _, row in df_pred.iterrows()
-    }
-
-    # Get annotation columns
-    annot_cols = [c for c in df_pred.columns if c not in NON_ANNOT_COLS]
-
-    results = {}
-
-    for label in tqdm(annot_cols, desc=f"Evaluating models ({gold_label})"):
-        # Collect matched pairs
-        y_true_all = []
-        y_pred_all = []
-        langs_all = []
-
-        for entry in gold_entries:
-            key = (entry["doc_id"], entry["sentence_id"])
-            if key not in pred_lookup:
-                continue
-
-            pred_row = pred_lookup[key]
-            pred_val = pred_row.get(label)
-
-            if pd.isna(pred_val):
-                continue
-
-            gold_bin = 1 if label in entry["gold_labels"] else 0
-            pred_bin = int(pred_val)
-
-            y_true_all.append(gold_bin)
-            y_pred_all.append(pred_bin)
-            langs_all.append(entry["language"])
-
-        if len(y_true_all) == 0:
-            continue
-
-        y_true_all = np.array(y_true_all)
-        y_pred_all = np.array(y_pred_all)
-        langs_all = np.array(langs_all)
-
-        # Overall metrics
-        prec, rec, f1, _ = precision_recall_fscore_support(
-            y_true_all, y_pred_all, average='binary', zero_division=0
-        )
-
-        results[label] = {
-            "ALL_precision": prec,
-            "ALL_recall": rec,
-            "ALL_f1": f1,
-            "ALL_support": len(y_true_all)
-        }
-
-        # Per-language metrics
-        for lang in ["EN", "FR"]:
-            mask = langs_all == lang
-            if mask.sum() == 0:
-                continue
-
-            y_true_lang = y_true_all[mask]
-            y_pred_lang = y_pred_all[mask]
-
-            prec, rec, f1, _ = precision_recall_fscore_support(
-                y_true_lang, y_pred_lang, average='binary', zero_division=0
-            )
-
-            results[label][f"{lang}_precision"] = prec
-            results[label][f"{lang}_recall"] = rec
-            results[label][f"{lang}_f1"] = f1
-            results[label][f"{lang}_support"] = len(y_true_lang)
-
-    return results
 
 
 ##############################################################################
@@ -847,10 +762,9 @@ def evaluate_model_performance(
 
 def export_to_csv(
     reliability_results: Dict[str, Dict[str, float]],
+    reliability_before_600: Dict[str, Dict[str, float]],
+    reliability_after_600: Dict[str, Dict[str, float]],
     progression_results: List[Dict[str, Any]],
-    model_eval_primary: Dict[str, Dict[str, float]],
-    model_eval_second: Dict[str, Dict[str, float]],
-    model_eval_consensus: Dict[str, Dict[str, float]],
     output_path: Path
 ) -> None:
     """
@@ -862,65 +776,92 @@ def export_to_csv(
     # ========================================================================
     # TABLE 1: OVERALL RELIABILITY SUMMARY
     # ========================================================================
-    if "OVERALL" in reliability_results:
-        overall = reliability_results["OVERALL"]
+    overall_rows = []
 
-        overall_rows = [
+    # Add section headers and data for each period
+    sections = [
+        ("OVERALL (All 1000 sentences)", reliability_results.get("OVERALL", {})),
+        ("BEFORE 600 (With meetings)", reliability_before_600.get("OVERALL", {})),
+        ("AFTER 600 (Completely blind)", reliability_after_600.get("OVERALL", {}))
+    ]
+
+    for section_name, section_data in sections:
+        if not section_data:
+            continue
+
+        # Add section header
+        overall_rows.append({
+            "metric": f"=== {section_name} ===",
+            "value": "",
+            "interpretation": "",
+            "quality_threshold": ""
+        })
+
+        # Add metrics for this section
+        overall_rows.extend([
             {
                 "metric": "Sample Size",
-                "value": f"{overall.get('sample_size', 0):.0f}",
+                "value": f"{section_data.get('sample_size', 0):.0f}",
                 "interpretation": "Number of sentences annotated by both coders",
                 "quality_threshold": "N/A"
             },
             {
                 "metric": "Percent Agreement",
-                "value": f"{overall.get('percent_agreement', 0):.3f}",
+                "value": f"{section_data.get('percent_agreement', 0):.3f}",
                 "interpretation": "Proportion of exact label agreement (not chance-corrected)",
                 "quality_threshold": ">0.80 = Good"
             },
             {
                 "metric": "Cohen's Kappa",
-                "value": f"{overall.get('cohens_kappa', 0):.3f}",
+                "value": f"{section_data.get('cohens_kappa', 0):.3f}",
                 "interpretation": "Chance-corrected agreement (sensitive to prevalence)",
                 "quality_threshold": ">0.60 = Good, >0.80 = Excellent"
             },
             {
                 "metric": "Scott's Pi",
-                "value": f"{overall.get('scotts_pi', 0):.3f}",
+                "value": f"{section_data.get('scotts_pi', 0):.3f}",
                 "interpretation": "Alternative chance-correction assuming same distribution",
                 "quality_threshold": ">0.60 = Good, >0.80 = Excellent"
             },
             {
                 "metric": "Gwet's AC1",
-                "value": f"{overall.get('gwet_ac1', 0):.3f}",
+                "value": f"{section_data.get('gwet_ac1', 0):.3f}",
                 "interpretation": "Most robust to prevalence and high agreement",
                 "quality_threshold": ">0.60 = Good, >0.80 = Excellent"
             },
             {
                 "metric": "Krippendorff's Alpha",
-                "value": f"{overall.get('krippendorff_alpha', 0):.3f}",
+                "value": f"{section_data.get('krippendorff_alpha', 0):.3f}",
                 "interpretation": "Handles missing data and multiple coders",
                 "quality_threshold": ">0.667 = Acceptable, >0.80 = Good"
             },
             {
                 "metric": "F1 Agreement",
-                "value": f"{overall.get('f1_agreement', 0):.3f}",
+                "value": f"{section_data.get('f1_agreement', 0):.3f}",
                 "interpretation": "Symmetric F1 score between coders",
                 "quality_threshold": ">0.70 = Good"
             },
-        ]
+        ])
 
-        with (base_path.parent / f"{base_path.name}_1_overall_summary.csv").open(
-            "w", newline="", encoding="utf-8"
-        ) as fo:
-            writer = csv.DictWriter(
-                fo,
-                fieldnames=["metric", "value", "interpretation", "quality_threshold"]
-            )
-            writer.writeheader()
-            writer.writerows(overall_rows)
+        # Add empty row for spacing
+        overall_rows.append({
+            "metric": "",
+            "value": "",
+            "interpretation": "",
+            "quality_threshold": ""
+        })
 
-        print(f"[INFO] Table 1 saved → {base_path.name}_1_overall_summary.csv")
+    with (base_path.parent / f"{base_path.name}_1_overall_summary.csv").open(
+        "w", newline="", encoding="utf-8"
+    ) as fo:
+        writer = csv.DictWriter(
+            fo,
+            fieldnames=["metric", "value", "interpretation", "quality_threshold"]
+        )
+        writer.writeheader()
+        writer.writerows(overall_rows)
+
+    print(f"[INFO] Table 1 saved → {base_path.name}_1_overall_summary.csv")
 
     # ========================================================================
     # TABLE 2: PER-LABEL RELIABILITY METRICS (WIDE FORMAT)
@@ -988,51 +929,81 @@ def export_to_csv(
     print(f"[INFO] Table 3 saved → {base_path.name}_3_learning_progression.csv")
 
     # ========================================================================
-    # TABLE 4: MODEL PERFORMANCE COMPARISON
+    # TABLE 4: RELIABILITY METRICS BEFORE/AFTER 600 SENTENCES
     # ========================================================================
-    model_comparison_rows = []
+    comparison_rows = []
 
-    all_labels = sorted(set(list(model_eval_primary.keys()) +
-                           list(model_eval_second.keys()) +
-                           list(model_eval_consensus.keys())))
+    # Get all labels from both periods
+    all_labels = sorted(set(
+        list(reliability_before_600.keys()) +
+        list(reliability_after_600.keys())
+    ) - {"OVERALL"})
 
+    # Add overall row first
+    if "OVERALL" in reliability_before_600 or "OVERALL" in reliability_after_600:
+        overall_row = {"label": "OVERALL"}
+
+        if "OVERALL" in reliability_before_600:
+            before = reliability_before_600["OVERALL"]
+            overall_row.update({
+                "before_n": f"{before.get('sample_size', 0):.0f}",
+                "before_kappa": f"{before.get('cohens_kappa', 0):.3f}",
+                "before_gwet": f"{before.get('gwet_ac1', 0):.3f}",
+                "before_kripp": f"{before.get('krippendorff_alpha', 0):.3f}",
+                "before_agree": f"{before.get('percent_agreement', 0):.3f}",
+            })
+
+        if "OVERALL" in reliability_after_600:
+            after = reliability_after_600["OVERALL"]
+            overall_row.update({
+                "after_n": f"{after.get('sample_size', 0):.0f}",
+                "after_kappa": f"{after.get('cohens_kappa', 0):.3f}",
+                "after_gwet": f"{after.get('gwet_ac1', 0):.3f}",
+                "after_kripp": f"{after.get('krippendorff_alpha', 0):.3f}",
+                "after_agree": f"{after.get('percent_agreement', 0):.3f}",
+            })
+
+        comparison_rows.append(overall_row)
+
+    # Add per-label rows
     for label in all_labels:
         row = {"label": label}
 
-        # Primary coder metrics
-        if label in model_eval_primary:
-            for lang in ["ALL", "EN", "FR"]:
-                row[f"primary_f1_{lang}"] = f"{model_eval_primary[label].get(f'{lang}_f1', 0):.3f}"
-                row[f"primary_support_{lang}"] = f"{model_eval_primary[label].get(f'{lang}_support', 0):.0f}"
+        if label in reliability_before_600:
+            before = reliability_before_600[label]
+            row.update({
+                "before_n": f"{before.get('sample_size', 0):.0f}",
+                "before_kappa": f"{before.get('cohens_kappa', 0):.3f}",
+                "before_gwet": f"{before.get('gwet_ac1', 0):.3f}",
+                "before_kripp": f"{before.get('krippendorff_alpha', 0):.3f}",
+                "before_agree": f"{before.get('percent_agreement', 0):.3f}",
+            })
 
-        # Second coder metrics
-        if label in model_eval_second:
-            for lang in ["ALL", "EN", "FR"]:
-                row[f"second_f1_{lang}"] = f"{model_eval_second[label].get(f'{lang}_f1', 0):.3f}"
+        if label in reliability_after_600:
+            after = reliability_after_600[label]
+            row.update({
+                "after_n": f"{after.get('sample_size', 0):.0f}",
+                "after_kappa": f"{after.get('cohens_kappa', 0):.3f}",
+                "after_gwet": f"{after.get('gwet_ac1', 0):.3f}",
+                "after_kripp": f"{after.get('krippendorff_alpha', 0):.3f}",
+                "after_agree": f"{after.get('percent_agreement', 0):.3f}",
+            })
 
-        # Consensus metrics
-        if label in model_eval_consensus:
-            for lang in ["ALL", "EN", "FR"]:
-                row[f"consensus_f1_{lang}"] = f"{model_eval_consensus[label].get(f'{lang}_f1', 0):.3f}"
+        comparison_rows.append(row)
 
-        model_comparison_rows.append(row)
-
-    with (base_path.parent / f"{base_path.name}_4_model_performance.csv").open(
+    with (base_path.parent / f"{base_path.name}_4_before_after_600.csv").open(
         "w", newline="", encoding="utf-8"
     ) as fo:
-        # Build comprehensive fieldnames
-        fieldnames = ["label"]
-        for gold_type in ["primary", "second", "consensus"]:
-            for lang in ["ALL", "EN", "FR"]:
-                fieldnames.append(f"{gold_type}_f1_{lang}")
-                if gold_type == "primary":
-                    fieldnames.append(f"{gold_type}_support_{lang}")
-
+        fieldnames = [
+            "label",
+            "before_n", "before_kappa", "before_gwet", "before_kripp", "before_agree",
+            "after_n", "after_kappa", "after_gwet", "after_kripp", "after_agree"
+        ]
         writer = csv.DictWriter(fo, fieldnames=fieldnames, extrasaction='ignore')
         writer.writeheader()
-        writer.writerows(model_comparison_rows)
+        writer.writerows(comparison_rows)
 
-    print(f"[INFO] Table 4 saved → {base_path.name}_4_model_performance.csv")
+    print(f"[INFO] Table 4 saved → {base_path.name}_4_before_after_600.csv")
 
     print(f"\n[INFO] All 4 tables successfully exported to: {base_path.parent}")
 
@@ -1066,16 +1037,16 @@ def main() -> None:
     print("="*80)
 
     # Step 1: Load label mapping
-    print("\n[1/8] Loading label mapping...")
+    print("\n[1/7] Loading label mapping...")
     label_mapping = load_label_mapping(LABEL_MAPPING_CSV)
     print(f"      Loaded {len(label_mapping)} label mappings")
 
     # Step 2: Load annotations from both coders
-    print("\n[2/8] Loading primary coder annotations...")
+    print("\n[2/7] Loading primary coder annotations...")
     coder1_entries = load_jsonl_annotations(PRIMARY_CODER_JSONL, label_mapping=None)
     print(f"      Loaded {len(coder1_entries)} sentences from primary coder")
 
-    print("\n[3/8] Loading second coder annotations...")
+    print("\n[3/7] Loading second coder annotations...")
     coder2_entries = load_jsonl_annotations(SECOND_CODER_JSONL, label_mapping=label_mapping)
     print(f"      Loaded {len(coder2_entries)} sentences from second coder")
 
@@ -1085,8 +1056,8 @@ def main() -> None:
         all_labels.update(e["gold_labels"])
     print(f"      Found {len(all_labels)} unique labels across both coders")
 
-    # Step 3: Compute reliability metrics
-    print("\n[4/8] Computing inter-coder reliability metrics...")
+    # Step 3: Compute overall reliability metrics
+    print("\n[4/7] Computing overall inter-coder reliability metrics...")
     reliability_results = compute_reliability_metrics(coder1_entries, coder2_entries, all_labels)
 
     if "OVERALL" in reliability_results:
@@ -1095,13 +1066,33 @@ def main() -> None:
         print(f"      Overall Gwet's AC1: {overall.get('gwet_ac1', 0):.4f}")
         print(f"      Overall Percent Agreement: {overall.get('percent_agreement', 0):.4f}")
 
-    # Step 4: Compute learning progression
-    print("\n[5/8] Analyzing second coder learning progression...")
+    # Step 4: Compute split reliability metrics (before/after 600)
+    print("\n[5/7] Computing split reliability metrics (before/after sentence 600)...")
+    reliability_before_600, reliability_after_600 = compute_reliability_metrics_split_600(
+        coder1_entries, coder2_entries, all_labels, threshold=600
+    )
+
+    if "OVERALL" in reliability_before_600:
+        before = reliability_before_600["OVERALL"]
+        print(f"\n      Before 600 (with meetings):")
+        print(f"        Cohen's Kappa: {before.get('cohens_kappa', 0):.4f}")
+        print(f"        Gwet's AC1: {before.get('gwet_ac1', 0):.4f}")
+        print(f"        Percent Agreement: {before.get('percent_agreement', 0):.4f}")
+
+    if "OVERALL" in reliability_after_600:
+        after = reliability_after_600["OVERALL"]
+        print(f"\n      After 600 (completely blind):")
+        print(f"        Cohen's Kappa: {after.get('cohens_kappa', 0):.4f}")
+        print(f"        Gwet's AC1: {after.get('gwet_ac1', 0):.4f}")
+        print(f"        Percent Agreement: {after.get('percent_agreement', 0):.4f}")
+
+    # Step 5: Compute learning progression
+    print("\n[6/7] Analyzing second coder learning progression...")
     progression_results = compute_learning_progression(coder1_entries, coder2_entries, all_labels)
     print(f"      Computed {len(progression_results)} progression checkpoints")
 
-    # Step 5: Create consensus gold standard
-    print("\n[6/8] Creating consensus gold standard...")
+    # Step 6: Create consensus gold standard
+    print("\n[7/7] Creating consensus gold standard...")
     consensus_entries = create_consensus_gold_standard(
         coder1_entries, coder2_entries, strategy="consensus"
     )
@@ -1110,31 +1101,13 @@ def main() -> None:
     # Export consensus to JSONL
     export_consensus_gold_jsonl(consensus_entries, CONSENSUS_GOLD_JSONL)
 
-    # Step 6: Fetch model predictions
-    print("\n[7/8] Fetching model predictions from database...")
-    with open_pg(DB_PARAMS) as conn:
-        df_pred = fetch_predictions(conn)
-    print(f"      Loaded {len(df_pred):,} prediction rows")
-
-    # Step 7: Evaluate models against all three gold standards
-    print("\n[8/8] Evaluating model performance...")
-    print("      - Against primary coder...")
-    model_eval_primary = evaluate_model_performance(coder1_entries, df_pred, "primary")
-
-    print("      - Against second coder...")
-    model_eval_second = evaluate_model_performance(coder2_entries, df_pred, "second")
-
-    print("      - Against consensus gold standard...")
-    model_eval_consensus = evaluate_model_performance(consensus_entries, df_pred, "consensus")
-
-    # Step 8: Export comprehensive CSV
-    print("\n[9/9] Exporting results to CSV...")
+    # Step 7: Export comprehensive CSV
+    print("\n[8/8] Exporting results to CSV...")
     export_to_csv(
         reliability_results,
+        reliability_before_600,
+        reliability_after_600,
         progression_results,
-        model_eval_primary,
-        model_eval_second,
-        model_eval_consensus,
         OUTPUT_CSV
     )
 
@@ -1145,7 +1118,7 @@ def main() -> None:
     print(f"  1. Overall reliability summary")
     print(f"  2. Per-label reliability metrics")
     print(f"  3. Learning progression analysis")
-    print(f"  4. Model performance comparison")
+    print(f"  4. Before/After 600 comparison")
     print(f"\n  Consensus gold standard: {CONSENSUS_GOLD_JSONL.name}")
     print(f"\nAll files saved to: {OUTPUT_CSV.parent}")
     print()

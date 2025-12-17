@@ -1,0 +1,1957 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2025-12-17">
+    <creator>NetworkX 3.2.1</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <attributes mode="static" class="node">
+      <attribute id="0" title="mentions" type="long" />
+      <attribute id="1" title="degree_centrality" type="double" />
+      <attribute id="2" title="weighted_degree" type="long" />
+      <attribute id="3" title="betweenness_centrality" type="double" />
+      <attribute id="4" title="eigenvector_centrality" type="double" />
+      <attribute id="5" title="community" type="long" />
+      <attribute id="6" title="size" type="double" />
+    </attributes>
+    <nodes>
+      <node id="Northvolt" label="Northvolt">
+        <attvalues>
+          <attvalue for="0" value="52" />
+          <attvalue for="1" value="0.0404" />
+          <attvalue for="2" value="56" />
+          <attvalue for="3" value="0.0" />
+          <attvalue for="4" value="0.0033" />
+          <attvalue for="5" value="0" />
+          <attvalue for="6" value="3.5016835016835017" />
+        </attvalues>
+      </node>
+      <node id="Crombie" label="Crombie">
+        <attvalues>
+          <attvalue for="0" value="34" />
+          <attvalue for="1" value="0.101" />
+          <attvalue for="2" value="129" />
+          <attvalue for="3" value="0.0105" />
+          <attvalue for="4" value="0.0236" />
+          <attvalue for="5" value="1" />
+          <attvalue for="6" value="2.28956228956229" />
+        </attvalues>
+      </node>
+      <node id="Scott Moe" label="Scott Moe">
+        <attvalues>
+          <attvalue for="0" value="90" />
+          <attvalue for="1" value="0.1818" />
+          <attvalue for="2" value="267" />
+          <attvalue for="3" value="0.0037" />
+          <attvalue for="4" value="0.0615" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="6.0606060606060606" />
+        </attvalues>
+      </node>
+      <node id="Valérie Plante" label="Valérie Plante">
+        <attvalues>
+          <attvalue for="0" value="64" />
+          <attvalue for="1" value="0.0808" />
+          <attvalue for="2" value="72" />
+          <attvalue for="3" value="0.0007" />
+          <attvalue for="4" value="0.0108" />
+          <attvalue for="5" value="0" />
+          <attvalue for="6" value="4.30976430976431" />
+        </attvalues>
+      </node>
+      <node id="Xi Jinping" label="Xi Jinping">
+        <attvalues>
+          <attvalue for="0" value="42" />
+          <attvalue for="1" value="0.1313" />
+          <attvalue for="2" value="114" />
+          <attvalue for="3" value="0.0146" />
+          <attvalue for="4" value="0.0184" />
+          <attvalue for="5" value="5" />
+          <attvalue for="6" value="2.8282828282828283" />
+        </attvalues>
+      </node>
+      <node id="Jason Kenney" label="Jason Kenney">
+        <attvalues>
+          <attvalue for="0" value="44" />
+          <attvalue for="1" value="0.202" />
+          <attvalue for="2" value="152" />
+          <attvalue for="3" value="0.0327" />
+          <attvalue for="4" value="0.0273" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="2.9629629629629632" />
+        </attvalues>
+      </node>
+      <node id="Todd Smith" label="Todd Smith">
+        <attvalues>
+          <attvalue for="0" value="42" />
+          <attvalue for="1" value="0.1212" />
+          <attvalue for="2" value="121" />
+          <attvalue for="3" value="0.0" />
+          <attvalue for="4" value="0.0158" />
+          <attvalue for="5" value="1" />
+          <attvalue for="6" value="2.8282828282828283" />
+        </attvalues>
+      </node>
+      <node id="Harjit Sajjan" label="Harjit Sajjan">
+        <attvalues>
+          <attvalue for="0" value="30" />
+          <attvalue for="1" value="0.0505" />
+          <attvalue for="2" value="25" />
+          <attvalue for="3" value="0.0053" />
+          <attvalue for="4" value="0.0037" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="2.0202020202020203" />
+        </attvalues>
+      </node>
+      <node id="Charlie Angus" label="Charlie Angus">
+        <attvalues>
+          <attvalue for="0" value="47" />
+          <attvalue for="1" value="0.1414" />
+          <attvalue for="2" value="101" />
+          <attvalue for="3" value="0.0164" />
+          <attvalue for="4" value="0.0202" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="3.1649831649831652" />
+        </attvalues>
+      </node>
+      <node id="Sonia Furstenau" label="Sonia Furstenau">
+        <attvalues>
+          <attvalue for="0" value="50" />
+          <attvalue for="1" value="0.0909" />
+          <attvalue for="2" value="132" />
+          <attvalue for="3" value="0.0011" />
+          <attvalue for="4" value="0.0089" />
+          <attvalue for="5" value="4" />
+          <attvalue for="6" value="3.3670033670033668" />
+        </attvalues>
+      </node>
+      <node id="Rebecca Schulz" label="Rebecca Schulz">
+        <attvalues>
+          <attvalue for="0" value="48" />
+          <attvalue for="1" value="0.101" />
+          <attvalue for="2" value="83" />
+          <attvalue for="3" value="0.002" />
+          <attvalue for="4" value="0.0145" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="3.2323232323232323" />
+        </attvalues>
+      </node>
+      <node id="Chris Varcoe" label="Chris Varcoe">
+        <attvalues>
+          <attvalue for="0" value="49" />
+          <attvalue for="1" value="0.1212" />
+          <attvalue for="2" value="96" />
+          <attvalue for="3" value="0.0024" />
+          <attvalue for="4" value="0.0146" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="3.2996632996632997" />
+        </attvalues>
+      </node>
+      <node id="Pierre Fitzgibbon" label="Pierre Fitzgibbon">
+        <attvalues>
+          <attvalue for="0" value="35" />
+          <attvalue for="1" value="0.0404" />
+          <attvalue for="2" value="43" />
+          <attvalue for="3" value="0.0" />
+          <attvalue for="4" value="0.003" />
+          <attvalue for="5" value="0" />
+          <attvalue for="6" value="2.356902356902357" />
+        </attvalues>
+      </node>
+      <node id="Fraser" label="Fraser">
+        <attvalues>
+          <attvalue for="0" value="34" />
+          <attvalue for="1" value="0.0606" />
+          <attvalue for="2" value="24" />
+          <attvalue for="3" value="0.0039" />
+          <attvalue for="4" value="0.0063" />
+          <attvalue for="5" value="1" />
+          <attvalue for="6" value="2.28956228956229" />
+        </attvalues>
+      </node>
+      <node id="Sarah Hoffman" label="Sarah Hoffman">
+        <attvalues>
+          <attvalue for="0" value="31" />
+          <attvalue for="1" value="0.101" />
+          <attvalue for="2" value="126" />
+          <attvalue for="3" value="0.0" />
+          <attvalue for="4" value="0.0153" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="2.087542087542088" />
+        </attvalues>
+      </node>
+      <node id="Ronald Reagan" label="Ronald Reagan">
+        <attvalues>
+          <attvalue for="0" value="46" />
+          <attvalue for="1" value="0.2222" />
+          <attvalue for="2" value="216" />
+          <attvalue for="3" value="0.005" />
+          <attvalue for="4" value="0.0298" />
+          <attvalue for="5" value="6" />
+          <attvalue for="6" value="3.0976430976430978" />
+        </attvalues>
+      </node>
+      <node id="Mulroney" label="Mulroney">
+        <attvalues>
+          <attvalue for="0" value="43" />
+          <attvalue for="1" value="0.1515" />
+          <attvalue for="2" value="173" />
+          <attvalue for="3" value="0.0013" />
+          <attvalue for="4" value="0.0262" />
+          <attvalue for="5" value="6" />
+          <attvalue for="6" value="2.8956228956228958" />
+        </attvalues>
+      </node>
+      <node id="Milton" label="Milton">
+        <attvalues>
+          <attvalue for="0" value="34" />
+          <attvalue for="1" value="0.0707" />
+          <attvalue for="2" value="67" />
+          <attvalue for="3" value="0.0024" />
+          <attvalue for="4" value="0.0062" />
+          <attvalue for="5" value="5" />
+          <attvalue for="6" value="2.28956228956229" />
+        </attvalues>
+      </node>
+      <node id="Doug Ford" label="Doug Ford">
+        <attvalues>
+          <attvalue for="0" value="382" />
+          <attvalue for="1" value="0.5051" />
+          <attvalue for="2" value="982" />
+          <attvalue for="3" value="0.033" />
+          <attvalue for="4" value="0.1765" />
+          <attvalue for="5" value="1" />
+          <attvalue for="6" value="25.72390572390572" />
+        </attvalues>
+      </node>
+      <node id="Stephen Harper" label="Stephen Harper">
+        <attvalues>
+          <attvalue for="0" value="156" />
+          <attvalue for="1" value="0.3434" />
+          <attvalue for="2" value="473" />
+          <attvalue for="3" value="0.034" />
+          <attvalue for="4" value="0.111" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="10.505050505050505" />
+        </attvalues>
+      </node>
+      <node id="Steven Guilbeault" label="Steven Guilbeault">
+        <attvalues>
+          <attvalue for="0" value="420" />
+          <attvalue for="1" value="0.4949" />
+          <attvalue for="2" value="962" />
+          <attvalue for="3" value="0.0565" />
+          <attvalue for="4" value="0.1997" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="28.28282828282828" />
+        </attvalues>
+      </node>
+      <node id="Trevor Tombe" label="Trevor Tombe">
+        <attvalues>
+          <attvalue for="0" value="39" />
+          <attvalue for="1" value="0.1313" />
+          <attvalue for="2" value="112" />
+          <attvalue for="3" value="0.004" />
+          <attvalue for="4" value="0.0266" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="2.6262626262626263" />
+        </attvalues>
+      </node>
+      <node id="David Coletto" label="David Coletto">
+        <attvalues>
+          <attvalue for="0" value="34" />
+          <attvalue for="1" value="0.1212" />
+          <attvalue for="2" value="139" />
+          <attvalue for="3" value="0.0026" />
+          <attvalue for="4" value="0.0342" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="2.28956228956229" />
+        </attvalues>
+      </node>
+      <node id="Ron Desantis" label="Ron Desantis">
+        <attvalues>
+          <attvalue for="0" value="36" />
+          <attvalue for="1" value="0.1414" />
+          <attvalue for="2" value="79" />
+          <attvalue for="3" value="0.0304" />
+          <attvalue for="4" value="0.0135" />
+          <attvalue for="5" value="5" />
+          <attvalue for="6" value="2.4242424242424243" />
+        </attvalues>
+      </node>
+      <node id="John Rustad" label="John Rustad">
+        <attvalues>
+          <attvalue for="0" value="156" />
+          <attvalue for="1" value="0.1919" />
+          <attvalue for="2" value="514" />
+          <attvalue for="3" value="0.0007" />
+          <attvalue for="4" value="0.0542" />
+          <attvalue for="5" value="4" />
+          <attvalue for="6" value="10.505050505050505" />
+        </attvalues>
+      </node>
+      <node id="Brian Mulroney" label="Brian Mulroney">
+        <attvalues>
+          <attvalue for="0" value="83" />
+          <attvalue for="1" value="0.2828" />
+          <attvalue for="2" value="328" />
+          <attvalue for="3" value="0.0308" />
+          <attvalue for="4" value="0.0574" />
+          <attvalue for="5" value="6" />
+          <attvalue for="6" value="5.589225589225589" />
+        </attvalues>
+      </node>
+      <node id="Margaret Thatcher" label="Margaret Thatcher">
+        <attvalues>
+          <attvalue for="0" value="37" />
+          <attvalue for="1" value="0.1414" />
+          <attvalue for="2" value="126" />
+          <attvalue for="3" value="0.0031" />
+          <attvalue for="4" value="0.0206" />
+          <attvalue for="5" value="6" />
+          <attvalue for="6" value="2.4915824915824913" />
+        </attvalues>
+      </node>
+      <node id="Jean Chrétien" label="Jean Chrétien">
+        <attvalues>
+          <attvalue for="0" value="42" />
+          <attvalue for="1" value="0.1818" />
+          <attvalue for="2" value="166" />
+          <attvalue for="3" value="0.0104" />
+          <attvalue for="4" value="0.0317" />
+          <attvalue for="5" value="6" />
+          <attvalue for="6" value="2.8282828282828283" />
+        </attvalues>
+      </node>
+      <node id="Tim Houston" label="Tim Houston">
+        <attvalues>
+          <attvalue for="0" value="46" />
+          <attvalue for="1" value="0.0606" />
+          <attvalue for="2" value="35" />
+          <attvalue for="3" value="0.0043" />
+          <attvalue for="4" value="0.0092" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="3.0976430976430978" />
+        </attvalues>
+      </node>
+      <node id="John Horgan" label="John Horgan">
+        <attvalues>
+          <attvalue for="0" value="32" />
+          <attvalue for="1" value="0.101" />
+          <attvalue for="2" value="125" />
+          <attvalue for="3" value="0.0" />
+          <attvalue for="4" value="0.008" />
+          <attvalue for="5" value="4" />
+          <attvalue for="6" value="2.154882154882155" />
+        </attvalues>
+      </node>
+      <node id="Helene" label="Helene">
+        <attvalues>
+          <attvalue for="0" value="55" />
+          <attvalue for="1" value="0.0808" />
+          <attvalue for="2" value="79" />
+          <attvalue for="3" value="0.0004" />
+          <attvalue for="4" value="0.008" />
+          <attvalue for="5" value="5" />
+          <attvalue for="6" value="3.7037037037037033" />
+        </attvalues>
+      </node>
+      <node id="Bill Blair" label="Bill Blair">
+        <attvalues>
+          <attvalue for="0" value="51" />
+          <attvalue for="1" value="0.101" />
+          <attvalue for="2" value="106" />
+          <attvalue for="3" value="0.0016" />
+          <attvalue for="4" value="0.0215" />
+          <attvalue for="5" value="0" />
+          <attvalue for="6" value="3.4343434343434343" />
+        </attvalues>
+      </node>
+      <node id="Emmanuel Macron" label="Emmanuel Macron">
+        <attvalues>
+          <attvalue for="0" value="56" />
+          <attvalue for="1" value="0.0909" />
+          <attvalue for="2" value="81" />
+          <attvalue for="3" value="0.0006" />
+          <attvalue for="4" value="0.0183" />
+          <attvalue for="5" value="5" />
+          <attvalue for="6" value="3.7710437710437708" />
+        </attvalues>
+      </node>
+      <node id="António Guterres" label="António Guterres">
+        <attvalues>
+          <attvalue for="0" value="58" />
+          <attvalue for="1" value="0.0808" />
+          <attvalue for="2" value="46" />
+          <attvalue for="3" value="0.0037" />
+          <attvalue for="4" value="0.0097" />
+          <attvalue for="5" value="5" />
+          <attvalue for="6" value="3.9057239057239053" />
+        </attvalues>
+      </node>
+      <node id="Danielle Smith" label="Danielle Smith">
+        <attvalues>
+          <attvalue for="0" value="317" />
+          <attvalue for="1" value="0.5152" />
+          <attvalue for="2" value="976" />
+          <attvalue for="3" value="0.0592" />
+          <attvalue for="4" value="0.1726" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="21.346801346801346" />
+        </attvalues>
+      </node>
+      <node id="Kathleen Ganley" label="Kathleen Ganley">
+        <attvalues>
+          <attvalue for="0" value="29" />
+          <attvalue for="1" value="0.101" />
+          <attvalue for="2" value="120" />
+          <attvalue for="3" value="0.0001" />
+          <attvalue for="4" value="0.014" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="1.9528619528619526" />
+        </attvalues>
+      </node>
+      <node id="Mike Schreiner" label="Mike Schreiner">
+        <attvalues>
+          <attvalue for="0" value="37" />
+          <attvalue for="1" value="0.0707" />
+          <attvalue for="2" value="73" />
+          <attvalue for="3" value="0.0008" />
+          <attvalue for="4" value="0.0049" />
+          <attvalue for="5" value="1" />
+          <attvalue for="6" value="2.4915824915824913" />
+        </attvalues>
+      </node>
+      <node id="David Phillips" label="David Phillips">
+        <attvalues>
+          <attvalue for="0" value="32" />
+          <attvalue for="1" value="0.0303" />
+          <attvalue for="2" value="12" />
+          <attvalue for="3" value="0.0" />
+          <attvalue for="4" value="0.004" />
+          <attvalue for="5" value="1" />
+          <attvalue for="6" value="2.154882154882155" />
+        </attvalues>
+      </node>
+      <node id="Sean Kilpatrick" label="Sean Kilpatrick">
+        <attvalues>
+          <attvalue for="0" value="30" />
+          <attvalue for="1" value="0.1111" />
+          <attvalue for="2" value="94" />
+          <attvalue for="3" value="0.0033" />
+          <attvalue for="4" value="0.0266" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="2.0202020202020203" />
+        </attvalues>
+      </node>
+      <node id="Elizabeth May" label="Elizabeth May">
+        <attvalues>
+          <attvalue for="0" value="39" />
+          <attvalue for="1" value="0.1818" />
+          <attvalue for="2" value="113" />
+          <attvalue for="3" value="0.0197" />
+          <attvalue for="4" value="0.0196" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="2.6262626262626263" />
+        </attvalues>
+      </node>
+      <node id="Taylor Swift" label="Taylor Swift">
+        <attvalues>
+          <attvalue for="0" value="60" />
+          <attvalue for="1" value="0.1919" />
+          <attvalue for="2" value="139" />
+          <attvalue for="3" value="0.0266" />
+          <attvalue for="4" value="0.0243" />
+          <attvalue for="5" value="5" />
+          <attvalue for="6" value="4.040404040404041" />
+        </attvalues>
+      </node>
+      <node id="Mark Carney" label="Mark Carney">
+        <attvalues>
+          <attvalue for="0" value="73" />
+          <attvalue for="1" value="0.2222" />
+          <attvalue for="2" value="224" />
+          <attvalue for="3" value="0.0564" />
+          <attvalue for="4" value="0.06" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="4.915824915824916" />
+        </attvalues>
+      </node>
+      <node id="Kevin Falcon" label="Kevin Falcon">
+        <attvalues>
+          <attvalue for="0" value="66" />
+          <attvalue for="1" value="0.1212" />
+          <attvalue for="2" value="276" />
+          <attvalue for="3" value="0.0001" />
+          <attvalue for="4" value="0.0225" />
+          <attvalue for="5" value="4" />
+          <attvalue for="6" value="4.444444444444445" />
+        </attvalues>
+      </node>
+      <node id="Chrystia Freeland" label="Chrystia Freeland">
+        <attvalues>
+          <attvalue for="0" value="190" />
+          <attvalue for="1" value="0.3838" />
+          <attvalue for="2" value="565" />
+          <attvalue for="3" value="0.0761" />
+          <attvalue for="4" value="0.1368" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="12.794612794612794" />
+        </attvalues>
+      </node>
+      <node id="Kamala Harris" label="Kamala Harris">
+        <attvalues>
+          <attvalue for="0" value="215" />
+          <attvalue for="1" value="0.3131" />
+          <attvalue for="2" value="674" />
+          <attvalue for="3" value="0.0565" />
+          <attvalue for="4" value="0.1277" />
+          <attvalue for="5" value="5" />
+          <attvalue for="6" value="14.47811447811448" />
+        </attvalues>
+      </node>
+      <node id="Yves-François Blanchet" label="Yves-François Blanchet">
+        <attvalues>
+          <attvalue for="0" value="39" />
+          <attvalue for="1" value="0.1313" />
+          <attvalue for="2" value="153" />
+          <attvalue for="3" value="0.0019" />
+          <attvalue for="4" value="0.0401" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="2.6262626262626263" />
+        </attvalues>
+      </node>
+      <node id="Heather Exner-Pirot" label="Heather Exner-Pirot">
+        <attvalues>
+          <attvalue for="0" value="29" />
+          <attvalue for="1" value="0.0909" />
+          <attvalue for="2" value="59" />
+          <attvalue for="3" value="0.0015" />
+          <attvalue for="4" value="0.0142" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="1.9528619528619526" />
+        </attvalues>
+      </node>
+      <node id="Benoit Charette" label="Benoit Charette">
+        <attvalues>
+          <attvalue for="0" value="71" />
+          <attvalue for="1" value="0.1111" />
+          <attvalue for="2" value="104" />
+          <attvalue for="3" value="0.0107" />
+          <attvalue for="4" value="0.0104" />
+          <attvalue for="5" value="0" />
+          <attvalue for="6" value="4.781144781144781" />
+        </attvalues>
+      </node>
+      <node id="Naheed Nenshi" label="Naheed Nenshi">
+        <attvalues>
+          <attvalue for="0" value="30" />
+          <attvalue for="1" value="0.101" />
+          <attvalue for="2" value="107" />
+          <attvalue for="3" value="0.0" />
+          <attvalue for="4" value="0.0146" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="2.0202020202020203" />
+        </attvalues>
+      </node>
+      <node id="Olaf Scholz" label="Olaf Scholz">
+        <attvalues>
+          <attvalue for="0" value="29" />
+          <attvalue for="1" value="0.0707" />
+          <attvalue for="2" value="67" />
+          <attvalue for="3" value="0.0" />
+          <attvalue for="4" value="0.0151" />
+          <attvalue for="5" value="5" />
+          <attvalue for="6" value="1.9528619528619526" />
+        </attvalues>
+      </node>
+      <node id="Andrew Furey" label="Andrew Furey">
+        <attvalues>
+          <attvalue for="0" value="31" />
+          <attvalue for="1" value="0.1515" />
+          <attvalue for="2" value="134" />
+          <attvalue for="3" value="0.0064" />
+          <attvalue for="4" value="0.0284" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="2.087542087542088" />
+        </attvalues>
+      </node>
+      <node id="Jasper" label="Jasper">
+        <attvalues>
+          <attvalue for="0" value="60" />
+          <attvalue for="1" value="0.101" />
+          <attvalue for="2" value="73" />
+          <attvalue for="3" value="0.0119" />
+          <attvalue for="4" value="0.011" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="4.040404040404041" />
+        </attvalues>
+      </node>
+      <node id="Coletto" label="Coletto">
+        <attvalues>
+          <attvalue for="0" value="29" />
+          <attvalue for="1" value="0.1111" />
+          <attvalue for="2" value="128" />
+          <attvalue for="3" value="0.0006" />
+          <attvalue for="4" value="0.0319" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="1.9528619528619526" />
+        </attvalues>
+      </node>
+      <node id="Hillary Clinton" label="Hillary Clinton">
+        <attvalues>
+          <attvalue for="0" value="35" />
+          <attvalue for="1" value="0.1212" />
+          <attvalue for="2" value="98" />
+          <attvalue for="3" value="0.0041" />
+          <attvalue for="4" value="0.0181" />
+          <attvalue for="5" value="5" />
+          <attvalue for="6" value="2.356902356902357" />
+        </attvalues>
+      </node>
+      <node id="Flavio Volpe" label="Flavio Volpe">
+        <attvalues>
+          <attvalue for="0" value="32" />
+          <attvalue for="1" value="0.0909" />
+          <attvalue for="2" value="108" />
+          <attvalue for="3" value="0.0" />
+          <attvalue for="4" value="0.0241" />
+          <attvalue for="5" value="1" />
+          <attvalue for="6" value="2.154882154882155" />
+        </attvalues>
+      </node>
+      <node id="Johnson" label="Johnson">
+        <attvalues>
+          <attvalue for="0" value="47" />
+          <attvalue for="1" value="0.101" />
+          <attvalue for="2" value="65" />
+          <attvalue for="3" value="0.0074" />
+          <attvalue for="4" value="0.0097" />
+          <attvalue for="5" value="6" />
+          <attvalue for="6" value="3.1649831649831652" />
+        </attvalues>
+      </node>
+      <node id="Sylvain Charlebois" label="Sylvain Charlebois">
+        <attvalues>
+          <attvalue for="0" value="33" />
+          <attvalue for="1" value="0.0202" />
+          <attvalue for="2" value="10" />
+          <attvalue for="3" value="0.0" />
+          <attvalue for="4" value="0.004" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="2.2222222222222223" />
+        </attvalues>
+      </node>
+      <node id="Keith Stewart" label="Keith Stewart">
+        <attvalues>
+          <attvalue for="0" value="37" />
+          <attvalue for="1" value="0.1313" />
+          <attvalue for="2" value="81" />
+          <attvalue for="3" value="0.0128" />
+          <attvalue for="4" value="0.0087" />
+          <attvalue for="5" value="1" />
+          <attvalue for="6" value="2.4915824915824913" />
+        </attvalues>
+      </node>
+      <node id="Pierre Poilievre" label="Pierre Poilievre">
+        <attvalues>
+          <attvalue for="0" value="933" />
+          <attvalue for="1" value="0.8182" />
+          <attvalue for="2" value="2884" />
+          <attvalue for="3" value="0.0488" />
+          <attvalue for="4" value="0.5077" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="62.82828282828283" />
+        </attvalues>
+      </node>
+      <node id="Barack Obama" label="Barack Obama">
+        <attvalues>
+          <attvalue for="0" value="69" />
+          <attvalue for="1" value="0.1515" />
+          <attvalue for="2" value="209" />
+          <attvalue for="3" value="0.0084" />
+          <attvalue for="4" value="0.0418" />
+          <attvalue for="5" value="5" />
+          <attvalue for="6" value="4.646464646464646" />
+        </attvalues>
+      </node>
+      <node id="Giroux" label="Giroux">
+        <attvalues>
+          <attvalue for="0" value="56" />
+          <attvalue for="1" value="0.0909" />
+          <attvalue for="2" value="165" />
+          <attvalue for="3" value="0.0085" />
+          <attvalue for="4" value="0.034" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="3.7710437710437708" />
+        </attvalues>
+      </node>
+      <node id="Mother Nature" label="Mother Nature">
+        <attvalues>
+          <attvalue for="0" value="30" />
+          <attvalue for="1" value="0.0404" />
+          <attvalue for="2" value="14" />
+          <attvalue for="3" value="0.0098" />
+          <attvalue for="4" value="0.0019" />
+          <attvalue for="5" value="5" />
+          <attvalue for="6" value="2.0202020202020203" />
+        </attvalues>
+      </node>
+      <node id="Joe Biden" label="Joe Biden">
+        <attvalues>
+          <attvalue for="0" value="479" />
+          <attvalue for="1" value="0.5253" />
+          <attvalue for="2" value="1299" />
+          <attvalue for="3" value="0.0582" />
+          <attvalue for="4" value="0.2353" />
+          <attvalue for="5" value="5" />
+          <attvalue for="6" value="32.255892255892256" />
+        </attvalues>
+      </node>
+      <node id="Bonnie Crombie" label="Bonnie Crombie">
+        <attvalues>
+          <attvalue for="0" value="48" />
+          <attvalue for="1" value="0.1717" />
+          <attvalue for="2" value="195" />
+          <attvalue for="3" value="0.0158" />
+          <attvalue for="4" value="0.0384" />
+          <attvalue for="5" value="1" />
+          <attvalue for="6" value="3.2323232323232323" />
+        </attvalues>
+      </node>
+      <node id="Yves Giroux" label="Yves Giroux">
+        <attvalues>
+          <attvalue for="0" value="71" />
+          <attvalue for="1" value="0.0909" />
+          <attvalue for="2" value="183" />
+          <attvalue for="3" value="0.0012" />
+          <attvalue for="4" value="0.0406" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="4.781144781144781" />
+        </attvalues>
+      </node>
+      <node id="Bill Gates" label="Bill Gates">
+        <attvalues>
+          <attvalue for="0" value="35" />
+          <attvalue for="1" value="0.0909" />
+          <attvalue for="2" value="40" />
+          <attvalue for="3" value="0.028" />
+          <attvalue for="4" value="0.0086" />
+          <attvalue for="5" value="5" />
+          <attvalue for="6" value="2.356902356902357" />
+        </attvalues>
+      </node>
+      <node id="Stephen Lecce" label="Stephen Lecce">
+        <attvalues>
+          <attvalue for="0" value="31" />
+          <attvalue for="1" value="0.0404" />
+          <attvalue for="2" value="47" />
+          <attvalue for="3" value="0.0003" />
+          <attvalue for="4" value="0.0036" />
+          <attvalue for="5" value="1" />
+          <attvalue for="6" value="2.087542087542088" />
+        </attvalues>
+      </node>
+      <node id="Jonathan Wilkinson" label="Jonathan Wilkinson">
+        <attvalues>
+          <attvalue for="0" value="143" />
+          <attvalue for="1" value="0.3333" />
+          <attvalue for="2" value="339" />
+          <attvalue for="3" value="0.0655" />
+          <attvalue for="4" value="0.0686" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="9.62962962962963" />
+        </attvalues>
+      </node>
+      <node id="Benjamin Netanyahu" label="Benjamin Netanyahu">
+        <attvalues>
+          <attvalue for="0" value="37" />
+          <attvalue for="1" value="0.1414" />
+          <attvalue for="2" value="120" />
+          <attvalue for="3" value="0.0013" />
+          <attvalue for="4" value="0.0206" />
+          <attvalue for="5" value="5" />
+          <attvalue for="6" value="2.4915824915824913" />
+        </attvalues>
+      </node>
+      <node id="Bloomberg" label="Bloomberg">
+        <attvalues>
+          <attvalue for="0" value="29" />
+          <attvalue for="1" value="0.101" />
+          <attvalue for="2" value="60" />
+          <attvalue for="3" value="0.0096" />
+          <attvalue for="4" value="0.0116" />
+          <attvalue for="5" value="5" />
+          <attvalue for="6" value="1.9528619528619526" />
+        </attvalues>
+      </node>
+      <node id="David Eby" label="David Eby">
+        <attvalues>
+          <attvalue for="0" value="216" />
+          <attvalue for="1" value="0.2626" />
+          <attvalue for="2" value="589" />
+          <attvalue for="3" value="0.0048" />
+          <attvalue for="4" value="0.0805" />
+          <attvalue for="5" value="4" />
+          <attvalue for="6" value="14.545454545454545" />
+        </attvalues>
+      </node>
+      <node id="Taylor" label="Taylor">
+        <attvalues>
+          <attvalue for="0" value="33" />
+          <attvalue for="1" value="0.0505" />
+          <attvalue for="2" value="17" />
+          <attvalue for="3" value="0.0201" />
+          <attvalue for="4" value="0.0036" />
+          <attvalue for="5" value="1" />
+          <attvalue for="6" value="2.2222222222222223" />
+        </attvalues>
+      </node>
+      <node id="Justin Trudeau" label="Justin Trudeau">
+        <attvalues>
+          <attvalue for="0" value="1485" />
+          <attvalue for="1" value="0.899" />
+          <attvalue for="2" value="3801" />
+          <attvalue for="3" value="0.0657" />
+          <attvalue for="4" value="0.5715" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="100.0" />
+        </attvalues>
+      </node>
+      <node id="Falcon" label="Falcon">
+        <attvalues>
+          <attvalue for="0" value="45" />
+          <attvalue for="1" value="0.1111" />
+          <attvalue for="2" value="214" />
+          <attvalue for="3" value="0.0013" />
+          <attvalue for="4" value="0.0156" />
+          <attvalue for="5" value="4" />
+          <attvalue for="6" value="3.0303030303030303" />
+        </attvalues>
+      </node>
+      <node id="Christy Clark" label="Christy Clark">
+        <attvalues>
+          <attvalue for="0" value="42" />
+          <attvalue for="1" value="0.1818" />
+          <attvalue for="2" value="195" />
+          <attvalue for="3" value="0.0059" />
+          <attvalue for="4" value="0.0205" />
+          <attvalue for="5" value="4" />
+          <attvalue for="6" value="2.8282828282828283" />
+        </attvalues>
+      </node>
+      <node id="Gordon Campbell" label="Gordon Campbell">
+        <attvalues>
+          <attvalue for="0" value="33" />
+          <attvalue for="1" value="0.1515" />
+          <attvalue for="2" value="152" />
+          <attvalue for="3" value="0.0076" />
+          <attvalue for="4" value="0.0159" />
+          <attvalue for="5" value="4" />
+          <attvalue for="6" value="2.2222222222222223" />
+        </attvalues>
+      </node>
+      <node id="Tiff Macklem" label="Tiff Macklem">
+        <attvalues>
+          <attvalue for="0" value="31" />
+          <attvalue for="1" value="0.0808" />
+          <attvalue for="2" value="52" />
+          <attvalue for="3" value="0.0025" />
+          <attvalue for="4" value="0.0139" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="2.087542087542088" />
+        </attvalues>
+      </node>
+      <node id="Gwynne Dyer" label="Gwynne Dyer">
+        <attvalues>
+          <attvalue for="0" value="47" />
+          <attvalue for="1" value="0.0404" />
+          <attvalue for="2" value="27" />
+          <attvalue for="3" value="0.0" />
+          <attvalue for="4" value="0.0042" />
+          <attvalue for="5" value="5" />
+          <attvalue for="6" value="3.1649831649831652" />
+        </attvalues>
+      </node>
+      <node id="Blaine Higgs" label="Blaine Higgs">
+        <attvalues>
+          <attvalue for="0" value="47" />
+          <attvalue for="1" value="0.0909" />
+          <attvalue for="2" value="93" />
+          <attvalue for="3" value="0.0012" />
+          <attvalue for="4" value="0.0216" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="3.1649831649831652" />
+        </attvalues>
+      </node>
+      <node id="Marco Chown Oved" label="Marco Chown Oved">
+        <attvalues>
+          <attvalue for="0" value="30" />
+          <attvalue for="1" value="0.0303" />
+          <attvalue for="2" value="20" />
+          <attvalue for="3" value="0.0086" />
+          <attvalue for="4" value="0.0041" />
+          <attvalue for="5" value="1" />
+          <attvalue for="6" value="2.0202020202020203" />
+        </attvalues>
+      </node>
+      <node id="Consultezle" label="Consultezle">
+        <attvalues>
+          <attvalue for="0" value="37" />
+          <attvalue for="1" value="0.0303" />
+          <attvalue for="2" value="11" />
+          <attvalue for="3" value="0.004" />
+          <attvalue for="4" value="0.0043" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="2.4915824915824913" />
+        </attvalues>
+      </node>
+      <node id="Stewart" label="Stewart">
+        <attvalues>
+          <attvalue for="0" value="45" />
+          <attvalue for="1" value="0.0909" />
+          <attvalue for="2" value="43" />
+          <attvalue for="3" value="0.0091" />
+          <attvalue for="4" value="0.0096" />
+          <attvalue for="5" value="1" />
+          <attvalue for="6" value="3.0303030303030303" />
+        </attvalues>
+      </node>
+      <node id="Tim Walz" label="Tim Walz">
+        <attvalues>
+          <attvalue for="0" value="47" />
+          <attvalue for="1" value="0.1313" />
+          <attvalue for="2" value="178" />
+          <attvalue for="3" value="0.004" />
+          <attvalue for="4" value="0.0301" />
+          <attvalue for="5" value="5" />
+          <attvalue for="6" value="3.1649831649831652" />
+        </attvalues>
+      </node>
+      <node id="Pierre Trudeau" label="Pierre Trudeau">
+        <attvalues>
+          <attvalue for="0" value="44" />
+          <attvalue for="1" value="0.1717" />
+          <attvalue for="2" value="169" />
+          <attvalue for="3" value="0.0054" />
+          <attvalue for="4" value="0.0369" />
+          <attvalue for="5" value="6" />
+          <attvalue for="6" value="2.9629629629629632" />
+        </attvalues>
+      </node>
+      <node id="Vladimir Putin" label="Vladimir Putin">
+        <attvalues>
+          <attvalue for="0" value="127" />
+          <attvalue for="1" value="0.2929" />
+          <attvalue for="2" value="383" />
+          <attvalue for="3" value="0.0433" />
+          <attvalue for="4" value="0.0773" />
+          <attvalue for="5" value="5" />
+          <attvalue for="6" value="8.552188552188552" />
+        </attvalues>
+      </node>
+      <node id="Kennedy" label="Kennedy">
+        <attvalues>
+          <attvalue for="0" value="42" />
+          <attvalue for="1" value="0.101" />
+          <attvalue for="2" value="96" />
+          <attvalue for="3" value="0.0" />
+          <attvalue for="4" value="0.0193" />
+          <attvalue for="5" value="5" />
+          <attvalue for="6" value="2.8282828282828283" />
+        </attvalues>
+      </node>
+      <node id="Wab Kinew" label="Wab Kinew">
+        <attvalues>
+          <attvalue for="0" value="118" />
+          <attvalue for="1" value="0.2121" />
+          <attvalue for="2" value="260" />
+          <attvalue for="3" value="0.0304" />
+          <attvalue for="4" value="0.0548" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="7.9461279461279455" />
+        </attvalues>
+      </node>
+      <node id="Olivia Chow" label="Olivia Chow">
+        <attvalues>
+          <attvalue for="0" value="90" />
+          <attvalue for="1" value="0.1313" />
+          <attvalue for="2" value="113" />
+          <attvalue for="3" value="0.0189" />
+          <attvalue for="4" value="0.0226" />
+          <attvalue for="5" value="1" />
+          <attvalue for="6" value="6.0606060606060606" />
+        </attvalues>
+      </node>
+      <node id="François Legault" label="François Legault">
+        <attvalues>
+          <attvalue for="0" value="171" />
+          <attvalue for="1" value="0.2121" />
+          <attvalue for="2" value="260" />
+          <attvalue for="3" value="0.0211" />
+          <attvalue for="4" value="0.0383" />
+          <attvalue for="5" value="0" />
+          <attvalue for="6" value="11.515151515151516" />
+        </attvalues>
+      </node>
+      <node id="Elon Musk" label="Elon Musk">
+        <attvalues>
+          <attvalue for="0" value="99" />
+          <attvalue for="1" value="0.2121" />
+          <attvalue for="2" value="223" />
+          <attvalue for="3" value="0.0337" />
+          <attvalue for="4" value="0.0409" />
+          <attvalue for="5" value="5" />
+          <attvalue for="6" value="6.666666666666667" />
+        </attvalues>
+      </node>
+      <node id="Rachel Notley" label="Rachel Notley">
+        <attvalues>
+          <attvalue for="0" value="54" />
+          <attvalue for="1" value="0.1515" />
+          <attvalue for="2" value="189" />
+          <attvalue for="3" value="0.0021" />
+          <attvalue for="4" value="0.0263" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="3.6363636363636362" />
+        </attvalues>
+      </node>
+      <node id="François-Philippe Champagne" label="François-Philippe Champagne">
+        <attvalues>
+          <attvalue for="0" value="42" />
+          <attvalue for="1" value="0.1414" />
+          <attvalue for="2" value="107" />
+          <attvalue for="3" value="0.0216" />
+          <attvalue for="4" value="0.0274" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="2.8282828282828283" />
+        </attvalues>
+      </node>
+      <node id="Greta Thunberg" label="Greta Thunberg">
+        <attvalues>
+          <attvalue for="0" value="29" />
+          <attvalue for="1" value="0.0" />
+          <attvalue for="2" value="0" />
+          <attvalue for="3" value="0.0" />
+          <attvalue for="4" value="0.0" />
+          <attvalue for="5" value="3" />
+          <attvalue for="6" value="1.9528619528619526" />
+        </attvalues>
+      </node>
+      <node id="Jagmeet Singh" label="Jagmeet Singh">
+        <attvalues>
+          <attvalue for="0" value="238" />
+          <attvalue for="1" value="0.5253" />
+          <attvalue for="2" value="917" />
+          <attvalue for="3" value="0.0698" />
+          <attvalue for="4" value="0.1997" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="16.026936026936024" />
+        </attvalues>
+      </node>
+      <node id="Catherine McKenna" label="Catherine McKenna">
+        <attvalues>
+          <attvalue for="0" value="41" />
+          <attvalue for="1" value="0.1717" />
+          <attvalue for="2" value="113" />
+          <attvalue for="3" value="0.0191" />
+          <attvalue for="4" value="0.0266" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="2.760942760942761" />
+        </attvalues>
+      </node>
+      <node id="Tracy Schmidt" label="Tracy Schmidt">
+        <attvalues>
+          <attvalue for="0" value="33" />
+          <attvalue for="1" value="0.0101" />
+          <attvalue for="2" value="11" />
+          <attvalue for="3" value="0.0" />
+          <attvalue for="4" value="0.0005" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="2.2222222222222223" />
+        </attvalues>
+      </node>
+      <node id="Donald Trump" label="Donald Trump">
+        <attvalues>
+          <attvalue for="0" value="793" />
+          <attvalue for="1" value="0.6667" />
+          <attvalue for="2" value="1921" />
+          <attvalue for="3" value="0.07" />
+          <attvalue for="4" value="0.3196" />
+          <attvalue for="5" value="5" />
+          <attvalue for="6" value="53.400673400673405" />
+        </attvalues>
+      </node>
+      <node id="Mélanie Joly" label="Mélanie Joly">
+        <attvalues>
+          <attvalue for="0" value="49" />
+          <attvalue for="1" value="0.1717" />
+          <attvalue for="2" value="164" />
+          <attvalue for="3" value="0.0189" />
+          <attvalue for="4" value="0.0333" />
+          <attvalue for="5" value="0" />
+          <attvalue for="6" value="3.2996632996632997" />
+        </attvalues>
+      </node>
+      <node id="Don Braid" label="Don Braid">
+        <attvalues>
+          <attvalue for="0" value="42" />
+          <attvalue for="1" value="0.1818" />
+          <attvalue for="2" value="163" />
+          <attvalue for="3" value="0.0038" />
+          <attvalue for="4" value="0.0246" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="2.8282828282828283" />
+        </attvalues>
+      </node>
+      <node id="Angus Reid" label="Angus Reid">
+        <attvalues>
+          <attvalue for="0" value="37" />
+          <attvalue for="1" value="0.1515" />
+          <attvalue for="2" value="151" />
+          <attvalue for="3" value="0.006" />
+          <attvalue for="4" value="0.0215" />
+          <attvalue for="5" value="4" />
+          <attvalue for="6" value="2.4915824915824913" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="Northvolt" target="Benoit Charette" id="0" weight="16" />
+      <edge source="Northvolt" target="François Legault" id="1" weight="27" />
+      <edge source="Northvolt" target="Pierre Fitzgibbon" id="2" weight="8" />
+      <edge source="Northvolt" target="Justin Trudeau" id="3" weight="5" />
+      <edge source="Crombie" target="Bonnie Crombie" id="4" weight="30" />
+      <edge source="Crombie" target="Doug Ford" id="5" weight="32" />
+      <edge source="Crombie" target="Pierre Poilievre" id="6" weight="15" />
+      <edge source="Crombie" target="Todd Smith" id="7" weight="10" />
+      <edge source="Crombie" target="Justin Trudeau" id="8" weight="22" />
+      <edge source="Crombie" target="Olivia Chow" id="9" weight="6" />
+      <edge source="Crombie" target="Christy Clark" id="10" weight="5" />
+      <edge source="Crombie" target="Chrystia Freeland" id="11" weight="3" />
+      <edge source="Crombie" target="Donald Trump" id="12" weight="3" />
+      <edge source="Crombie" target="Steven Guilbeault" id="13" weight="3" />
+      <edge source="Scott Moe" target="Danielle Smith" id="14" weight="38" />
+      <edge source="Scott Moe" target="Justin Trudeau" id="15" weight="62" />
+      <edge source="Scott Moe" target="Steven Guilbeault" id="16" weight="25" />
+      <edge source="Scott Moe" target="Wab Kinew" id="17" weight="10" />
+      <edge source="Scott Moe" target="Pierre Poilievre" id="18" weight="43" />
+      <edge source="Scott Moe" target="Jonathan Wilkinson" id="19" weight="7" />
+      <edge source="Scott Moe" target="Angus Reid" id="20" weight="4" />
+      <edge source="Scott Moe" target="Stephen Harper" id="21" weight="8" />
+      <edge source="Scott Moe" target="Jagmeet Singh" id="22" weight="9" />
+      <edge source="Scott Moe" target="Andrew Furey" id="23" weight="8" />
+      <edge source="Scott Moe" target="Giroux" id="24" weight="3" />
+      <edge source="Scott Moe" target="Yves Giroux" id="25" weight="4" />
+      <edge source="Scott Moe" target="Blaine Higgs" id="26" weight="12" />
+      <edge source="Scott Moe" target="Doug Ford" id="27" weight="14" />
+      <edge source="Scott Moe" target="Benoit Charette" id="28" weight="5" />
+      <edge source="Scott Moe" target="Yves-François Blanchet" id="29" weight="5" />
+      <edge source="Scott Moe" target="Don Braid" id="30" weight="6" />
+      <edge source="Scott Moe" target="Brian Mulroney" id="31" weight="4" />
+      <edge source="Valérie Plante" target="François Legault" id="32" weight="21" />
+      <edge source="Valérie Plante" target="Pierre Poilievre" id="33" weight="9" />
+      <edge source="Valérie Plante" target="Justin Trudeau" id="34" weight="13" />
+      <edge source="Valérie Plante" target="Taylor Swift" id="35" weight="8" />
+      <edge source="Valérie Plante" target="Benjamin Netanyahu" id="36" weight="7" />
+      <edge source="Valérie Plante" target="Bill Blair" id="37" weight="5" />
+      <edge source="Valérie Plante" target="Mélanie Joly" id="38" weight="6" />
+      <edge source="Valérie Plante" target="Benoit Charette" id="39" weight="3" />
+      <edge source="Xi Jinping" target="Donald Trump" id="40" weight="27" />
+      <edge source="Xi Jinping" target="Joe Biden" id="41" weight="26" />
+      <edge source="Xi Jinping" target="Vladimir Putin" id="42" weight="20" />
+      <edge source="Xi Jinping" target="Justin Trudeau" id="43" weight="9" />
+      <edge source="Xi Jinping" target="Bloomberg" id="44" weight="3" />
+      <edge source="Xi Jinping" target="Benjamin Netanyahu" id="45" weight="3" />
+      <edge source="Xi Jinping" target="António Guterres" id="46" weight="3" />
+      <edge source="Xi Jinping" target="Margaret Thatcher" id="47" weight="4" />
+      <edge source="Xi Jinping" target="Hillary Clinton" id="48" weight="3" />
+      <edge source="Xi Jinping" target="Kamala Harris" id="49" weight="7" />
+      <edge source="Xi Jinping" target="Elon Musk" id="50" weight="3" />
+      <edge source="Xi Jinping" target="Ronald Reagan" id="51" weight="3" />
+      <edge source="Xi Jinping" target="Barack Obama" id="52" weight="3" />
+      <edge source="Jason Kenney" target="Danielle Smith" id="53" weight="25" />
+      <edge source="Jason Kenney" target="Jagmeet Singh" id="54" weight="11" />
+      <edge source="Jason Kenney" target="Justin Trudeau" id="55" weight="22" />
+      <edge source="Jason Kenney" target="Kathleen Ganley" id="56" weight="4" />
+      <edge source="Jason Kenney" target="Pierre Poilievre" id="57" weight="16" />
+      <edge source="Jason Kenney" target="Rachel Notley" id="58" weight="11" />
+      <edge source="Jason Kenney" target="Sarah Hoffman" id="59" weight="4" />
+      <edge source="Jason Kenney" target="Bill Blair" id="60" weight="6" />
+      <edge source="Jason Kenney" target="Brian Mulroney" id="61" weight="4" />
+      <edge source="Jason Kenney" target="Doug Ford" id="62" weight="9" />
+      <edge source="Jason Kenney" target="Jean Chrétien" id="63" weight="4" />
+      <edge source="Jason Kenney" target="Mulroney" id="64" weight="4" />
+      <edge source="Jason Kenney" target="Stephen Harper" id="65" weight="6" />
+      <edge source="Jason Kenney" target="Steven Guilbeault" id="66" weight="6" />
+      <edge source="Jason Kenney" target="Don Braid" id="67" weight="4" />
+      <edge source="Jason Kenney" target="Chris Varcoe" id="68" weight="3" />
+      <edge source="Jason Kenney" target="Donald Trump" id="69" weight="3" />
+      <edge source="Jason Kenney" target="Joe Biden" id="70" weight="4" />
+      <edge source="Jason Kenney" target="Catherine McKenna" id="71" weight="3" />
+      <edge source="Jason Kenney" target="Bonnie Crombie" id="72" weight="3" />
+      <edge source="Todd Smith" target="Jean Chrétien" id="73" weight="6" />
+      <edge source="Todd Smith" target="Jonathan Wilkinson" id="74" weight="6" />
+      <edge source="Todd Smith" target="Justin Trudeau" id="75" weight="16" />
+      <edge source="Todd Smith" target="Stephen Harper" id="76" weight="6" />
+      <edge source="Todd Smith" target="Bonnie Crombie" id="77" weight="10" />
+      <edge source="Todd Smith" target="Doug Ford" id="78" weight="30" />
+      <edge source="Todd Smith" target="Pierre Poilievre" id="79" weight="6" />
+      <edge source="Todd Smith" target="Olivia Chow" id="80" weight="6" />
+      <edge source="Todd Smith" target="Keith Stewart" id="81" weight="6" />
+      <edge source="Todd Smith" target="Mike Schreiner" id="82" weight="12" />
+      <edge source="Todd Smith" target="Stephen Lecce" id="83" weight="7" />
+      <edge source="Harjit Sajjan" target="Danielle Smith" id="84" weight="4" />
+      <edge source="Harjit Sajjan" target="Jasper" id="85" weight="6" />
+      <edge source="Harjit Sajjan" target="Steven Guilbeault" id="86" weight="6" />
+      <edge source="Harjit Sajjan" target="Jonathan Wilkinson" id="87" weight="5" />
+      <edge source="Harjit Sajjan" target="Justin Trudeau" id="88" weight="4" />
+      <edge source="Charlie Angus" target="Stephen Harper" id="89" weight="3" />
+      <edge source="Charlie Angus" target="Danielle Smith" id="90" weight="13" />
+      <edge source="Charlie Angus" target="Jagmeet Singh" id="91" weight="14" />
+      <edge source="Charlie Angus" target="Justin Trudeau" id="92" weight="18" />
+      <edge source="Charlie Angus" target="Kathleen Ganley" id="93" weight="4" />
+      <edge source="Charlie Angus" target="Pierre Poilievre" id="94" weight="14" />
+      <edge source="Charlie Angus" target="Sarah Hoffman" id="95" weight="4" />
+      <edge source="Charlie Angus" target="Chris Varcoe" id="96" weight="4" />
+      <edge source="Charlie Angus" target="Donald Trump" id="97" weight="4" />
+      <edge source="Charlie Angus" target="Don Braid" id="98" weight="5" />
+      <edge source="Charlie Angus" target="Elizabeth May" id="99" weight="5" />
+      <edge source="Charlie Angus" target="Wab Kinew" id="100" weight="5" />
+      <edge source="Charlie Angus" target="François-Philippe Champagne" id="101" weight="3" />
+      <edge source="Charlie Angus" target="Jonathan Wilkinson" id="102" weight="5" />
+      <edge source="Sonia Furstenau" target="David Eby" id="103" weight="45" />
+      <edge source="Sonia Furstenau" target="John Rustad" id="104" weight="43" />
+      <edge source="Sonia Furstenau" target="Christy Clark" id="105" weight="4" />
+      <edge source="Sonia Furstenau" target="Falcon" id="106" weight="7" />
+      <edge source="Sonia Furstenau" target="John Horgan" id="107" weight="7" />
+      <edge source="Sonia Furstenau" target="Kevin Falcon" id="108" weight="11" />
+      <edge source="Sonia Furstenau" target="Gordon Campbell" id="109" weight="3" />
+      <edge source="Sonia Furstenau" target="Jagmeet Singh" id="110" weight="5" />
+      <edge source="Sonia Furstenau" target="Pierre Poilievre" id="111" weight="7" />
+      <edge source="Rebecca Schulz" target="Keith Stewart" id="112" weight="3" />
+      <edge source="Rebecca Schulz" target="Steven Guilbeault" id="113" weight="18" />
+      <edge source="Rebecca Schulz" target="Don Braid" id="114" weight="8" />
+      <edge source="Rebecca Schulz" target="Elizabeth May" id="115" weight="7" />
+      <edge source="Rebecca Schulz" target="Danielle Smith" id="116" weight="10" />
+      <edge source="Rebecca Schulz" target="Justin Trudeau" id="117" weight="18" />
+      <edge source="Rebecca Schulz" target="Mark Carney" id="118" weight="4" />
+      <edge source="Rebecca Schulz" target="Chris Varcoe" id="119" weight="7" />
+      <edge source="Rebecca Schulz" target="Donald Trump" id="120" weight="5" />
+      <edge source="Rebecca Schulz" target="Rachel Notley" id="121" weight="3" />
+      <edge source="Chris Varcoe" target="Danielle Smith" id="122" weight="16" />
+      <edge source="Chris Varcoe" target="Heather Exner-Pirot" id="123" weight="5" />
+      <edge source="Chris Varcoe" target="Jonathan Wilkinson" id="124" weight="9" />
+      <edge source="Chris Varcoe" target="Keith Stewart" id="125" weight="14" />
+      <edge source="Chris Varcoe" target="Justin Trudeau" id="126" weight="17" />
+      <edge source="Chris Varcoe" target="Rachel Notley" id="127" weight="3" />
+      <edge source="Chris Varcoe" target="Steven Guilbeault" id="128" weight="8" />
+      <edge source="Chris Varcoe" target="Donald Trump" id="129" weight="7" />
+      <edge source="Chris Varcoe" target="Joe Biden" id="130" weight="3" />
+      <edge source="Pierre Fitzgibbon" target="Benoit Charette" id="131" weight="9" />
+      <edge source="Pierre Fitzgibbon" target="François Legault" id="132" weight="21" />
+      <edge source="Pierre Fitzgibbon" target="Justin Trudeau" id="133" weight="5" />
+      <edge source="Fraser" target="Justin Trudeau" id="134" weight="6" />
+      <edge source="Fraser" target="Steven Guilbeault" id="135" weight="5" />
+      <edge source="Fraser" target="Donald Trump" id="136" weight="4" />
+      <edge source="Fraser" target="Bonnie Crombie" id="137" weight="3" />
+      <edge source="Fraser" target="Doug Ford" id="138" weight="3" />
+      <edge source="Fraser" target="Pierre Poilievre" id="139" weight="3" />
+      <edge source="Sarah Hoffman" target="Danielle Smith" id="140" weight="20" />
+      <edge source="Sarah Hoffman" target="Jagmeet Singh" id="141" weight="10" />
+      <edge source="Sarah Hoffman" target="Justin Trudeau" id="142" weight="14" />
+      <edge source="Sarah Hoffman" target="Kathleen Ganley" id="143" weight="24" />
+      <edge source="Sarah Hoffman" target="Pierre Poilievre" id="144" weight="8" />
+      <edge source="Sarah Hoffman" target="Rachel Notley" id="145" weight="22" />
+      <edge source="Sarah Hoffman" target="Naheed Nenshi" id="146" weight="14" />
+      <edge source="Sarah Hoffman" target="Don Braid" id="147" weight="6" />
+      <edge source="Ronald Reagan" target="Barack Obama" id="148" weight="3" />
+      <edge source="Ronald Reagan" target="Donald Trump" id="149" weight="22" />
+      <edge source="Ronald Reagan" target="Joe Biden" id="150" weight="17" />
+      <edge source="Ronald Reagan" target="Brian Mulroney" id="151" weight="18" />
+      <edge source="Ronald Reagan" target="Doug Ford" id="152" weight="11" />
+      <edge source="Ronald Reagan" target="Elizabeth May" id="153" weight="4" />
+      <edge source="Ronald Reagan" target="Jagmeet Singh" id="154" weight="6" />
+      <edge source="Ronald Reagan" target="Jean Chrétien" id="155" weight="6" />
+      <edge source="Ronald Reagan" target="Justin Trudeau" id="156" weight="15" />
+      <edge source="Ronald Reagan" target="Mulroney" id="157" weight="16" />
+      <edge source="Ronald Reagan" target="Pierre Poilievre" id="158" weight="16" />
+      <edge source="Ronald Reagan" target="Stephen Harper" id="159" weight="6" />
+      <edge source="Ronald Reagan" target="Johnson" id="160" weight="6" />
+      <edge source="Ronald Reagan" target="Margaret Thatcher" id="161" weight="15" />
+      <edge source="Ronald Reagan" target="Vladimir Putin" id="162" weight="12" />
+      <edge source="Ronald Reagan" target="Pierre Trudeau" id="163" weight="8" />
+      <edge source="Ronald Reagan" target="Benjamin Netanyahu" id="164" weight="4" />
+      <edge source="Ronald Reagan" target="Elon Musk" id="165" weight="5" />
+      <edge source="Ronald Reagan" target="Kamala Harris" id="166" weight="11" />
+      <edge source="Ronald Reagan" target="Kennedy" id="167" weight="8" />
+      <edge source="Ronald Reagan" target="Tim Walz" id="168" weight="4" />
+      <edge source="Mulroney" target="Justin Trudeau" id="169" weight="21" />
+      <edge source="Mulroney" target="Pierre Poilievre" id="170" weight="18" />
+      <edge source="Mulroney" target="Stephen Harper" id="171" weight="13" />
+      <edge source="Mulroney" target="Brian Mulroney" id="172" weight="38" />
+      <edge source="Mulroney" target="Doug Ford" id="173" weight="9" />
+      <edge source="Mulroney" target="Elizabeth May" id="174" weight="4" />
+      <edge source="Mulroney" target="Jagmeet Singh" id="175" weight="6" />
+      <edge source="Mulroney" target="Jean Chrétien" id="176" weight="9" />
+      <edge source="Mulroney" target="Donald Trump" id="177" weight="9" />
+      <edge source="Mulroney" target="Margaret Thatcher" id="178" weight="12" />
+      <edge source="Mulroney" target="Pierre Trudeau" id="179" weight="6" />
+      <edge source="Mulroney" target="Danielle Smith" id="180" weight="4" />
+      <edge source="Mulroney" target="Gordon Campbell" id="181" weight="4" />
+      <edge source="Milton" target="Donald Trump" id="182" weight="15" />
+      <edge source="Milton" target="Helene" id="183" weight="26" />
+      <edge source="Milton" target="Joe Biden" id="184" weight="9" />
+      <edge source="Milton" target="Kamala Harris" id="185" weight="3" />
+      <edge source="Milton" target="Ron Desantis" id="186" weight="7" />
+      <edge source="Milton" target="Mother Nature" id="187" weight="4" />
+      <edge source="Milton" target="Taylor Swift" id="188" weight="3" />
+      <edge source="Doug Ford" target="Chrystia Freeland" id="189" weight="27" />
+      <edge source="Doug Ford" target="Donald Trump" id="190" weight="53" />
+      <edge source="Doug Ford" target="Justin Trudeau" id="191" weight="166" />
+      <edge source="Doug Ford" target="Stephen Harper" id="192" weight="10" />
+      <edge source="Doug Ford" target="Pierre Poilievre" id="193" weight="120" />
+      <edge source="Doug Ford" target="Danielle Smith" id="194" weight="42" />
+      <edge source="Doug Ford" target="Andrew Furey" id="195" weight="16" />
+      <edge source="Doug Ford" target="Bonnie Crombie" id="196" weight="37" />
+      <edge source="Doug Ford" target="David Eby" id="197" weight="5" />
+      <edge source="Doug Ford" target="Joe Biden" id="198" weight="35" />
+      <edge source="Doug Ford" target="Olivia Chow" id="199" weight="34" />
+      <edge source="Doug Ford" target="Wab Kinew" id="200" weight="12" />
+      <edge source="Doug Ford" target="Kennedy" id="201" weight="11" />
+      <edge source="Doug Ford" target="Pierre Trudeau" id="202" weight="13" />
+      <edge source="Doug Ford" target="Don Braid" id="203" weight="7" />
+      <edge source="Doug Ford" target="Steven Guilbeault" id="204" weight="40" />
+      <edge source="Doug Ford" target="Blaine Higgs" id="205" weight="8" />
+      <edge source="Doug Ford" target="Brian Mulroney" id="206" weight="13" />
+      <edge source="Doug Ford" target="Jagmeet Singh" id="207" weight="24" />
+      <edge source="Doug Ford" target="Jean Chrétien" id="208" weight="6" />
+      <edge source="Doug Ford" target="Benoit Charette" id="209" weight="5" />
+      <edge source="Doug Ford" target="Yves-François Blanchet" id="210" weight="5" />
+      <edge source="Doug Ford" target="Kamala Harris" id="211" weight="18" />
+      <edge source="Doug Ford" target="Marco Chown Oved" id="212" weight="14" />
+      <edge source="Doug Ford" target="Ron Desantis" id="213" weight="9" />
+      <edge source="Doug Ford" target="Tim Walz" id="214" weight="7" />
+      <edge source="Doug Ford" target="Margaret Thatcher" id="215" weight="8" />
+      <edge source="Doug Ford" target="Stephen Lecce" id="216" weight="24" />
+      <edge source="Doug Ford" target="Keith Stewart" id="217" weight="6" />
+      <edge source="Doug Ford" target="Mike Schreiner" id="218" weight="31" />
+      <edge source="Doug Ford" target="Bill Gates" id="219" weight="3" />
+      <edge source="Doug Ford" target="Mark Carney" id="220" weight="4" />
+      <edge source="Doug Ford" target="Catherine McKenna" id="221" weight="3" />
+      <edge source="Doug Ford" target="Taylor" id="222" weight="3" />
+      <edge source="Doug Ford" target="Bloomberg" id="223" weight="7" />
+      <edge source="Doug Ford" target="Flavio Volpe" id="224" weight="17" />
+      <edge source="Doug Ford" target="David Phillips" id="225" weight="4" />
+      <edge source="Doug Ford" target="François-Philippe Champagne" id="226" weight="4" />
+      <edge source="Doug Ford" target="Vladimir Putin" id="227" weight="6" />
+      <edge source="Doug Ford" target="Christy Clark" id="228" weight="4" />
+      <edge source="Doug Ford" target="Jasper" id="229" weight="5" />
+      <edge source="Doug Ford" target="Johnson" id="230" weight="5" />
+      <edge source="Doug Ford" target="Stewart" id="231" weight="3" />
+      <edge source="Stephen Harper" target="Jean Chrétien" id="232" weight="19" />
+      <edge source="Stephen Harper" target="Justin Trudeau" id="233" weight="111" />
+      <edge source="Stephen Harper" target="Pierre Poilievre" id="234" weight="87" />
+      <edge source="Stephen Harper" target="Chrystia Freeland" id="235" weight="10" />
+      <edge source="Stephen Harper" target="Donald Trump" id="236" weight="30" />
+      <edge source="Stephen Harper" target="François Legault" id="237" weight="4" />
+      <edge source="Stephen Harper" target="Mélanie Joly" id="238" weight="4" />
+      <edge source="Stephen Harper" target="Angus Reid" id="239" weight="5" />
+      <edge source="Stephen Harper" target="Jonathan Wilkinson" id="240" weight="7" />
+      <edge source="Stephen Harper" target="Jagmeet Singh" id="241" weight="24" />
+      <edge source="Stephen Harper" target="Brian Mulroney" id="242" weight="23" />
+      <edge source="Stephen Harper" target="Coletto" id="243" weight="5" />
+      <edge source="Stephen Harper" target="David Coletto" id="244" weight="7" />
+      <edge source="Stephen Harper" target="Vladimir Putin" id="245" weight="3" />
+      <edge source="Stephen Harper" target="Kamala Harris" id="246" weight="6" />
+      <edge source="Stephen Harper" target="Mark Carney" id="247" weight="3" />
+      <edge source="Stephen Harper" target="Danielle Smith" id="248" weight="15" />
+      <edge source="Stephen Harper" target="Catherine McKenna" id="249" weight="4" />
+      <edge source="Stephen Harper" target="Wab Kinew" id="250" weight="4" />
+      <edge source="Stephen Harper" target="Pierre Trudeau" id="251" weight="11" />
+      <edge source="Stephen Harper" target="David Eby" id="252" weight="9" />
+      <edge source="Stephen Harper" target="John Rustad" id="253" weight="7" />
+      <edge source="Stephen Harper" target="Joe Biden" id="254" weight="4" />
+      <edge source="Stephen Harper" target="Naheed Nenshi" id="255" weight="3" />
+      <edge source="Stephen Harper" target="Christy Clark" id="256" weight="3" />
+      <edge source="Stephen Harper" target="Steven Guilbeault" id="257" weight="8" />
+      <edge source="Stephen Harper" target="Margaret Thatcher" id="258" weight="5" />
+      <edge source="Steven Guilbeault" target="Danielle Smith" id="259" weight="92" />
+      <edge source="Steven Guilbeault" target="Justin Trudeau" id="260" weight="228" />
+      <edge source="Steven Guilbeault" target="Pierre Poilievre" id="261" weight="115" />
+      <edge source="Steven Guilbeault" target="Wab Kinew" id="262" weight="10" />
+      <edge source="Steven Guilbeault" target="Keith Stewart" id="263" weight="5" />
+      <edge source="Steven Guilbeault" target="António Guterres" id="264" weight="5" />
+      <edge source="Steven Guilbeault" target="Donald Trump" id="265" weight="26" />
+      <edge source="Steven Guilbeault" target="François Legault" id="266" weight="15" />
+      <edge source="Steven Guilbeault" target="Jagmeet Singh" id="267" weight="36" />
+      <edge source="Steven Guilbeault" target="Mélanie Joly" id="268" weight="3" />
+      <edge source="Steven Guilbeault" target="Yves-François Blanchet" id="269" weight="11" />
+      <edge source="Steven Guilbeault" target="Benoit Charette" id="270" weight="8" />
+      <edge source="Steven Guilbeault" target="Chrystia Freeland" id="271" weight="24" />
+      <edge source="Steven Guilbeault" target="Brian Mulroney" id="272" weight="4" />
+      <edge source="Steven Guilbeault" target="Jonathan Wilkinson" id="273" weight="37" />
+      <edge source="Steven Guilbeault" target="Heather Exner-Pirot" id="274" weight="5" />
+      <edge source="Steven Guilbeault" target="Jasper" id="275" weight="10" />
+      <edge source="Steven Guilbeault" target="Vladimir Putin" id="276" weight="13" />
+      <edge source="Steven Guilbeault" target="Kamala Harris" id="277" weight="3" />
+      <edge source="Steven Guilbeault" target="Don Braid" id="278" weight="24" />
+      <edge source="Steven Guilbeault" target="Giroux" id="279" weight="26" />
+      <edge source="Steven Guilbeault" target="Yves Giroux" id="280" weight="29" />
+      <edge source="Steven Guilbeault" target="Elizabeth May" id="281" weight="7" />
+      <edge source="Steven Guilbeault" target="Mark Carney" id="282" weight="6" />
+      <edge source="Steven Guilbeault" target="Sean Kilpatrick" id="283" weight="6" />
+      <edge source="Steven Guilbeault" target="David Eby" id="284" weight="11" />
+      <edge source="Steven Guilbeault" target="Stewart" id="285" weight="5" />
+      <edge source="Steven Guilbeault" target="Catherine McKenna" id="286" weight="8" />
+      <edge source="Steven Guilbeault" target="Trevor Tombe" id="287" weight="13" />
+      <edge source="Steven Guilbeault" target="Naheed Nenshi" id="288" weight="6" />
+      <edge source="Steven Guilbeault" target="Rachel Notley" id="289" weight="10" />
+      <edge source="Steven Guilbeault" target="Joe Biden" id="290" weight="11" />
+      <edge source="Steven Guilbeault" target="Tiff Macklem" id="291" weight="5" />
+      <edge source="Steven Guilbeault" target="Olivia Chow" id="292" weight="3" />
+      <edge source="Steven Guilbeault" target="Andrew Furey" id="293" weight="3" />
+      <edge source="Steven Guilbeault" target="Bonnie Crombie" id="294" weight="6" />
+      <edge source="Steven Guilbeault" target="Coletto" id="295" weight="4" />
+      <edge source="Steven Guilbeault" target="David Coletto" id="296" weight="4" />
+      <edge source="Steven Guilbeault" target="Bloomberg" id="297" weight="3" />
+      <edge source="Steven Guilbeault" target="Flavio Volpe" id="298" weight="3" />
+      <edge source="Trevor Tombe" target="Justin Trudeau" id="299" weight="28" />
+      <edge source="Trevor Tombe" target="Danielle Smith" id="300" weight="7" />
+      <edge source="Trevor Tombe" target="David Eby" id="301" weight="7" />
+      <edge source="Trevor Tombe" target="Jagmeet Singh" id="302" weight="5" />
+      <edge source="Trevor Tombe" target="Wab Kinew" id="303" weight="3" />
+      <edge source="Trevor Tombe" target="Pierre Poilievre" id="304" weight="20" />
+      <edge source="Trevor Tombe" target="Giroux" id="305" weight="6" />
+      <edge source="Trevor Tombe" target="Yves Giroux" id="306" weight="6" />
+      <edge source="Trevor Tombe" target="Coletto" id="307" weight="4" />
+      <edge source="Trevor Tombe" target="David Coletto" id="308" weight="4" />
+      <edge source="Trevor Tombe" target="Tiff Macklem" id="309" weight="5" />
+      <edge source="Trevor Tombe" target="Chrystia Freeland" id="310" weight="4" />
+      <edge source="David Coletto" target="Coletto" id="311" weight="25" />
+      <edge source="David Coletto" target="Donald Trump" id="312" weight="8" />
+      <edge source="David Coletto" target="Joe Biden" id="313" weight="5" />
+      <edge source="David Coletto" target="Justin Trudeau" id="314" weight="31" />
+      <edge source="David Coletto" target="Pierre Poilievre" id="315" weight="31" />
+      <edge source="David Coletto" target="Jagmeet Singh" id="316" weight="12" />
+      <edge source="David Coletto" target="Sean Kilpatrick" id="317" weight="5" />
+      <edge source="David Coletto" target="Jonathan Wilkinson" id="318" weight="3" />
+      <edge source="David Coletto" target="Tiff Macklem" id="319" weight="4" />
+      <edge source="Ron Desantis" target="Donald Trump" id="320" weight="14" />
+      <edge source="Ron Desantis" target="Joe Biden" id="321" weight="8" />
+      <edge source="Ron Desantis" target="Justin Trudeau" id="322" weight="6" />
+      <edge source="Ron Desantis" target="Helene" id="323" weight="6" />
+      <edge source="Ron Desantis" target="Danielle Smith" id="324" weight="5" />
+      <edge source="Ron Desantis" target="Pierre Poilievre" id="325" weight="6" />
+      <edge source="Ron Desantis" target="Barack Obama" id="326" weight="3" />
+      <edge source="Ron Desantis" target="Jagmeet Singh" id="327" weight="3" />
+      <edge source="Ron Desantis" target="Kamala Harris" id="328" weight="3" />
+      <edge source="Ron Desantis" target="Hillary Clinton" id="329" weight="3" />
+      <edge source="Ron Desantis" target="Vladimir Putin" id="330" weight="3" />
+      <edge source="Ron Desantis" target="Stephen Lecce" id="331" weight="3" />
+      <edge source="John Rustad" target="David Eby" id="332" weight="123" />
+      <edge source="John Rustad" target="Christy Clark" id="333" weight="28" />
+      <edge source="John Rustad" target="Falcon" id="334" weight="44" />
+      <edge source="John Rustad" target="John Horgan" id="335" weight="29" />
+      <edge source="John Rustad" target="Kevin Falcon" id="336" weight="63" />
+      <edge source="John Rustad" target="Pierre Poilievre" id="337" weight="61" />
+      <edge source="John Rustad" target="Donald Trump" id="338" weight="9" />
+      <edge source="John Rustad" target="Joe Biden" id="339" weight="4" />
+      <edge source="John Rustad" target="Justin Trudeau" id="340" weight="23" />
+      <edge source="John Rustad" target="Kamala Harris" id="341" weight="4" />
+      <edge source="John Rustad" target="Angus Reid" id="342" weight="17" />
+      <edge source="John Rustad" target="Gordon Campbell" id="343" weight="24" />
+      <edge source="John Rustad" target="Jonathan Wilkinson" id="344" weight="7" />
+      <edge source="John Rustad" target="Jagmeet Singh" id="345" weight="13" />
+      <edge source="John Rustad" target="Wab Kinew" id="346" weight="8" />
+      <edge source="John Rustad" target="Danielle Smith" id="347" weight="4" />
+      <edge source="John Rustad" target="Andrew Furey" id="348" weight="3" />
+      <edge source="Brian Mulroney" target="Angus Reid" id="349" weight="3" />
+      <edge source="Brian Mulroney" target="Chrystia Freeland" id="350" weight="5" />
+      <edge source="Brian Mulroney" target="Donald Trump" id="351" weight="19" />
+      <edge source="Brian Mulroney" target="Joe Biden" id="352" weight="4" />
+      <edge source="Brian Mulroney" target="Justin Trudeau" id="353" weight="49" />
+      <edge source="Brian Mulroney" target="Mark Carney" id="354" weight="3" />
+      <edge source="Brian Mulroney" target="Mélanie Joly" id="355" weight="3" />
+      <edge source="Brian Mulroney" target="Pierre Poilievre" id="356" weight="41" />
+      <edge source="Brian Mulroney" target="Pierre Trudeau" id="357" weight="12" />
+      <edge source="Brian Mulroney" target="Elizabeth May" id="358" weight="5" />
+      <edge source="Brian Mulroney" target="Jagmeet Singh" id="359" weight="16" />
+      <edge source="Brian Mulroney" target="Jean Chrétien" id="360" weight="16" />
+      <edge source="Brian Mulroney" target="Wab Kinew" id="361" weight="6" />
+      <edge source="Brian Mulroney" target="Margaret Thatcher" id="362" weight="11" />
+      <edge source="Brian Mulroney" target="David Eby" id="363" weight="3" />
+      <edge source="Brian Mulroney" target="Danielle Smith" id="364" weight="9" />
+      <edge source="Brian Mulroney" target="Rachel Notley" id="365" weight="4" />
+      <edge source="Brian Mulroney" target="Andrew Furey" id="366" weight="4" />
+      <edge source="Brian Mulroney" target="Heather Exner-Pirot" id="367" weight="3" />
+      <edge source="Brian Mulroney" target="Gordon Campbell" id="368" weight="4" />
+      <edge source="Brian Mulroney" target="Catherine McKenna" id="369" weight="4" />
+      <edge source="Margaret Thatcher" target="Justin Trudeau" id="370" weight="15" />
+      <edge source="Margaret Thatcher" target="Johnson" id="371" weight="11" />
+      <edge source="Margaret Thatcher" target="Pierre Poilievre" id="372" weight="19" />
+      <edge source="Margaret Thatcher" target="Vladimir Putin" id="373" weight="6" />
+      <edge source="Margaret Thatcher" target="Donald Trump" id="374" weight="8" />
+      <edge source="Margaret Thatcher" target="Danielle Smith" id="375" weight="3" />
+      <edge source="Margaret Thatcher" target="Pierre Trudeau" id="376" weight="5" />
+      <edge source="Margaret Thatcher" target="Jean Chrétien" id="377" weight="4" />
+      <edge source="Jean Chrétien" target="Justin Trudeau" id="378" weight="37" />
+      <edge source="Jean Chrétien" target="Pierre Poilievre" id="379" weight="14" />
+      <edge source="Jean Chrétien" target="Chrystia Freeland" id="380" weight="7" />
+      <edge source="Jean Chrétien" target="Jonathan Wilkinson" id="381" weight="6" />
+      <edge source="Jean Chrétien" target="Donald Trump" id="382" weight="9" />
+      <edge source="Jean Chrétien" target="Jagmeet Singh" id="383" weight="5" />
+      <edge source="Jean Chrétien" target="Christy Clark" id="384" weight="3" />
+      <edge source="Jean Chrétien" target="Pierre Trudeau" id="385" weight="9" />
+      <edge source="Jean Chrétien" target="Mark Carney" id="386" weight="3" />
+      <edge source="Jean Chrétien" target="Danielle Smith" id="387" weight="3" />
+      <edge source="Tim Houston" target="Blaine Higgs" id="388" weight="5" />
+      <edge source="Tim Houston" target="Justin Trudeau" id="389" weight="12" />
+      <edge source="Tim Houston" target="Pierre Poilievre" id="390" weight="7" />
+      <edge source="Tim Houston" target="Andrew Furey" id="391" weight="5" />
+      <edge source="Tim Houston" target="Danielle Smith" id="392" weight="3" />
+      <edge source="Tim Houston" target="Jonathan Wilkinson" id="393" weight="3" />
+      <edge source="John Horgan" target="Christy Clark" id="394" weight="10" />
+      <edge source="John Horgan" target="David Eby" id="395" weight="24" />
+      <edge source="John Horgan" target="Falcon" id="396" weight="11" />
+      <edge source="John Horgan" target="Kevin Falcon" id="397" weight="15" />
+      <edge source="John Horgan" target="Pierre Poilievre" id="398" weight="10" />
+      <edge source="John Horgan" target="Angus Reid" id="399" weight="6" />
+      <edge source="John Horgan" target="Gordon Campbell" id="400" weight="8" />
+      <edge source="John Horgan" target="Jonathan Wilkinson" id="401" weight="5" />
+      <edge source="Helene" target="Donald Trump" id="402" weight="18" />
+      <edge source="Helene" target="Joe Biden" id="403" weight="13" />
+      <edge source="Helene" target="Kamala Harris" id="404" weight="5" />
+      <edge source="Helene" target="Mother Nature" id="405" weight="4" />
+      <edge source="Helene" target="Taylor Swift" id="406" weight="3" />
+      <edge source="Helene" target="Elon Musk" id="407" weight="4" />
+      <edge source="Bill Blair" target="Justin Trudeau" id="408" weight="30" />
+      <edge source="Bill Blair" target="Benjamin Netanyahu" id="409" weight="8" />
+      <edge source="Bill Blair" target="François Legault" id="410" weight="5" />
+      <edge source="Bill Blair" target="Mélanie Joly" id="411" weight="23" />
+      <edge source="Bill Blair" target="Pierre Poilievre" id="412" weight="8" />
+      <edge source="Bill Blair" target="Taylor Swift" id="413" weight="5" />
+      <edge source="Bill Blair" target="Donald Trump" id="414" weight="10" />
+      <edge source="Bill Blair" target="Chrystia Freeland" id="415" weight="6" />
+      <edge source="Emmanuel Macron" target="Justin Trudeau" id="416" weight="16" />
+      <edge source="Emmanuel Macron" target="Joe Biden" id="417" weight="15" />
+      <edge source="Emmanuel Macron" target="Donald Trump" id="418" weight="18" />
+      <edge source="Emmanuel Macron" target="António Guterres" id="419" weight="5" />
+      <edge source="Emmanuel Macron" target="Pierre Poilievre" id="420" weight="7" />
+      <edge source="Emmanuel Macron" target="François Legault" id="421" weight="4" />
+      <edge source="Emmanuel Macron" target="Elon Musk" id="422" weight="3" />
+      <edge source="Emmanuel Macron" target="Olaf Scholz" id="423" weight="9" />
+      <edge source="Emmanuel Macron" target="Vladimir Putin" id="424" weight="4" />
+      <edge source="António Guterres" target="Donald Trump" id="425" weight="9" />
+      <edge source="António Guterres" target="Justin Trudeau" id="426" weight="11" />
+      <edge source="António Guterres" target="Joe Biden" id="427" weight="7" />
+      <edge source="António Guterres" target="François Legault" id="428" weight="3" />
+      <edge source="António Guterres" target="Jasper" id="429" weight="3" />
+      <edge source="Danielle Smith" target="Justin Trudeau" id="430" weight="177" />
+      <edge source="Danielle Smith" target="Pierre Poilievre" id="431" weight="89" />
+      <edge source="Danielle Smith" target="Wab Kinew" id="432" weight="15" />
+      <edge source="Danielle Smith" target="Donald Trump" id="433" weight="46" />
+      <edge source="Danielle Smith" target="Jonathan Wilkinson" id="434" weight="28" />
+      <edge source="Danielle Smith" target="Jagmeet Singh" id="435" weight="22" />
+      <edge source="Danielle Smith" target="Kathleen Ganley" id="436" weight="19" />
+      <edge source="Danielle Smith" target="Rachel Notley" id="437" weight="32" />
+      <edge source="Danielle Smith" target="Jasper" id="438" weight="27" />
+      <edge source="Danielle Smith" target="Don Braid" id="439" weight="29" />
+      <edge source="Danielle Smith" target="Hillary Clinton" id="440" weight="6" />
+      <edge source="Danielle Smith" target="Sean Kilpatrick" id="441" weight="5" />
+      <edge source="Danielle Smith" target="Vladimir Putin" id="442" weight="8" />
+      <edge source="Danielle Smith" target="Keith Stewart" id="443" weight="11" />
+      <edge source="Danielle Smith" target="Elizabeth May" id="444" weight="4" />
+      <edge source="Danielle Smith" target="Mark Carney" id="445" weight="14" />
+      <edge source="Danielle Smith" target="Blaine Higgs" id="446" weight="16" />
+      <edge source="Danielle Smith" target="Heather Exner-Pirot" id="447" weight="6" />
+      <edge source="Danielle Smith" target="Joe Biden" id="448" weight="21" />
+      <edge source="Danielle Smith" target="Chrystia Freeland" id="449" weight="7" />
+      <edge source="Danielle Smith" target="Andrew Furey" id="450" weight="7" />
+      <edge source="Danielle Smith" target="David Eby" id="451" weight="12" />
+      <edge source="Danielle Smith" target="Benoit Charette" id="452" weight="5" />
+      <edge source="Danielle Smith" target="Yves-François Blanchet" id="453" weight="5" />
+      <edge source="Danielle Smith" target="Naheed Nenshi" id="454" weight="15" />
+      <edge source="Danielle Smith" target="Kamala Harris" id="455" weight="9" />
+      <edge source="Danielle Smith" target="Stewart" id="456" weight="4" />
+      <edge source="Danielle Smith" target="François-Philippe Champagne" id="457" weight="3" />
+      <edge source="Danielle Smith" target="Taylor Swift" id="458" weight="3" />
+      <edge source="Danielle Smith" target="Gordon Campbell" id="459" weight="5" />
+      <edge source="Danielle Smith" target="Johnson" id="460" weight="4" />
+      <edge source="Danielle Smith" target="Pierre Trudeau" id="461" weight="4" />
+      <edge source="Danielle Smith" target="Catherine McKenna" id="462" weight="5" />
+      <edge source="Kathleen Ganley" target="Jagmeet Singh" id="463" weight="8" />
+      <edge source="Kathleen Ganley" target="Justin Trudeau" id="464" weight="14" />
+      <edge source="Kathleen Ganley" target="Pierre Poilievre" id="465" weight="6" />
+      <edge source="Kathleen Ganley" target="Rachel Notley" id="466" weight="23" />
+      <edge source="Kathleen Ganley" target="Naheed Nenshi" id="467" weight="13" />
+      <edge source="Kathleen Ganley" target="Don Braid" id="468" weight="5" />
+      <edge source="Mike Schreiner" target="Elizabeth May" id="469" weight="5" />
+      <edge source="Mike Schreiner" target="Keith Stewart" id="470" weight="6" />
+      <edge source="Mike Schreiner" target="Olivia Chow" id="471" weight="3" />
+      <edge source="Mike Schreiner" target="Stephen Lecce" id="472" weight="13" />
+      <edge source="Mike Schreiner" target="Bonnie Crombie" id="473" weight="3" />
+      <edge source="David Phillips" target="Justin Trudeau" id="474" weight="4" />
+      <edge source="David Phillips" target="Pierre Poilievre" id="475" weight="4" />
+      <edge source="Sean Kilpatrick" target="Chrystia Freeland" id="476" weight="3" />
+      <edge source="Sean Kilpatrick" target="Jagmeet Singh" id="477" weight="8" />
+      <edge source="Sean Kilpatrick" target="Joe Biden" id="478" weight="6" />
+      <edge source="Sean Kilpatrick" target="Justin Trudeau" id="479" weight="27" />
+      <edge source="Sean Kilpatrick" target="Pierre Poilievre" id="480" weight="20" />
+      <edge source="Sean Kilpatrick" target="Coletto" id="481" weight="5" />
+      <edge source="Sean Kilpatrick" target="Donald Trump" id="482" weight="5" />
+      <edge source="Sean Kilpatrick" target="Hillary Clinton" id="483" weight="4" />
+      <edge source="Elizabeth May" target="Don Braid" id="484" weight="9" />
+      <edge source="Elizabeth May" target="Justin Trudeau" id="485" weight="18" />
+      <edge source="Elizabeth May" target="Mark Carney" id="486" weight="4" />
+      <edge source="Elizabeth May" target="Donald Trump" id="487" weight="5" />
+      <edge source="Elizabeth May" target="Jagmeet Singh" id="488" weight="11" />
+      <edge source="Elizabeth May" target="Mélanie Joly" id="489" weight="4" />
+      <edge source="Elizabeth May" target="Pierre Poilievre" id="490" weight="11" />
+      <edge source="Elizabeth May" target="Yves-François Blanchet" id="491" weight="4" />
+      <edge source="Elizabeth May" target="Joe Biden" id="492" weight="3" />
+      <edge source="Elizabeth May" target="Kamala Harris" id="493" weight="3" />
+      <edge source="Taylor Swift" target="Donald Trump" id="494" weight="16" />
+      <edge source="Taylor Swift" target="Elon Musk" id="495" weight="3" />
+      <edge source="Taylor Swift" target="François Legault" id="496" weight="8" />
+      <edge source="Taylor Swift" target="Joe Biden" id="497" weight="10" />
+      <edge source="Taylor Swift" target="Justin Trudeau" id="498" weight="21" />
+      <edge source="Taylor Swift" target="Kamala Harris" id="499" weight="8" />
+      <edge source="Taylor Swift" target="Giroux" id="500" weight="6" />
+      <edge source="Taylor Swift" target="Pierre Poilievre" id="501" weight="15" />
+      <edge source="Taylor Swift" target="Yves Giroux" id="502" weight="6" />
+      <edge source="Taylor Swift" target="Benjamin Netanyahu" id="503" weight="7" />
+      <edge source="Taylor Swift" target="Mélanie Joly" id="504" weight="6" />
+      <edge source="Taylor Swift" target="Taylor" id="505" weight="5" />
+      <edge source="Taylor Swift" target="Olivia Chow" id="506" weight="3" />
+      <edge source="Taylor Swift" target="Tim Walz" id="507" weight="3" />
+      <edge source="Mark Carney" target="Chrystia Freeland" id="508" weight="22" />
+      <edge source="Mark Carney" target="Donald Trump" id="509" weight="14" />
+      <edge source="Mark Carney" target="Joe Biden" id="510" weight="11" />
+      <edge source="Mark Carney" target="Justin Trudeau" id="511" weight="63" />
+      <edge source="Mark Carney" target="Pierre Poilievre" id="512" weight="42" />
+      <edge source="Mark Carney" target="Jagmeet Singh" id="513" weight="5" />
+      <edge source="Mark Carney" target="Don Braid" id="514" weight="4" />
+      <edge source="Mark Carney" target="François-Philippe Champagne" id="515" weight="3" />
+      <edge source="Mark Carney" target="Kamala Harris" id="516" weight="3" />
+      <edge source="Mark Carney" target="Vladimir Putin" id="517" weight="3" />
+      <edge source="Mark Carney" target="Catherine McKenna" id="518" weight="3" />
+      <edge source="Mark Carney" target="Christy Clark" id="519" weight="4" />
+      <edge source="Mark Carney" target="Bill Gates" id="520" weight="3" />
+      <edge source="Mark Carney" target="Wab Kinew" id="521" weight="3" />
+      <edge source="Kevin Falcon" target="Christy Clark" id="522" weight="21" />
+      <edge source="Kevin Falcon" target="David Eby" id="523" weight="48" />
+      <edge source="Kevin Falcon" target="Falcon" id="524" weight="45" />
+      <edge source="Kevin Falcon" target="Pierre Poilievre" id="525" weight="27" />
+      <edge source="Kevin Falcon" target="Angus Reid" id="526" weight="17" />
+      <edge source="Kevin Falcon" target="Gordon Campbell" id="527" weight="14" />
+      <edge source="Kevin Falcon" target="Jonathan Wilkinson" id="528" weight="5" />
+      <edge source="Kevin Falcon" target="Donald Trump" id="529" weight="4" />
+      <edge source="Kevin Falcon" target="Justin Trudeau" id="530" weight="6" />
+      <edge source="Chrystia Freeland" target="Jagmeet Singh" id="531" weight="17" />
+      <edge source="Chrystia Freeland" target="Joe Biden" id="532" weight="42" />
+      <edge source="Chrystia Freeland" target="Justin Trudeau" id="533" weight="144" />
+      <edge source="Chrystia Freeland" target="Pierre Poilievre" id="534" weight="78" />
+      <edge source="Chrystia Freeland" target="Donald Trump" id="535" weight="49" />
+      <edge source="Chrystia Freeland" target="François Legault" id="536" weight="6" />
+      <edge source="Chrystia Freeland" target="Mélanie Joly" id="537" weight="11" />
+      <edge source="Chrystia Freeland" target="Pierre Trudeau" id="538" weight="5" />
+      <edge source="Chrystia Freeland" target="Elon Musk" id="539" weight="3" />
+      <edge source="Chrystia Freeland" target="Kamala Harris" id="540" weight="9" />
+      <edge source="Chrystia Freeland" target="Tiff Macklem" id="541" weight="4" />
+      <edge source="Chrystia Freeland" target="Jonathan Wilkinson" id="542" weight="8" />
+      <edge source="Chrystia Freeland" target="Vladimir Putin" id="543" weight="6" />
+      <edge source="Chrystia Freeland" target="Flavio Volpe" id="544" weight="12" />
+      <edge source="Chrystia Freeland" target="Wab Kinew" id="545" weight="6" />
+      <edge source="Chrystia Freeland" target="Catherine McKenna" id="546" weight="7" />
+      <edge source="Chrystia Freeland" target="Blaine Higgs" id="547" weight="4" />
+      <edge source="Chrystia Freeland" target="Barack Obama" id="548" weight="7" />
+      <edge source="Chrystia Freeland" target="Bonnie Crombie" id="549" weight="4" />
+      <edge source="Chrystia Freeland" target="David Eby" id="550" weight="3" />
+      <edge source="Chrystia Freeland" target="François-Philippe Champagne" id="551" weight="3" />
+      <edge source="Chrystia Freeland" target="Stewart" id="552" weight="3" />
+      <edge source="Chrystia Freeland" target="Bill Gates" id="553" weight="3" />
+      <edge source="Chrystia Freeland" target="Giroux" id="554" weight="3" />
+      <edge source="Chrystia Freeland" target="Yves Giroux" id="555" weight="3" />
+      <edge source="Chrystia Freeland" target="Andrew Furey" id="556" weight="3" />
+      <edge source="Chrystia Freeland" target="Bloomberg" id="557" weight="4" />
+      <edge source="Kamala Harris" target="Donald Trump" id="558" weight="187" />
+      <edge source="Kamala Harris" target="Justin Trudeau" id="559" weight="55" />
+      <edge source="Kamala Harris" target="Joe Biden" id="560" weight="131" />
+      <edge source="Kamala Harris" target="Tim Walz" id="561" weight="43" />
+      <edge source="Kamala Harris" target="Elon Musk" id="562" weight="26" />
+      <edge source="Kamala Harris" target="François Legault" id="563" weight="3" />
+      <edge source="Kamala Harris" target="Barack Obama" id="564" weight="24" />
+      <edge source="Kamala Harris" target="Pierre Poilievre" id="565" weight="38" />
+      <edge source="Kamala Harris" target="Hillary Clinton" id="566" weight="13" />
+      <edge source="Kamala Harris" target="David Eby" id="567" weight="5" />
+      <edge source="Kamala Harris" target="Benjamin Netanyahu" id="568" weight="6" />
+      <edge source="Kamala Harris" target="Vladimir Putin" id="569" weight="18" />
+      <edge source="Kamala Harris" target="Jagmeet Singh" id="570" weight="15" />
+      <edge source="Kamala Harris" target="Olaf Scholz" id="571" weight="6" />
+      <edge source="Kamala Harris" target="Kennedy" id="572" weight="6" />
+      <edge source="Kamala Harris" target="Pierre Trudeau" id="573" weight="3" />
+      <edge source="Kamala Harris" target="Jasper" id="574" weight="3" />
+      <edge source="Yves-François Blanchet" target="François-Philippe Champagne" id="575" weight="6" />
+      <edge source="Yves-François Blanchet" target="Jagmeet Singh" id="576" weight="23" />
+      <edge source="Yves-François Blanchet" target="Justin Trudeau" id="577" weight="38" />
+      <edge source="Yves-François Blanchet" target="Mélanie Joly" id="578" weight="3" />
+      <edge source="Yves-François Blanchet" target="Pierre Poilievre" id="579" weight="36" />
+      <edge source="Yves-François Blanchet" target="François Legault" id="580" weight="6" />
+      <edge source="Yves-François Blanchet" target="Jonathan Wilkinson" id="581" weight="6" />
+      <edge source="Yves-François Blanchet" target="Benoit Charette" id="582" weight="5" />
+      <edge source="Heather Exner-Pirot" target="Jonathan Wilkinson" id="583" weight="3" />
+      <edge source="Heather Exner-Pirot" target="Justin Trudeau" id="584" weight="13" />
+      <edge source="Heather Exner-Pirot" target="Joe Biden" id="585" weight="10" />
+      <edge source="Heather Exner-Pirot" target="Donald Trump" id="586" weight="9" />
+      <edge source="Heather Exner-Pirot" target="Pierre Poilievre" id="587" weight="5" />
+      <edge source="Benoit Charette" target="François Legault" id="588" weight="34" />
+      <edge source="Benoit Charette" target="Justin Trudeau" id="589" weight="9" />
+      <edge source="Benoit Charette" target="Pierre Poilievre" id="590" weight="5" />
+      <edge source="Naheed Nenshi" target="Jagmeet Singh" id="591" weight="10" />
+      <edge source="Naheed Nenshi" target="Justin Trudeau" id="592" weight="12" />
+      <edge source="Naheed Nenshi" target="Pierre Poilievre" id="593" weight="8" />
+      <edge source="Naheed Nenshi" target="Rachel Notley" id="594" weight="20" />
+      <edge source="Naheed Nenshi" target="Don Braid" id="595" weight="6" />
+      <edge source="Olaf Scholz" target="Justin Trudeau" id="596" weight="14" />
+      <edge source="Olaf Scholz" target="Donald Trump" id="597" weight="15" />
+      <edge source="Olaf Scholz" target="Joe Biden" id="598" weight="7" />
+      <edge source="Olaf Scholz" target="Pierre Poilievre" id="599" weight="5" />
+      <edge source="Olaf Scholz" target="Vladimir Putin" id="600" weight="11" />
+      <edge source="Andrew Furey" target="Justin Trudeau" id="601" weight="28" />
+      <edge source="Andrew Furey" target="Bonnie Crombie" id="602" weight="4" />
+      <edge source="Andrew Furey" target="David Eby" id="603" weight="6" />
+      <edge source="Andrew Furey" target="Pierre Poilievre" id="604" weight="21" />
+      <edge source="Andrew Furey" target="Wab Kinew" id="605" weight="14" />
+      <edge source="Andrew Furey" target="Jagmeet Singh" id="606" weight="6" />
+      <edge source="Andrew Furey" target="Blaine Higgs" id="607" weight="6" />
+      <edge source="Jasper" target="Keith Stewart" id="608" weight="5" />
+      <edge source="Jasper" target="Don Braid" id="609" weight="4" />
+      <edge source="Jasper" target="Justin Trudeau" id="610" weight="7" />
+      <edge source="Jasper" target="Pierre Poilievre" id="611" weight="3" />
+      <edge source="Coletto" target="Donald Trump" id="612" weight="9" />
+      <edge source="Coletto" target="Joe Biden" id="613" weight="5" />
+      <edge source="Coletto" target="Justin Trudeau" id="614" weight="29" />
+      <edge source="Coletto" target="Pierre Poilievre" id="615" weight="29" />
+      <edge source="Coletto" target="Jagmeet Singh" id="616" weight="9" />
+      <edge source="Coletto" target="Tiff Macklem" id="617" weight="4" />
+      <edge source="Hillary Clinton" target="Donald Trump" id="618" weight="26" />
+      <edge source="Hillary Clinton" target="Justin Trudeau" id="619" weight="6" />
+      <edge source="Hillary Clinton" target="Pierre Poilievre" id="620" weight="8" />
+      <edge source="Hillary Clinton" target="Joe Biden" id="621" weight="13" />
+      <edge source="Hillary Clinton" target="Barack Obama" id="622" weight="8" />
+      <edge source="Hillary Clinton" target="Vladimir Putin" id="623" weight="4" />
+      <edge source="Hillary Clinton" target="Tim Walz" id="624" weight="4" />
+      <edge source="Flavio Volpe" target="Justin Trudeau" id="625" weight="23" />
+      <edge source="Flavio Volpe" target="François-Philippe Champagne" id="626" weight="6" />
+      <edge source="Flavio Volpe" target="Joe Biden" id="627" weight="24" />
+      <edge source="Flavio Volpe" target="Pierre Poilievre" id="628" weight="11" />
+      <edge source="Flavio Volpe" target="Bloomberg" id="629" weight="9" />
+      <edge source="Flavio Volpe" target="Stewart" id="630" weight="3" />
+      <edge source="Johnson" target="Donald Trump" id="631" weight="4" />
+      <edge source="Johnson" target="Joe Biden" id="632" weight="4" />
+      <edge source="Johnson" target="Pierre Poilievre" id="633" weight="14" />
+      <edge source="Johnson" target="Vladimir Putin" id="634" weight="7" />
+      <edge source="Johnson" target="Blaine Higgs" id="635" weight="3" />
+      <edge source="Johnson" target="Olivia Chow" id="636" weight="7" />
+      <edge source="Sylvain Charlebois" target="Donald Trump" id="637" weight="3" />
+      <edge source="Sylvain Charlebois" target="Justin Trudeau" id="638" weight="7" />
+      <edge source="Keith Stewart" target="Justin Trudeau" id="639" weight="6" />
+      <edge source="Keith Stewart" target="Donald Trump" id="640" weight="6" />
+      <edge source="Keith Stewart" target="Stewart" id="641" weight="6" />
+      <edge source="Keith Stewart" target="Barack Obama" id="642" weight="3" />
+      <edge source="Keith Stewart" target="Joe Biden" id="643" weight="4" />
+      <edge source="Pierre Poilievre" target="Justin Trudeau" id="644" weight="686" />
+      <edge source="Pierre Poilievre" target="Jagmeet Singh" id="645" weight="176" />
+      <edge source="Pierre Poilievre" target="Joe Biden" id="646" weight="87" />
+      <edge source="Pierre Poilievre" target="François-Philippe Champagne" id="647" weight="18" />
+      <edge source="Pierre Poilievre" target="Mélanie Joly" id="648" weight="16" />
+      <edge source="Pierre Poilievre" target="David Eby" id="649" weight="73" />
+      <edge source="Pierre Poilievre" target="Consultezle" id="650" weight="3" />
+      <edge source="Pierre Poilievre" target="Angus Reid" id="651" weight="22" />
+      <edge source="Pierre Poilievre" target="Donald Trump" id="652" weight="163" />
+      <edge source="Pierre Poilievre" target="Pierre Trudeau" id="653" weight="18" />
+      <edge source="Pierre Poilievre" target="François Legault" id="654" weight="21" />
+      <edge source="Pierre Poilievre" target="Vladimir Putin" id="655" weight="28" />
+      <edge source="Pierre Poilievre" target="Jonathan Wilkinson" id="656" weight="42" />
+      <edge source="Pierre Poilievre" target="Rachel Notley" id="657" weight="9" />
+      <edge source="Pierre Poilievre" target="Bonnie Crombie" id="658" weight="29" />
+      <edge source="Pierre Poilievre" target="Olivia Chow" id="659" weight="9" />
+      <edge source="Pierre Poilievre" target="Wab Kinew" id="660" weight="43" />
+      <edge source="Pierre Poilievre" target="Elon Musk" id="661" weight="16" />
+      <edge source="Pierre Poilievre" target="Kennedy" id="662" weight="11" />
+      <edge source="Pierre Poilievre" target="Giroux" id="663" weight="33" />
+      <edge source="Pierre Poilievre" target="Tiff Macklem" id="664" weight="12" />
+      <edge source="Pierre Poilievre" target="Yves Giroux" id="665" weight="35" />
+      <edge source="Pierre Poilievre" target="Blaine Higgs" id="666" weight="18" />
+      <edge source="Pierre Poilievre" target="Benjamin Netanyahu" id="667" weight="12" />
+      <edge source="Pierre Poilievre" target="Don Braid" id="668" weight="8" />
+      <edge source="Pierre Poilievre" target="Christy Clark" id="669" weight="22" />
+      <edge source="Pierre Poilievre" target="Falcon" id="670" weight="19" />
+      <edge source="Pierre Poilievre" target="Gordon Campbell" id="671" weight="19" />
+      <edge source="Pierre Poilievre" target="Barack Obama" id="672" weight="19" />
+      <edge source="Pierre Poilievre" target="Catherine McKenna" id="673" weight="19" />
+      <edge source="Pierre Poilievre" target="Tim Walz" id="674" weight="6" />
+      <edge source="Pierre Poilievre" target="Taylor" id="675" weight="3" />
+      <edge source="Pierre Poilievre" target="Stewart" id="676" weight="6" />
+      <edge source="Pierre Poilievre" target="Bill Gates" id="677" weight="3" />
+      <edge source="Pierre Poilievre" target="Bloomberg" id="678" weight="4" />
+      <edge source="Barack Obama" target="Donald Trump" id="679" weight="52" />
+      <edge source="Barack Obama" target="Joe Biden" id="680" weight="42" />
+      <edge source="Barack Obama" target="Vladimir Putin" id="681" weight="4" />
+      <edge source="Barack Obama" target="Tim Walz" id="682" weight="14" />
+      <edge source="Barack Obama" target="Justin Trudeau" id="683" weight="17" />
+      <edge source="Barack Obama" target="Elon Musk" id="684" weight="6" />
+      <edge source="Barack Obama" target="Jagmeet Singh" id="685" weight="4" />
+      <edge source="Giroux" target="Justin Trudeau" id="686" weight="29" />
+      <edge source="Giroux" target="Yves Giroux" id="687" weight="56" />
+      <edge source="Giroux" target="Jagmeet Singh" id="688" weight="3" />
+      <edge source="Mother Nature" target="Jagmeet Singh" id="689" weight="3" />
+      <edge source="Mother Nature" target="Justin Trudeau" id="690" weight="3" />
+      <edge source="Joe Biden" target="Jagmeet Singh" id="691" weight="20" />
+      <edge source="Joe Biden" target="Justin Trudeau" id="692" weight="162" />
+      <edge source="Joe Biden" target="Donald Trump" id="693" weight="316" />
+      <edge source="Joe Biden" target="Tim Walz" id="694" weight="33" />
+      <edge source="Joe Biden" target="Mélanie Joly" id="695" weight="5" />
+      <edge source="Joe Biden" target="Pierre Trudeau" id="696" weight="5" />
+      <edge source="Joe Biden" target="Elon Musk" id="697" weight="29" />
+      <edge source="Joe Biden" target="François Legault" id="698" weight="4" />
+      <edge source="Joe Biden" target="David Eby" id="699" weight="12" />
+      <edge source="Joe Biden" target="Olivia Chow" id="700" weight="3" />
+      <edge source="Joe Biden" target="Wab Kinew" id="701" weight="5" />
+      <edge source="Joe Biden" target="Gwynne Dyer" id="702" weight="6" />
+      <edge source="Joe Biden" target="Vladimir Putin" id="703" weight="52" />
+      <edge source="Joe Biden" target="Bill Gates" id="704" weight="4" />
+      <edge source="Joe Biden" target="Bloomberg" id="705" weight="12" />
+      <edge source="Joe Biden" target="François-Philippe Champagne" id="706" weight="11" />
+      <edge source="Joe Biden" target="Benjamin Netanyahu" id="707" weight="11" />
+      <edge source="Joe Biden" target="Jonathan Wilkinson" id="708" weight="3" />
+      <edge source="Joe Biden" target="Kennedy" id="709" weight="14" />
+      <edge source="Joe Biden" target="Catherine McKenna" id="710" weight="3" />
+      <edge source="Joe Biden" target="Stewart" id="711" weight="4" />
+      <edge source="Bonnie Crombie" target="Justin Trudeau" id="712" weight="36" />
+      <edge source="Bonnie Crombie" target="Olivia Chow" id="713" weight="6" />
+      <edge source="Bonnie Crombie" target="Wab Kinew" id="714" weight="4" />
+      <edge source="Bonnie Crombie" target="Catherine McKenna" id="715" weight="3" />
+      <edge source="Bonnie Crombie" target="Christy Clark" id="716" weight="7" />
+      <edge source="Bonnie Crombie" target="Donald Trump" id="717" weight="4" />
+      <edge source="Bonnie Crombie" target="Jagmeet Singh" id="718" weight="6" />
+      <edge source="Yves Giroux" target="Justin Trudeau" id="719" weight="41" />
+      <edge source="Yves Giroux" target="Jagmeet Singh" id="720" weight="3" />
+      <edge source="Bill Gates" target="Donald Trump" id="721" weight="11" />
+      <edge source="Bill Gates" target="Elon Musk" id="722" weight="4" />
+      <edge source="Bill Gates" target="Gwynne Dyer" id="723" weight="3" />
+      <edge source="Bill Gates" target="Justin Trudeau" id="724" weight="6" />
+      <edge source="Jonathan Wilkinson" target="François Legault" id="725" weight="3" />
+      <edge source="Jonathan Wilkinson" target="Justin Trudeau" id="726" weight="70" />
+      <edge source="Jonathan Wilkinson" target="Jagmeet Singh" id="727" weight="12" />
+      <edge source="Jonathan Wilkinson" target="François-Philippe Champagne" id="728" weight="6" />
+      <edge source="Jonathan Wilkinson" target="Vladimir Putin" id="729" weight="6" />
+      <edge source="Jonathan Wilkinson" target="Donald Trump" id="730" weight="9" />
+      <edge source="Jonathan Wilkinson" target="Mélanie Joly" id="731" weight="3" />
+      <edge source="Jonathan Wilkinson" target="Angus Reid" id="732" weight="5" />
+      <edge source="Jonathan Wilkinson" target="Christy Clark" id="733" weight="5" />
+      <edge source="Jonathan Wilkinson" target="Falcon" id="734" weight="5" />
+      <edge source="Jonathan Wilkinson" target="Gordon Campbell" id="735" weight="5" />
+      <edge source="Jonathan Wilkinson" target="David Eby" id="736" weight="5" />
+      <edge source="Jonathan Wilkinson" target="Catherine McKenna" id="737" weight="7" />
+      <edge source="Jonathan Wilkinson" target="Wab Kinew" id="738" weight="3" />
+      <edge source="Benjamin Netanyahu" target="Donald Trump" id="739" weight="15" />
+      <edge source="Benjamin Netanyahu" target="Vladimir Putin" id="740" weight="11" />
+      <edge source="Benjamin Netanyahu" target="François Legault" id="741" weight="7" />
+      <edge source="Benjamin Netanyahu" target="Justin Trudeau" id="742" weight="16" />
+      <edge source="Benjamin Netanyahu" target="Mélanie Joly" id="743" weight="9" />
+      <edge source="Benjamin Netanyahu" target="Elon Musk" id="744" weight="4" />
+      <edge source="Bloomberg" target="Donald Trump" id="745" weight="7" />
+      <edge source="Bloomberg" target="Justin Trudeau" id="746" weight="8" />
+      <edge source="Bloomberg" target="Elon Musk" id="747" weight="3" />
+      <edge source="David Eby" target="Jagmeet Singh" id="748" weight="38" />
+      <edge source="David Eby" target="Justin Trudeau" id="749" weight="53" />
+      <edge source="David Eby" target="Wab Kinew" id="750" weight="20" />
+      <edge source="David Eby" target="Christy Clark" id="751" weight="14" />
+      <edge source="David Eby" target="Falcon" id="752" weight="33" />
+      <edge source="David Eby" target="Donald Trump" id="753" weight="10" />
+      <edge source="David Eby" target="Gordon Campbell" id="754" weight="13" />
+      <edge source="David Eby" target="Angus Reid" id="755" weight="10" />
+      <edge source="David Eby" target="Don Braid" id="756" weight="4" />
+      <edge source="David Eby" target="Vladimir Putin" id="757" weight="3" />
+      <edge source="Taylor" target="Jagmeet Singh" id="758" weight="3" />
+      <edge source="Taylor" target="Justin Trudeau" id="759" weight="3" />
+      <edge source="Justin Trudeau" target="Donald Trump" id="760" weight="265" />
+      <edge source="Justin Trudeau" target="Jagmeet Singh" id="761" weight="185" />
+      <edge source="Justin Trudeau" target="Wab Kinew" id="762" weight="45" />
+      <edge source="Justin Trudeau" target="François Legault" id="763" weight="44" />
+      <edge source="Justin Trudeau" target="François-Philippe Champagne" id="764" weight="29" />
+      <edge source="Justin Trudeau" target="Mélanie Joly" id="765" weight="37" />
+      <edge source="Justin Trudeau" target="Consultezle" id="766" weight="5" />
+      <edge source="Justin Trudeau" target="Angus Reid" id="767" weight="15" />
+      <edge source="Justin Trudeau" target="Pierre Trudeau" id="768" weight="39" />
+      <edge source="Justin Trudeau" target="Elon Musk" id="769" weight="13" />
+      <edge source="Justin Trudeau" target="Rachel Notley" id="770" weight="26" />
+      <edge source="Justin Trudeau" target="Vladimir Putin" id="771" weight="60" />
+      <edge source="Justin Trudeau" target="Olivia Chow" id="772" weight="23" />
+      <edge source="Justin Trudeau" target="Kennedy" id="773" weight="9" />
+      <edge source="Justin Trudeau" target="Don Braid" id="774" weight="22" />
+      <edge source="Justin Trudeau" target="Tiff Macklem" id="775" weight="14" />
+      <edge source="Justin Trudeau" target="Blaine Higgs" id="776" weight="21" />
+      <edge source="Justin Trudeau" target="Catherine McKenna" id="777" weight="25" />
+      <edge source="Justin Trudeau" target="Christy Clark" id="778" weight="14" />
+      <edge source="Justin Trudeau" target="Stewart" id="779" weight="9" />
+      <edge source="Justin Trudeau" target="Tim Walz" id="780" weight="6" />
+      <edge source="Justin Trudeau" target="Marco Chown Oved" id="781" weight="3" />
+      <edge source="Justin Trudeau" target="Gordon Campbell" id="782" weight="7" />
+      <edge source="Justin Trudeau" target="Falcon" id="783" weight="4" />
+      <edge source="Falcon" target="Christy Clark" id="784" weight="17" />
+      <edge source="Falcon" target="Angus Reid" id="785" weight="16" />
+      <edge source="Falcon" target="Gordon Campbell" id="786" weight="13" />
+      <edge source="Christy Clark" target="Catherine McKenna" id="787" weight="5" />
+      <edge source="Christy Clark" target="Angus Reid" id="788" weight="11" />
+      <edge source="Christy Clark" target="Gordon Campbell" id="789" weight="18" />
+      <edge source="Gordon Campbell" target="Angus Reid" id="790" weight="10" />
+      <edge source="Gordon Campbell" target="Jagmeet Singh" id="791" weight="5" />
+      <edge source="Tiff Macklem" target="Donald Trump" id="792" weight="4" />
+      <edge source="Gwynne Dyer" target="Donald Trump" id="793" weight="11" />
+      <edge source="Gwynne Dyer" target="Elon Musk" id="794" weight="7" />
+      <edge source="Marco Chown Oved" target="Donald Trump" id="795" weight="3" />
+      <edge source="Consultezle" target="Donald Trump" id="796" weight="3" />
+      <edge source="Tim Walz" target="Donald Trump" id="797" weight="45" />
+      <edge source="Tim Walz" target="Elon Musk" id="798" weight="6" />
+      <edge source="Tim Walz" target="Jagmeet Singh" id="799" weight="4" />
+      <edge source="Tim Walz" target="Vladimir Putin" id="800" weight="3" />
+      <edge source="Pierre Trudeau" target="Donald Trump" id="801" weight="14" />
+      <edge source="Pierre Trudeau" target="Kennedy" id="802" weight="5" />
+      <edge source="Pierre Trudeau" target="Jagmeet Singh" id="803" weight="9" />
+      <edge source="Pierre Trudeau" target="Elon Musk" id="804" weight="3" />
+      <edge source="Vladimir Putin" target="Jagmeet Singh" id="805" weight="4" />
+      <edge source="Vladimir Putin" target="Donald Trump" id="806" weight="72" />
+      <edge source="Vladimir Putin" target="Kennedy" id="807" weight="6" />
+      <edge source="Vladimir Putin" target="Elon Musk" id="808" weight="4" />
+      <edge source="Vladimir Putin" target="François-Philippe Champagne" id="809" weight="3" />
+      <edge source="Vladimir Putin" target="Olivia Chow" id="810" weight="3" />
+      <edge source="Kennedy" target="Donald Trump" id="811" weight="19" />
+      <edge source="Kennedy" target="Elon Musk" id="812" weight="7" />
+      <edge source="Wab Kinew" target="Jagmeet Singh" id="813" weight="27" />
+      <edge source="Wab Kinew" target="Donald Trump" id="814" weight="6" />
+      <edge source="Wab Kinew" target="Tracy Schmidt" id="815" weight="11" />
+      <edge source="Olivia Chow" target="Donald Trump" id="816" weight="7" />
+      <edge source="François Legault" target="Donald Trump" id="817" weight="10" />
+      <edge source="François Legault" target="Mélanie Joly" id="818" weight="9" />
+      <edge source="François Legault" target="Jagmeet Singh" id="819" weight="5" />
+      <edge source="Elon Musk" target="Donald Trump" id="820" weight="70" />
+      <edge source="Elon Musk" target="Jagmeet Singh" id="821" weight="4" />
+      <edge source="Rachel Notley" target="Jagmeet Singh" id="822" weight="10" />
+      <edge source="Rachel Notley" target="Don Braid" id="823" weight="7" />
+      <edge source="Rachel Notley" target="Donald Trump" id="824" weight="6" />
+      <edge source="Rachel Notley" target="Catherine McKenna" id="825" weight="3" />
+      <edge source="François-Philippe Champagne" target="Jagmeet Singh" id="826" weight="8" />
+      <edge source="François-Philippe Champagne" target="Donald Trump" id="827" weight="4" />
+      <edge source="Jagmeet Singh" target="Mélanie Joly" id="828" weight="4" />
+      <edge source="Jagmeet Singh" target="Donald Trump" id="829" weight="37" />
+      <edge source="Jagmeet Singh" target="Catherine McKenna" id="830" weight="6" />
+      <edge source="Jagmeet Singh" target="Don Braid" id="831" weight="5" />
+      <edge source="Jagmeet Singh" target="Angus Reid" id="832" weight="3" />
+      <edge source="Catherine McKenna" target="Donald Trump" id="833" weight="5" />
+      <edge source="Donald Trump" target="Angus Reid" id="834" weight="7" />
+      <edge source="Donald Trump" target="Mélanie Joly" id="835" weight="18" />
+    </edges>
+  </graph>
+</gexf>

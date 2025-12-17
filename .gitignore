@@ -83,8 +83,24 @@ paper/**
 !paper/CCF_Methodology/Latex/
 !paper/CCF_Methodology/Latex/CCF_Methodology.tex
 !paper/CCF_Methodology/Latex/CCF_Methodology.pdf
-# Figures referenced by the methodology paper
+!paper/CCF_Methodology/Latex/references.bib
+
+# Scripts used for the methodology paper
 !paper/CCF_Methodology/Results/
+!paper/CCF_Methodology/Results/Scripts/
+!paper/CCF_Methodology/Results/Scripts/1_overview_plots.py
+!paper/CCF_Methodology/Results/Scripts/2_temporal_f1_validation.py
+!paper/CCF_Methodology/Results/Scripts/3_categories_distributions.py
+!paper/CCF_Methodology/Results/Scripts/4_temporal_frames_evolution.py
+!paper/CCF_Methodology/Results/Scripts/5_political_entities_front_page.py
+!paper/CCF_Methodology/Results/Scripts/6_trudeau_poilievre_scientific_framing.py
+!paper/CCF_Methodology/Results/Scripts/6b_political_debate_entities_2024.py
+!paper/CCF_Methodology/Results/Scripts/7_science_acceptance_maps.py
+!paper/CCF_Methodology/Results/Scripts/8_frames_front_page_probability.py
+!paper/CCF_Methodology/Results/Scripts/9_network_cocitation.py
+!paper/CCF_Methodology/Results/Scripts/generate_latex_tables.py
+
+# Figures referenced by the methodology paper
 !paper/CCF_Methodology/Results/Outputs/
 !paper/CCF_Methodology/Results/Outputs/Figures/
 paper/CCF_Methodology/Results/Outputs/Figures/*
@@ -92,13 +108,27 @@ paper/CCF_Methodology/Results/Outputs/Figures/*
 !paper/CCF_Methodology/Results/Outputs/Figures/articles_by_year.png
 !paper/CCF_Methodology/Results/Outputs/Figures/articles_by_province.png
 !paper/CCF_Methodology/Results/Outputs/Figures/temporal_f1_evolution.png
+!paper/CCF_Methodology/Results/Outputs/Figures/intercoder_progression.png
 !paper/CCF_Methodology/Results/Outputs/Figures/combined_distributions.png
 !paper/CCF_Methodology/Results/Outputs/Figures/temporal_frames_evolution.png
-!paper/CCF_Methodology/Results/Outputs/Figures/top3_frames_by_province.png
-!paper/CCF_Methodology/Results/Outputs/Figures/image.png
+!paper/CCF_Methodology/Results/Outputs/Figures/political_debate_entities_front_page_2024.png
+!paper/CCF_Methodology/Results/Outputs/Figures/trudeau_poilievre_scientific_framing.png
 !paper/CCF_Methodology/Results/Outputs/Figures/science_acceptance_maps.png
 !paper/CCF_Methodology/Results/Outputs/Figures/frames_front_page_probability.png
 !paper/CCF_Methodology/Results/Outputs/Figures/network.pdf
+!paper/CCF_Methodology/Results/Outputs/Figures/network_cocitation_2024.gexf
+!paper/CCF_Methodology/Results/Outputs/Figures/image.png
+
+# Tables referenced by the methodology paper (LaTeX inputs)
+!paper/CCF_Methodology/Results/Outputs/Tables/
+!paper/CCF_Methodology/Results/Outputs/Tables/table_b2_training.tex
+!paper/CCF_Methodology/Results/Outputs/Tables/table_b3_training_distribution.tex
+!paper/CCF_Methodology/Results/Outputs/Tables/table_b5_test.tex
+!paper/CCF_Methodology/Results/Outputs/Tables/table_b6_database_distribution.tex
+
+# Stats CSV files for reproducibility
+!paper/CCF_Methodology/Results/Outputs/Stats/
+!paper/CCF_Methodology/Results/Outputs/Stats/network_node_statistics_2024.csv
 
 # Any auxiliary subtrees you mentioned earlier
 Scripts/Annotation/second_phase
