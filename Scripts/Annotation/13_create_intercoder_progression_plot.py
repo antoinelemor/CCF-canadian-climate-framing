@@ -34,7 +34,7 @@ Key Features:
 
 Author:
 -------
-Antoine Lemor
+[Anonymous]
 """
 
 import pandas as pd

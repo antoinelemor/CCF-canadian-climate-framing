@@ -32,9 +32,9 @@ MAIN FEATURES:
 6) Aggregates annotation counts per label, language, and data split.
 7) Exports final JSONL outputs and saves aggregated metrics in a CSV.
 
-Author :
---------
-Antoine Lemor
+Author:
+-------
+[Anonymous]
 """
 
 import json

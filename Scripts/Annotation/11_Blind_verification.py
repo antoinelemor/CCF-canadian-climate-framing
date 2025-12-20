@@ -21,7 +21,7 @@ MAIN FEATURES:
 
 Author:
 -------
-Antoine Lemor
+[Anonymous]
 """
 
 from __future__ import annotations

@@ -58,7 +58,7 @@ MAIN FEATURES:
 
 Author:
 -------
-Antoine Lemor
+[Anonymous]
 """
 
 from __future__ import annotations
@@ -85,11 +85,11 @@ BASE_DIR = Path(__file__).resolve().parent
 
 # PostgreSQL connection parameters (env variables have priority)
 DB_PARAMS: Dict[str, Any] = {
-    "host":     os.getenv("CCF_DB_HOST", "192.168.0.205"),
+    "host":     os.getenv("CCF_DB_HOST", "localhost"),
     "port":     int(os.getenv("CCF_DB_PORT", 5432)),
     "dbname":   os.getenv("CCF_DB_NAME", "CCF"),
-    "user":     os.getenv("CCF_DB_USER", "antoine"),
-    "password": os.getenv("CCF_DB_PASS", "Absitreverentiavero19!"),
+    "user":     os.getenv("CCF_DB_USER", "postgres"),
+    "password": os.getenv("CCF_DB_PASS", ""),
     "options":  "-c client_min_messages=warning",
 }
 

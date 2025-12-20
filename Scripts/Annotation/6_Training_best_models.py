@@ -62,9 +62,9 @@ MAIN FEATURES:
    - Probability or logit prediction helpers  
    - Time formatter for console outputs
 
-AUTHOR:
+Author:
 -------
-Antoine Lemor
+[Anonymous]
 """
 
 import os

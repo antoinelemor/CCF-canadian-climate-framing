@@ -1,6 +1,5 @@
 \documentclass[12pt]{article}
 
-% Packages essentiels
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
@@ -8,7 +7,7 @@
 \geometry{margin=2.5cm}
 \usepackage{booktabs}
 \usepackage{longtable}
-\usepackage{ltcaption} % For better longtable captions with hyperref
+\usepackage{ltcaption}
 \usepackage{multirow}
 \usepackage{array}
 \usepackage{tabularx}
@@ -22,8 +21,7 @@
 \usepackage{afterpage}
 \usepackage{float}
 
-% Bibliography setup
-\usepackage[backend=biber,style=authoryear,sorting=nyt]{biblatex}
+\usepackage[backend=biber,style=nature,sorting=none]{biblatex}
 \addbibresource{references.bib}
 
 \usepackage[
@@ -42,26 +40,20 @@
   backref=true
 }
 
-
-
-% Configure cleveref for tables in appendix
 \crefname{table}{Table}{Tables}
 \Crefname{table}{Table}{Tables}
 
-% TikZ libraries for logo opacity and diagram features
 \usetikzlibrary{positioning,backgrounds,fit,shapes,calc,matrix}
 \usepackage{csquotes}
-\usepackage{tocloft} % For customizing table of contents
+\usepackage{tocloft}
 
-% Configure tocloft for table of contents
 \renewcommand{\cfttoctitlefont}{\Large\bfseries}
 \setlength{\cftbeforetoctitleskip}{0pt}
 \setlength{\cftaftertoctitleskip}{1em}
 
-% Allow line breaks in \texttt at underscores
 \renewcommand\_{\texttt{\detokenize{_}\allowbreak}}
 
-\title{\textbf{CCF Database: A Machine-Learning-Preprocessed Media Corpus of 264,000 Climate Articles with 65 Sentence-Level Annotation Categories (1978–2024)}}
+\title{\textbf{CCF Database: A Machine-Learning-Annotated Corpus of 264,000 Canadian Climate Articles (1978–2024)}}
 
 \author[1]{Antoine Lemor}
 \author[2]{Alizée Pillod}
@@ -79,7 +71,7 @@
 
 \begin{abstract}
 \noindent
-The Canadian Climate Framing (CCF) database constitutes the largest machine-learning-preprocessed corpus of climate discourse available for research, comprising 266,271 articles from 20 Canadian newspapers (1978–2024) processed into 9.2 million sentence-level analytical units with 65 hierarchical annotations. This technical paper presents the complete methodology underlying this resource, from data collection through validation. The database addresses fundamental limitations in climate communication research by providing analysis-ready data that would otherwise require months of preprocessing and annotation. The four-phase methodology integrates systematic data collection with advanced natural language processing: (1) comprehensive article collection across bilingual sources; (2) preprocessing pipeline including deduplication, sentence segmentation, and language verification; (3) iterative human-in-the-loop machine learning training with 4,000+ expert annotations using language-specific transformer models (BERT for English and CamemBERT for French); and (4) validation and deployment, combining expert gold-standard annotation (n=1,000) with intercoder reliability assessment, achieving F1=0.866 across all categories. The hierarchical annotation framework captures eight thematic frames, nine actor types, eight event categories, two solution strategies, two emotional tones, geographic focus, and named entities, each with multiple fine-grained subcategories. Four analytical applications demonstrate the database's research potential: (1) examining how political leader mentions correlate with scientific skepticism framing; (2) mapping geographic polarization of climate science discourse across Canadian provinces; (3) testing whether thematic frames predict front-page editorial placement; and (4) constructing cocitation networks to identify epistemic authorities in climate communication. These applications show how the CCF database advances climate communication research as evidence-informed social science.
+Climate discourse does not merely mirror public debate around climate change, but actively shapes how societies perceive and respond to the crisis. Yet large-scale, fine-grained analysis of climate discourse remains hindered by fragmented corpora and ad hoc coding schemes. Here, we introduce the Canadian Climate Framing (CCF) database, a generalizable annotation framework, and training data to overcome these limitations. The CCF comprises 266,271 articles from 20 Canadian newspapers (1978–2024), processed into 9.2 million bilingual sentences (82.9\% English, 17.1\% French) with 65 hierarchical annotations: eight thematic frames, nine actor types, eight event categories, solution strategies, emotional tone, geographic focus, and named entities. Construction relied on transformer classifiers (BERT/CamemBERT) trained through human-in-the-loop iteration on 4,000+ expert-coded sentences, validated against a gold standard (F1=0.866) with confirmed intercoder reliability. Four analytical applications---linking political figures to science skepcticism, mapping discourse polarization, modeling framing editorial prioritization, and analysing epistemic authority networks---illustrate the database's research potential. Both the CCF and its underlying framework and training data are designed for replication across national and linguistic contexts.
 \end{abstract}
 
 \newpage
@@ -120,7 +112,6 @@ The CCF database was built through a systematic protocol to trace the evolution 
 
 A total of 20 newspapers were selected for the analysis. The objective was to include both national and regional outlets in order to ensure broad geographic representation. Within this pool, newspapers were primarily chosen based on circulation levels \autocite{newspapers_canada_circulation_2015}, with the highest-circulating outlets retained. Additional criteria also informed the selection, including the desire to capture a range of political orientations and to build a bilingual corpus that reflects Canada’s linguistic landscape. This included French-language outlets both inside and outside Quebec, as well as one English-language outlet located in Quebec\footnote{Quebec is the only province in Canada with French as its sole official language. However, New Brunswick is officially bilingual, and several other provinces, such as northeastern Ontario along the Quebec border, also have sizeable francophone communities.}. The final selection was also partly shaped by availability constraints\footnote{For instance, when the highest-circulating newspapers were unavailable, the next highest-circulating outlets were selected. In the cases of Prince Edward Island, Nunavut and the Northwest Territories, no eligible newspapers were available for inclusion.}.
 
-% Landscape page for methodology diagram
 \begin{landscape}
 \pagestyle{empty}
 \vspace*{\fill}
@@ -155,11 +146,9 @@ A total of 20 newspapers were selected for the analysis. The objective was to in
     line cap=round, line join=round
 ]
 
-% Define spacing
 \def\hspace{7.2}
 \def\vspace{4}
 
-% Row 1: Steps 1-3
 \node[collect] (datacoll) at (0,0) {
     \textbf{Step 1: Data Collection}\\[1pt]
     \scriptsize
@@ -185,7 +174,6 @@ A total of 20 newspapers were selected for the analysis. The objective was to in
     Hierarchical labeling system\\[1pt]
 };
 
-% Row 2: Steps 4-6 (right to left)
 \node[train] (iterml) at (2*\hspace,-\vspace) {
     \textbf{Step 4: Iterative ML Training}\\[1pt]
     \scriptsize
@@ -211,7 +199,6 @@ A total of 20 newspapers were selected for the analysis. The objective was to in
     Confidence scores for each prediction\\[1pt]
 };
 
-% Row 3: Steps 7-8 (swapped positions)
 \node[valid] (validation) at (0,-2*\vspace) {
     \textbf{Step 8: Final Validation}\\[1pt]
     \scriptsize
@@ -228,30 +215,21 @@ A total of 20 newspapers were selected for the analysis. The objective was to in
     Gwet's AC1 = 0.893\\[1pt]
 };
 
-% Arrows - horizontal flow in row 1
 \draw[arrow] (datacoll.east) -- (database.west);
 \draw[arrow] (database.east) -- (protocol.west);
-
-% Arrows - down from row 1 to row 2
 \draw[arrow] (protocol.south) -- (iterml.north);
-
-% Arrows - horizontal flow in row 2 (right to left)
 \draw[arrow] (iterml.west) -- (verification.east);
 \draw[arrow] (verification.west) -- (fullannotation.east);
 
-% Feedback loop - properly above the boxes
-% Feedback loop — connect exactly at node tops, with smooth arch
 \draw[feedbackarrow]
     (verification.north) to[out=90,in=90, looseness=0.3]
     node[above, yshift=1pt, font=\scriptsize, fill=white, inner sep=1pt] {feedback loop}
     (iterml.north);
 
-% Arrows - down to row 3
 \draw[arrow] (fullannotation.south) -- (validation.north);
 \draw[arrow] (fullannotation.south) -- ++(0,-0.7) -| (intercoder.north);
 \draw[arrow] (intercoder.west) -- (validation.east);
 
-% Phase labels (muted colors, clearer grouping)
 \node[phaselabel, fill=blue!8]   at (0,1.5)               {PHASE 1: COLLECTION};
 \node[phaselabel, fill=green!8]  at (1.5*\hspace,1.5)     {PHASE 2: PREPROCESSING + DESIGN};
 \node[phaselabel, fill=orange!8] at (1.5*\hspace,-2.5)    {PHASE 3: MACHINE LEARNING};
@@ -470,7 +448,6 @@ The hierarchical approach reflects the conceptual organization of the annotation
 \centering
 \resizebox{0.95\textwidth}{!}{%
 \begin{tikzpicture}[
-    % Style definitions with reduced widths
     stage/.style={rectangle, rounded corners=6pt, minimum height=2.3cm, text width=3.8cm, align=center, font=\small},
     input/.style={stage, draw=orange!70, fill=orange!5, text width=3.5cm},
     detect/.style={stage, draw=blue!70, fill=blue!5, text width=3.8cm},
@@ -483,7 +460,6 @@ The hierarchical approach reflects the conceptual organization of the annotation
     label/.style={font=\tiny\bfseries}
 ]
 
-% Stage 1: Input
 \node[input] (input) {
     \scriptsize\textbf{Input Layer}\\[-2pt]
     \scriptsize\textbf{Sentence Processing}\\[-2pt]
@@ -492,7 +468,6 @@ The hierarchical approach reflects the conceptual organization of the annotation
     \scriptsize{One of 9.2M sentences}
 };
 
-% Stage 2: Detection (parallel branches)
 \node[detect, above right=1.2cm and 1.2cm of input] (detect_yes) {
     \scriptsize\textbf{Detection Layer}\\[-2pt]
     \scriptsize\textbf{Main Category}\\[-2pt]
@@ -509,7 +484,6 @@ The hierarchical approach reflects the conceptual organization of the annotation
     \scriptsize{→ Skip sub-models}
 };
 
-% Stage 3: Conditional execution
 \node[process, right=1.5cm of detect_yes] (execute) {
     \scriptsize\textbf{Sub-classification}\\[-2pt]
     \scriptsize\textbf{Apply Sub-models}\\[-2pt]
@@ -525,31 +499,25 @@ The hierarchical approach reflects the conceptual organization of the annotation
     \textit{\scriptsize not needed}
 };
 
-% Stage 4: Storage - positioned at center between execute and bypass
 \node[storage] (database) at ($(execute.east)!0.5!(bypass.east) + (2cm,0)$) {
     \scriptsize\textbf{CCF Database}\\[-2pt]
     \scriptsize 9.2M sentences\\[-2.5pt]
     \scriptsize 266K articles
 };
 
-% Connections
 \draw[arrow] (input.15) -- (detect_yes.west);
 \draw[arrow] (input.-15) -- (detect_no.west);
-
 \draw[yes, line width=1.8pt] (detect_yes) -- node[above, label] {\textcolor{green!70}{if = 1}} (execute);
 \draw[no, line width=1.8pt] (detect_no) -- node[below, label] {\textcolor{red!70}{if = 0}} (bypass);
-
 \draw[arrow] (execute.east) -- (database.west);
 \draw[arrow] (bypass.east) -- (database.west);
 
-% Architecture info box
 \node[below=0.3cm of input, draw=gray!50, fill=gray!3, rounded corners=4pt, text width=3.2cm, align=center, font=\tiny] {
     \textbf{Parallel Processing}\\
     65 detection models\\
     BERT / CamemBERT
 };
 
-% Visual indicator for parallel processing - better positioned
 \node[above=0.3cm of detect_no, font=\tiny\itshape, text=gray!50] {61 other models};
 \node[above=0.1cm of detect_no, font=\tiny, text=gray!50] {$\vdots$};
 
@@ -571,7 +539,7 @@ Due to copyright restrictions on the original newspaper content, raw sentence te
 
 The database structure follows the conceptual organization of the annotation framework illustrated in Figure~\ref{fig:database_structure}: (1) \emph{Metadata} columns (\texttt{doc\_id}, \texttt{title}, \texttt{media}, \texttt{date}, etc.); (2) \emph{Primary categories} for the eight thematic frames (\texttt{economic\_frame}, \texttt{political\_frame}, \texttt{scientific\_frame}, etc.), actors/messengers (\texttt{messenger}), events (\texttt{event}), and solutions (\texttt{solution}); (3) \emph{Sub-categories} providing fine-grained classifications (\texttt{eco\_neg\_impact}, \texttt{pol\_debate}, \texttt{msg\_scientist}, \texttt{evt\_weather}, \texttt{sol\_mitigation}, etc.); (4) \emph{Other primary categories} including emotional tone (\texttt{tone\_positive}, \texttt{tone\_negative}, \texttt{tone\_neutral}), geographic focus (\texttt{canada}), and urgency (\texttt{urgency}); and (5) \emph{Named entities}. All annotation columns are stored as binary variables (1/0) indicating the presence or absence of each category, except for the \texttt{ner\_entities} variable (\emph{Named entities}) which contains extracted entity strings. All variable names are listed in the Code column of Table~\ref{tab:complete_framework} (Appendix~\ref{sec:appendix}).
 
-The database is deposited at [repository to be specified] and includes: (1) the complete annotated database in PostgreSQL dump format; (2) CSV exports for compatibility with statistical software; and (3) a data dictionary documenting all variables. The complete code for database construction, model training, and all analytical applications presented in this paper is available at \url{https://github.com/antoinelemor/CCF-canadian-climate-framing}. The Data Descriptors section below illustrates several analytical applications demonstrating the database's research potential.
+The database is deposited at [repository to be specified] and includes: (1) the complete annotated database in PostgreSQL dump format; (2) CSV exports for compatibility with statistical software; (3) a data dictionary documenting all variables; (4) the complete expert-annotated training data (4,000+ manually coded sentences in JSONL format) and (5) intercoder reliability data from the validation protocol. The complete code for database construction, model training, and all analytical applications presented in this paper is available at \url{LINK OSF}.
 
 \begin{figure}[H]
 \centering
@@ -588,11 +556,9 @@ The database is deposited at [repository to be specified] and includes: (1) the 
     group_other/.style={group, draw=purple!45!black,  fill=purple!10},
 ]
 \node[header] (head) {The CCF Database Structure};
-% Row 1 (three groups)
 \node[group_meta, below=of head, xshift=-4.5cm] (meta) {\textbf{Metadata} (10)\\Article ID, Sentence ID\\Title, Author, Media, Date\\Language, Page, Word count};
 \node[group_frames, right=of meta] (frames) {\textbf{Thematic Frames} (8 Primary)\\+ 30 sub-categories\\Economic, Health, Security, Justice\\Political, Scientific, Environmental, Cultural};
 \node[group_actors, right=of frames] (actors) {\textbf{Actors/Messengers} (1 Primary)\\+ 9 sub-categories\\Scientist, Official, Activist\\Health, Economic, Legal expert, ...};
-% Row 2 (three groups)
 \node[group_events, below=of meta] (events) {\textbf{Events} (1 Primary)\\+ 8 sub-categories\\Weather, Meeting, Publication\\Election, Policy, Protest, ...};
 \node[group_solutions, right=of events] (solutions) {\textbf{Solutions} (1 Primary)\\+ 2 sub-categories\\Mitigation, Adaptation};
 \node[group_other, right=of solutions] (other) {\textbf{Other Annotations} (6)\\Emotional tone (3)\\Geographic focus (1)\\Urgency (1), NER};
@@ -621,25 +587,15 @@ The validation set comprises 1,000 sentences (500 per language) extracted from t
     node distance=1.1cm
 ]
 
-% Centered positioning - starting at x=-3.5 for better centering
-% Database (left)
 \node[database] (db) at (-3.2,0) {\footnotesize CCF Database\\\footnotesize 9.2M sentences\\\footnotesize 71 columns};
-
-% Sampling process (center-left)
 \node[box, right=of db] (sampling) {\footnotesize Stratified sampling\\\footnotesize Root-inverse weighting};
 \draw[arrow] (db.east) -- (sampling.west);
-
-% Validation sample (center-right)
 \node[sample, right=of sampling] (val) {\footnotesize Validation Sample\\\footnotesize 1,000 sentences};
 \draw[arrow] (sampling.east) -- (val.west);
-
-% Language split (right) - reduced distances
 \node[sample, above right=0.35cm and 0.9cm of val] (en) {\footnotesize EN: 500};
 \node[sample, below right=0.35cm and 0.9cm of val] (fr) {\footnotesize FR: 500};
 \draw[arrow] (val.east) -- ++(0.25,0) |- (en.west);
 \draw[arrow] (val.east) -- ++(0.25,0) |- (fr.west);
-
-% Constraints box (below) - adjusted width
 \node[box, below=1cm of sampling, text width=3.5cm, font=\scriptsize] (constraints) {\textbf{Constraints:}\\• Min 40 positives/category\\• Max 35\% sample/category\\• Exclude training data};
 \draw[dashed, gray] (sampling.south) -- (constraints.north);
 
@@ -739,7 +695,7 @@ These distributional analyses demonstrate several key characteristics of the CCF
 \subsection{Examples of Analytical Applications}
 \label{subsec:analytical_applications}
 
-While the descriptive statistics provide a foundation, the true potential of the CCF database lies in its capacity for accessible analyses, as data are already preprocessed, annotated and validated. Four scientifically grounded applications showcase this potential\endnote{All analysis scripts producing the figures and statistics in this section are available at \url{https://github.com/antoinelemor/CCF-canadian-climate-framing}.}: (1) how political actors shape climate coverage through their relationships with editorial prominence and thematic framing; (2) a cartographic analysis of the geographic polarization of climate science discourse across provinces; (3) how different thematic frames (\texttt{economic\_frame}, \texttt{political\_frame}, \texttt{scientific\_frame}, \texttt{environmental\_frame}, \texttt{justice\_frame}, \texttt{cultural\_frame}) influence newspapers' decisions about front page placement; and (4) the network structure of epistemic authorities, identified through Named Entity Recognition (variable \texttt{ner\_entities}). These are the individuals cited in climate coverage whose cocitation patterns reveal the underlying social architecture of climate communication in Canadian media.
+While the descriptive statistics provide a foundation, the true potential of the CCF database lies in its capacity for accessible analyses, as data are already preprocessed, annotated and validated. Four scientifically grounded applications showcase this potential\endnote{All analysis scripts producing the figures and statistics in this section are available at \url{LINK}.}: (1) how political actors shape climate coverage through their relationships with editorial prominence and thematic framing; (2) a cartographic analysis of the geographic polarization of climate science discourse across provinces; (3) how different thematic frames (\texttt{economic\_frame}, \texttt{political\_frame}, \texttt{scientific\_frame}, \texttt{environmental\_frame}, \texttt{justice\_frame}, \texttt{cultural\_frame}) influence newspapers' decisions about front page placement; and (4) the network structure of epistemic authorities, identified through Named Entity Recognition (variable \texttt{ner\_entities}). These are the individuals cited in climate coverage whose cocitation patterns reveal the underlying social architecture of climate communication in Canadian media.
 
 
 \subsubsection{Political Actors in Climate Coverage}
@@ -838,11 +794,10 @@ Funding for this research was provided by the Fonds de recherche du Québec [FRQ
 
 
 \appendix
-\setcounter{table}{0}  % Reset table counter for appendix
-\renewcommand{\thetable}{A\arabic{table}}  % Prefix appendix tables with 'A'
-\renewcommand\theHtable{Appendix.\thetable}  % Fix hyperref links for appendix tables
+\setcounter{table}{0}
+\renewcommand{\thetable}{A\arabic{table}}
+\renewcommand\theHtable{Appendix.\thetable}
 
-% Appendix A: Literature Review
 \landscape
 \section{Appendix A: Previous Studies on Canadian Climate Media Coverage}
 \label{sec:appendix_literature}
@@ -958,10 +913,9 @@ Funding for this research was provided by the Fonds de recherche du Québec [FRQ
 Note: This table summarizes the newspaper sources, geographic scope, language, and time periods covered by previous studies on climate change media coverage in Canada. Most studies focus exclusively on English-language national newspapers, particularly The Globe and Mail and The National Post.
 \endlandscape
 
-% Appendix B: Complete Framework and Performance Metrics
-\setcounter{table}{0}  % Reset table counter for appendix B
-\renewcommand{\thetable}{B\arabic{table}}  % Prefix appendix B tables with 'B'
-\renewcommand\theHtable{AppendixB.\thetable}  % Fix hyperref links for appendix B tables
+\setcounter{table}{0}
+\renewcommand{\thetable}{B\arabic{table}}
+\renewcommand\theHtable{AppendixB.\thetable}
 
 \landscape
 \section{Appendix B: Complete Framework and Performance Metrics}
@@ -1121,9 +1075,9 @@ Note: This table summarizes the newspaper sources, geographic scope, language, a
 \vspace{0.5em}
 \noindent\footnotesize
 * Insufficient training data (fewer than 10 positive examples in training set).
-} % end \footnotesize
+}
 \endlandscape
-% Complete model training performance metrics table
+
 \landscape
 {\footnotesize
 \phantomsection
@@ -1131,9 +1085,9 @@ Note: This table summarizes the newspaper sources, geographic scope, language, a
 \vspace{0.5em}
 \noindent\footnotesize
 * Insufficient training data (fewer than 10 positive examples in training set).
-} % end \footnotesize
+}
 \endlandscape
-% Training and validation dataset distribution table
+
 \landscape
 {\footnotesize
 \phantomsection
@@ -1141,9 +1095,9 @@ Note: This table summarizes the newspaper sources, geographic scope, language, a
 \vspace{0.5em}
 \noindent\footnotesize
 Note: Categories with insufficient positive training samples (marked with * in Table~\ref{tab:complete_training_metrics}) were excluded from final model training and are not shown in this distribution table.
-} % end \footnotesize
+}
 \endlandscape
-% Named Entity Recognition performance table
+
 \phantomsection
 \begin{table}[h!]
 \centering
@@ -1165,29 +1119,29 @@ English & BERT-base-NER & 0.961 & 0.811 & 0.925 \\
 \noindent\footnotesize
 Note: The hybrid approach for French combines spaCy for person entities (PER) with CamemBERT-NER for organization (ORG) and location (LOC) entities based on empirical evaluation on the dataset. Performance metrics are from the original model documentation.
 \end{table}
+
 \landscape
-% Detailed validation metrics table
 {\footnotesize
 \phantomsection
 \input{../Results/Outputs/Tables/table_b5_test.tex}
-} % end \footnotesize
+}
 
 \vspace{0.5em}
 \noindent\footnotesize
 Note: Metrics represent macro-averaged scores across positive and negative classes for each category. Support indicates the number of positive examples in the validation set (500 sentences per language, 1,000 total). EN = English, FR = French, ALL = Combined. Categories are organized by their hierarchical grouping as implemented in the annotation pipeline.
 \endlandscape
-% Table A6: Database-wide distribution (generated from CCF_Database)
+
 \landscape
 {\footnotesize
 \phantomsection
 \input{../Results/Outputs/Tables/table_b6_database_distribution.tex}
-} % end footnotesize
+}
 
 \vspace{0.5em}
 \noindent\footnotesize
 Note: Counts represent the number of sentences in the CCF database annotated with each category. Proportions show the percentage of sentences containing each annotation. Categories are organized by their hierarchical grouping as implemented in the annotation pipeline. EN = English corpus, FR = French corpus, ALL = Combined corpus.
 \endlandscape
-% References
+
 \printbibliography[title={References}]
 
 \end{document}

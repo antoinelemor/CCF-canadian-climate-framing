@@ -48,7 +48,7 @@ MAIN FEATURES:
 
 Author:
 -------
-Antoine Lemor
+[Anonymous]
 """
 
 from __future__ import annotations
@@ -56,6 +56,7 @@ from __future__ import annotations
 import argparse
 import getpass
 import io
+import os
 import sys
 from pathlib import Path
 from typing import Any, Dict, List
@@ -69,10 +70,10 @@ from tqdm.auto import tqdm
 # ############# CONFIGURATION ############# #
 
 DB_PARAMS: Dict[str, Any] = {
-    "host": "localhost",
-    "port": 5432,
-    "user": "antoine",
-    "password": "Absitreverentiavero19!",  
+    "host": os.getenv("CCF_DB_HOST", "localhost"),
+    "port": int(os.getenv("CCF_DB_PORT", "5432")),
+    "user": os.getenv("CCF_DB_USER", "postgres"),
+    "password": os.getenv("CCF_DB_PASSWORD", ""),
 }
 DB_NAME: str = "CCF"
 FULL_CSV: Path = Path("Database/Database/CCF.media_database.csv")

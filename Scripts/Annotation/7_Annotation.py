@@ -58,9 +58,9 @@ MAIN FEATURES:
     *AugmentedSocialScientist* is absent, lightweight placeholders with
     random outputs let the rest of the pipeline run for testing.
 
-Author :
---------
-Antoine Lemor
+Author:
+-------
+[Anonymous]
 """
 
 import os

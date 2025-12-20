@@ -39,9 +39,9 @@ optimum allocation under inequality constraints (Kish 1965; Särndal et al.
 1992). It approximates Neyman allocation for multi-label strata while enforcing
 practical bounds for variance estimation.
 
-Author
-------
-Antoine Lemor
+Author:
+-------
+[Anonymous]
 """
 
 from __future__ import annotations
@@ -87,8 +87,8 @@ DB_PARAMS: Dict[str, Any] = {
     "host":     os.getenv("CCF_DB_HOST", "localhost"),
     "port":     int(os.getenv("CCF_DB_PORT", 5432)),
     "dbname":   os.getenv("CCF_DB_NAME", "CCF"),
-    "user":     os.getenv("CCF_DB_USER", "antoine"),
-    "password": os.getenv("CCF_DB_PASS", "Absitreverentiavero19!"),
+    "user":     os.getenv("CCF_DB_USER", "postgres"),
+    "password": os.getenv("CCF_DB_PASS", ""),
     "options":  "-c client_min_messages=warning",
 }
 TABLE_NAME = "CCF_processed_data"

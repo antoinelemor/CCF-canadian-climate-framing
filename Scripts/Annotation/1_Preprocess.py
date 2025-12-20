@@ -29,7 +29,7 @@ MAIN FEATURES:
 
 Author:
 -------
-Antoine Lemor
+[Anonymous]
 """
 
 # ###################################################

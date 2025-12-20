@@ -32,7 +32,7 @@ MAIN FEATURES:
 
 Author:
 -------
-Antoine Lemor
+[Anonymous]
 """
 
 # Import necessary libraries

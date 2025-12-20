@@ -55,9 +55,9 @@ MAIN FEATURES:
    - `configure_devices_mode()` builds a per-worker device map for
      cpu, gpu, or both modes.
 
-Author :
---------
-Antoine Lemor
+Author:
+-------
+[Anonymous]
 """
 
 

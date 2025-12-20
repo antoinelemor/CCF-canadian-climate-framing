@@ -60,7 +60,7 @@ DB_PARAMS = {
     "host": os.getenv("CCF_DB_HOST", "localhost"),
     "port": int(os.getenv("CCF_DB_PORT", 5432)),
     "dbname": "CCF_Database",
-    "user": os.getenv("CCF_DB_USER", "antoine"),
+    "user": os.getenv("CCF_DB_USER", "postgres"),
     "password": os.getenv("CCF_DB_PASS", ""),
 }
 PROCESSED_TABLE = "CCF_processed_data"
