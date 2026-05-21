@@ -69,8 +69,7 @@ Scripts/Results/
 # Generated aggregates
 Scripts/Database_creation/Agregate/
 
-# Optional: ignore whole DB-creation scripts (you listed it explicitly)
-# Comment this out if you want to track code here.
+# Database-creation scripts are not deposited with the artefact.
 Scripts/Database_creation
 
 # Misc paths seen in repo
@@ -83,7 +82,26 @@ paper/**
 !paper/CCF_Methodology/Latex/
 !paper/CCF_Methodology/Latex/CCF_Methodology.tex
 !paper/CCF_Methodology/Latex/CCF_Methodology.pdf
+!paper/CCF_Methodology/Latex/CCF_Methodology_SI.tex
+!paper/CCF_Methodology/Latex/CCF_Methodology_SI.pdf
 !paper/CCF_Methodology/Latex/references.bib
+# Figures used by the main manuscript (copied from submission_package/Figures/)
+!paper/CCF_Methodology/Latex/Figures/
+!paper/CCF_Methodology/Latex/Figures/*.png
+!paper/CCF_Methodology/Latex/Figures/*.pdf
+# The frozen submission package (read-only, kept for reproducibility)
+!paper/CCF_Methodology/Latex/submission_package/
+!paper/CCF_Methodology/Latex/submission_package/manuscript.tex
+!paper/CCF_Methodology/Latex/submission_package/references.bib
+!paper/CCF_Methodology/Latex/submission_package/Figures/
+!paper/CCF_Methodology/Latex/submission_package/Figures/*.png
+!paper/CCF_Methodology/Latex/submission_package/Figures/*.pdf
+# Reviewer comments and editor decision letter
+!paper/CCF_Methodology/Review/
+!paper/CCF_Methodology/Review/*.txt
+!paper/CCF_Methodology/Review/response/
+!paper/CCF_Methodology/Review/response/*.tex
+!paper/CCF_Methodology/Review/response/*.pdf
 !paper/CCF_Science_to_policymakers/
 !paper/CCF_Science_to_policymakers/Latex/
 !paper/CCF_Science_to_policymakers/Latex/CCF_Science_to_policymakers.pdf
@@ -93,14 +111,7 @@ paper/**
 !paper/CCF_Methodology/Results/Scripts/
 !paper/CCF_Methodology/Results/Scripts/1_overview_plots.py
 !paper/CCF_Methodology/Results/Scripts/2_temporal_f1_validation.py
-!paper/CCF_Methodology/Results/Scripts/3_categories_distributions.py
-!paper/CCF_Methodology/Results/Scripts/4_temporal_frames_evolution.py
-!paper/CCF_Methodology/Results/Scripts/5_political_entities_front_page.py
-!paper/CCF_Methodology/Results/Scripts/6_trudeau_poilievre_scientific_framing.py
-!paper/CCF_Methodology/Results/Scripts/6b_political_debate_entities_2024.py
-!paper/CCF_Methodology/Results/Scripts/7_science_acceptance_maps.py
-!paper/CCF_Methodology/Results/Scripts/8_frames_front_page_probability.py
-!paper/CCF_Methodology/Results/Scripts/9_network_cocitation.py
+!paper/CCF_Methodology/Results/Scripts/3_data_overview.py
 !paper/CCF_Methodology/Results/Scripts/generate_latex_tables.py
 
 # Figures referenced by the methodology paper
@@ -112,26 +123,30 @@ paper/CCF_Methodology/Results/Outputs/Figures/*
 !paper/CCF_Methodology/Results/Outputs/Figures/articles_by_province.png
 !paper/CCF_Methodology/Results/Outputs/Figures/temporal_f1_evolution.png
 !paper/CCF_Methodology/Results/Outputs/Figures/intercoder_progression.png
-!paper/CCF_Methodology/Results/Outputs/Figures/combined_distributions.png
-!paper/CCF_Methodology/Results/Outputs/Figures/temporal_frames_evolution.png
-!paper/CCF_Methodology/Results/Outputs/Figures/political_debate_entities_front_page_2024.png
-!paper/CCF_Methodology/Results/Outputs/Figures/trudeau_poilievre_scientific_framing.png
-!paper/CCF_Methodology/Results/Outputs/Figures/science_acceptance_maps.png
-!paper/CCF_Methodology/Results/Outputs/Figures/frames_front_page_probability.png
-!paper/CCF_Methodology/Results/Outputs/Figures/network.pdf
-!paper/CCF_Methodology/Results/Outputs/Figures/network_cocitation_2024.gexf
-!paper/CCF_Methodology/Results/Outputs/Figures/image.png
+!paper/CCF_Methodology/Results/Outputs/Figures/data_overview_frames_lines.png
 
 # Tables referenced by the methodology paper (LaTeX inputs)
 !paper/CCF_Methodology/Results/Outputs/Tables/
-!paper/CCF_Methodology/Results/Outputs/Tables/table_b2_training.tex
-!paper/CCF_Methodology/Results/Outputs/Tables/table_b3_training_distribution.tex
-!paper/CCF_Methodology/Results/Outputs/Tables/table_b5_test.tex
-!paper/CCF_Methodology/Results/Outputs/Tables/table_b6_database_distribution.tex
+# Main manuscript tables produced by Scripts/Annotation/17_generate_tables.py
+!paper/CCF_Methodology/Results/Outputs/Tables/table_performance_training.tex
+!paper/CCF_Methodology/Results/Outputs/Tables/table_validation_overall.tex
+!paper/CCF_Methodology/Results/Outputs/Tables/table_intercoder_blind.tex
+# Data Overview tables produced by Results/Scripts/3_data_overview.py
+!paper/CCF_Methodology/Results/Outputs/Tables/table_data_overview_descriptives.tex
+!paper/CCF_Methodology/Results/Outputs/Tables/table_data_overview_entities.tex
+# Supplementary Information tables produced by Scripts/Annotation/17_generate_tables.py
+!paper/CCF_Methodology/Results/Outputs/Tables/table_s4_training_metrics.tex
+!paper/CCF_Methodology/Results/Outputs/Tables/table_s5_training_distribution.tex
+!paper/CCF_Methodology/Results/Outputs/Tables/table_s7_test_metrics.tex
+!paper/CCF_Methodology/Results/Outputs/Tables/table_s8_database_distribution.tex
+!paper/CCF_Methodology/Results/Outputs/Tables/table_s9_per_category_reliability.tex
+!paper/CCF_Methodology/Results/Outputs/Tables/table_s10_reliability_tiers.tex
+!paper/CCF_Methodology/Results/Outputs/Tables/table_s11_training_hyperparameters.tex
+!paper/CCF_Methodology/Results/Outputs/Tables/table_s12_data_dictionary.tex
 
-# Stats CSV files for reproducibility
-!paper/CCF_Methodology/Results/Outputs/Stats/
-!paper/CCF_Methodology/Results/Outputs/Stats/network_node_statistics_2024.csv
+# CCF_Regional paper (Overleaf-managed, not tracked in git)
+# Overleaf project: https://www.overleaf.com/project/6a05c684279f5a461a476e1f
+paper/CCF_Regional/
 
 # Any auxiliary subtrees you mentioned earlier
 Scripts/Annotation/second_phase
@@ -162,8 +177,67 @@ Database/**
 !Database/Training_data/training_database_metrics.csv
 !Database/Database/articles_by_province.png
 
-# Normalized CSVs produced by Scripts/Annotation/14_normalization.py
+# Normalized CSVs produced by Scripts/Annotation/15_normalize_categories.py
 !Database/Training_data/all_best_models_normalized.csv
 !Database/Training_data/final_annotation_metrics_normalized.csv
 !Database/Training_data/manual_annotations_metrics_normalized.csv
 !Database/Training_data/training_database_metrics_normalized.csv
+
+# Revision artefacts (Scientific Data revision; addresses R1.8, R2.3, R2.4, R2.6).
+# Produced by Scripts/Annotation/16_build_normalized_csvs.py.
+!Database/Training_data/per_category_reliability_normalized.csv
+!Database/Training_data/reliability_tiers.csv
+!Database/Training_data/training_hyperparameters_normalized.csv
+!Database/Training_data/training_static_configuration.csv
+
+# Inter-coder reliability raw outputs from 13_Intercoder_reliability.py
+!Database/Training_data/manual_annotations_JSONL/
+!Database/Training_data/manual_annotations_JSONL/intercoder_reliability_1_overall_summary.csv
+!Database/Training_data/manual_annotations_JSONL/intercoder_reliability_2_per_label_reliability.csv
+!Database/Training_data/manual_annotations_JSONL/intercoder_reliability_3_learning_progression.csv
+!Database/Training_data/manual_annotations_JSONL/intercoder_reliability_4_before_after_600.csv
+!Database/Training_data/manual_annotations_JSONL/intercoder_reliability_4_model_performance.csv
+!Database/Training_data/manual_annotations_JSONL/intercoder_reliability.csv
+!Database/Training_data/manual_annotations_JSONL/label_mapping_second_coder.csv
+!Database/Training_data/manual_annotations_JSONL/label_mapping_second_coder_canonical.csv
+
+# Per-model Training_logs (read by script 15; tracked for full reproducibility).
+!Database/Training_data/Training_logs/
+!Database/Training_data/Training_logs/**/
+!Database/Training_data/Training_logs/**/training_metrics.csv
+!Database/Training_data/Training_logs/**/reinforced_training_metrics.csv
+!Database/Training_data/Training_logs/**/best_models.csv
+
+
+##############################
+# Database dumps (huge binary, never push)
+##############################
+CCF_Database_dump/
+CCF_Database.dump
+*.dump
+*.dat.gz
+
+##############################
+# Claude Code local config
+##############################
+.claude/
+.metadata_never_index
+
+##############################
+# LaTeX auxiliary outputs
+##############################
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.synctex(busy)
+*.toc
+*.lof
+*.lot
+texput.log

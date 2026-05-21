@@ -1,0 +1,4 @@
+epoch,train_loss,val_loss,precision_0,recall_0,f1_0,support_0,precision_1,recall_1,f1_1,support_1,macro_f1,saved_model_path,training_phase
+1,0.5940872132778168,0.2866080477833748,0.7575757575757576,1.0,0.8620689655172413,25.0,0.0,0.0,0.0,8.0,0.43103448275862066,models/Event_1_SUB_EN.jsonl.model_epoch_1,normal
+2,0.31273608207702636,0.11918605118989944,0.96,0.96,0.96,25.0,0.875,0.875,0.875,8.0,0.9175,models/Event_1_SUB_EN.jsonl.model_epoch_2,normal
+3,0.10701868832111358,0.05514300614595413,1.0,1.0,1.0,25.0,1.0,1.0,1.0,8.0,1.0,models/Event_1_SUB_EN.jsonl.model_epoch_3,normal

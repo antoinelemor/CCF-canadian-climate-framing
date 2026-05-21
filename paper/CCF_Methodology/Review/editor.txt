@@ -1,0 +1,73 @@
+Dear Dr Lemor,
+
+Your manuscript, "CCF Database: A Machine-Learning-Annotated Corpus of 266,271 Canadian Climate Articles (1978–2024)", has now been assessed.
+
+We invite you to revise your paper, carefully addressing the comments from the reviewers and the editor. Please ensure the results are accurately reported, any overstated conclusions are rewritten and the limitations of the work fully explained. When your revision is ready, please submit the updated manuscript and a point-by-point response. This will help us move to a swift decision.
+
+Editor Comments
+
+"Both reviewers recommended revision so I hope the authors can prepare the next draft based on their recommendations. I want to highlight three points. First, the copyright issue raised by reviewer 1 is a really critical limitation, because this is supposed to be the core part of the dataset. I do hope the authors could consider ways to deal with this situation, rather than just treating it as a limitation, such as obtaining a license, or at least releasing some or more derived representations of the contents. Second, I agree with reviewer 2 that Section 5.2 reads too similar to a research article. Talking about analytical applications is welcome, but this section really does not sound like that. And third, aligned with reviewer 2, I believe more methodological details and justification will make this data descriptor stronger."
+-Kai Li
+
+We recommend submitting all revisions within the mentioned deadline.
+
+If you need more time, please contact us and include your submission ID.
+
+Kind regards,
+
+Elizabeth Miller
+Editor
+Scientific Data
+
+_____
+
+GENERAL COMMENTS
+
+Please make sure you read and comply with these guidelines for revised manuscripts https://www.nature.com/sdata/submission-guidelines#sec-6, and supply these key files. A response to these comments is not required:
+
+- One, clean (unhighlighted, no tracked changes) copy of your main article file in a machine-readable format (.docx or .tex only - no pdfs – LaTeX users please see https://www.nature.com/sdata/submission-guidelines#latex)
+
+- [Optional] If you wish to share a tracked change, or other highlighted version of the paper, to help peer review please share this as a related manuscript file. This is optional and may not be needed if the changes can be easily explained in word
+
+- All figure images, one file per figure. If you are using figure panels (a,b,c, etc) please merge the individual panels into a single file. E.g. if you have 5 figures there should be 5 files.
+
+- Supplementary information document, if relevant, as a pdf only. If this is shorter than the main paper, we strongly advise you not to use one and simply merge the content into the main paper (e.g. Methods, Validation, references).
+
+- Any oversize tables larger than 1 A4 page need to be submitted as Supplementary Tables (in xlsx format or csv). Please do not use this for small tables that can be fit into the main paper, or very large data tables that should be placed in a data repository instead
+
+- IMPORTANT. Please upload a single “response to comments” file, containing a written response to all comments in the sections below (Editor and Reviewer comment). This is required even for short or obvious answers to help us make sure all issues have been dealt with. If there are any answers missing from this it may result in extra rounds of revision. Responses to points in this section (General Comments) do not need an answer.
+
+- For Data Descriptors, or and Articles sharing external files or data, please ensure all datasets are live and not under embargo (see this policy https://www.nature.com/sdata/policies/data-policies#publication) AND that materials are formally cited (see https://www.nature.com/sdata/submission-guidelines#data_citations)
+
+EDITOR COMMENTS
+
+These are specific editorial or data checks that all require a written response in the “response to comments” file
+
+*remove the section numbering
+
+*Please note, Data Descriptors should not include significant results, conclusions, discussion or data analyses. The goal is to share data for others to use, with the details in the paper intended to provide transparency (how data were collected or validated) or practical help (how to find the data, what variables/column headings mean, etc.) We do not cover novel methodologies, frameworks, or cover trend analysis as part of this scope. If you would like to continue with this work, you will need to revise all sections of the manuscript to outline the dataset that is meant to be shared with this Data Descriptor that readers will be able to use as a standalone data product in their own research
+
+* Because at least some of your data looks to originate from documents or literature, we request some standard information. Firstly, please confirm the specific location (paper) is listed against each data point in the data file, with a variable or column heading such as ‘References’ or ‘Sources’ pointing users to the input data. Permanent digital identifiers (e.g. DOIs) are much preferable to written references, so do not use imprecise formats such as “Jones et al, 2025”, or place data sources a separate list or tab. All data sources must have a source, so if there are “unpublished” data being listed then these need to be removed or treated as primary data where the methods are listed directly in the text. You may also add a general list of literature references to the main article, if there are fewer than 200, as this provides additional credit to the data owner. We do not recommend authors of cited works are listed as co-authors, if the data are previously published, and where the individuals have not otherwise contributed (in the same way review articles use citation, not co-authorship, to credit prior art). Works do not have to be peer reviewed to use (e.g. pre-prints, theses, etc) if you have validated their accuracy. Finally, check your text or data extraction is within fair use. This allows re-distribution without direct permission for small snippets, facts, or numerical data, but not full narrative text, (original) images, or any other item that may breach copyright which you may need direct permission from the data owner to override – unless the item is explicitly openly licensed (e.g. CC-BY).
+
+*Please note, if the authors can't share the data due to copyright restrictions, this would not change by having the data available on request (copyright still applies). Remove the sentence that researchers can contact the authors for data that is not available with this work. Please note, if the dataset that is provided can not be utilized as a standalone data product, we would not be able to consider this work further.
+
+* Please check the Methods section to ensure the content is in scope. This should solely focus on what was practically done to create the data, written in the past tense, to describe completed processes or tasks. It should be written with enough detail to allow someone to reproduce the same dataset using the same inputs and instructions, including all data collection, creation, curation or processing steps, to produce the same result. Code and input data should also be described and supplied to allow this, citing all sources where applicable, in addition to elements such as data obtained by API (e.g. which end points where used). Where existing tools, methods, background or theory are used, these should be described to explain which elements were used, but it may be possible to cite the details via the original works, rather than copy. i.e. the section does not need to explain how an existing theory or methods work, unless crucial, on the understanding an expert audience can read the information elsewhere. For data obtained via agreements with third parties, details should be provided on who those parties were and how to contact them.
+
+*Please remove any temporary notes such as [anonymized for peer review] from the manuscript text
+
+* Please revise the Data Record section to ensure it provides a description of the files being shared. This should start with an opening sentence such as “The dataset is available at [name of repository]” followed by a practical description of the files, including file names and folder structure (where these are not obvious or simple) and a description of column headings or variable names (where not implicit). No other content, such as a statistical summary of the data, or further methods (place these in the methods section), or detailed analyses should be included. If you wish to include any summary statistics, please do so in a “Data overview” section.
+
+* Please add a data citation for the dataset to the reference list using these instructions (https://www.nature.com/sdata/submission-guidelines#data_citations - note that a DOI URL should be used, not any other link). Please add the reference number to wherever the dataset is mentioned in the text - the main position should be the first part of the Data Record in a sentence describing where the data has been deposited.
+
+* Data need to be shared under a CC0 or CC-BY licence, unless subject to human data policy, or required for use of existing third party data where there are restrictions on re-use. Please contact the journal at scientificdata@nature.com if these circumstances apply. Otherwise, please make sure a CC0 or CC-BY licence is visible on the dataset page. Please see here for more information https://www.nature.com/sdata/policies/repositories. Please note CC license should not be used as a method to manage human data protection, so again, please contact us if you have these requirements
+
+* Please check and revise the current Technical Validation section to make sure it only contains a summary of how the data were checked or validated. This could include statistical checks, comparisons with other data, further discussions of methods or limitations, or any other process for quality control. This section should not include general results, discussion or analyses – data analyses are out of scope for Data Descriptors unless they are relevant for checking its quality or integrity. Proofs that data can be used for specific use cases are not required – because it is not a requirement that Data Descriptors prove utility for specific use cases – if the data can be considered generally sound, so please consider general checks that will be helpful for most users.
+
+*Please remove section 5 - Data Descriptors. This is out of scope for a Data Descriptor. Please also remove section 6 'Bridging Scale and Granularity in Climate Discourse Analysis'
+
+
+* Your article file contains the section(s): footnotes glossary and Appendices. These are not in scope for our article format. The footnotes should be embedded in the text, while appendices should be merged into the text, deleted, or turned into supplementary information
+
+Support contact: scientificdata@nature.com
+
+Submission ID: 2be101ec-cb5f-40e3-a755-a99503b09878

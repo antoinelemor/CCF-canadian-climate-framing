@@ -1,0 +1,60 @@
+Reviewer 1
+
+The paper presents a large dataset of automatically labeled Canadian newspaper text dealing with climate change. This is an impressive project, and generally a good paper.
+
+Caveat, however: For copyright reasons, the annotated sentence texts are not available (and this revealed only when the reader reaches Section 4); the paper says that interested parties can contact the authors if interested in replicability experiments. While the copyright issues
+with newspaper text are generally known, this is obviously a limitation for the utility of the dataset, and it should be stated clearly and earlier.
+
+In a similar vein, Sct. 5 of the paper makes some fairly strong claims (e.g., "the comprehensive coverage across all 65 annotation categories validates the framework’s ability to capture the multidimensional nature of climate discourse"), but one has to keep in mind that they are solely based on the automatic annotations. (And some of them, like the named entities, have been performed with out-of-the-box tools that did not get any
+evaluation here).
+
+Also, some statements can actually be a bit misleading, e.g.on p. 20 "the database extracts person, organization, and location entities, allowing researchers to identify who speaks about climate change and how they are discussed". The two roles (speaker, being-spoken-about) can in fact not be distinguished, because the annotations only detect the presence
+of a named entity in a sentence, and not its role.
+
+In short, I'd recommend to make the limitations more transparent early on and potentially to downtone some of the claims.
+
+Some specific comments/suggestions:
+
+p.3: "Only two studies have applied comparable transformer-based models in this domain" (Luo et al 21, Medeb et al)
+=> This is highly inaccurate. Quite a range of studies have used pre-trained language models for analysing climate change discourse. Just two examples here: Frermann et al. 2023 (https://aclanthology.org/2023.acl-long.486.pdf), Badullovich et al 2025 (https://link.springer.com/article/10.1007/s11192-025-05494-w)
+
+p. 6 "They (search keywords) were extensively tested beforehand to ensure optimal performance in capturing relevant articles"
+=> While precision can be analysed, it is not clear how recall can be "extensively tested" with a keyword-based retrieval process. Furthermore, statements should not exaggerate, such as
+"authors developed comprehensive Boolean search queries" - this is in the end a list of eight keywords and not a sophisticated Boolean logic query. The limitations of keyword search could be generally adressed here, cf. e.g., Grasso et al 2024 (https://aclanthology.org/2024.clicit-1.48.pdf)
+
+p9: The complex taxonomy of categories and the multi-label approach is laudable. For the thematic frame categories: In the interest of compatibility with other annotation projects, these should be set into correspondence with earlier frame sets as used either for climate change (e.g., Badullovich et al. 25, see above) or as topic-agnostic (like in the Media Frames corpus (Card et al. 15)
+
+p11/12: It would be good to know how many categories underwent the reinforced training protocol
+
+Sct. 4.3: The Cohen kappa values are not high, as the authors acknowledge. It seems a bit unusual that they diverge so much from Krippendorff alpha. The authors state (p. 17) that kappa is "known to be sensitive to category imbalance, which is pronounced in this
+setting", which is a somewhat ambiguous statement. In effect, the kappa measure was designed explicitly to provide a more meaningful assessment of data with class imbalances. I would appreciate some more discussion here.
+
+
+
+Reviewer 2
+
+Summary:
+The authors present the Canadian Climate Framing (CCF) database, a sentence-level annotated corpus of 266,271 climate-related articles from 20 Canadian newspapers spanning 1978–2024. The corpus comprises 9.2 million bilingual sentences (82.9% English, 17.1% French) annotated across 65 hierarchical categories using BERT (English) and CamemBERT (French) classifiers trained on ~4,000 expert-coded sentences. The annotation framework covers eight thematic frames, actor types, events, solutions, emotional tone, geographic focus, urgency, and named entities. The models achieve a macro F1 of 0.866 against an independent 1,000-sentence gold standard, with inter-coder reliability reported via Cohen's κ (0.569), Krippendorff's α (0.690), and Gwet's AC1 (0.893). The paper also includes four analytical applications demonstrating the database's research potential.
+
+Strengths:
+1. The scale and temporal coverage are impressive - to my knowledge, this is the largest Canadian climate media corpus, and its bilingual (English/French) composition fills a real gap. The 47-year span enables longitudinal analyses that existing resources don’t support.
+
+2. The annotation framework is theoretically grounded, drawing on established framing, agenda-setting, and climate communication scholarship while being refined inductively through the corpus. The 65-category taxonomy with hierarchical structure (primary detection → conditional sub-categories) is well-designed, and the operational definitions in Table B1 are detailed and useful.
+
+3. The validation protocol is thorough. Stratified sampling with root-inverse probability weighting to ensure rare categories are tested, temporal stability checks across five decades (ΔF1 < 1.1%), and an independent second-coder protocol with a learning-curve analysis all demonstrate care. The F1 of 0.866 is strong for a 65-category multi-label problem.
+
+4. The methodological pipeline is reproducibly documented, with code on OSF, the AugmentedSocialScientist fork on GitHub, and the training data shared in JSONL format. Appendices B1–B6 are exemplary.
+
+
+Weaknesses/Suggestions:
+1. Scope mismatch with a Data Descriptor: Scientific Data Descriptors are meant to describe data files, not present novel analyses. Section 5.2 contains four substantive analytical applications - OLS regressions of leader mention intensity on skepticism, provincial regressions, logistic models of editorial prioritization, and a co-citation network analysis with community detection. These read as findings from a research article rather than illustrations of database usability. I recommend trimming Section 5.2: keep one or two good examples to demonstrate use, and move the rest to a companion paper. As it stands, the paper straddles two genres.
+
+2. Single annotator for the entire training set: All 4,000+ training sentences were coded by one expert. The independent second annotator only validated the 1,000-sentence gold standard, not the training data. For a benchmark dataset of this prominence, this is a significant concern - model behavior is shaped entirely by one person's interpretive choices across 65 conceptually overlapping categories. At a minimum, the authors should justify this design choice and acknowledge it explicitly as a limitation. Ideally, a subsample of the training data should also be double-coded.
+
+3. Cohen's κ of 0.569 is moderate, not strong: The authors lean heavily on Gwet's AC1 (0.893) to argue the gold standard is reliable, but κ at 0.569 reflects real disagreement on a meaningful number of categories. The prevalence-correction argument has merit, but readers should see per-category κ values, not just the aggregate, to know which categories are reliable and which are not.
+
+4. Several sub-category models perform poorly or fail: Table B2 shows multiple sub-categories with F1 near zero in one language. Five categories were excluded entirely due to insufficient data. The paper should be more upfront about which annotations users can trust and which they cannot, ideally with a clear table or guidance.
+
+5. Validation outperforms training, which is suspicious. Combined macro F1 is 0.826 in training (Table 3) but 0.866 on the gold standard (Table 4). This is unusual and deserves explanation. Typically held-out gold standards perform worse, not better. One possibility is that the stratified validation sampling oversampled categories the model handles well; another is data leakage. The authors should clarify.
+
+6. Missing reproducibility details. Number of training epochs, batch sizes (beyond reinforced training), random seeds, GPU specifications, and total training time are not specified. For a benchmark release, these matter.

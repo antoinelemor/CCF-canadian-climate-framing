@@ -1,0 +1,3 @@
+epoch,train_loss,val_loss,precision_0,recall_0,f1_0,support_0,precision_1,recall_1,f1_1,support_1,macro_f1,saved_model_path,training_phase
+1,0.3469259071609248,0.2580716113249461,0.9259259259259259,1.0,0.9615384615384616,75.0,0.0,0.0,0.0,6.0,0.4807692307692308,models/Messenger_8_SUB_FR.jsonl.model_epoch_1,normal
+5,0.12195574945729712,0.03434062873323759,1.0,1.0,1.0,75.0,1.0,1.0,1.0,6.0,1.0,models/Messenger_8_SUB_FR.jsonl.model_epoch_5,normal

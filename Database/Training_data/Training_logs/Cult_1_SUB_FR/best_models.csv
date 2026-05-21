@@ -1,0 +1,4 @@
+epoch,train_loss,val_loss,precision_0,recall_0,f1_0,support_0,precision_1,recall_1,f1_1,support_1,macro_f1,saved_model_path,training_phase
+1,0.7151906490325928,0.6696046590805054,0.6,1.0,0.75,3.0,0.0,0.0,0.0,2.0,0.375,models/Cult_1_SUB_FR.jsonl.model_epoch_1,normal
+4,0.6129396557807922,0.6050928235054016,0.75,1.0,0.8571428571428571,3.0,1.0,0.5,0.6666666666666666,2.0,0.7619047619047619,models/Cult_1_SUB_FR.jsonl.model_epoch_4,normal
+7,0.46258068084716797,0.4984166622161865,1.0,1.0,1.0,3.0,1.0,1.0,1.0,2.0,1.0,models/Cult_1_SUB_FR.jsonl.model_epoch_7,normal

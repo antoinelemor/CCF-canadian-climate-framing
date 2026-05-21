@@ -1,0 +1,8 @@
+metric,value,interpretation,quality_threshold
+Sample Size,1000,Number of sentences annotated by both coders,N/A
+Percent Agreement,0.946,Proportion of exact label agreement (not chance-corrected),>0.80 = Good
+Cohen's Kappa,0.572,Chance-corrected agreement (sensitive to prevalence),">0.60 = Good, >0.80 = Excellent"
+Scott's Pi,0.570,Alternative chance-correction assuming same distribution,">0.60 = Good, >0.80 = Excellent"
+Gwet's AC1,0.891,Most robust to prevalence and high agreement,">0.60 = Good, >0.80 = Excellent"
+Krippendorff's Alpha,0.690,Handles missing data and multiple coders,">0.667 = Acceptable, >0.80 = Good"
+F1 Agreement,0.607,Symmetric F1 score between coders,>0.70 = Good

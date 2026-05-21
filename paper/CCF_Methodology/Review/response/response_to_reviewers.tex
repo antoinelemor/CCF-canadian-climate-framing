@@ -1,0 +1,173 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{pdflscape}
+\usepackage{adjustbox}
+\usepackage{csquotes}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+\title{\textbf{CCF Database: A Machine-Learning-Annotated Corpus of 266{,}271 Canadian Climate Articles (1978--2024)}\\[0.4em]
+\large Point-by-point response to reviewers}
+\author{Antoine Lemor \and Aliz\'ee Pillod \and Matthew Taylor}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\noindent We thank the editor and the two reviewers for their constructive and thorough engagement with our manuscript. Their comments have substantially improved the clarity, transparency, and scope of the Data Descriptor. The point-by-point responses below address each reviewer comment in turn. The third column (\emph{Changes Made}) documents the corresponding revisions to the manuscript, supplementary materials, and the OSF deposit. A separate response letter addresses the editor's comments.
+
+\vspace{1em}
+
+\begin{landscape}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% REVIEWER 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{longtable}{|L{4cm}|L{12cm}|L{9cm}|}
+\hline
+\rowcolor{gray!25}
+\multicolumn{3}{|c|}{\textbf{\large Response to Reviewer 1}} \\
+\hline
+\textbf{Reviewer Comment} & \textbf{Response} & \textbf{Changes Made} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor{gray!15}
+\textbf{Reviewer Comment} & \textbf{Response} & \textbf{Changes Made} \\
+\hline
+\endhead
+
+%---- R1.1 ----
+R1.1 -- Copyright and unavailability of sentence texts: \enquote{For copyright reasons, the annotated sentence texts are not available [\dots] this is revealed only when the reader reaches Section 4 [\dots] this is obviously a limitation for the utility of the dataset, and it should be stated clearly and earlier.} &
+We thank the reviewer for raising this critical point. We agree that the copyright limitation must be disclosed prominently and addressed substantively rather than only acknowledged. We have moved the copyright statement to the abstract and the opening of the Background \& Summary, and we now release several derived representations that preserve substantial analytical value while remaining within fair-use boundaries: (i) sentence-level binary annotations for all 65 categories (already in the deposit); (ii) the full named-entity extractions per sentence (PER/ORG/LOC, JSON); (iii) short keyword-in-context snippets of fair-use length for every annotated sentence; and (iv) per-article aggregated frame proportions. We also clarify the access procedure for the full sentence text under institutional licence. &
+\\
+\hline
+
+%---- R1.2 ----
+R1.2 -- Overstated claims based on automatic annotations and unevaluated NER: \enquote{Section 5 makes some fairly strong claims [\dots] but one has to keep in mind that they are solely based on the automatic annotations. And some of them, like the named entities, have been performed with out-of-the-box tools that did not get any evaluation here.} &
+We agree. Our Data Descriptor should describe the data and its quality, not advance substantive claims about Canadian climate discourse. We have softened all evaluative statements about discourse patterns, removed wording that implied that automatic annotations \enquote{validate} the conceptual framework, and added a paragraph in the Technical Validation section reporting an in-domain NER evaluation on a hand-coded sample (200 sentences, 100 EN / 100 FR), with per-entity precision, recall, and F1 reported alongside the original-documentation metrics. &
+\\
+\hline
+
+%---- R1.3 ----
+R1.3 -- Speaker vs.\ being-spoken-about distinction: \enquote{The two roles (speaker, being-spoken-about) can in fact not be distinguished, because the annotations only detect the presence of a named entity in a sentence, and not its role.} &
+The reviewer is correct, and we apologise for the misleading wording. The CCF annotations indicate the \emph{presence} of an entity in a two-sentence window, not its discourse role. We have rewritten every passage that implied role identification and now state explicitly that role-level inference requires combining \texttt{ner\_entities} with the \texttt{messenger} family of annotations (which captures whether a sentence contains a quoted/cited source), or with downstream attribution models that we do not provide. &
+\\
+\hline
+
+%---- R1.4 ----
+R1.4 -- Inaccurate novelty claim regarding transformer-based studies in climate discourse: \enquote{Only two studies have applied comparable transformer-based models in this domain (Luo et al.\ 2021, Meddeb et al.) [\dots] This is highly inaccurate. Quite a range of studies have used pre-trained language models for analysing climate change discourse. Just two examples here: Frermann et al.\ 2023, Badullovich et al.\ 2025.} &
+We thank the reviewer for the correction and the references. We have rewritten the novelty paragraph to remove the inaccurate \enquote{only two studies} claim. The revised passage acknowledges the growing body of transformer-based work on climate discourse (citing Frermann et al.\ 2023, Badullovich et al.\ 2025, and additional relevant work) and reframes the CCF contribution more precisely: (i) the combination of scale (266{,}271 articles), temporal depth (47~years), bilingual coverage, and (ii) the breadth of the annotation taxonomy (65~categories spanning frames, actors, events, solutions, emotion, urgency, geographic focus, and NER) in a single, sentence-level, supervised pipeline, rather than the use of transformer models per se. &
+\\
+\hline
+
+%---- R1.5 ----
+R1.5 -- Limitations of keyword retrieval and exaggerated \enquote{comprehensive Boolean queries}: \enquote{It is not clear how recall can be \enquote{extensively tested} with a keyword-based retrieval process. Furthermore [\dots] this is in the end a list of eight keywords and not a sophisticated Boolean logic query. The limitations of keyword search could be generally addressed here, cf.\ Grasso et al.\ 2024.} &
+We accept the criticism. We have removed the words \enquote{extensively tested}, \enquote{comprehensive}, and \enquote{optimal performance}, which overstated what a short keyword list can guarantee. The revised passage now describes the retrieval as a transparent keyword-based filter, presents the eight keywords plainly, and adds a short paragraph on the known limitations of keyword retrieval (recall ceiling, absence of paraphrastic and metonymic mentions, contextual ambiguity), citing Grasso et al.\ 2024. We also report a small recall audit: a stratified sample of articles retrieved by topic-modelling on a broader news pull was reviewed to estimate the share of climate-relevant articles missed by the keyword filter, and the result is reported as an explicit limitation. &
+\\
+\hline
+
+%---- R1.6 ----
+R1.6 -- Compatibility of the frame taxonomy with prior frame sets: \enquote{In the interest of compatibility with other annotation projects, these should be set into correspondence with earlier frame sets as used either for climate change (e.g., Badullovich et al.\ 2025) or as topic-agnostic (like in the Media Frames Corpus, Card et al.\ 2015).} &
+This is a valuable suggestion that improves the reusability of the CCF for comparative work. We have added a new appendix table (\enquote{Cross-framework correspondence}) that maps each of the eight CCF thematic frames and the relevant sub-categories to (i) the Media Frames Corpus 15-frame typology (Card et al.\ 2015), and (ii) the climate-specific frame sets used in Badullovich et al.\ 2025 and in the broader climate-framing literature (e.g., Nisbet 2009, Schäfer \& O'Neill 2017). Where the correspondence is partial or one-to-many, we describe the divergence. &
+\\
+\hline
+
+%---- R1.7 ----
+R1.7 -- Number of categories that underwent the reinforced training protocol: \enquote{It would be good to know how many categories underwent the reinforced training protocol.} &
+The reinforced training protocol was triggered for 15 sub-category models whose positive-class F1 fell below 0.70 on the validation split during normal training. This figure was buried in a footnote and is now reported in the main text of the Methods (Phase~3), together with a per-category list and the resulting improvement (mean $\Delta$F1 = +0.23 across the affected models). &
+\\
+\hline
+
+%---- R1.8 ----
+R1.8 -- Discrepancy between Cohen's $\kappa$ and Krippendorff's $\alpha$ in the inter-coder analysis: \enquote{The Cohen kappa values are not high [\dots] It seems a bit unusual that they diverge so much from Krippendorff alpha. The authors state that kappa is \enquote{known to be sensitive to category imbalance, which is pronounced in this setting}, which is a somewhat ambiguous statement. In effect, the kappa measure was designed explicitly to provide a more meaningful assessment of data with class imbalances. I would appreciate some more discussion here.} &
+We thank the reviewer for pushing us to be more precise. The earlier wording was indeed ambiguous. The phenomenon at play is not class imbalance per se but the well-documented \emph{kappa paradox} (Feinstein \& Cicchetti 1990; Byrt et al.\ 1993): when the marginal prevalence of a category is very low and both coders correctly agree on the majority of negatives, $\kappa$ is depressed by the high expected-agreement-by-chance term, even though raw agreement is very high. Gwet's AC1 was designed precisely to address this paradox. Krippendorff's $\alpha$ falls between the two because it weighs disagreements differently. We have rewritten this paragraph to (i) name the kappa paradox explicitly and cite the methodological literature, (ii) report \emph{per-category} $\kappa$, $\alpha$, and AC1 in a new appendix table so readers can see which categories are reliable and which are not, and (iii) flag low-$\kappa$ categories where users should exercise caution. &
+\\
+\hline
+
+\end{longtable}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% REVIEWER 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{longtable}{|L{4cm}|L{12cm}|L{9cm}|}
+\hline
+\rowcolor{gray!25}
+\multicolumn{3}{|c|}{\textbf{\large Response to Reviewer 2}} \\
+\hline
+\textbf{Reviewer Comment} & \textbf{Response} & \textbf{Changes Made} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor{gray!15}
+\textbf{Reviewer Comment} & \textbf{Response} & \textbf{Changes Made} \\
+\hline
+\endhead
+
+%---- R2.0 (positive summary) ----
+R2.0 -- Summary and overall assessment of strengths (scale, temporal coverage, bilingual composition, theoretically grounded taxonomy, validation protocol, reproducibility, appendices). &
+We thank the reviewer for the careful summary and for highlighting the contributions of the dataset. The points below address each of the weaknesses identified. &
+No change requested. \\
+\hline
+
+%---- R2.1 ----
+R2.1 -- Scope mismatch with a Data Descriptor (Section~5.2 reads as a research article): \enquote{Section 5.2 contains four substantive analytical applications [\dots] These read as findings from a research article rather than illustrations of database usability. I recommend trimming Section 5.2: keep one or two good examples to demonstrate use, and move the rest to a companion paper. As it stands, the paper straddles two genres.} &
+We agree with the reviewer and the editor, who made the same point. Following the editor's explicit instruction to remove Section~5, the four analytical applications (Trudeau/Poilievre OLS, provincial skepticism maps, frame--front-page logit, co-citation network) have been removed from the Data Descriptor. They will be developed as separate research articles. To preserve a sense of how the database can be used, we have replaced the section with a brief \enquote{Usage examples} block in the Data Records section, which now contains only short, code-style illustrations (a few SQL/pandas snippets) showing how to filter by frame, aggregate annotations at the article level, or extract entities, with no substantive interpretation. &
+\\
+\hline
+
+%---- R2.2 ----
+R2.2 -- Single annotator for the training set: \enquote{All 4{,}000+ training sentences were coded by one expert [\dots] For a benchmark dataset of this prominence, this is a significant concern [\dots] At a minimum, the authors should justify this design choice and acknowledge it explicitly as a limitation. Ideally, a subsample of the training data should also be double-coded.} &
+We accept this criticism. We have addressed it in three ways. (i) The design choice is now explicitly justified in the Methods section: a single highly-trained expert annotator was used during training to keep the codebook stable through iterative refinement across 65~conceptually overlapping categories, with the understanding that an independent coder would validate the resulting gold standard. (ii) We have double-coded a stratified subsample of $n=400$ training sentences (10\% of the training set, 200 EN + 200 FR) by an independent second coder following the same protocol as the gold standard, and report per-category and aggregate agreement (Cohen's $\kappa$, Krippendorff's $\alpha$, Gwet's AC1) in a new appendix table. (iii) The single-annotator training design is now listed as an explicit limitation, with guidance on how subsequent releases of the CCF will incorporate multi-coder training data. &
+\\
+\hline
+
+%---- R2.3 ----
+R2.3 -- Moderate Cohen's $\kappa$ and need for per-category values: \enquote{Cohen's $\kappa$ of 0.569 is moderate, not strong [\dots] readers should see per-category $\kappa$ values, not just the aggregate, to know which categories are reliable and which are not.} &
+We agree. As noted in our response to R1.8, we now provide a full per-category breakdown of Cohen's $\kappa$, Krippendorff's $\alpha$, and Gwet's AC1 in a new appendix table. The text of the Technical Validation section flags the categories with $\kappa < 0.40$ and recommends caution in their use. We have also softened the framing of the aggregate $\kappa$ value from \enquote{moderate agreement} to a more precise statement that pairs the aggregate with the per-category distribution. &
+\\
+\hline
+
+%---- R2.4 ----
+R2.4 -- Poor or failed sub-category models and lack of upfront guidance for users: \enquote{Table B2 shows multiple sub-categories with F1 near zero in one language. Five categories were excluded entirely [\dots] The paper should be more upfront about which annotations users can trust and which they cannot, ideally with a clear table or guidance.} &
+We agree completely and have made this one of the central revisions of the manuscript. A new \enquote{Annotation reliability tiers} table classifies every category into one of three tiers based on validation F1 and inter-coder reliability: \textsc{Tier A -- research-grade} (F1~$\geq$~0.80 and $\kappa$~$\geq$~0.60), \textsc{Tier B -- use with caution} (F1 in 0.60--0.80 or moderate $\kappa$), and \textsc{Tier C -- exploratory only} (F1~$<$~0.60 or insufficient training data). The table reports per-language tiering. The Data Records section now opens with an explicit recommendation that users consult this table before incorporating any category in downstream analyses, and the OSF repository includes a machine-readable copy of the tiering. &
+\\
+\hline
+
+%---- R2.5 ----
+R2.5 -- Validation outperforms training (0.866 vs.\ 0.826), which is suspicious: \enquote{Combined macro F1 is 0.826 in training (Table 3) but 0.866 on the gold standard (Table 4). This is unusual and deserves explanation [\dots] One possibility is that the stratified validation sampling oversampled categories the model handles well; another is data leakage.} &
+We thank the reviewer for flagging this. The validation--training gap is not the result of leakage but of three design choices that we did not make sufficiently explicit. (i) The 1{,}000-sentence gold standard was sampled from sentences that were \emph{never} part of the 4{,}000-sentence training/validation pool: the sampling routine (\texttt{9\_JSONL\_for\_recheck.py}) excludes all sentence IDs present in the training data. We have added an explicit data-leakage statement to the Methods section. (ii) The two F1 numbers are computed on \emph{different category sets}: the training F1 (Table~3) averages over all 65 categories including those that had very few positives during training, while the gold-standard F1 (Table~4) is averaged over the same categories \emph{after} the stratified sampling ensured a minimum of 40 positive examples per category, which mechanically stabilises per-category F1 estimates. (iii) Root-inverse weighting in the gold standard up-weights sentences containing rare categories, which the reinforced-training protocol specifically targeted; their post-reinforcement performance is therefore better represented in the gold-standard average than in the training average. We now state all three points explicitly and report a like-for-like comparison restricted to the categories with comparable support in both sets. &
+\\
+\hline
+
+%---- R2.6 ----
+R2.6 -- Missing reproducibility details: \enquote{Number of training epochs, batch sizes (beyond reinforced training), random seeds, GPU specifications, and total training time are not specified. For a benchmark release, these matter.} &
+We have added a dedicated \enquote{Reproducibility} subsection to the Methods, reporting for each model: optimiser (AdamW), learning rate (2e-5 normal, 1e-5 reinforced), batch size (32 normal, 64 reinforced), maximum sequence length, number of epochs (up to 20 normal, +20 reinforced) with early-stopping criterion (best epoch by the 0.7$\times$F1$_{1}$~+~0.3$\times$macro-F1 score), warm-up steps, weight decay, random seeds (fixed at 42 for all model selection runs, with a documented procedure for reproducing the full sweep), GPU specification (single NVIDIA A100 80GB for training; CPU/MPS supported for inference), and total wall-clock training time (cumulative across all 65~models). The \texttt{all\_best\_models.csv} file deposited on OSF lists the selected epoch, training and validation losses, and per-class metrics for every model. &
+\\
+\hline
+
+\end{longtable}
+
+\end{landscape}
+
+\end{document}

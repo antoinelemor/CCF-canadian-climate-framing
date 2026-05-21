@@ -1,0 +1,2 @@
+epoch,train_loss,val_loss,precision_0,recall_0,f1_0,support_0,precision_1,recall_1,f1_1,support_1,macro_f1,saved_model_path,training_phase
+1,0.5779297252496084,0.4507007598876953,0.85,1.0,0.918918918918919,17.0,0.0,0.0,0.0,3.0,0.4594594594594595,models/Sci_4_SUB_FR.jsonl.model_epoch_1,normal

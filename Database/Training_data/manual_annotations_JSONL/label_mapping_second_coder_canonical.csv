@@ -1,0 +1,69 @@
+id,second_coder_label_fr,technical_label_en,readable_label_en,category_group,description
+301,MENTION DU CANADA,Location_Detection,Canadian Context,Geographic Focus,Canadian places actors data and policies
+302,PRÉSENCE D'ÉVÈNEMENT(S),Event_Detection,Event Detection,Events,Mentions at least one specific event type
+303,Évènement météo extrême,Event_1_SUB,Extreme Weather Event,Events,Arrival or unfolding of floods wildfires hurricanes heatwaves etc.
+304,Meeting,Event_2_SUB,Meeting/Conference,Events,International meetings such as COP UN summits major national conferences
+305,Publication,Event_3_SUB,Publication,Events,Publication of governmental NGO or scientific reports (e.g. IPCC Lancet)
+306,Élection,Event_4_SUB,Election,Events,Climate issues raised during local provincial or national elections
+307,Nouvelle politique,Event_5_SUB,Policy Announcement,Events,Debut or unveiling of new climate laws regulations or action plans
+308,Décision judiciaire,Event_6_SUB,Judiciary Decision,Events,Court rulings trials regulatory hearings on climate or environment
+309,Évènement culture/sport,Event_7_SUB,Cultural Event,Events,Sports artistic or cultural events (Olympics marathon concert theatre)
+310,PRÉSENCE DE MESSAGER(S),Messenger_Detection,Messenger Detection,Messengers,Presence of any messenger expert or authority figure
+311,Expertise santé,Messenger_1_SUB,Health Expert,Messengers,Physicians epidemiologists health ministers public health officials
+312,Expertise économique,Messenger_2_SUB,Economic Expert,Messengers,Economists finance ministers market analysts central bank officials
+313,Expertise sécurité,Messenger_3_SUB,Security Expert,Messengers,Military officers defense strategists security scholars
+314,Expertise droit,Messenger_4_SUB,Legal Expert,Messengers,Lawyers judges legal scholars justice ministers
+315,Expertise culture/sport,Messenger_5_SUB,Cultural Expert,Messengers,Artists writers athletes arts scholars commenting on climate change
+316,Expertise sciences dures,Messenger_6_SUB,Natural Scientist,Messengers,Natural science researchers or academics
+317,Expertise sciences sociales,Messenger_7_SUB,Social Scientist,Messengers,Social science researchers or academics
+318,Expertise activiste,Messenger_8_SUB,Activist,Messengers,Environmental NGO spokespeople or well-known climate activists
+319,Expertise politique,Messenger_9_SUB,Public Official,Messengers,Civil servants or government officials speaking in an official capacity
+320,PRÉSENCE DE SOLUTION(S),Solutions_Detection,Solutions Detection,Solutions,Mentions any mitigation or adaptation measure
+321,Solutions d'atténuation,Solutions_1_SUB,Mitigation Strategy,Solutions,Measures to reduce GHG emissions or enhance carbon sinks
+322,Solutions d'adaptation,Solutions_2_SUB,Adaptation Strategy,Solutions,Measures to increase social or ecological resilience to climate impacts
+323,URGENCE D'AGIR,RED_Detection,Urgency/Alarmism,Urgency,Conveys immediate danger crisis or code red urgency
+324,Emotion: Positive,Emotion:_Positive,Positive Emotion,Emotional Tone,Hope optimism enthusiasm about climate solutions
+325,Emotion: Negative,Emotion:_Negative,Negative Emotion,Emotional Tone,Fear anxiety despair about climate impacts
+326,Emotion: Neutre,Emotion:_Neutral,Neutral Emotion,Emotional Tone,No clear emotional tone factual reporting
+327,CADRAGE SANTÉ,Pbh_Detection,Health Frame Detection,Thematic Frames - Health,Presence of any relationship between climate and health
+328,Impacts négatifs des CC sur la santé,Pbh_1_SUB,Negative Health Impacts,Thematic Frames - Health,Heat stress disease spread respiratory issues mental health burdens mortality
+329,Impacts positifs des CC sur la santé,Pbh_2_SUB,Positive Health Impacts,Thematic Frames - Health,Positive health impacts from climate change
+330,Co-bénéfices santé de l'action climatique,Pbh_3_SUB,Health Co-benefits,Thematic Frames - Health,Better air quality improved diets avoided premature deaths mental well-being
+331,Empreinte carbone du secteur santé,Pbh_4_SUB,Health Sector Footprint,Thematic Frames - Health,Carbon emissions from healthcare sector
+332,CADRAGE ÉCONOMIQUE,Eco_Detection,Economic Frame Detection,Thematic Frames - Economic,Presence of any economic dimension of climate change
+333,Impacts négatifs des CC sur l'économie,Eco_1_SUB,Negative Economic Impacts,Thematic Frames - Economic,Economic losses from climate change (e.g. floods infrastructure damage)
+334,Impacts positifs des CC sur l'économie,Eco_2_SUB,Positive Economic Impacts,Thematic Frames - Economic,Economic benefits from climate action (e.g. green jobs energy savings)
+335,Coûts économiques de l'action climatique,Eco_3_SUB,Costs of Climate Action,Thematic Frames - Economic,Economic costs of transitioning to low-carbon economy
+336,Bénéfices économiques de l'action climatique,Eco_4_SUB,Benefits of Climate Action,Thematic Frames - Economic,Economic opportunities from climate investments
+337,Empreinte carbone du secteur économique,Eco_5_SUB,Economic Sector Footprint,Thematic Frames - Economic,Carbon intensity of economic sectors
+338,CADRAGE SÉCURITÉ,Secu_Detection,Security Frame Detection,Thematic Frames - Security,Presence of any security dimension
+339,Aide militaire post-sinistre,Secu_1_SUB,Military Disaster Response,Thematic Frames - Security,Army called in for fires floods evacuations or relief
+340,Perturbation des opérations militaires à cause des CC,Secu_2_SUB,Military Base Disruption,Thematic Frames - Security,Climate threats to military facilities or readiness
+341,Présence de réfugiés climatiques,Secu_3_SUB,Climate-Driven Displacement,Thematic Frames - Security,Military management of evacuations or refugee camps
+342,Conflits à cause des CC,Secu_4_SUB,Resource Conflict,Thematic Frames - Security,Tensions or violence over water land or minerals worsened by climate change
+343,Empreinte carbone du secteur défense,Secu_5_SUB,Defense Sector Footprint,Thematic Frames - Security,Carbon emissions from defense and military sector
+344,CADRAGE JUSTICE,Just_Detection,Justice Frame Detection,Thematic Frames - Justice,Presence of any social justice angle
+345,Gagnants/perdants de l'action climatique,Just_1_SUB,Winners & Losers,Thematic Frames - Justice,Groups that benefit or suffer from climate measures (workers vulnerable populations)
+346,Responsabilité différenciée,Just_2_SUB,North-South Responsibility,Thematic Frames - Justice,Common-but-differentiated responsibilities between high and low-income countries
+347,Vulnérabilité différente face aux CC,Just_3_SUB,Unequal Impacts,Thematic Frames - Justice,Disproportionate climate impacts on vulnerable groups
+348,Accès inégal à l'action climatique,Just_4_SUB,Unequal Access,Thematic Frames - Justice,Differential access to resources adaptation or clean technology
+349,Justice intergénérationnelle,Just_5_SUB,Intergenerational Justice,Thematic Frames - Justice,Responsibilities to future generations
+350,CADRAGE CULTURE,Cult_Detection,Cultural Frame Detection,Thematic Frames - Cultural,Presence of any cultural aspect
+351,Représentation artistique des CC,Cult_1_SUB,Artistic Representation,Thematic Frames - Cultural,Books documentaries plays exhibitions portraying climate themes
+352,Difficulté à tenir un évènement culture/sport à cause des CC,Cult_2_SUB,Event Disruption,Thematic Frames - Cultural,Sports or cultural events threatened or cancelled due to climate conditions
+353,Perte de pratiques autochtones à cause des CC,Cult_3_SUB,Loss of Indigenous Practices,Thematic Frames - Cultural,Erosion of traditional hunting fishing or cultural rituals linked to climate
+354,Empreinte carbone du secteur culture/sport,Cult_4_SUB,Cultural Sector Footprint,Thematic Frames - Cultural,Emissions from film production fashion large festivals etc.
+355,CADRAGE ENVIRONNEMENT,Envt_Detection,Environmental Frame Detection,Thematic Frames - Environmental,Presence of any biodiversity concern
+356,Disparition de milieux naturels,Envt_1_SUB,Habitat Loss,Thematic Frames - Environmental,Glacier melt coral bleaching forest die-off wetland drying
+357,Disparition de faune et flore,Envt_2_SUB,Species Loss,Thematic Frames - Environmental,Local or global extinction risk for animals or plants
+358,CADRAGE SCIENTIFIQUE,Sci_Detection,Scientific Frame Detection,Thematic Frames - Scientific,Presence of any scientific aspect
+359,Débat scientifique,Sci_1_SUB,Scientific Controversy,Thematic Frames - Scientific,Debates on climate change reality causes thresholds geoengineering ethics
+360,"Vulgarisation, découverte ou innovation scientifique",Sci_2_SUB,Discovery & Innovation,Thematic Frames - Scientific,New findings on climate impacts or emerging technologies (e.g. carbon capture)
+361,Remise en question de la science du climat,Sci_3_SUB,Scientific Uncertainty,Thematic Frames - Scientific,Expressions of doubt or uncertainty about climate science
+362,CADRAGE POLITIQUE,Pol_Detection,Political Frame Detection,Thematic Frames - Political,Presence of any policy measure or political discussion
+363,Mise en place d'une politique,Pol_1_SUB,Policy Measures,Thematic Frames - Political,Concrete climate laws regulations or programmes under debate or in force
+364,Débat politique sur les CC,Pol_2_SUB,Political Debate,Thematic Frames - Political,Parliamentary disputes party platforms
+365,Positionnement politique sur les CC,Pol_3_SUB,Political Positioning,Thematic Frames - Political,Strategic positioning or partisan signalling around climate
+366,Données d'opinion publique sur les CC,Pol_4_SUB,Public Opinion,Thematic Frames - Political,Polls or surveys on climate and energy
+367,Manifestation,Event_8_SUB,Protest,Events,Demonstrations or strikes (e.g. climate strike anti-pipeline protest)
+368,Défense de la science du climat,Sci_4_SUB,Scientific Certainty,Thematic Frames - Scientific,Strong consensus statements about climate science

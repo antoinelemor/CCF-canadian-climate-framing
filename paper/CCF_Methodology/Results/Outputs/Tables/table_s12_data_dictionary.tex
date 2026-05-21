@@ -1,0 +1,102 @@
+\setlength{\tabcolsep}{4pt}
+% No \caption inside the longtable: see generate_table_s11 for the
+% rationale (longtable's caption builder reads \hsize at construction
+% time, when it equals the cell width rather than the page width). The
+% "Supplementary Table S12." title is injected above the landscape
+% block by CCF_Methodology_SI.tex; \refstepcounter
+% advances the table counter so that \ref{tab:data_dictionary} prints
+% the right number.
+\refstepcounter{table}
+\label{tab:data_dictionary}
+\begin{longtable}{p{3.6cm}p{2.4cm}p{16.5cm}}
+\toprule
+\textbf{Column} & \textbf{Type} & \textbf{Definition} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{c}{\textit{Supplementary Table~S12 -- Continued from previous page}} \\
+\toprule
+\textbf{Column} & \textbf{Type} & \textbf{Definition} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+\multicolumn{3}{l}{\cellcolor{gray!12}\textbf{Table CCF\_full\_data} \emph{(article-level metadata, 266{,}271 rows)}} \\
+\midrule
+\texttt{doc\_id}           & BIGINT (PK)   & Unique article identifier. \\
+\texttt{news\_type}        & TEXT          & Editorial category (news, opinion, editorial, etc.). \\
+\texttt{title}             & TEXT          & Article headline. \\
+\texttt{author}            & TEXT          & Author byline when available. \\
+\texttt{media}             & TEXT          & Newspaper name. \\
+\texttt{words\_count}      & BIGINT        & Total word count of the article. \\
+\texttt{date}              & DATE          & Publication date. \\
+\texttt{language}          & TEXT          & ``EN'' or ``FR''. \\
+\texttt{page\_number}      & TEXT          & Print page (free text, e.g.~``A1'' or ``B3''). \\
+\midrule
+
+\multicolumn{3}{l}{\cellcolor{gray!12}\textbf{Table CCF\_processed\_data} \emph{(sentence-level annotations, 9{,}198{,}958 rows)}} \\
+\midrule
+\texttt{doc\_id}             & BIGINT       & Foreign key to CCF\_full\_data. \\
+\texttt{sentence\_id}        & BIGINT       & Sentence position within the article (starting at 1; 0 reserved for title in the embeddings table). \\
+\multicolumn{3}{l}{\textit{Ten article-level metadata columns are duplicated here for query convenience (news\_type, title, author, media, words\_count, date, language, page\_number).}} \\
+\midrule
+\textbf{65 annotation columns} & INTEGER (0/1, nullable) & One binary flag per category from Supplementary Table~S3. Sub-categories are NULL when their parent primary detection is negative. \\
+\texttt{ner\_entities}       & TEXT (JSON)  & Per-sentence NER output as \texttt{\{"PER": [..], "ORG": [..], "LOC": [..]\}}. \\
+\midrule
+
+\multicolumn{3}{l}{\cellcolor{gray!12}\textbf{Table CCF\_article\_aggregates} \emph{(article-level rollup, 266{,}271 rows)}} \\
+\midrule
+\texttt{doc\_id}                  & BIGINT (PK)   & Foreign key to CCF\_full\_data. \\
+\texttt{n\_sentences}             & INTEGER       & Total number of two-sentence analytical units in the article. \\
+\texttt{n\_sentences\_en}         & INTEGER       & Subset in English. \\
+\texttt{n\_sentences\_fr}         & INTEGER       & Subset in French. \\
+\textbf{65 \texttt{prop\_X} columns} & DOUBLE PRECISION ($[0, 1]$) & Article-level proportion of sentences positive for category $X$ (sum / n\_sentences, with NULL sub-categories coalesced to 0). \\
+\texttt{dominant\_frame}          & TEXT          & Thematic frame with the highest \texttt{prop\_X}, or NULL for articles with no positive frame. \\
+\texttt{dominant\_frame\_prop}    & DOUBLE PRECISION & Proportion of the dominant frame. \\
+\texttt{entropy\_frames}          & DOUBLE PRECISION & Shannon entropy (natural base) of the eight thematic-frame proportions; 0 when the article has no positive frame. \\
+\texttt{n\_unique\_messenger\_subs} & SMALLINT     & Number of distinct messenger sub-categories present in the article (0--9). \\
+\texttt{n\_unique\_event\_subs}    & SMALLINT      & Same for event sub-categories (0--8). \\
+\texttt{n\_unique\_solution\_subs} & SMALLINT      & Same for solution sub-categories (0--2). \\
+\midrule
+
+\multicolumn{3}{l}{\cellcolor{gray!12}\textbf{Table CCF\_article\_entities} \emph{(NER rollup, 266{,}271 rows)}} \\
+\midrule
+\texttt{doc\_id}                & BIGINT (PK)   & Foreign key to CCF\_full\_data. \\
+\texttt{entities\_per}          & JSONB         & Deduplicated array of persons mentioned in the article. \\
+\texttt{entities\_org}          & JSONB         & Deduplicated array of organisations. \\
+\texttt{entities\_loc}          & JSONB         & Deduplicated array of locations. \\
+\texttt{n\_unique\_per}         & INTEGER       & Cardinality of \texttt{entities\_per}. \\
+\texttt{n\_unique\_org}         & INTEGER       & Cardinality of \texttt{entities\_org}. \\
+\texttt{n\_unique\_loc}         & INTEGER       & Cardinality of \texttt{entities\_loc}. \\
+\texttt{n\_sentences\_with\_per} & INTEGER      & Number of sentences with at least one PER entity. \\
+\texttt{n\_sentences\_with\_org} & INTEGER      & Same for ORG. \\
+\texttt{n\_sentences\_with\_loc} & INTEGER      & Same for LOC. \\
+\midrule
+
+\multicolumn{3}{l}{\cellcolor{gray!12}\textbf{Table CCF\_reliability\_tiers} \emph{(per-category quality lookup, 65 rows)}} \\
+\midrule
+\texttt{number}                       & SMALLINT (PK)     & Table B1 number (1--65). \\
+\texttt{category}                     & TEXT              & Readable category name. \\
+\texttt{code}                         & TEXT (UNIQUE)     & Column code as used in CCF\_processed\_data. \\
+\texttt{tier\_overall}                & CHAR(1)           & Tier on the combined corpus: ``A'', ``B'', or ``C''. \\
+\texttt{tier\_en}                     & CHAR(1)           & Tier on the English subset. \\
+\texttt{tier\_fr}                     & CHAR(1)           & Tier on the French subset. \\
+\texttt{paradox\_kappa}               & BOOLEAN           & True if the category exhibits prevalence-induced reliability deflation, i.e.\ $F_1 \geq 0.70$ and $\kappa < 0.40$. The column name is kept for backwards compatibility with the original schema. \\
+\texttt{exclusion\_reason}            & TEXT              & ``insufficient\_training\_data'' for the two categories that could not be trained, NULL otherwise. \\
+\texttt{f1\_macro\_all}, \texttt{f1\_macro\_en}, \texttt{f1\_macro\_fr} & DOUBLE PRECISION & Validation macro $F_1$ score on the gold standard. \\
+\texttt{support\_all}, \texttt{support\_en}, \texttt{support\_fr}      & INTEGER          & Number of positive (class 1) validation examples. \\
+\texttt{cohens\_kappa\_blind\_phase}, \texttt{gwet\_ac1\_blind\_phase}, \texttt{krippendorff\_alpha\_blind\_phase} & DOUBLE PRECISION & Inter-coder agreement on the blind phase (sentences 601--1000). \\
+\texttt{n\_blind\_phase}              & INTEGER           & Sentence count of the blind phase. \\
+\texttt{prev\_coder1\_full}, \texttt{prev\_coder2\_full} & DOUBLE PRECISION & Prevalence (proportion of positives) per coder on the full 1{,}000-sentence sample. \\
+\midrule
+
+\multicolumn{3}{l}{\cellcolor{gray!12}\textbf{Table CCF\_sentence\_embeddings} \emph{(BGE-M3 dense vectors, 9{,}462{,}845 rows)}} \\
+\midrule
+\texttt{doc\_id}     & BIGINT (PK, with \texttt{sentence\_id}) & Foreign key to CCF\_full\_data. \\
+\texttt{sentence\_id} & INTEGER (PK)   & Sentence position within the article. \texttt{sentence\_id} = 0 is reserved for the article title. \\
+\texttt{embedding}   & \texttt{halfvec(1024)} & L2-normalised BGE-M3 vector. \texttt{pgvector} cosine distance via \texttt{<=>}; HNSW index on cosine ops. \\
+
+\end{longtable}

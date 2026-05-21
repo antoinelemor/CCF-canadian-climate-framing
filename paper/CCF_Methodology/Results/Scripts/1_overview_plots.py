@@ -358,12 +358,14 @@ def plot_articles_by_media(media_counts: Counter[str], outpath: Path, total_sent
     labels = [m for m, _ in top][::-1]
     values = [n for _, n in top][::-1]
     
-    fig, ax = plt.subplots(figsize=(15, 9))
-    
-    # Create color gradient from dark to light blue
-    colors = plt.cm.Blues(np.linspace(0.4, 0.8, len(values)))
-    
-    bars = ax.barh(range(len(labels)), values, color=colors[::-1], edgecolor='#333333', linewidth=0.5)
+    fig, ax = plt.subplots(figsize=(12, 7))
+
+    # Solid midnight-blue bars (no gradient). All 20 bars share the
+    # same fill so the chart reads at a glance as a single ranked
+    # distribution rather than as an encoded ordering.
+    midnight_blue = '#1a2742'
+    bars = ax.barh(range(len(labels)), values, color=midnight_blue,
+                   edgecolor='#0d1424', linewidth=0.5)
     
     # Customize axes
     ax.set_yticks(range(len(labels)))
@@ -416,21 +418,22 @@ def plot_articles_by_year(year_counts: dict[int, int], outpath: Path, total_sent
     years = sorted(y for y in year_counts.keys() if y is not None)
     values = [year_counts[y] for y in years]
     
-    fig, ax = plt.subplots(figsize=(12, 6))
-    
-    # Plot line with markers
-    ax.plot(years, values, 
-            color='#1f77b4', 
-            linewidth=2.5, 
-            marker='o', 
-            markersize=6, 
-            markerfacecolor='white', 
-            markeredgecolor='#1f77b4', 
+    fig, ax = plt.subplots(figsize=(12, 7))
+
+    # Midnight-blue line with matching markers.
+    midnight_blue = '#1a2742'
+    ax.plot(years, values,
+            color=midnight_blue,
+            linewidth=2.5,
+            marker='o',
+            markersize=6,
+            markerfacecolor='white',
+            markeredgecolor=midnight_blue,
             markeredgewidth=2,
             label='Number of Articles')
-    
-    # Add shaded area under the line
-    ax.fill_between(years, values, alpha=0.2, color='#1f77b4')
+
+    # Light midnight-blue shaded area under the line.
+    ax.fill_between(years, values, alpha=0.18, color=midnight_blue)
     
     # Customize axes
     ax.set_xlabel('Year', fontweight='semibold', fontsize=12)
@@ -482,7 +485,7 @@ def plot_articles_by_year(year_counts: dict[int, int], outpath: Path, total_sent
     add_watermark_and_logo(ax, fig)
     
     plt.tight_layout()
-    plt.savefig(outpath, dpi=150, bbox_inches='tight')
+    plt.savefig(outpath, dpi=300, bbox_inches='tight')
     plt.close()
 
 
@@ -520,14 +523,20 @@ def plot_articles_by_province(province_counts: Counter[str], national_count: int
 
     print("  [Province Map] Creating figure...")
     fig, ax = plt.subplots(1, 1, figsize=(12, 8))
-    
-    # Plot the map
+
+    # Midnight-blue choropleth: a linear ramp from white to
+    # #1a2742 keeps the higher provincial article counts darkest
+    # and matches the colour scheme used by the bar and line
+    # charts above.
+    midnight_cmap = mpl.colors.LinearSegmentedColormap.from_list(
+        'midnight_blue', ['#ffffff', '#1a2742']
+    )
     provinces_gdf.plot(
         column='percentage',
-        cmap='Blues',
+        cmap=midnight_cmap,
         linewidth=0.5,
         ax=ax,
-        edgecolor='#333333',
+        edgecolor='#0d1424',
         legend=True,
         legend_kwds={
             'label': 'Percentage of Articles (%)',

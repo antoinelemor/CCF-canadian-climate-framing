@@ -1,0 +1,155 @@
+\refstepcounter{table}
+\label{tab:training_hyperparameters}
+\begin{longtable}{p{0.5cm}p{4.0cm}p{3.0cm}rrrrrrrr}
+\toprule
+\textbf{\#} & \textbf{Category} & \textbf{Code} & \multicolumn{4}{c}{\textbf{English (BERT)}} & \multicolumn{4}{c}{\textbf{French (CamemBERT)}} \\
+\cmidrule(lr){4-7} \cmidrule(lr){8-11}
+& & & \textbf{Epoch} & \textbf{Training phase} & \textbf{$F_1$} & \textbf{$n^{+}$} & \textbf{Epoch} & \textbf{Training phase} & \textbf{$F_1$} & \textbf{$n^{+}$} \\
+\midrule
+\endfirsthead
+\multicolumn{11}{c}{\textit{Supplementary Table~S11 -- Continued from previous page}} \\
+\toprule
+\textbf{\#} & \textbf{Category} & \textbf{Code} & \multicolumn{4}{c}{\textbf{English (BERT)}} & \multicolumn{4}{c}{\textbf{French (CamemBERT)}} \\
+\cmidrule(lr){4-7} \cmidrule(lr){8-11}
+& & & \textbf{Epoch} & \textbf{Training phase} & \textbf{$F_1$} & \textbf{$n^{+}$} & \textbf{Epoch} & \textbf{Training phase} & \textbf{$F_1$} & \textbf{$n^{+}$} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{11}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\multicolumn{11}{l}{\cellcolor{gray!10}\textbf{THEMATIC FRAMES}} \\
+\midrule
+\rowcolor{gray!8}
+\multicolumn{11}{l}{\textit{Economic Frame}} \\
+\midrule
+1 & \textbf{Economic Frame\newline (Primary Category)} & \texttt{economic\_frame} & 4 & r & 0.845 & 24 & 13 & n & 0.885 & 28 \\
+\cmidrule(lr){1-11}
+2 & Negative impacts of climate change on the economy & \texttt{eco\_neg\_impact} & 12 & n & 0.821 & 6 & 3 & n & 0.917 & 8 \\
+3 & Positive impacts of climate change on the economy & \texttt{eco\_pos\_impact} & 6 & n & 0.664 & 5 & 4 & r & 0.698 & 3 \\
+4 & Economic disadvantages of climate action & \texttt{eco\_cost} & 5 & n & 0.732 & 6 & 1 & r & 0.707 & 4 \\
+5 & Economic benefits of climate action & \texttt{eco\_benefit} & 9 & n & 0.726 & 3 & 17 & n & 0.749 & 16 \\
+6 & Carbon footprint of the economic sector & \texttt{eco\_footprint} & 8 & n & 0.897 & 7 & 16 & n & 0.904 & 8 \\
+\midrule
+\rowcolor{gray!8}
+\multicolumn{11}{l}{\textit{Health Frame}} \\
+\midrule
+7 & \textbf{Health Frame\newline (Primary Category)} & \texttt{health\_frame} & 9 & n & 0.894 & 6 & 6 & n & 0.830 & 4 \\
+\cmidrule(lr){1-11}
+8 & Negative impacts of climate change on health & \texttt{health\_neg\_impact} & 1 & n & 0.455 & 5 & 1 & n & 0.429 & 3 \\
+9 & Health co-benefits of climate action & \texttt{health\_cobenefit} & 17 & r & 0.486 & 1 & 2 & r & 0.119 & 2 \\
+\midrule
+\rowcolor{gray!8}
+\multicolumn{11}{l}{\textit{Security Frame}} \\
+\midrule
+10 & \textbf{Security Frame\newline (Primary Category)} & \texttt{security\_frame} & 9 & n & 0.933 & 12 & 11 & n & 0.898 & 2 \\
+\cmidrule(lr){1-11}
+11 & Presence of climate refugees & \texttt{security\_refugees} & 2 & n & 1.000 & 1 & 9 & r & 1.000 & 1 \\
+12 & Conflict & \texttt{security\_conflict} & 1 & n & 1.000 & 1 & 14 & r & 1.000 & 1 \\
+13 & Post-disaster military assistance & \texttt{security\_military} & -- & -- & -- & -- & 3 & r & 0.026 & 2 \\
+14 & Disruption of military operations & \texttt{security\_disruption} & -- & -- & -- & -- & 18 & n & 1.000 & 1 \\
+\midrule
+\rowcolor{gray!8}
+\multicolumn{11}{l}{\textit{Justice Frame}} \\
+\midrule
+15 & \textbf{Justice Frame\newline (Primary Category)} & \texttt{justice\_frame} & 5 & n & 0.847 & 32 & 10 & n & 0.849 & 30 \\
+\cmidrule(lr){1-11}
+16 & Winners and losers of climate action & \texttt{justice\_winners} & 13 & n & 0.800 & 2 & 14 & n & 0.795 & 2 \\
+17 & Differentiated responsibility & \texttt{justice\_responsibility} & 4 & n & 0.883 & 4 & 3 & n & 0.750 & 4 \\
+18 & Unequal vulnerability to climate change & \texttt{justice\_vulnerability} & 19 & r & 0.782 & 6 & 13 & n & 0.798 & 5 \\
+19 & Unequal access to climate action & \texttt{justice\_access} & 13 & r & 0.182 & 2 & 4 & r & 0.809 & 9 \\
+20 & Intergenerational justice & \texttt{justice\_intergen} & 9 & n & 0.966 & 7 & 11 & n & 0.899 & 3 \\
+\midrule
+\rowcolor{gray!8}
+\multicolumn{11}{l}{\textit{Political Frame}} \\
+\midrule
+21 & \textbf{Political Frame\newline (Primary Category)} & \texttt{political\_frame} & 3 & n & 0.853 & 46 & 5 & n & 0.831 & 133 \\
+\cmidrule(lr){1-11}
+22 & Policy action & \texttt{pol\_action} & 2 & n & 0.803 & 17 & 4 & n & 0.816 & 6 \\
+23 & Political debate & \texttt{pol\_debate} & 7 & n & 0.569 & 38 & 4 & n & 0.768 & 43 \\
+24 & Political positioning & \texttt{pol\_position} & 5 & n & 0.848 & 6 & 4 & n & 0.895 & 3 \\
+25 & Public opinion data & \texttt{pol\_opinion} & 4 & n & 0.954 & 6 & 12 & n & 1.000 & 2 \\
+\midrule
+\rowcolor{gray!8}
+\multicolumn{11}{l}{\textit{Scientific Frame}} \\
+\midrule
+26 & \textbf{Scientific Frame\newline (Primary Category)} & \texttt{scientific\_frame} & 3 & n & 0.869 & 27 & 5 & n & 0.832 & 56 \\
+\cmidrule(lr){1-11}
+27 & Scientific debate & \texttt{sci\_debate} & 5 & n & 0.793 & 10 & 7 & n & 0.688 & 5 \\
+28 & Popularisation or scientific discovery & \texttt{sci\_discovery} & 3 & n & 0.814 & 14 & 6 & n & 0.844 & 16 \\
+29 & Questioning of climate science & \texttt{sci\_skepticism} & 3 & r & 0.827 & 5 & 5 & r & 0.664 & 4 \\
+30 & Defense of climate science & \texttt{sci\_defense} & 6 & n & 0.752 & 4 & 1 & n & 0.459 & 3 \\
+\midrule
+\rowcolor{gray!8}
+\multicolumn{11}{l}{\textit{Environmental Frame}} \\
+\midrule
+31 & \textbf{Environmental Frame\newline (Primary Category)} & \texttt{environmental\_frame} & 7 & n & 0.915 & 9 & 13 & r & 0.802 & 6 \\
+\cmidrule(lr){1-11}
+32 & Loss of natural environments & \texttt{env\_habitat} & 7 & n & 1.000 & 5 & 5 & n & 0.829 & 3 \\
+33 & Loss of fauna and flora & \texttt{env\_species} & 5 & n & 0.873 & 4 & 3 & n & 0.829 & 3 \\
+\midrule
+\rowcolor{gray!8}
+\multicolumn{11}{l}{\textit{Cultural Frame}} \\
+\midrule
+34 & \textbf{Cultural Frame\newline (Primary Category)} & \texttt{cultural\_frame} & 7 & n & 0.879 & 24 & 13 & r & 0.913 & 5 \\
+\cmidrule(lr){1-11}
+35 & Artistic representation & \texttt{cult\_art} & 2 & n & 1.000 & 2 & 7 & n & 1.000 & 2 \\
+36 & Difficulty to host cultural or sports events & \texttt{cult\_event\_impact} & 18 & n & 0.850 & 7 & 4 & n & 1.000 & 2 \\
+37 & Loss of indigenous practices & \texttt{cult\_indigenous} & 6 & n & 1.000 & 1 & 3 & r & 0.462 & 2 \\
+38 & Carbon footprint of the cultural and sports sectors & \texttt{cult\_footprint} & 7 & n & 1.000 & 1 & 3 & r & 0.074 & 1 \\
+\midrule
+\multicolumn{11}{l}{\cellcolor{gray!10}\textbf{PRIMARY CATEGORIES}} \\
+\midrule
+\rowcolor{gray!8}
+\multicolumn{11}{l}{\textit{Actors/Messengers}} \\
+\midrule
+39 & \textbf{Presence of Messengers\newline (Primary Category)} & \texttt{messenger} & 11 & n & 0.908 & 72 & 6 & n & 0.922 & 227 \\
+\cmidrule(lr){1-11}
+40 & Health expert & \texttt{msg\_health} & 9 & r & 0.927 & 6 & 8 & n & 0.954 & 6 \\
+41 & Economic expert & \texttt{msg\_economic} & 4 & n & 0.785 & 6 & 3 & r & 0.861 & 7 \\
+42 & Security expert & \texttt{msg\_security} & 8 & n & 0.830 & 2 & 9 & n & 1.000 & 1 \\
+43 & Legal expert & \texttt{msg\_legal} & 4 & n & 0.833 & 2 & 11 & n & 0.883 & 6 \\
+44 & Cultural or Sport expert & \texttt{msg\_cultural} & 3 & n & 1.000 & 1 & 3 & r & 0.773 & 9 \\
+45 & Natural scientist & \texttt{msg\_scientist} & 8 & n & 0.883 & 37 & 8 & n & 0.902 & 12 \\
+46 & Social scientist & \texttt{msg\_social} & 7 & n & 0.883 & 7 & 16 & r & 0.816 & 12 \\
+47 & Activist & \texttt{msg\_activist} & 5 & n & 0.775 & 5 & 5 & n & 1.000 & 6 \\
+48 & Public official & \texttt{msg\_official} & 4 & n & 0.800 & 18 & 10 & n & 0.943 & 24 \\
+\midrule
+\rowcolor{gray!8}
+\multicolumn{11}{l}{\textit{Events}} \\
+\midrule
+49 & \textbf{Presence of Events\newline (Primary Category)} & \texttt{event} & 11 & n & 0.865 & 33 & 10 & n & 0.876 & 113 \\
+\cmidrule(lr){1-11}
+50 & Extreme meteorological event & \texttt{evt\_weather} & 3 & n & 1.000 & 8 & 7 & n & 0.912 & 6 \\
+51 & Meeting & \texttt{evt\_meeting} & 8 & n & 0.880 & 8 & 3 & n & 0.969 & 11 \\
+52 & Publication & \texttt{evt\_publication} & 4 & n & 0.931 & 25 & 7 & n & 1.000 & 12 \\
+53 & Election & \texttt{evt\_election} & 4 & n & 1.000 & 1 & 10 & r & 0.899 & 5 \\
+54 & New policy & \texttt{evt\_policy} & 7 & n & 0.856 & 6 & 8 & n & 0.841 & 6 \\
+55 & Judiciary decision & \texttt{evt\_judiciary} & 7 & n & 1.000 & 1 & 9 & n & 1.000 & 1 \\
+56 & Cultural or Sports event & \texttt{evt\_cultural} & 4 & n & 0.664 & 5 & 7 & n & 1.000 & 1 \\
+57 & Protest & \texttt{evt\_protest} & 4 & n & 0.944 & 5 & 5 & n & 0.862 & 6 \\
+\midrule
+\rowcolor{gray!8}
+\multicolumn{11}{l}{\textit{Solutions}} \\
+\midrule
+58 & \textbf{Presence of Solutions\newline (Primary Category)} & \texttt{solution} & 6 & n & 0.825 & 90 & 4 & n & 0.911 & 46 \\
+\cmidrule(lr){1-11}
+59 & Mitigation strategy & \texttt{sol\_mitigation} & 16 & n & 0.842 & 79 & 7 & n & 0.877 & 105 \\
+60 & Adaptation strategy & \texttt{sol\_adaptation} & 9 & n & 0.843 & 15 & 10 & n & 0.894 & 21 \\
+\midrule
+\multicolumn{11}{l}{\cellcolor{gray!10}\textbf{EMOTIONAL TONE}} \\
+\midrule
+61 & Emotion: positive & \texttt{tone\_positive} & 8 & n & 0.746 & 11 & 6 & n & 0.829 & 16 \\
+62 & Emotion: negative & \texttt{tone\_negative} & 2 & n & 0.745 & 152 & 16 & n & 0.804 & 158 \\
+63 & Emotion: neutral & \texttt{tone\_neutral} & 4 & n & 0.709 & 205 & 4 & n & 0.741 & 80 \\
+\midrule
+\multicolumn{11}{l}{\cellcolor{gray!10}\textbf{GEOGRAPHIC FOCUS}} \\
+\midrule
+64 & Mention of Canada & \texttt{canada} & 7 & n & 0.955 & 136 & 12 & n & 0.972 & 54 \\
+\midrule
+\multicolumn{11}{l}{\cellcolor{gray!10}\textbf{URGENCY TO ACT}} \\
+\midrule
+65 & Urgency to act & \texttt{urgency} & 10 & r & 0.783 & 20 & 7 & n & 0.816 & 19 \\
+\multicolumn{11}{p{12cm}}{\cellcolor{gray!20}\textbf{Summary:} 128 trained models. Reinforcement triggered for 45 models; best epoch retained from the reinforced phase for 23 models. Static training configuration (optimiser, learning rate, batch size, random seed, hardware) is reported in the Methods section.} \\
+\end{longtable}

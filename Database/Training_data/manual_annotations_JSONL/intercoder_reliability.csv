@@ -1,0 +1,1083 @@
+section,category,metric,value,notes
+OVERALL_RELIABILITY,ALL,Sample Size,501,Common sentences between coders
+OVERALL_RELIABILITY,ALL,Percent Agreement,0.8829,Simple proportion of agreement
+OVERALL_RELIABILITY,ALL,Cohen's Kappa,0.3106,Chance-corrected agreement
+OVERALL_RELIABILITY,ALL,Scott's Pi,0.2481,Alternative chance correction
+OVERALL_RELIABILITY,ALL,Gwet's AC1,0.7658,Robust to prevalence
+OVERALL_RELIABILITY,ALL,Krippendorff's Alpha,nan,Handles missing data
+OVERALL_RELIABILITY,ALL,F1 Agreement,0.3218,Symmetric F1 score
+PER_LABEL_RELIABILITY,Cult_1_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Cult_1_SUB,Coder 1 Prevalence,0.0240,
+PER_LABEL_RELIABILITY,Cult_1_SUB,Coder 2 Prevalence,0.0140,
+PER_LABEL_RELIABILITY,Cult_1_SUB,Percent Agreement,0.9820,
+PER_LABEL_RELIABILITY,Cult_1_SUB,Cohen's Kappa,0.5178,
+PER_LABEL_RELIABILITY,Cult_1_SUB,Gwet's AC1,0.9641,
+PER_LABEL_RELIABILITY,Cult_2_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Cult_2_SUB,Coder 1 Prevalence,0.0140,
+PER_LABEL_RELIABILITY,Cult_2_SUB,Coder 2 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,Cult_2_SUB,Percent Agreement,0.9860,
+PER_LABEL_RELIABILITY,Cult_2_SUB,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,Cult_2_SUB,Gwet's AC1,0.9721,
+PER_LABEL_RELIABILITY,Cult_3_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Cult_3_SUB,Coder 1 Prevalence,0.0100,
+PER_LABEL_RELIABILITY,Cult_3_SUB,Coder 2 Prevalence,0.0020,
+PER_LABEL_RELIABILITY,Cult_3_SUB,Percent Agreement,0.9920,
+PER_LABEL_RELIABILITY,Cult_3_SUB,Cohen's Kappa,0.3311,
+PER_LABEL_RELIABILITY,Cult_3_SUB,Gwet's AC1,0.9840,
+PER_LABEL_RELIABILITY,Cult_4_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Cult_4_SUB,Coder 1 Prevalence,0.0060,
+PER_LABEL_RELIABILITY,Cult_4_SUB,Coder 2 Prevalence,0.0020,
+PER_LABEL_RELIABILITY,Cult_4_SUB,Percent Agreement,0.9960,
+PER_LABEL_RELIABILITY,Cult_4_SUB,Cohen's Kappa,0.4985,
+PER_LABEL_RELIABILITY,Cult_4_SUB,Gwet's AC1,0.9920,
+PER_LABEL_RELIABILITY,Cult_Detection,Sample Size,501,
+PER_LABEL_RELIABILITY,Cult_Detection,Coder 1 Prevalence,0.0559,
+PER_LABEL_RELIABILITY,Cult_Detection,Coder 2 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,Cult_Detection,Percent Agreement,0.9441,
+PER_LABEL_RELIABILITY,Cult_Detection,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,Cult_Detection,Gwet's AC1,0.8882,
+PER_LABEL_RELIABILITY,Eco_1_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Eco_1_SUB,Coder 1 Prevalence,0.0619,
+PER_LABEL_RELIABILITY,Eco_1_SUB,Coder 2 Prevalence,0.0479,
+PER_LABEL_RELIABILITY,Eco_1_SUB,Percent Agreement,0.9780,
+PER_LABEL_RELIABILITY,Eco_1_SUB,Cohen's Kappa,0.7886,
+PER_LABEL_RELIABILITY,Eco_1_SUB,Gwet's AC1,0.9561,
+PER_LABEL_RELIABILITY,Eco_2_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Eco_2_SUB,Coder 1 Prevalence,0.0140,
+PER_LABEL_RELIABILITY,Eco_2_SUB,Coder 2 Prevalence,0.0140,
+PER_LABEL_RELIABILITY,Eco_2_SUB,Percent Agreement,1.0000,
+PER_LABEL_RELIABILITY,Eco_2_SUB,Cohen's Kappa,1.0000,
+PER_LABEL_RELIABILITY,Eco_2_SUB,Gwet's AC1,1.0000,
+PER_LABEL_RELIABILITY,Eco_3_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Eco_3_SUB,Coder 1 Prevalence,0.0419,
+PER_LABEL_RELIABILITY,Eco_3_SUB,Coder 2 Prevalence,0.0200,
+PER_LABEL_RELIABILITY,Eco_3_SUB,Percent Agreement,0.9621,
+PER_LABEL_RELIABILITY,Eco_3_SUB,Cohen's Kappa,0.3701,
+PER_LABEL_RELIABILITY,Eco_3_SUB,Gwet's AC1,0.9242,
+PER_LABEL_RELIABILITY,Eco_4_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Eco_4_SUB,Coder 1 Prevalence,0.0559,
+PER_LABEL_RELIABILITY,Eco_4_SUB,Coder 2 Prevalence,0.0259,
+PER_LABEL_RELIABILITY,Eco_4_SUB,Percent Agreement,0.9621,
+PER_LABEL_RELIABILITY,Eco_4_SUB,Cohen's Kappa,0.5196,
+PER_LABEL_RELIABILITY,Eco_4_SUB,Gwet's AC1,0.9242,
+PER_LABEL_RELIABILITY,Eco_5_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Eco_5_SUB,Coder 1 Prevalence,0.0898,
+PER_LABEL_RELIABILITY,Eco_5_SUB,Coder 2 Prevalence,0.0299,
+PER_LABEL_RELIABILITY,Eco_5_SUB,Percent Agreement,0.9082,
+PER_LABEL_RELIABILITY,Eco_5_SUB,Cohen's Kappa,0.1973,
+PER_LABEL_RELIABILITY,Eco_5_SUB,Gwet's AC1,0.8164,
+PER_LABEL_RELIABILITY,Eco_Detection,Sample Size,501,
+PER_LABEL_RELIABILITY,Eco_Detection,Coder 1 Prevalence,0.2315,
+PER_LABEL_RELIABILITY,Eco_Detection,Coder 2 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,Eco_Detection,Percent Agreement,0.7685,
+PER_LABEL_RELIABILITY,Eco_Detection,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,Eco_Detection,Gwet's AC1,0.5369,
+PER_LABEL_RELIABILITY,Emotion:_Negative,Sample Size,501,
+PER_LABEL_RELIABILITY,Emotion:_Negative,Coder 1 Prevalence,0.2794,
+PER_LABEL_RELIABILITY,Emotion:_Negative,Coder 2 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,Emotion:_Negative,Percent Agreement,0.7206,
+PER_LABEL_RELIABILITY,Emotion:_Negative,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,Emotion:_Negative,Gwet's AC1,0.4411,
+PER_LABEL_RELIABILITY,Emotion:_Neutral,Sample Size,501,
+PER_LABEL_RELIABILITY,Emotion:_Neutral,Coder 1 Prevalence,0.6347,
+PER_LABEL_RELIABILITY,Emotion:_Neutral,Coder 2 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,Emotion:_Neutral,Percent Agreement,0.3653,
+PER_LABEL_RELIABILITY,Emotion:_Neutral,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,Emotion:_Neutral,Gwet's AC1,-0.2695,
+PER_LABEL_RELIABILITY,Emotion:_Positive,Sample Size,501,
+PER_LABEL_RELIABILITY,Emotion:_Positive,Coder 1 Prevalence,0.0818,
+PER_LABEL_RELIABILITY,Emotion:_Positive,Coder 2 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,Emotion:_Positive,Percent Agreement,0.9182,
+PER_LABEL_RELIABILITY,Emotion:_Positive,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,Emotion:_Positive,Gwet's AC1,0.8363,
+PER_LABEL_RELIABILITY,Envt_1_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Envt_1_SUB,Coder 1 Prevalence,0.0319,
+PER_LABEL_RELIABILITY,Envt_1_SUB,Coder 2 Prevalence,0.0100,
+PER_LABEL_RELIABILITY,Envt_1_SUB,Percent Agreement,0.9701,
+PER_LABEL_RELIABILITY,Envt_1_SUB,Cohen's Kappa,0.2747,
+PER_LABEL_RELIABILITY,Envt_1_SUB,Gwet's AC1,0.9401,
+PER_LABEL_RELIABILITY,Envt_2_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Envt_2_SUB,Coder 1 Prevalence,0.0379,
+PER_LABEL_RELIABILITY,Envt_2_SUB,Coder 2 Prevalence,0.0240,
+PER_LABEL_RELIABILITY,Envt_2_SUB,Percent Agreement,0.9621,
+PER_LABEL_RELIABILITY,Envt_2_SUB,Cohen's Kappa,0.3686,
+PER_LABEL_RELIABILITY,Envt_2_SUB,Gwet's AC1,0.9242,
+PER_LABEL_RELIABILITY,Envt_Detection,Sample Size,501,
+PER_LABEL_RELIABILITY,Envt_Detection,Coder 1 Prevalence,0.0439,
+PER_LABEL_RELIABILITY,Envt_Detection,Coder 2 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,Envt_Detection,Percent Agreement,0.9561,
+PER_LABEL_RELIABILITY,Envt_Detection,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,Envt_Detection,Gwet's AC1,0.9122,
+PER_LABEL_RELIABILITY,Event_1_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Event_1_SUB,Coder 1 Prevalence,0.0519,
+PER_LABEL_RELIABILITY,Event_1_SUB,Coder 2 Prevalence,0.0439,
+PER_LABEL_RELIABILITY,Event_1_SUB,Percent Agreement,0.9681,
+PER_LABEL_RELIABILITY,Event_1_SUB,Cohen's Kappa,0.6500,
+PER_LABEL_RELIABILITY,Event_1_SUB,Gwet's AC1,0.9361,
+PER_LABEL_RELIABILITY,Event_2_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Event_2_SUB,Coder 1 Prevalence,0.0938,
+PER_LABEL_RELIABILITY,Event_2_SUB,Coder 2 Prevalence,0.0559,
+PER_LABEL_RELIABILITY,Event_2_SUB,Percent Agreement,0.9461,
+PER_LABEL_RELIABILITY,Event_2_SUB,Cohen's Kappa,0.6129,
+PER_LABEL_RELIABILITY,Event_2_SUB,Gwet's AC1,0.8922,
+PER_LABEL_RELIABILITY,Event_3_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Event_3_SUB,Coder 1 Prevalence,0.0818,
+PER_LABEL_RELIABILITY,Event_3_SUB,Coder 2 Prevalence,0.1038,
+PER_LABEL_RELIABILITY,Event_3_SUB,Percent Agreement,0.9581,
+PER_LABEL_RELIABILITY,Event_3_SUB,Cohen's Kappa,0.7514,
+PER_LABEL_RELIABILITY,Event_3_SUB,Gwet's AC1,0.9162,
+PER_LABEL_RELIABILITY,Event_4_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Event_4_SUB,Coder 1 Prevalence,0.0579,
+PER_LABEL_RELIABILITY,Event_4_SUB,Coder 2 Prevalence,0.0459,
+PER_LABEL_RELIABILITY,Event_4_SUB,Percent Agreement,0.9760,
+PER_LABEL_RELIABILITY,Event_4_SUB,Cohen's Kappa,0.7568,
+PER_LABEL_RELIABILITY,Event_4_SUB,Gwet's AC1,0.9521,
+PER_LABEL_RELIABILITY,Event_5_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Event_5_SUB,Coder 1 Prevalence,0.0778,
+PER_LABEL_RELIABILITY,Event_5_SUB,Coder 2 Prevalence,0.0998,
+PER_LABEL_RELIABILITY,Event_5_SUB,Percent Agreement,0.9222,
+PER_LABEL_RELIABILITY,Event_5_SUB,Cohen's Kappa,0.5198,
+PER_LABEL_RELIABILITY,Event_5_SUB,Gwet's AC1,0.8443,
+PER_LABEL_RELIABILITY,Event_6_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Event_6_SUB,Coder 1 Prevalence,0.0279,
+PER_LABEL_RELIABILITY,Event_6_SUB,Coder 2 Prevalence,0.0259,
+PER_LABEL_RELIABILITY,Event_6_SUB,Percent Agreement,0.9900,
+PER_LABEL_RELIABILITY,Event_6_SUB,Cohen's Kappa,0.8097,
+PER_LABEL_RELIABILITY,Event_6_SUB,Gwet's AC1,0.9800,
+PER_LABEL_RELIABILITY,Event_7_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Event_7_SUB,Coder 1 Prevalence,0.0359,
+PER_LABEL_RELIABILITY,Event_7_SUB,Coder 2 Prevalence,0.0379,
+PER_LABEL_RELIABILITY,Event_7_SUB,Percent Agreement,0.9860,
+PER_LABEL_RELIABILITY,Event_7_SUB,Cohen's Kappa,0.8036,
+PER_LABEL_RELIABILITY,Event_7_SUB,Gwet's AC1,0.9721,
+PER_LABEL_RELIABILITY,Event_8_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Event_8_SUB,Coder 1 Prevalence,0.0299,
+PER_LABEL_RELIABILITY,Event_8_SUB,Coder 2 Prevalence,0.0279,
+PER_LABEL_RELIABILITY,Event_8_SUB,Percent Agreement,0.9860,
+PER_LABEL_RELIABILITY,Event_8_SUB,Cohen's Kappa,0.7514,
+PER_LABEL_RELIABILITY,Event_8_SUB,Gwet's AC1,0.9721,
+PER_LABEL_RELIABILITY,Event_Detection,Sample Size,501,
+PER_LABEL_RELIABILITY,Event_Detection,Coder 1 Prevalence,0.3992,
+PER_LABEL_RELIABILITY,Event_Detection,Coder 2 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,Event_Detection,Percent Agreement,0.6008,
+PER_LABEL_RELIABILITY,Event_Detection,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,Event_Detection,Gwet's AC1,0.2016,
+PER_LABEL_RELIABILITY,Just_1_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Just_1_SUB,Coder 1 Prevalence,0.0339,
+PER_LABEL_RELIABILITY,Just_1_SUB,Coder 2 Prevalence,0.0060,
+PER_LABEL_RELIABILITY,Just_1_SUB,Percent Agreement,0.9681,
+PER_LABEL_RELIABILITY,Just_1_SUB,Cohen's Kappa,0.1918,
+PER_LABEL_RELIABILITY,Just_1_SUB,Gwet's AC1,0.9361,
+PER_LABEL_RELIABILITY,Just_2_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Just_2_SUB,Coder 1 Prevalence,0.0499,
+PER_LABEL_RELIABILITY,Just_2_SUB,Coder 2 Prevalence,0.0200,
+PER_LABEL_RELIABILITY,Just_2_SUB,Percent Agreement,0.9701,
+PER_LABEL_RELIABILITY,Just_2_SUB,Cohen's Kappa,0.5588,
+PER_LABEL_RELIABILITY,Just_2_SUB,Gwet's AC1,0.9401,
+PER_LABEL_RELIABILITY,Just_3_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Just_3_SUB,Coder 1 Prevalence,0.0419,
+PER_LABEL_RELIABILITY,Just_3_SUB,Coder 2 Prevalence,0.0359,
+PER_LABEL_RELIABILITY,Just_3_SUB,Percent Agreement,0.9741,
+PER_LABEL_RELIABILITY,Just_3_SUB,Cohen's Kappa,0.6533,
+PER_LABEL_RELIABILITY,Just_3_SUB,Gwet's AC1,0.9481,
+PER_LABEL_RELIABILITY,Just_4_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Just_4_SUB,Coder 1 Prevalence,0.0579,
+PER_LABEL_RELIABILITY,Just_4_SUB,Coder 2 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,Just_4_SUB,Percent Agreement,0.9421,
+PER_LABEL_RELIABILITY,Just_4_SUB,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,Just_4_SUB,Gwet's AC1,0.8842,
+PER_LABEL_RELIABILITY,Just_5_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Just_5_SUB,Coder 1 Prevalence,0.0339,
+PER_LABEL_RELIABILITY,Just_5_SUB,Coder 2 Prevalence,0.0259,
+PER_LABEL_RELIABILITY,Just_5_SUB,Percent Agreement,0.9760,
+PER_LABEL_RELIABILITY,Just_5_SUB,Cohen's Kappa,0.5879,
+PER_LABEL_RELIABILITY,Just_5_SUB,Gwet's AC1,0.9521,
+PER_LABEL_RELIABILITY,Just_Detection,Sample Size,501,
+PER_LABEL_RELIABILITY,Just_Detection,Coder 1 Prevalence,0.1397,
+PER_LABEL_RELIABILITY,Just_Detection,Coder 2 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,Just_Detection,Percent Agreement,0.8603,
+PER_LABEL_RELIABILITY,Just_Detection,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,Just_Detection,Gwet's AC1,0.7206,
+PER_LABEL_RELIABILITY,Location_Detection,Sample Size,501,
+PER_LABEL_RELIABILITY,Location_Detection,Coder 1 Prevalence,0.5309,
+PER_LABEL_RELIABILITY,Location_Detection,Coder 2 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,Location_Detection,Percent Agreement,0.4691,
+PER_LABEL_RELIABILITY,Location_Detection,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,Location_Detection,Gwet's AC1,-0.0619,
+PER_LABEL_RELIABILITY,Messenger_1_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Messenger_1_SUB,Coder 1 Prevalence,0.0479,
+PER_LABEL_RELIABILITY,Messenger_1_SUB,Coder 2 Prevalence,0.0499,
+PER_LABEL_RELIABILITY,Messenger_1_SUB,Percent Agreement,0.9860,
+PER_LABEL_RELIABILITY,Messenger_1_SUB,Cohen's Kappa,0.8498,
+PER_LABEL_RELIABILITY,Messenger_1_SUB,Gwet's AC1,0.9721,
+PER_LABEL_RELIABILITY,Messenger_2_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Messenger_2_SUB,Coder 1 Prevalence,0.0539,
+PER_LABEL_RELIABILITY,Messenger_2_SUB,Coder 2 Prevalence,0.0739,
+PER_LABEL_RELIABILITY,Messenger_2_SUB,Percent Agreement,0.9641,
+PER_LABEL_RELIABILITY,Messenger_2_SUB,Cohen's Kappa,0.7001,
+PER_LABEL_RELIABILITY,Messenger_2_SUB,Gwet's AC1,0.9281,
+PER_LABEL_RELIABILITY,Messenger_3_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Messenger_3_SUB,Coder 1 Prevalence,0.0180,
+PER_LABEL_RELIABILITY,Messenger_3_SUB,Coder 2 Prevalence,0.0220,
+PER_LABEL_RELIABILITY,Messenger_3_SUB,Percent Agreement,0.9800,
+PER_LABEL_RELIABILITY,Messenger_3_SUB,Cohen's Kappa,0.4899,
+PER_LABEL_RELIABILITY,Messenger_3_SUB,Gwet's AC1,0.9601,
+PER_LABEL_RELIABILITY,Messenger_4_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Messenger_4_SUB,Coder 1 Prevalence,0.0259,
+PER_LABEL_RELIABILITY,Messenger_4_SUB,Coder 2 Prevalence,0.0220,
+PER_LABEL_RELIABILITY,Messenger_4_SUB,Percent Agreement,0.9800,
+PER_LABEL_RELIABILITY,Messenger_4_SUB,Cohen's Kappa,0.5732,
+PER_LABEL_RELIABILITY,Messenger_4_SUB,Gwet's AC1,0.9601,
+PER_LABEL_RELIABILITY,Messenger_5_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Messenger_5_SUB,Coder 1 Prevalence,0.0319,
+PER_LABEL_RELIABILITY,Messenger_5_SUB,Coder 2 Prevalence,0.0499,
+PER_LABEL_RELIABILITY,Messenger_5_SUB,Percent Agreement,0.9661,
+PER_LABEL_RELIABILITY,Messenger_5_SUB,Cohen's Kappa,0.5686,
+PER_LABEL_RELIABILITY,Messenger_5_SUB,Gwet's AC1,0.9321,
+PER_LABEL_RELIABILITY,Messenger_6_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Messenger_6_SUB,Coder 1 Prevalence,0.0878,
+PER_LABEL_RELIABILITY,Messenger_6_SUB,Coder 2 Prevalence,0.1178,
+PER_LABEL_RELIABILITY,Messenger_6_SUB,Percent Agreement,0.9142,
+PER_LABEL_RELIABILITY,Messenger_6_SUB,Cohen's Kappa,0.5358,
+PER_LABEL_RELIABILITY,Messenger_6_SUB,Gwet's AC1,0.8283,
+PER_LABEL_RELIABILITY,Messenger_7_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Messenger_7_SUB,Coder 1 Prevalence,0.0339,
+PER_LABEL_RELIABILITY,Messenger_7_SUB,Coder 2 Prevalence,0.0459,
+PER_LABEL_RELIABILITY,Messenger_7_SUB,Percent Agreement,0.9641,
+PER_LABEL_RELIABILITY,Messenger_7_SUB,Cohen's Kappa,0.5317,
+PER_LABEL_RELIABILITY,Messenger_7_SUB,Gwet's AC1,0.9281,
+PER_LABEL_RELIABILITY,Messenger_8_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Messenger_8_SUB,Coder 1 Prevalence,0.0778,
+PER_LABEL_RELIABILITY,Messenger_8_SUB,Coder 2 Prevalence,0.0898,
+PER_LABEL_RELIABILITY,Messenger_8_SUB,Percent Agreement,0.9481,
+PER_LABEL_RELIABILITY,Messenger_8_SUB,Cohen's Kappa,0.6623,
+PER_LABEL_RELIABILITY,Messenger_8_SUB,Gwet's AC1,0.8962,
+PER_LABEL_RELIABILITY,Messenger_9_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Messenger_9_SUB,Coder 1 Prevalence,0.2136,
+PER_LABEL_RELIABILITY,Messenger_9_SUB,Coder 2 Prevalence,0.2774,
+PER_LABEL_RELIABILITY,Messenger_9_SUB,Percent Agreement,0.8443,
+PER_LABEL_RELIABILITY,Messenger_9_SUB,Cohen's Kappa,0.5821,
+PER_LABEL_RELIABILITY,Messenger_9_SUB,Gwet's AC1,0.6886,
+PER_LABEL_RELIABILITY,Messenger_Detection,Sample Size,501,
+PER_LABEL_RELIABILITY,Messenger_Detection,Coder 1 Prevalence,0.6208,
+PER_LABEL_RELIABILITY,Messenger_Detection,Coder 2 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,Messenger_Detection,Percent Agreement,0.3792,
+PER_LABEL_RELIABILITY,Messenger_Detection,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,Messenger_Detection,Gwet's AC1,-0.2415,
+PER_LABEL_RELIABILITY,Pbh_1_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Pbh_1_SUB,Coder 1 Prevalence,0.0499,
+PER_LABEL_RELIABILITY,Pbh_1_SUB,Coder 2 Prevalence,0.0339,
+PER_LABEL_RELIABILITY,Pbh_1_SUB,Percent Agreement,0.9760,
+PER_LABEL_RELIABILITY,Pbh_1_SUB,Cohen's Kappa,0.7023,
+PER_LABEL_RELIABILITY,Pbh_1_SUB,Gwet's AC1,0.9521,
+PER_LABEL_RELIABILITY,Pbh_3_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Pbh_3_SUB,Coder 1 Prevalence,0.0140,
+PER_LABEL_RELIABILITY,Pbh_3_SUB,Coder 2 Prevalence,0.0040,
+PER_LABEL_RELIABILITY,Pbh_3_SUB,Percent Agreement,0.9900,
+PER_LABEL_RELIABILITY,Pbh_3_SUB,Cohen's Kappa,0.4410,
+PER_LABEL_RELIABILITY,Pbh_3_SUB,Gwet's AC1,0.9800,
+PER_LABEL_RELIABILITY,Pbh_Detection,Sample Size,501,
+PER_LABEL_RELIABILITY,Pbh_Detection,Coder 1 Prevalence,0.0559,
+PER_LABEL_RELIABILITY,Pbh_Detection,Coder 2 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,Pbh_Detection,Percent Agreement,0.9441,
+PER_LABEL_RELIABILITY,Pbh_Detection,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,Pbh_Detection,Gwet's AC1,0.8882,
+PER_LABEL_RELIABILITY,Pol_1_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Pol_1_SUB,Coder 1 Prevalence,0.0878,
+PER_LABEL_RELIABILITY,Pol_1_SUB,Coder 2 Prevalence,0.0659,
+PER_LABEL_RELIABILITY,Pol_1_SUB,Percent Agreement,0.9222,
+PER_LABEL_RELIABILITY,Pol_1_SUB,Cohen's Kappa,0.4523,
+PER_LABEL_RELIABILITY,Pol_1_SUB,Gwet's AC1,0.8443,
+PER_LABEL_RELIABILITY,Pol_2_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Pol_2_SUB,Coder 1 Prevalence,0.3713,
+PER_LABEL_RELIABILITY,Pol_2_SUB,Coder 2 Prevalence,0.1916,
+PER_LABEL_RELIABILITY,Pol_2_SUB,Percent Agreement,0.7804,
+PER_LABEL_RELIABILITY,Pol_2_SUB,Cohen's Kappa,0.4780,
+PER_LABEL_RELIABILITY,Pol_2_SUB,Gwet's AC1,0.5609,
+PER_LABEL_RELIABILITY,Pol_3_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Pol_3_SUB,Coder 1 Prevalence,0.0659,
+PER_LABEL_RELIABILITY,Pol_3_SUB,Coder 2 Prevalence,0.0339,
+PER_LABEL_RELIABILITY,Pol_3_SUB,Percent Agreement,0.9321,
+PER_LABEL_RELIABILITY,Pol_3_SUB,Cohen's Kappa,0.2881,
+PER_LABEL_RELIABILITY,Pol_3_SUB,Gwet's AC1,0.8643,
+PER_LABEL_RELIABILITY,Pol_4_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Pol_4_SUB,Coder 1 Prevalence,0.0279,
+PER_LABEL_RELIABILITY,Pol_4_SUB,Coder 2 Prevalence,0.0080,
+PER_LABEL_RELIABILITY,Pol_4_SUB,Percent Agreement,0.9800,
+PER_LABEL_RELIABILITY,Pol_4_SUB,Cohen's Kappa,0.4375,
+PER_LABEL_RELIABILITY,Pol_4_SUB,Gwet's AC1,0.9601,
+PER_LABEL_RELIABILITY,Pol_Detection,Sample Size,501,
+PER_LABEL_RELIABILITY,Pol_Detection,Coder 1 Prevalence,0.3912,
+PER_LABEL_RELIABILITY,Pol_Detection,Coder 2 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,Pol_Detection,Percent Agreement,0.6088,
+PER_LABEL_RELIABILITY,Pol_Detection,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,Pol_Detection,Gwet's AC1,0.2176,
+PER_LABEL_RELIABILITY,RED_Detection,Sample Size,501,
+PER_LABEL_RELIABILITY,RED_Detection,Coder 1 Prevalence,0.0499,
+PER_LABEL_RELIABILITY,RED_Detection,Coder 2 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,RED_Detection,Percent Agreement,0.9501,
+PER_LABEL_RELIABILITY,RED_Detection,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,RED_Detection,Gwet's AC1,0.9002,
+PER_LABEL_RELIABILITY,Sci_1_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Sci_1_SUB,Coder 1 Prevalence,0.0539,
+PER_LABEL_RELIABILITY,Sci_1_SUB,Coder 2 Prevalence,0.0080,
+PER_LABEL_RELIABILITY,Sci_1_SUB,Percent Agreement,0.9501,
+PER_LABEL_RELIABILITY,Sci_1_SUB,Cohen's Kappa,0.1822,
+PER_LABEL_RELIABILITY,Sci_1_SUB,Gwet's AC1,0.9002,
+PER_LABEL_RELIABILITY,Sci_2_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Sci_2_SUB,Coder 1 Prevalence,0.0679,
+PER_LABEL_RELIABILITY,Sci_2_SUB,Coder 2 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,Sci_2_SUB,Percent Agreement,0.9321,
+PER_LABEL_RELIABILITY,Sci_2_SUB,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,Sci_2_SUB,Gwet's AC1,0.8643,
+PER_LABEL_RELIABILITY,Sci_3_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Sci_3_SUB,Coder 1 Prevalence,0.0200,
+PER_LABEL_RELIABILITY,Sci_3_SUB,Coder 2 Prevalence,0.0100,
+PER_LABEL_RELIABILITY,Sci_3_SUB,Percent Agreement,0.9820,
+PER_LABEL_RELIABILITY,Sci_3_SUB,Cohen's Kappa,0.3919,
+PER_LABEL_RELIABILITY,Sci_3_SUB,Gwet's AC1,0.9641,
+PER_LABEL_RELIABILITY,Sci_4_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Sci_4_SUB,Coder 1 Prevalence,0.0220,
+PER_LABEL_RELIABILITY,Sci_4_SUB,Coder 2 Prevalence,0.0160,
+PER_LABEL_RELIABILITY,Sci_4_SUB,Percent Agreement,0.9820,
+PER_LABEL_RELIABILITY,Sci_4_SUB,Cohen's Kappa,0.5174,
+PER_LABEL_RELIABILITY,Sci_4_SUB,Gwet's AC1,0.9641,
+PER_LABEL_RELIABILITY,Sci_Detection,Sample Size,501,
+PER_LABEL_RELIABILITY,Sci_Detection,Coder 1 Prevalence,0.1138,
+PER_LABEL_RELIABILITY,Sci_Detection,Coder 2 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,Sci_Detection,Percent Agreement,0.8862,
+PER_LABEL_RELIABILITY,Sci_Detection,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,Sci_Detection,Gwet's AC1,0.7725,
+PER_LABEL_RELIABILITY,Secu_1_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Secu_1_SUB,Coder 1 Prevalence,0.0060,
+PER_LABEL_RELIABILITY,Secu_1_SUB,Coder 2 Prevalence,0.0040,
+PER_LABEL_RELIABILITY,Secu_1_SUB,Percent Agreement,0.9940,
+PER_LABEL_RELIABILITY,Secu_1_SUB,Cohen's Kappa,0.3971,
+PER_LABEL_RELIABILITY,Secu_1_SUB,Gwet's AC1,0.9880,
+PER_LABEL_RELIABILITY,Secu_2_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Secu_2_SUB,Coder 1 Prevalence,0.0040,
+PER_LABEL_RELIABILITY,Secu_2_SUB,Coder 2 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,Secu_2_SUB,Percent Agreement,0.9960,
+PER_LABEL_RELIABILITY,Secu_2_SUB,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,Secu_2_SUB,Gwet's AC1,0.9920,
+PER_LABEL_RELIABILITY,Secu_3_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Secu_3_SUB,Coder 1 Prevalence,0.0279,
+PER_LABEL_RELIABILITY,Secu_3_SUB,Coder 2 Prevalence,0.0180,
+PER_LABEL_RELIABILITY,Secu_3_SUB,Percent Agreement,0.9900,
+PER_LABEL_RELIABILITY,Secu_3_SUB,Cohen's Kappa,0.7777,
+PER_LABEL_RELIABILITY,Secu_3_SUB,Gwet's AC1,0.9800,
+PER_LABEL_RELIABILITY,Secu_4_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Secu_4_SUB,Coder 1 Prevalence,0.0140,
+PER_LABEL_RELIABILITY,Secu_4_SUB,Coder 2 Prevalence,0.0080,
+PER_LABEL_RELIABILITY,Secu_4_SUB,Percent Agreement,0.9940,
+PER_LABEL_RELIABILITY,Secu_4_SUB,Cohen's Kappa,0.7245,
+PER_LABEL_RELIABILITY,Secu_4_SUB,Gwet's AC1,0.9880,
+PER_LABEL_RELIABILITY,Secu_Detection,Sample Size,501,
+PER_LABEL_RELIABILITY,Secu_Detection,Coder 1 Prevalence,0.0459,
+PER_LABEL_RELIABILITY,Secu_Detection,Coder 2 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,Secu_Detection,Percent Agreement,0.9541,
+PER_LABEL_RELIABILITY,Secu_Detection,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,Secu_Detection,Gwet's AC1,0.9082,
+PER_LABEL_RELIABILITY,Solutions_1_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Solutions_1_SUB,Coder 1 Prevalence,0.2335,
+PER_LABEL_RELIABILITY,Solutions_1_SUB,Coder 2 Prevalence,0.1796,
+PER_LABEL_RELIABILITY,Solutions_1_SUB,Percent Agreement,0.9102,
+PER_LABEL_RELIABILITY,Solutions_1_SUB,Cohen's Kappa,0.7272,
+PER_LABEL_RELIABILITY,Solutions_1_SUB,Gwet's AC1,0.8204,
+PER_LABEL_RELIABILITY,Solutions_2_SUB,Sample Size,501,
+PER_LABEL_RELIABILITY,Solutions_2_SUB,Coder 1 Prevalence,0.0459,
+PER_LABEL_RELIABILITY,Solutions_2_SUB,Coder 2 Prevalence,0.0279,
+PER_LABEL_RELIABILITY,Solutions_2_SUB,Percent Agreement,0.9741,
+PER_LABEL_RELIABILITY,Solutions_2_SUB,Cohen's Kappa,0.6360,
+PER_LABEL_RELIABILITY,Solutions_2_SUB,Gwet's AC1,0.9481,
+PER_LABEL_RELIABILITY,Solutions_Detection,Sample Size,501,
+PER_LABEL_RELIABILITY,Solutions_Detection,Coder 1 Prevalence,0.2735,
+PER_LABEL_RELIABILITY,Solutions_Detection,Coder 2 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,Solutions_Detection,Percent Agreement,0.7265,
+PER_LABEL_RELIABILITY,Solutions_Detection,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,Solutions_Detection,Gwet's AC1,0.4531,
+PER_LABEL_RELIABILITY,detect_CULT,Sample Size,501,
+PER_LABEL_RELIABILITY,detect_CULT,Coder 1 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,detect_CULT,Coder 2 Prevalence,0.0180,
+PER_LABEL_RELIABILITY,detect_CULT,Percent Agreement,0.9820,
+PER_LABEL_RELIABILITY,detect_CULT,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,detect_CULT,Gwet's AC1,0.9641,
+PER_LABEL_RELIABILITY,detect_ECO,Sample Size,501,
+PER_LABEL_RELIABILITY,detect_ECO,Coder 1 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,detect_ECO,Coder 2 Prevalence,0.1377,
+PER_LABEL_RELIABILITY,detect_ECO,Percent Agreement,0.8623,
+PER_LABEL_RELIABILITY,detect_ECO,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,detect_ECO,Gwet's AC1,0.7246,
+PER_LABEL_RELIABILITY,detect_ENVT,Sample Size,501,
+PER_LABEL_RELIABILITY,detect_ENVT,Coder 1 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,detect_ENVT,Coder 2 Prevalence,0.0379,
+PER_LABEL_RELIABILITY,detect_ENVT,Percent Agreement,0.9621,
+PER_LABEL_RELIABILITY,detect_ENVT,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,detect_ENVT,Gwet's AC1,0.9242,
+PER_LABEL_RELIABILITY,detect_JUST,Sample Size,501,
+PER_LABEL_RELIABILITY,detect_JUST,Coder 1 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,detect_JUST,Coder 2 Prevalence,0.0858,
+PER_LABEL_RELIABILITY,detect_JUST,Percent Agreement,0.9142,
+PER_LABEL_RELIABILITY,detect_JUST,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,detect_JUST,Gwet's AC1,0.8283,
+PER_LABEL_RELIABILITY,detect_PBH,Sample Size,501,
+PER_LABEL_RELIABILITY,detect_PBH,Coder 1 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,detect_PBH,Coder 2 Prevalence,0.0379,
+PER_LABEL_RELIABILITY,detect_PBH,Percent Agreement,0.9621,
+PER_LABEL_RELIABILITY,detect_PBH,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,detect_PBH,Gwet's AC1,0.9242,
+PER_LABEL_RELIABILITY,detect_POL,Sample Size,501,
+PER_LABEL_RELIABILITY,detect_POL,Coder 1 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,detect_POL,Coder 2 Prevalence,0.2735,
+PER_LABEL_RELIABILITY,detect_POL,Percent Agreement,0.7265,
+PER_LABEL_RELIABILITY,detect_POL,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,detect_POL,Gwet's AC1,0.4531,
+PER_LABEL_RELIABILITY,detect_SCI,Sample Size,501,
+PER_LABEL_RELIABILITY,detect_SCI,Coder 1 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,detect_SCI,Coder 2 Prevalence,0.1118,
+PER_LABEL_RELIABILITY,detect_SCI,Percent Agreement,0.8882,
+PER_LABEL_RELIABILITY,detect_SCI,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,detect_SCI,Gwet's AC1,0.7764,
+PER_LABEL_RELIABILITY,detect_SECU,Sample Size,501,
+PER_LABEL_RELIABILITY,detect_SECU,Coder 1 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,detect_SECU,Coder 2 Prevalence,0.0279,
+PER_LABEL_RELIABILITY,detect_SECU,Percent Agreement,0.9721,
+PER_LABEL_RELIABILITY,detect_SECU,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,detect_SECU,Gwet's AC1,0.9441,
+PER_LABEL_RELIABILITY,detect_event,Sample Size,501,
+PER_LABEL_RELIABILITY,detect_event,Coder 1 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,detect_event,Coder 2 Prevalence,0.4152,
+PER_LABEL_RELIABILITY,detect_event,Percent Agreement,0.5848,
+PER_LABEL_RELIABILITY,detect_event,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,detect_event,Gwet's AC1,0.1697,
+PER_LABEL_RELIABILITY,detect_location,Sample Size,501,
+PER_LABEL_RELIABILITY,detect_location,Coder 1 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,detect_location,Coder 2 Prevalence,0.5509,
+PER_LABEL_RELIABILITY,detect_location,Percent Agreement,0.4491,
+PER_LABEL_RELIABILITY,detect_location,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,detect_location,Gwet's AC1,-0.1018,
+PER_LABEL_RELIABILITY,detect_messenger,Sample Size,501,
+PER_LABEL_RELIABILITY,detect_messenger,Coder 1 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,detect_messenger,Coder 2 Prevalence,0.7365,
+PER_LABEL_RELIABILITY,detect_messenger,Percent Agreement,0.2635,
+PER_LABEL_RELIABILITY,detect_messenger,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,detect_messenger,Gwet's AC1,-0.4731,
+PER_LABEL_RELIABILITY,detect_red,Sample Size,501,
+PER_LABEL_RELIABILITY,detect_red,Coder 1 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,detect_red,Coder 2 Prevalence,0.0100,
+PER_LABEL_RELIABILITY,detect_red,Percent Agreement,0.9900,
+PER_LABEL_RELIABILITY,detect_red,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,detect_red,Gwet's AC1,0.9800,
+PER_LABEL_RELIABILITY,detect_solutions,Sample Size,501,
+PER_LABEL_RELIABILITY,detect_solutions,Coder 1 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,detect_solutions,Coder 2 Prevalence,0.1996,
+PER_LABEL_RELIABILITY,detect_solutions,Percent Agreement,0.8004,
+PER_LABEL_RELIABILITY,detect_solutions,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,detect_solutions,Gwet's AC1,0.6008,
+PER_LABEL_RELIABILITY,emotion_neg,Sample Size,501,
+PER_LABEL_RELIABILITY,emotion_neg,Coder 1 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,emotion_neg,Coder 2 Prevalence,0.3433,
+PER_LABEL_RELIABILITY,emotion_neg,Percent Agreement,0.6567,
+PER_LABEL_RELIABILITY,emotion_neg,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,emotion_neg,Gwet's AC1,0.3134,
+PER_LABEL_RELIABILITY,emotion_neu,Sample Size,501,
+PER_LABEL_RELIABILITY,emotion_neu,Coder 1 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,emotion_neu,Coder 2 Prevalence,0.5210,
+PER_LABEL_RELIABILITY,emotion_neu,Percent Agreement,0.4790,
+PER_LABEL_RELIABILITY,emotion_neu,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,emotion_neu,Gwet's AC1,-0.0419,
+PER_LABEL_RELIABILITY,emotion_pos,Sample Size,501,
+PER_LABEL_RELIABILITY,emotion_pos,Coder 1 Prevalence,0.0000,
+PER_LABEL_RELIABILITY,emotion_pos,Coder 2 Prevalence,0.1257,
+PER_LABEL_RELIABILITY,emotion_pos,Percent Agreement,0.8743,
+PER_LABEL_RELIABILITY,emotion_pos,Cohen's Kappa,0.0000,
+PER_LABEL_RELIABILITY,emotion_pos,Gwet's AC1,0.7485,
+LEARNING_PROGRESSION,First_100_sentences,Cohen's Kappa,0.2893,Cumulative through sentence 100
+LEARNING_PROGRESSION,First_100_sentences,Gwet's AC1,0.7393,Cumulative through sentence 100
+LEARNING_PROGRESSION,First_200_sentences,Cohen's Kappa,0.3044,Cumulative through sentence 200
+LEARNING_PROGRESSION,First_200_sentences,Gwet's AC1,0.7512,Cumulative through sentence 200
+LEARNING_PROGRESSION,First_300_sentences,Cohen's Kappa,0.3133,Cumulative through sentence 300
+LEARNING_PROGRESSION,First_300_sentences,Gwet's AC1,0.7611,Cumulative through sentence 300
+LEARNING_PROGRESSION,First_400_sentences,Cohen's Kappa,0.3073,Cumulative through sentence 400
+LEARNING_PROGRESSION,First_400_sentences,Gwet's AC1,0.7621,Cumulative through sentence 400
+LEARNING_PROGRESSION,First_500_sentences,Cohen's Kappa,0.3100,Cumulative through sentence 500
+LEARNING_PROGRESSION,First_500_sentences,Gwet's AC1,0.7656,Cumulative through sentence 500
+MODEL_PERFORMANCE,Cult_1_SUB,Primary_Coder_F1_ALL,0.5349,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Cult_1_SUB,Primary_Coder_F1_EN,0.7826,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Cult_1_SUB,Primary_Coder_F1_FR,0.2500,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Cult_1_SUB,Second_Coder_F1_ALL,0.2778,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Cult_1_SUB,Second_Coder_F1_EN,0.5000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Cult_1_SUB,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Cult_1_SUB,Consensus_F1_ALL,0.2286,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Cult_1_SUB,Consensus_F1_EN,0.4211,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Cult_1_SUB,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Cult_2_SUB,Primary_Coder_F1_ALL,0.2466,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Cult_2_SUB,Primary_Coder_F1_EN,0.4375,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Cult_2_SUB,Primary_Coder_F1_FR,0.0976,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Cult_2_SUB,Second_Coder_F1_ALL,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Cult_2_SUB,Second_Coder_F1_EN,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Cult_2_SUB,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Cult_2_SUB,Consensus_F1_ALL,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Cult_2_SUB,Consensus_F1_EN,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Cult_2_SUB,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Cult_3_SUB,Primary_Coder_F1_ALL,0.3333,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Cult_3_SUB,Primary_Coder_F1_EN,0.7000,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Cult_3_SUB,Primary_Coder_F1_FR,0.0714,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Cult_3_SUB,Second_Coder_F1_ALL,0.1111,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Cult_3_SUB,Second_Coder_F1_EN,0.3333,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Cult_3_SUB,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Cult_3_SUB,Consensus_F1_ALL,0.1111,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Cult_3_SUB,Consensus_F1_EN,0.3333,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Cult_3_SUB,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Cult_4_SUB,Primary_Coder_F1_ALL,0.0769,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Cult_4_SUB,Primary_Coder_F1_EN,0.4444,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Cult_4_SUB,Primary_Coder_F1_FR,0.0290,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Cult_4_SUB,Second_Coder_F1_ALL,0.0556,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Cult_4_SUB,Second_Coder_F1_EN,0.5000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Cult_4_SUB,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Cult_4_SUB,Consensus_F1_ALL,0.0556,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Cult_4_SUB,Consensus_F1_EN,0.5000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Cult_4_SUB,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Cult_Detection,Primary_Coder_F1_ALL,0.4706,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Cult_Detection,Primary_Coder_F1_EN,0.6481,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Cult_Detection,Primary_Coder_F1_FR,0.2278,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Cult_Detection,Second_Coder_F1_ALL,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Cult_Detection,Second_Coder_F1_EN,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Cult_Detection,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Cult_Detection,Consensus_F1_ALL,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Cult_Detection,Consensus_F1_EN,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Cult_Detection,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Eco_1_SUB,Primary_Coder_F1_ALL,0.6833,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Eco_1_SUB,Primary_Coder_F1_EN,0.7500,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Eco_1_SUB,Primary_Coder_F1_FR,0.6071,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Eco_1_SUB,Second_Coder_F1_ALL,0.6071,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Eco_1_SUB,Second_Coder_F1_EN,0.7027,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Eco_1_SUB,Second_Coder_F1_FR,0.4211,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Eco_1_SUB,Consensus_F1_ALL,0.6071,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Eco_1_SUB,Consensus_F1_EN,0.7027,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Eco_1_SUB,Consensus_F1_FR,0.4211,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Eco_2_SUB,Primary_Coder_F1_ALL,0.4400,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Eco_2_SUB,Primary_Coder_F1_EN,0.6667,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Eco_2_SUB,Primary_Coder_F1_FR,0.1000,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Eco_2_SUB,Second_Coder_F1_ALL,0.4167,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Eco_2_SUB,Second_Coder_F1_EN,0.6250,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Eco_2_SUB,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Eco_2_SUB,Consensus_F1_ALL,0.4167,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Eco_2_SUB,Consensus_F1_EN,0.6250,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Eco_2_SUB,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Eco_3_SUB,Primary_Coder_F1_ALL,0.5769,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Eco_3_SUB,Primary_Coder_F1_EN,0.6182,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Eco_3_SUB,Primary_Coder_F1_FR,0.5306,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Eco_3_SUB,Second_Coder_F1_ALL,0.1714,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Eco_3_SUB,Second_Coder_F1_EN,0.1905,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Eco_3_SUB,Second_Coder_F1_FR,0.1429,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Eco_3_SUB,Consensus_F1_ALL,0.1818,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Eco_3_SUB,Consensus_F1_EN,0.1905,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Eco_3_SUB,Consensus_F1_FR,0.1667,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Eco_4_SUB,Primary_Coder_F1_ALL,0.7629,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Eco_4_SUB,Primary_Coder_F1_EN,0.8182,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Eco_4_SUB,Primary_Coder_F1_FR,0.7170,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Eco_4_SUB,Second_Coder_F1_ALL,0.4000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Eco_4_SUB,Second_Coder_F1_EN,0.4000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Eco_4_SUB,Second_Coder_F1_FR,0.4000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Eco_4_SUB,Consensus_F1_ALL,0.4118,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Eco_4_SUB,Consensus_F1_EN,0.4000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Eco_4_SUB,Consensus_F1_FR,0.4286,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Eco_5_SUB,Primary_Coder_F1_ALL,0.6789,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Eco_5_SUB,Primary_Coder_F1_EN,0.6792,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Eco_5_SUB,Primary_Coder_F1_FR,0.6786,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Eco_5_SUB,Second_Coder_F1_ALL,0.1765,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Eco_5_SUB,Second_Coder_F1_EN,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Eco_5_SUB,Second_Coder_F1_FR,0.3529,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Eco_5_SUB,Consensus_F1_ALL,0.1935,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Eco_5_SUB,Consensus_F1_EN,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Eco_5_SUB,Consensus_F1_FR,0.3529,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Eco_Detection,Primary_Coder_F1_ALL,0.7404,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Eco_Detection,Primary_Coder_F1_EN,0.7644,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Eco_Detection,Primary_Coder_F1_FR,0.7184,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Eco_Detection,Second_Coder_F1_ALL,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Eco_Detection,Second_Coder_F1_EN,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Eco_Detection,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Eco_Detection,Consensus_F1_ALL,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Eco_Detection,Consensus_F1_EN,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Eco_Detection,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Emotion:_Negative,Primary_Coder_F1_ALL,0.7513,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Emotion:_Negative,Primary_Coder_F1_EN,0.7383,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Emotion:_Negative,Primary_Coder_F1_FR,0.7631,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Emotion:_Negative,Second_Coder_F1_ALL,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Emotion:_Negative,Second_Coder_F1_EN,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Emotion:_Negative,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Emotion:_Negative,Consensus_F1_ALL,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Emotion:_Negative,Consensus_F1_EN,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Emotion:_Negative,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Emotion:_Neutral,Primary_Coder_F1_ALL,0.8238,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Emotion:_Neutral,Primary_Coder_F1_EN,0.8000,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Emotion:_Neutral,Primary_Coder_F1_FR,0.8458,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Emotion:_Neutral,Second_Coder_F1_ALL,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Emotion:_Neutral,Second_Coder_F1_EN,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Emotion:_Neutral,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Emotion:_Neutral,Consensus_F1_ALL,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Emotion:_Neutral,Consensus_F1_EN,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Emotion:_Neutral,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Emotion:_Positive,Primary_Coder_F1_ALL,0.4607,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Emotion:_Positive,Primary_Coder_F1_EN,0.4783,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Emotion:_Positive,Primary_Coder_F1_FR,0.4444,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Emotion:_Positive,Second_Coder_F1_ALL,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Emotion:_Positive,Second_Coder_F1_EN,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Emotion:_Positive,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Emotion:_Positive,Consensus_F1_ALL,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Emotion:_Positive,Consensus_F1_EN,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Emotion:_Positive,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Envt_1_SUB,Primary_Coder_F1_ALL,0.8155,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Envt_1_SUB,Primary_Coder_F1_EN,0.8205,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Envt_1_SUB,Primary_Coder_F1_FR,0.8125,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Envt_1_SUB,Second_Coder_F1_ALL,0.2143,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Envt_1_SUB,Second_Coder_F1_EN,0.4286,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Envt_1_SUB,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Envt_1_SUB,Consensus_F1_ALL,0.2143,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Envt_1_SUB,Consensus_F1_EN,0.4286,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Envt_1_SUB,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Envt_2_SUB,Primary_Coder_F1_ALL,0.7609,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Envt_2_SUB,Primary_Coder_F1_EN,0.7619,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Envt_2_SUB,Primary_Coder_F1_FR,0.7600,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Envt_2_SUB,Second_Coder_F1_ALL,0.2667,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Envt_2_SUB,Second_Coder_F1_EN,0.2857,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Envt_2_SUB,Second_Coder_F1_FR,0.2500,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Envt_2_SUB,Consensus_F1_ALL,0.2069,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Envt_2_SUB,Consensus_F1_EN,0.1538,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Envt_2_SUB,Consensus_F1_FR,0.2500,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Envt_Detection,Primary_Coder_F1_ALL,0.7591,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Envt_Detection,Primary_Coder_F1_EN,0.7500,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Envt_Detection,Primary_Coder_F1_FR,0.7671,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Envt_Detection,Second_Coder_F1_ALL,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Envt_Detection,Second_Coder_F1_EN,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Envt_Detection,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Envt_Detection,Consensus_F1_ALL,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Envt_Detection,Consensus_F1_EN,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Envt_Detection,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_1_SUB,Primary_Coder_F1_ALL,0.8103,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_1_SUB,Primary_Coder_F1_EN,0.8125,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_1_SUB,Primary_Coder_F1_FR,0.8077,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_1_SUB,Second_Coder_F1_ALL,0.6809,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_1_SUB,Second_Coder_F1_EN,0.6667,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_1_SUB,Second_Coder_F1_FR,0.7143,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_1_SUB,Consensus_F1_ALL,0.6667,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_1_SUB,Consensus_F1_EN,0.6452,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_1_SUB,Consensus_F1_FR,0.7143,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_2_SUB,Primary_Coder_F1_ALL,0.8125,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_2_SUB,Primary_Coder_F1_EN,0.7671,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_2_SUB,Primary_Coder_F1_FR,0.8403,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_2_SUB,Second_Coder_F1_ALL,0.5926,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_2_SUB,Second_Coder_F1_EN,0.6957,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_2_SUB,Second_Coder_F1_FR,0.4571,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_2_SUB,Consensus_F1_ALL,0.5897,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_2_SUB,Consensus_F1_EN,0.7273,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_2_SUB,Consensus_F1_FR,0.4118,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_3_SUB,Primary_Coder_F1_ALL,0.9362,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_3_SUB,Primary_Coder_F1_EN,0.9153,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_3_SUB,Primary_Coder_F1_FR,0.9457,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_3_SUB,Second_Coder_F1_ALL,0.8642,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_3_SUB,Second_Coder_F1_EN,0.8462,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_3_SUB,Second_Coder_F1_FR,0.8727,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_3_SUB,Consensus_F1_ALL,0.8718,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_3_SUB,Consensus_F1_EN,0.8696,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_3_SUB,Consensus_F1_FR,0.8727,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_4_SUB,Primary_Coder_F1_ALL,0.8276,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_4_SUB,Primary_Coder_F1_EN,0.8444,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_4_SUB,Primary_Coder_F1_FR,0.8095,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_4_SUB,Second_Coder_F1_ALL,0.8000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_4_SUB,Second_Coder_F1_EN,0.7826,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_4_SUB,Second_Coder_F1_FR,0.8182,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_4_SUB,Consensus_F1_ALL,0.8182,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_4_SUB,Consensus_F1_EN,0.8182,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_4_SUB,Consensus_F1_FR,0.8182,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_5_SUB,Primary_Coder_F1_ALL,0.7183,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_5_SUB,Primary_Coder_F1_EN,0.7123,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_5_SUB,Primary_Coder_F1_FR,0.7246,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_5_SUB,Second_Coder_F1_ALL,0.6494,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_5_SUB,Second_Coder_F1_EN,0.4706,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_5_SUB,Second_Coder_F1_FR,0.7907,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_5_SUB,Consensus_F1_ALL,0.5672,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_5_SUB,Consensus_F1_EN,0.3871,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_5_SUB,Consensus_F1_FR,0.7222,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_6_SUB,Primary_Coder_F1_ALL,0.6452,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_6_SUB,Primary_Coder_F1_EN,0.3077,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_6_SUB,Primary_Coder_F1_FR,0.8889,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_6_SUB,Second_Coder_F1_ALL,0.4286,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_6_SUB,Second_Coder_F1_EN,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_6_SUB,Second_Coder_F1_FR,0.6667,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_6_SUB,Consensus_F1_ALL,0.4444,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_6_SUB,Consensus_F1_EN,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_6_SUB,Consensus_F1_FR,0.6667,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_7_SUB,Primary_Coder_F1_ALL,0.7797,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_7_SUB,Primary_Coder_F1_EN,0.8276,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_7_SUB,Primary_Coder_F1_FR,0.7333,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_7_SUB,Second_Coder_F1_ALL,0.6897,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_7_SUB,Second_Coder_F1_EN,0.7778,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_7_SUB,Second_Coder_F1_FR,0.5455,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_7_SUB,Consensus_F1_ALL,0.7692,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_7_SUB,Consensus_F1_EN,0.8750,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_7_SUB,Consensus_F1_FR,0.6000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_8_SUB,Primary_Coder_F1_ALL,0.8955,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_8_SUB,Primary_Coder_F1_EN,0.9677,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_8_SUB,Primary_Coder_F1_FR,0.8333,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_8_SUB,Second_Coder_F1_ALL,0.7586,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_8_SUB,Second_Coder_F1_EN,0.9000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_8_SUB,Second_Coder_F1_FR,0.4444,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_8_SUB,Consensus_F1_ALL,0.8462,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_8_SUB,Consensus_F1_EN,0.9474,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_8_SUB,Consensus_F1_FR,0.5714,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_Detection,Primary_Coder_F1_ALL,0.8792,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_Detection,Primary_Coder_F1_EN,0.8549,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_Detection,Primary_Coder_F1_FR,0.9005,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Event_Detection,Second_Coder_F1_ALL,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_Detection,Second_Coder_F1_EN,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_Detection,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Event_Detection,Consensus_F1_ALL,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_Detection,Consensus_F1_EN,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Event_Detection,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Just_1_SUB,Primary_Coder_F1_ALL,0.5806,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Just_1_SUB,Primary_Coder_F1_EN,0.4571,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Just_1_SUB,Primary_Coder_F1_FR,0.6552,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Just_1_SUB,Second_Coder_F1_ALL,0.0667,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Just_1_SUB,Second_Coder_F1_EN,0.1429,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Just_1_SUB,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Just_1_SUB,Consensus_F1_ALL,0.0690,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Just_1_SUB,Consensus_F1_EN,0.1429,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Just_1_SUB,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Just_2_SUB,Primary_Coder_F1_ALL,0.8077,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Just_2_SUB,Primary_Coder_F1_EN,0.8500,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Just_2_SUB,Primary_Coder_F1_FR,0.7812,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Just_2_SUB,Second_Coder_F1_ALL,0.3889,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Just_2_SUB,Second_Coder_F1_EN,0.2500,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Just_2_SUB,Second_Coder_F1_FR,0.5000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Just_2_SUB,Consensus_F1_ALL,0.3889,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Just_2_SUB,Consensus_F1_EN,0.2500,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Just_2_SUB,Consensus_F1_FR,0.5000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Just_3_SUB,Primary_Coder_F1_ALL,0.7654,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Just_3_SUB,Primary_Coder_F1_EN,0.6667,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Just_3_SUB,Primary_Coder_F1_FR,0.8444,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Just_3_SUB,Second_Coder_F1_ALL,0.5806,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Just_3_SUB,Second_Coder_F1_EN,0.5714,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Just_3_SUB,Second_Coder_F1_FR,0.5882,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Just_3_SUB,Consensus_F1_ALL,0.6000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Just_3_SUB,Consensus_F1_EN,0.5714,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Just_3_SUB,Consensus_F1_FR,0.6250,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Just_4_SUB,Primary_Coder_F1_ALL,0.5942,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Just_4_SUB,Primary_Coder_F1_EN,0.5333,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Just_4_SUB,Primary_Coder_F1_FR,0.7083,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Just_4_SUB,Second_Coder_F1_ALL,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Just_4_SUB,Second_Coder_F1_EN,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Just_4_SUB,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Just_4_SUB,Consensus_F1_ALL,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Just_4_SUB,Consensus_F1_EN,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Just_4_SUB,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Just_5_SUB,Primary_Coder_F1_ALL,0.9062,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Just_5_SUB,Primary_Coder_F1_EN,0.8696,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Just_5_SUB,Primary_Coder_F1_FR,0.9268,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Just_5_SUB,Second_Coder_F1_ALL,0.7333,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Just_5_SUB,Second_Coder_F1_EN,0.4444,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Just_5_SUB,Second_Coder_F1_FR,0.8571,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Just_5_SUB,Consensus_F1_ALL,0.6429,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Just_5_SUB,Consensus_F1_EN,0.4444,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Just_5_SUB,Consensus_F1_FR,0.7368,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Just_Detection,Primary_Coder_F1_ALL,0.7575,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Just_Detection,Primary_Coder_F1_EN,0.7133,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Just_Detection,Primary_Coder_F1_FR,0.7975,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Just_Detection,Second_Coder_F1_ALL,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Just_Detection,Second_Coder_F1_EN,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Just_Detection,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Just_Detection,Consensus_F1_ALL,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Just_Detection,Consensus_F1_EN,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Just_Detection,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Location_Detection,Primary_Coder_F1_ALL,0.9814,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Location_Detection,Primary_Coder_F1_EN,0.9850,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Location_Detection,Primary_Coder_F1_FR,0.9780,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Location_Detection,Second_Coder_F1_ALL,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Location_Detection,Second_Coder_F1_EN,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Location_Detection,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Location_Detection,Consensus_F1_ALL,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Location_Detection,Consensus_F1_EN,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Location_Detection,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_1_SUB,Primary_Coder_F1_ALL,0.8276,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_1_SUB,Primary_Coder_F1_EN,0.7442,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_1_SUB,Primary_Coder_F1_FR,0.9091,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_1_SUB,Second_Coder_F1_ALL,0.7347,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_1_SUB,Second_Coder_F1_EN,0.6667,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_1_SUB,Second_Coder_F1_FR,0.8421,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_1_SUB,Consensus_F1_ALL,0.7826,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_1_SUB,Consensus_F1_EN,0.7407,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_1_SUB,Consensus_F1_FR,0.8421,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_2_SUB,Primary_Coder_F1_ALL,0.7719,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_2_SUB,Primary_Coder_F1_EN,0.7200,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_2_SUB,Primary_Coder_F1_FR,0.8125,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_2_SUB,Second_Coder_F1_ALL,0.6441,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_2_SUB,Second_Coder_F1_EN,0.5714,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_2_SUB,Second_Coder_F1_FR,0.7097,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_2_SUB,Consensus_F1_ALL,0.6538,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_2_SUB,Consensus_F1_EN,0.6957,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_2_SUB,Consensus_F1_FR,0.6207,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_3_SUB,Primary_Coder_F1_ALL,0.5926,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_3_SUB,Primary_Coder_F1_EN,0.4706,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_3_SUB,Primary_Coder_F1_FR,0.6486,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_3_SUB,Second_Coder_F1_ALL,0.0952,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_3_SUB,Second_Coder_F1_EN,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_3_SUB,Second_Coder_F1_FR,0.1818,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_3_SUB,Consensus_F1_ALL,0.1250,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_3_SUB,Consensus_F1_EN,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_3_SUB,Consensus_F1_FR,0.2000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_4_SUB,Primary_Coder_F1_ALL,0.8364,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_4_SUB,Primary_Coder_F1_EN,0.7273,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_4_SUB,Primary_Coder_F1_FR,0.8636,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_4_SUB,Second_Coder_F1_ALL,0.5926,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_4_SUB,Second_Coder_F1_EN,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_4_SUB,Second_Coder_F1_FR,0.6400,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_4_SUB,Consensus_F1_ALL,0.5833,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_4_SUB,Consensus_F1_EN,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_4_SUB,Consensus_F1_FR,0.6087,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_5_SUB,Primary_Coder_F1_ALL,0.7073,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_5_SUB,Primary_Coder_F1_EN,0.7308,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_5_SUB,Primary_Coder_F1_FR,0.6667,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_5_SUB,Second_Coder_F1_ALL,0.6000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_5_SUB,Second_Coder_F1_EN,0.5600,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_5_SUB,Second_Coder_F1_FR,0.6667,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_5_SUB,Consensus_F1_ALL,0.5294,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_5_SUB,Consensus_F1_EN,0.5000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_5_SUB,Consensus_F1_FR,0.5714,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_6_SUB,Primary_Coder_F1_ALL,0.8438,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_6_SUB,Primary_Coder_F1_EN,0.8636,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_6_SUB,Primary_Coder_F1_FR,0.8269,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_6_SUB,Second_Coder_F1_ALL,0.5870,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_6_SUB,Second_Coder_F1_EN,0.4681,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_6_SUB,Second_Coder_F1_FR,0.7111,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_6_SUB,Consensus_F1_ALL,0.6933,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_6_SUB,Consensus_F1_EN,0.6111,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_6_SUB,Consensus_F1_FR,0.7692,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_7_SUB,Primary_Coder_F1_ALL,0.8966,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_7_SUB,Primary_Coder_F1_EN,0.8824,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_7_SUB,Primary_Coder_F1_FR,0.9057,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_7_SUB,Second_Coder_F1_ALL,0.6154,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_7_SUB,Second_Coder_F1_EN,0.6250,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_7_SUB,Second_Coder_F1_FR,0.6087,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_7_SUB,Consensus_F1_ALL,0.7586,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_7_SUB,Consensus_F1_EN,0.7273,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_7_SUB,Consensus_F1_FR,0.7778,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_8_SUB,Primary_Coder_F1_ALL,0.8525,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_8_SUB,Primary_Coder_F1_EN,0.8814,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_8_SUB,Primary_Coder_F1_FR,0.8254,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_8_SUB,Second_Coder_F1_ALL,0.5946,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_8_SUB,Second_Coder_F1_EN,0.6842,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_8_SUB,Second_Coder_F1_FR,0.5000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_8_SUB,Consensus_F1_ALL,0.7213,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_8_SUB,Consensus_F1_EN,0.8667,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_8_SUB,Consensus_F1_FR,0.5806,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_9_SUB,Primary_Coder_F1_ALL,0.9091,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_9_SUB,Primary_Coder_F1_EN,0.9057,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_9_SUB,Primary_Coder_F1_FR,0.9123,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_9_SUB,Second_Coder_F1_ALL,0.7568,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_9_SUB,Second_Coder_F1_EN,0.7170,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_9_SUB,Second_Coder_F1_FR,0.7931,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_9_SUB,Consensus_F1_ALL,0.7980,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_9_SUB,Consensus_F1_EN,0.7475,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_9_SUB,Consensus_F1_FR,0.8485,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_Detection,Primary_Coder_F1_ALL,0.9697,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_Detection,Primary_Coder_F1_EN,0.9652,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_Detection,Primary_Coder_F1_FR,0.9741,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Messenger_Detection,Second_Coder_F1_ALL,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_Detection,Second_Coder_F1_EN,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_Detection,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Messenger_Detection,Consensus_F1_ALL,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_Detection,Consensus_F1_EN,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Messenger_Detection,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pbh_1_SUB,Primary_Coder_F1_ALL,0.7273,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pbh_1_SUB,Primary_Coder_F1_EN,0.7719,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pbh_1_SUB,Primary_Coder_F1_FR,0.6792,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pbh_1_SUB,Second_Coder_F1_ALL,0.5417,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pbh_1_SUB,Second_Coder_F1_EN,0.7143,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pbh_1_SUB,Second_Coder_F1_FR,0.3000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pbh_1_SUB,Consensus_F1_ALL,0.5106,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pbh_1_SUB,Consensus_F1_EN,0.6667,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pbh_1_SUB,Consensus_F1_FR,0.3000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pbh_3_SUB,Primary_Coder_F1_ALL,0.1972,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pbh_3_SUB,Primary_Coder_F1_EN,0.1875,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pbh_3_SUB,Primary_Coder_F1_FR,0.2051,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pbh_3_SUB,Second_Coder_F1_ALL,0.0625,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pbh_3_SUB,Second_Coder_F1_EN,0.1333,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pbh_3_SUB,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pbh_3_SUB,Consensus_F1_ALL,0.0625,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pbh_3_SUB,Consensus_F1_EN,0.1333,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pbh_3_SUB,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pbh_Detection,Primary_Coder_F1_ALL,0.6406,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pbh_Detection,Primary_Coder_F1_EN,0.6286,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pbh_Detection,Primary_Coder_F1_FR,0.6552,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pbh_Detection,Second_Coder_F1_ALL,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pbh_Detection,Second_Coder_F1_EN,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pbh_Detection,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pbh_Detection,Consensus_F1_ALL,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pbh_Detection,Consensus_F1_EN,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pbh_Detection,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pol_1_SUB,Primary_Coder_F1_ALL,0.5766,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pol_1_SUB,Primary_Coder_F1_EN,0.6522,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pol_1_SUB,Primary_Coder_F1_FR,0.5231,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pol_1_SUB,Second_Coder_F1_ALL,0.5333,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pol_1_SUB,Second_Coder_F1_EN,0.5600,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pol_1_SUB,Second_Coder_F1_FR,0.5143,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pol_1_SUB,Consensus_F1_ALL,0.5306,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pol_1_SUB,Consensus_F1_EN,0.6667,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pol_1_SUB,Consensus_F1_FR,0.4286,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pol_2_SUB,Primary_Coder_F1_ALL,0.8588,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pol_2_SUB,Primary_Coder_F1_EN,0.8143,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pol_2_SUB,Primary_Coder_F1_FR,0.8941,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pol_2_SUB,Second_Coder_F1_ALL,0.5486,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pol_2_SUB,Second_Coder_F1_EN,0.5036,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pol_2_SUB,Second_Coder_F1_FR,0.5906,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pol_2_SUB,Consensus_F1_ALL,0.5505,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pol_2_SUB,Consensus_F1_EN,0.5036,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pol_2_SUB,Consensus_F1_FR,0.5946,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pol_3_SUB,Primary_Coder_F1_ALL,0.6503,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pol_3_SUB,Primary_Coder_F1_EN,0.6408,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pol_3_SUB,Primary_Coder_F1_FR,0.6667,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pol_3_SUB,Second_Coder_F1_ALL,0.2319,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pol_3_SUB,Second_Coder_F1_EN,0.1579,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pol_3_SUB,Second_Coder_F1_FR,0.3226,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pol_3_SUB,Consensus_F1_ALL,0.2258,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pol_3_SUB,Consensus_F1_EN,0.1081,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pol_3_SUB,Consensus_F1_FR,0.4000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pol_4_SUB,Primary_Coder_F1_ALL,0.8060,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pol_4_SUB,Primary_Coder_F1_EN,0.7742,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pol_4_SUB,Primary_Coder_F1_FR,0.8333,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pol_4_SUB,Second_Coder_F1_ALL,0.3636,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pol_4_SUB,Second_Coder_F1_EN,0.6154,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pol_4_SUB,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pol_4_SUB,Consensus_F1_ALL,0.3636,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pol_4_SUB,Consensus_F1_EN,0.6154,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pol_4_SUB,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pol_Detection,Primary_Coder_F1_ALL,0.7945,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pol_Detection,Primary_Coder_F1_EN,0.7592,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pol_Detection,Primary_Coder_F1_FR,0.8225,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Pol_Detection,Second_Coder_F1_ALL,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pol_Detection,Second_Coder_F1_EN,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pol_Detection,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Pol_Detection,Consensus_F1_ALL,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pol_Detection,Consensus_F1_EN,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Pol_Detection,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,RED_Detection,Primary_Coder_F1_ALL,0.7222,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,RED_Detection,Primary_Coder_F1_EN,0.7600,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,RED_Detection,Primary_Coder_F1_FR,0.6897,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,RED_Detection,Second_Coder_F1_ALL,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,RED_Detection,Second_Coder_F1_EN,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,RED_Detection,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,RED_Detection,Consensus_F1_ALL,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,RED_Detection,Consensus_F1_EN,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,RED_Detection,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Sci_1_SUB,Primary_Coder_F1_ALL,0.9057,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Sci_1_SUB,Primary_Coder_F1_EN,0.9615,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Sci_1_SUB,Primary_Coder_F1_FR,0.8519,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Sci_1_SUB,Second_Coder_F1_ALL,0.1379,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Sci_1_SUB,Second_Coder_F1_EN,0.1538,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Sci_1_SUB,Second_Coder_F1_FR,0.1250,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Sci_1_SUB,Consensus_F1_ALL,0.1429,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Sci_1_SUB,Consensus_F1_EN,0.1667,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Sci_1_SUB,Consensus_F1_FR,0.1250,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Sci_2_SUB,Primary_Coder_F1_ALL,0.8594,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Sci_2_SUB,Primary_Coder_F1_EN,0.8929,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Sci_2_SUB,Primary_Coder_F1_FR,0.8333,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Sci_2_SUB,Second_Coder_F1_ALL,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Sci_2_SUB,Second_Coder_F1_EN,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Sci_2_SUB,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Sci_2_SUB,Consensus_F1_ALL,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Sci_2_SUB,Consensus_F1_EN,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Sci_2_SUB,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Sci_3_SUB,Primary_Coder_F1_ALL,0.6538,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Sci_3_SUB,Primary_Coder_F1_EN,0.6667,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Sci_3_SUB,Primary_Coder_F1_FR,0.6429,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Sci_3_SUB,Second_Coder_F1_ALL,0.2105,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Sci_3_SUB,Second_Coder_F1_EN,0.2000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Sci_3_SUB,Second_Coder_F1_FR,0.2222,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Sci_3_SUB,Consensus_F1_ALL,0.2353,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Sci_3_SUB,Consensus_F1_EN,0.2222,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Sci_3_SUB,Consensus_F1_FR,0.2500,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Sci_4_SUB,Primary_Coder_F1_ALL,0.4516,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Sci_4_SUB,Primary_Coder_F1_EN,0.6364,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Sci_4_SUB,Primary_Coder_F1_FR,0.0000,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Sci_4_SUB,Second_Coder_F1_ALL,0.7273,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Sci_4_SUB,Second_Coder_F1_EN,0.8000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Sci_4_SUB,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Sci_4_SUB,Consensus_F1_ALL,0.8000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Sci_4_SUB,Consensus_F1_EN,0.8889,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Sci_4_SUB,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Sci_Detection,Primary_Coder_F1_ALL,0.8092,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Sci_Detection,Primary_Coder_F1_EN,0.8095,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Sci_Detection,Primary_Coder_F1_FR,0.8088,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Sci_Detection,Second_Coder_F1_ALL,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Sci_Detection,Second_Coder_F1_EN,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Sci_Detection,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Sci_Detection,Consensus_F1_ALL,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Sci_Detection,Consensus_F1_EN,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Sci_Detection,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Secu_1_SUB,Primary_Coder_F1_ALL,0.0909,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Secu_1_SUB,Primary_Coder_F1_FR,0.0909,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Secu_1_SUB,Second_Coder_F1_ALL,0.1538,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Secu_1_SUB,Second_Coder_F1_FR,0.1538,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Secu_1_SUB,Consensus_F1_ALL,0.1538,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Secu_1_SUB,Consensus_F1_FR,0.1538,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Secu_2_SUB,Primary_Coder_F1_ALL,1.0000,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Secu_2_SUB,Primary_Coder_F1_FR,1.0000,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Secu_2_SUB,Second_Coder_F1_ALL,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Secu_2_SUB,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Secu_2_SUB,Consensus_F1_ALL,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Secu_2_SUB,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Secu_3_SUB,Primary_Coder_F1_ALL,0.5417,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Secu_3_SUB,Primary_Coder_F1_EN,0.6667,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Secu_3_SUB,Primary_Coder_F1_FR,0.3333,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Secu_3_SUB,Second_Coder_F1_ALL,0.4737,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Secu_3_SUB,Second_Coder_F1_EN,0.5714,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Secu_3_SUB,Second_Coder_F1_FR,0.2000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Secu_3_SUB,Consensus_F1_ALL,0.4737,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Secu_3_SUB,Consensus_F1_EN,0.5714,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Secu_3_SUB,Consensus_F1_FR,0.2000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Secu_4_SUB,Primary_Coder_F1_ALL,0.2927,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Secu_4_SUB,Primary_Coder_F1_EN,0.3000,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Secu_4_SUB,Primary_Coder_F1_FR,0.2857,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Secu_4_SUB,Second_Coder_F1_ALL,0.1250,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Secu_4_SUB,Second_Coder_F1_EN,0.1000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Secu_4_SUB,Second_Coder_F1_FR,0.1667,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Secu_4_SUB,Consensus_F1_ALL,0.1250,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Secu_4_SUB,Consensus_F1_EN,0.1000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Secu_4_SUB,Consensus_F1_FR,0.1667,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Secu_Detection,Primary_Coder_F1_ALL,0.5926,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Secu_Detection,Primary_Coder_F1_EN,0.6757,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Secu_Detection,Primary_Coder_F1_FR,0.4918,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Secu_Detection,Second_Coder_F1_ALL,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Secu_Detection,Second_Coder_F1_EN,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Secu_Detection,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Secu_Detection,Consensus_F1_ALL,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Secu_Detection,Consensus_F1_EN,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Secu_Detection,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Solutions_1_SUB,Primary_Coder_F1_ALL,0.8988,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Solutions_1_SUB,Primary_Coder_F1_EN,0.9114,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Solutions_1_SUB,Primary_Coder_F1_FR,0.8876,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Solutions_1_SUB,Second_Coder_F1_ALL,0.8304,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Solutions_1_SUB,Second_Coder_F1_EN,0.8471,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Solutions_1_SUB,Second_Coder_F1_FR,0.8140,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Solutions_1_SUB,Consensus_F1_ALL,0.8284,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Solutions_1_SUB,Consensus_F1_EN,0.8434,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Solutions_1_SUB,Consensus_F1_FR,0.8140,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Solutions_2_SUB,Primary_Coder_F1_ALL,0.8250,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Solutions_2_SUB,Primary_Coder_F1_EN,0.8182,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Solutions_2_SUB,Primary_Coder_F1_FR,0.8333,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Solutions_2_SUB,Second_Coder_F1_ALL,0.5294,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Solutions_2_SUB,Second_Coder_F1_EN,0.7273,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Solutions_2_SUB,Second_Coder_F1_FR,0.1667,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Solutions_2_SUB,Consensus_F1_ALL,0.5625,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Solutions_2_SUB,Consensus_F1_EN,0.7273,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Solutions_2_SUB,Consensus_F1_FR,0.2000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Solutions_Detection,Primary_Coder_F1_ALL,0.8496,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Solutions_Detection,Primary_Coder_F1_EN,0.8340,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Solutions_Detection,Primary_Coder_F1_FR,0.8638,Model F1 vs Primary_Coder gold standard
+MODEL_PERFORMANCE,Solutions_Detection,Second_Coder_F1_ALL,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Solutions_Detection,Second_Coder_F1_EN,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Solutions_Detection,Second_Coder_F1_FR,0.0000,Model F1 vs Second_Coder gold standard
+MODEL_PERFORMANCE,Solutions_Detection,Consensus_F1_ALL,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Solutions_Detection,Consensus_F1_EN,0.0000,Model F1 vs Consensus gold standard
+MODEL_PERFORMANCE,Solutions_Detection,Consensus_F1_FR,0.0000,Model F1 vs Consensus gold standard

@@ -1,0 +1,37 @@
+parameter,value
+english_model,bert-base-uncased
+french_model,camembert-base
+model_size_parameters,110M (per language)
+optimizer,AdamW
+optimizer_eps,1e-08
+learning_rate_normal,5e-05
+learning_rate_reinforced,1e-05
+scheduler,linear with 0 warm-up steps
+batch_size_normal,32
+batch_size_reinforced,64
+max_seq_length_tokens,512
+n_epochs_normal_max,20
+n_epochs_reinforced_max,20
+reinforcement_trigger,positive-class F1 < 0.60 at best normal epoch
+best_epoch_criterion,0.7 * F1_class_1 + 0.3 * macro_F1 (combined)
+class_weighting_normal,pos_weight from class frequencies (weighted cross-entropy)
+class_weighting_reinforced,WeightedRandomSampler (oversample minority)
+loss_function,BCEWithLogitsLoss (binary classification per category)
+random_seed_python,42
+random_seed_numpy,42
+random_seed_torch,42
+random_seed_torch_cuda,42
+random_seed_weighted_random_sampler,"not fixed (PyTorch default generator); known limitation, to be addressed in a future release"
+training_hardware,"Apple Mac Studio (M2 Ultra, 24-core CPU, 60-core GPU, 128 GB unified memory, 2023). Acceleration via Metal Performance Shaders (MPS) when available, otherwise CPU."
+training_framework,"PyTorch (transformers library) through the AugmentedSocialScientist fork (Lemor 2025, https://github.com/antoinelemor/AugmentedSocialScientistFork)"
+campaign_start_utc,2025-05-01T13:11:40+00:00
+campaign_end_utc,2025-06-02T23:19:04.681895+00:00
+campaign_span_hours,778.12
+campaign_bulk_start_utc,2025-05-01T13:11:40+00:00
+campaign_bulk_end_utc,2025-05-02T12:13:51+00:00
+campaign_bulk_span_hours,23.04
+n_models_with_artifact_mtime,126
+n_models_in_bulk_block,121
+n_models_total,128
+n_models_reinforced,45
+n_models_best_epoch_in_reinforced_phase,23
