@@ -22,14 +22,24 @@ The chain runs on a single workstation. Reference machine: Apple Mac Studio (M2 
 
 The annotation pipeline (Step 7 below) also needs the language models pulled by `spacy` and `transformers` on first use. These are *not* required to reproduce the tables and the manuscript; only the reporting pipeline (Steps 2–4) and the figures (Step 5) are needed for that.
 
-## 1. Restore the deposited PostgreSQL dump
+## 1. Restore the deposited PostgreSQL dump (or read the Parquet bundle)
+
+The CCF Database is distributed on the Harvard Dataverse deposit in two complementary formats, sharing identical schemas.
+
+### Option A — PostgreSQL dump (full schema with HNSW indexing)
+
+The dump is published as a single tarball (`CCF_Database.tar`, ≈ 37 GB) that wraps a `pg_dump` *directory* archive (`-Fd`). Restoring it is a three-step process: untar, create the empty database with the `pgvector` extension, then `pg_restore` from the directory using parallel workers.
 
 ```bash
-# Download CCF_Database.dump from the Harvard Dataverse deposit (linked from this
-# OSF project through the Dataverse add-on).
+# 1. Download CCF_Database.tar from the Harvard Dataverse deposit.
+tar -xf CCF_Database.tar           # extracts the CCF_Database_dump/ directory
+
+# 2. Create the target database and load pgvector.
 createdb CCF_Database
 psql -d CCF_Database -c "CREATE EXTENSION IF NOT EXISTS vector;"
-pg_restore -d CCF_Database --no-owner --no-privileges CCF_Database.dump
+
+# 3. Restore in parallel (8 workers; adjust -j to your core count).
+pg_restore -d CCF_Database --no-owner --no-privileges -j 8 CCF_Database_dump
 ```
 
 Then sanity-check:
@@ -47,6 +57,28 @@ SELECT tier_overall, COUNT(*) FROM "CCF_reliability_tiers" GROUP BY tier_overall
 ```
 
 The five core tables share the same `doc_id` keyspace (1 .. 266,578). Any `JOIN ... USING (doc_id)` returns exactly 266,271 articles.
+
+### Option B — Apache Parquet bundle (no database server required)
+
+```bash
+# Download the six *.parquet files from the parquet/ subfolder of the
+# Harvard Dataverse deposit.
+```
+
+```python
+import pandas as pd
+articles  = pd.read_parquet("parquet/CCF_full_data.parquet")           # 266,271 rows
+sentences = pd.read_parquet("parquet/CCF_processed_data.parquet")      # 9,198,958 rows
+embeds    = pd.read_parquet("parquet/CCF_sentence_embeddings.parquet") # 9,462,845 rows
+```
+
+The Parquet bundle is regenerated from a freshly restored PostgreSQL database by
+`Scripts/Database_creation/enrichment/05_export_to_parquet.py`; the script
+streams each table via DuckDB's `postgres_query()` and writes ZSTD-compressed
+Parquet files (one per table). The `halfvec(1024)` embedding column is
+materialised as a 1024-element `LIST<FLOAT>` and the JSONB entity arrays are
+serialised as UTF-8 JSON strings; the two formats share otherwise identical
+schemas.
 
 ## 2. Reporting pipeline — regenerate the canonical CSVs
 
