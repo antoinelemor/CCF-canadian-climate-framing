@@ -197,7 +197,7 @@ The research workflow is organised in five phases, each backed by deterministic 
 
 If you use the data, the methodology, or the accompanying software in your research, please cite both the deposited dataset and the methodology paper:
 
-**Data citation** (Harvard Dataverse, DOI to be added at publication time):
+**Data citation** (Harvard Dataverse, DOI `10.7910/DVN/0FKOQB`):
 
 > Lemor, A., Pillod, A., Taylor, M., & Nadeau, R. (2026). *Canadian Climate Framing (CCF) Database: A sentence-level corpus of 266,271 climate-change articles from 20 Canadian newspapers (1978–2024)* [Data set]. Harvard Dataverse. https://doi.org/10.7910/DVN/0FKOQB
 
