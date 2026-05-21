@@ -89,19 +89,14 @@ paper/**
 !paper/CCF_Methodology/Latex/Figures/
 !paper/CCF_Methodology/Latex/Figures/*.png
 !paper/CCF_Methodology/Latex/Figures/*.pdf
-# The frozen submission package (read-only, kept for reproducibility)
-!paper/CCF_Methodology/Latex/submission_package/
-!paper/CCF_Methodology/Latex/submission_package/manuscript.tex
-!paper/CCF_Methodology/Latex/submission_package/references.bib
-!paper/CCF_Methodology/Latex/submission_package/Figures/
-!paper/CCF_Methodology/Latex/submission_package/Figures/*.png
-!paper/CCF_Methodology/Latex/submission_package/Figures/*.pdf
-# Reviewer comments and editor decision letter
-!paper/CCF_Methodology/Review/
-!paper/CCF_Methodology/Review/*.txt
-!paper/CCF_Methodology/Review/response/
-!paper/CCF_Methodology/Review/response/*.tex
-!paper/CCF_Methodology/Review/response/*.pdf
+# The frozen first-submission package is kept strictly local; it is
+# not pushed to the public remote.
+paper/CCF_Methodology/Latex/submission_package/
+paper/CCF_Methodology/Latex/submission_package/**
+# Reviewer comments, editor decision letter and our response are kept
+# strictly local; nothing under Review/ is pushed to the public remote.
+paper/CCF_Methodology/Review/
+paper/CCF_Methodology/Review/**
 !paper/CCF_Science_to_policymakers/
 !paper/CCF_Science_to_policymakers/Latex/
 !paper/CCF_Science_to_policymakers/Latex/CCF_Science_to_policymakers.pdf
@@ -241,3 +236,23 @@ CCF_Database.dump
 *.lof
 *.lot
 texput.log
+
+
+##############################
+# Manual annotation JSONL released to OSF
+# (4,000 training sentences + 1,000 gold standard + 1,000 second-coder +
+#  consensus gold standard + per-category train/validation bases).
+# These are released under the fair-dealing / fair-use research exception
+# as a limited sample required for benchmark reproducibility.
+##############################
+!Database/Training_data/manual_annotations_JSONL/Annotated_sentences.jsonl
+!Database/Training_data/manual_annotations_JSONL/blind_verification.jsonl
+!Database/Training_data/manual_annotations_JSONL/second_coder.jsonl
+!Database/Training_data/manual_annotations_JSONL/consensus_gold_standard.jsonl
+!Database/Training_data/manual_annotations_JSONL/label_config.json
+!Database/Training_data/manual_annotations_JSONL/label_config_second_coder.json
+
+# Per-category train / validation JSONL bases (output of 04_JSONL_for_training.py)
+!Database/Training_data/annotation_bases/
+!Database/Training_data/annotation_bases/**/
+!Database/Training_data/annotation_bases/**/*.jsonl
