@@ -4,7 +4,7 @@
    <img src="CCF_icone.jpeg" alt="CCF Project Logo" width="500" />
 </p>
 
-# [Have a look at our website here!](https://ccf-project.ca/Home)
+# [Have a look at our website here!](https://ccf-project.ca/)
 
 ## Technical paper
 
@@ -13,7 +13,7 @@
 [![View technical paper](https://img.shields.io/badge/Main-PDF-red.svg)](https://github.com/antoinelemor/CCF-canadian-climate-framing/blob/main/paper/CCF_Methodology/Latex/CCF_Methodology.pdf)
 [![View SI](https://img.shields.io/badge/Supplementary%20Information-PDF-red.svg)](https://github.com/antoinelemor/CCF-canadian-climate-framing/blob/main/paper/CCF_Methodology/Latex/CCF_Methodology_SI.pdf)
 [![F1 Score](https://img.shields.io/badge/F1%20Score-0.866-orange.svg)](paper/CCF_Methodology/Latex/CCF_Methodology.pdf)
-[![Dataset](https://img.shields.io/badge/Dataset-Harvard%20Dataverse-blueviolet.svg)](https://dataverse.harvard.edu/dataverse/CCF)
+[![Dataset](https://img.shields.io/badge/Dataset-Harvard%20Dataverse-blueviolet.svg)](https://doi.org/10.7910/DVN/0FKOQB)
 [![Status](https://img.shields.io/badge/Scientific%20Data-Under%20Revision-yellow.svg)](paper/CCF_Methodology/Latex/CCF_Methodology.pdf)
 
 The technical paper, currently under revision at *Scientific Data* (Nature Portfolio), documents:
@@ -36,7 +36,7 @@ This repository contains the annotation pipeline, the reporting pipeline, the tr
 
 This repository documents a newly compiled database of climate change articles from 20 major Canadian newspapers (n = 266,271) covering the period 1978–2024. Due to copyright restrictions on newspaper content, the raw sentence text is not redistributed here; the deposited database contains the article-level metadata (title, author, publication date, newspaper, page number), the sentence-level identifiers, the 65 binary annotations per sentence, the named-entity extractions, the article-level aggregates, the reliability tiers, and the BGE-M3 embeddings. Any researcher with institutional access to Factiva, Eureka.cc, or ProQuest Canadian Newsstream can recover the original text from the bibliographic coordinates we provide.
 
-The deposit is hosted on **[Harvard Dataverse](https://dataverse.harvard.edu/dataverse/CCF)** (DOI to be added at publication time) as both a PostgreSQL dump and a set of language-agnostic CSV exports, under a CC-BY 4.0 licence. The table below shows the distribution of articles per newspaper (after filtering and preprocessing), and the figure shows the geographic distribution of articles across Canada.
+The deposit is hosted on **[Harvard Dataverse](https://doi.org/10.7910/DVN/0FKOQB)** (DOI `10.7910/DVN/0FKOQB`) as a single tarball, `CCF_Database.tar` (≈ 37 GB), wrapping a `pg_dump -Fd` directory archive of the six relational tables together with all B-tree, partial and HNSW indexes (restoration requires PostgreSQL 16 or 17 with `pgvector ≥ 0.8.2`). The deposit is released under a CC-BY 4.0 licence. The companion code, documentation, and reproducible pipeline are archived on the **[Open Science Framework](https://doi.org/10.17605/OSF.IO/Q5W47)** (DOI `10.17605/OSF.IO/Q5W47`). The table below shows the distribution of articles per newspaper (after filtering and preprocessing), and the figure shows the geographic distribution of articles across Canada.
 
 | Toronto Star | Globe and Mail | National Post | Calgary Herald | Edmonton Journal | Vancouver Sun | Le Devoir | Winnipeg Free Press | Times Colonist | Chronicle Herald | Montreal Gazette | La Presse Plus | Star Phoenix | Whitehorse Daily Star | La Presse | The Telegram | Journal de Montreal | Acadie Nouvelle | Le Droit | Toronto Sun | **Total** |
 |--------------|----------------|---------------|----------------|------------------|---------------|-----------|---------------------|----------------|------------------|------------------|----------------|--------------|----------------------|-----------|--------------|---------------------|-----------------|----------|-------------|-----------|
@@ -68,6 +68,7 @@ The deposit is hosted on **[Harvard Dataverse](https://dataverse.harvard.edu/dat
 - [**Alizée Pillod**, Université de Montréal](https://pol.umontreal.ca/repertoire-departement/professeurs/professeur/in/in35292/sg/Aliz%C3%A9e%20Pillod/), alizee.pillod@umontreal.ca
 - [**Antoine Lemor**, Université de Sherbrooke](https://antoinelemor.github.io/), antoine.lemor@usherbrooke.ca
 - [**Matthew Taylor**, Université de Montréal](https://www.chairedemocratie.com/fr/members/taylor-matthew/), matthew.taylor@umontreal.ca
+- [**Richard Nadeau**, Université de Montréal](https://pol.umontreal.ca/repertoire-departement/professeurs/professeur/in/in14797/sg/Richard%20Nadeau/), richard.nadeau@umontreal.ca
 
 ## The project's main idea and objectives
 
@@ -198,11 +199,11 @@ If you use the data, the methodology, or the accompanying software in your resea
 
 **Data citation** (Harvard Dataverse, DOI to be added at publication time):
 
-> Lemor, A., Pillod, A., & Taylor, M. (2026). *Canadian Climate Framing (CCF) Database: A sentence-level corpus of 266,271 climate-change articles from 20 Canadian newspapers (1978–2024)* [Data set]. Harvard Dataverse. https://doi.org/10.7910/DVN/XXXXXX
+> Lemor, A., Pillod, A., Taylor, M., & Nadeau, R. (2026). *Canadian Climate Framing (CCF) Database: A sentence-level corpus of 266,271 climate-change articles from 20 Canadian newspapers (1978–2024)* [Data set]. Harvard Dataverse. https://doi.org/10.7910/DVN/0FKOQB
 
 **Methodology paper** (Scientific Data, under revision):
 
-> Lemor, A., Pillod, A., & Taylor, M. (2026). The Canadian Climate Framing (CCF) database: a sentence-level annotated corpus for the analysis of climate-change discourse in the Canadian press. *Scientific Data* (under revision).
+> Lemor, A., Pillod, A., Taylor, M., & Nadeau, R. (2026). The Canadian Climate Framing (CCF) database: a sentence-level annotated corpus for the analysis of climate-change discourse in the Canadian press. *Scientific Data* (under revision).
 
 A BibTeX entry consistent with these references is available in [`paper/CCF_Methodology/Latex/references.bib`](paper/CCF_Methodology/Latex/references.bib) (key `lemor_ccf_database_2026`).
 
