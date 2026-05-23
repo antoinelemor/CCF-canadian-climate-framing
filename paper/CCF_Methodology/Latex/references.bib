@@ -940,13 +940,25 @@ Publisher: publisher},
 }
 
 @dataset{lemor_ccf_database_2026,
-	title = {Canadian {Climate} {Framing} ({CCF}) {Database}: {A} sentence-level corpus of 266{,}271 climate-change articles from 20 {Canadian} newspapers (1978--2024)},
+	title = {{CCF} {Database} ({PostgreSQL} edition): {A} sentence-level corpus of 266{,}271 {Canadian} climate-change articles from 20 newspapers (1978--2024)},
 	author = {Lemor, Antoine and Pillod, Aliz{\'e}e and Taylor, Matthew and Nadeau, Richard},
 	year = {2026},
-	publisher = {Harvard Dataverse},
-	doi = {10.7910/DVN/0FKOQB},
-	url = {https://doi.org/10.7910/DVN/0FKOQB},
-	version = {V1},
+	publisher = {Zenodo},
+	doi = {10.5281/zenodo.20346364},
+	url = {https://doi.org/10.5281/zenodo.20346364},
+	version = {1.0.0},
+	note = {Canonical {PostgreSQL} \texttt{pg\_dump} archive with \texttt{pgvector} extension and {HNSW} cosine indexing. A column-oriented Apache Parquet mirror of the same six tables is available at \url{https://doi.org/10.5281/zenodo.20346373}.},
+}
+
+@dataset{lemor_ccf_database_parquet_2026,
+	title = {{CCF} {Database} ({Apache} {Parquet} mirror): column-oriented edition of the {Canadian} {Climate} {Framing} corpus (1978--2024)},
+	author = {Lemor, Antoine and Pillod, Aliz{\'e}e and Taylor, Matthew and Nadeau, Richard},
+	year = {2026},
+	publisher = {Zenodo},
+	doi = {10.5281/zenodo.20346373},
+	url = {https://doi.org/10.5281/zenodo.20346373},
+	version = {1.0.0},
+	note = {Column-oriented Apache Parquet mirror of the canonical {PostgreSQL} edition (\url{https://doi.org/10.5281/zenodo.20346364}). Readable by pandas, polars, R/arrow, DuckDB, and Spark without a database server.},
 }
 
 @misc{lemor_ccf_osf_2026,
@@ -956,7 +968,7 @@ Publisher: publisher},
 	publisher = {Open Science Framework},
 	doi = {10.17605/OSF.IO/Q5W47},
 	url = {https://doi.org/10.17605/OSF.IO/Q5W47},
-	note = {OSF project linked to the Harvard Dataverse deposit. Mirrors the GitHub repository at \url{https://github.com/antoinelemor/CCF-canadian-climate-framing}.},
+	note = {OSF project mirroring the code and documentation of the {Zenodo} deposits at \url{https://doi.org/10.5281/zenodo.20346364} ({PostgreSQL}) and \url{https://doi.org/10.5281/zenodo.20346373} (Parquet). Live development mirror at \url{https://github.com/antoinelemor/CCF-canadian-climate-framing}.},
 }
 
 @inproceedings{joulin_bag_2017,

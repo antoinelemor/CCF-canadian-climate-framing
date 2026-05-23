@@ -13,7 +13,7 @@
 [![View technical paper](https://img.shields.io/badge/Main-PDF-red.svg)](https://github.com/antoinelemor/CCF-canadian-climate-framing/blob/main/paper/CCF_Methodology/Latex/CCF_Methodology.pdf)
 [![View SI](https://img.shields.io/badge/Supplementary%20Information-PDF-red.svg)](https://github.com/antoinelemor/CCF-canadian-climate-framing/blob/main/paper/CCF_Methodology/Latex/CCF_Methodology_SI.pdf)
 [![F1 Score](https://img.shields.io/badge/F1%20Score-0.866-orange.svg)](paper/CCF_Methodology/Latex/CCF_Methodology.pdf)
-[![Dataset](https://img.shields.io/badge/Dataset-Harvard%20Dataverse-blueviolet.svg)](https://doi.org/10.7910/DVN/0FKOQB)
+[![Database (PostgreSQL)](https://img.shields.io/badge/Database%20(SQL)-Zenodo-blue.svg)](https://doi.org/10.5281/zenodo.20346364) [![Database (Parquet)](https://img.shields.io/badge/Database%20(Parquet)-Zenodo-blueviolet.svg)](https://doi.org/10.5281/zenodo.20346373)
 [![Status](https://img.shields.io/badge/Scientific%20Data-Under%20Revision-yellow.svg)](paper/CCF_Methodology/Latex/CCF_Methodology.pdf)
 
 The technical paper, currently under revision at *Scientific Data* (Nature Portfolio), documents:
@@ -30,13 +30,13 @@ Welcome to the **CCF-canadian-climate-framing** repository. This project is dedi
 
 This work focuses on identifying and extracting a multitude of information by annotating the full texts of articles at the sentence level in order to analyze their complete content in the most detailed way, over time and across different Canadian regions and media outlets. We annotate [more than 60 categories](#what-do-we-annotate-and-extract-from-texts-) including eight thematic frames (economic, health, security, justice, political, scientific, environmental, cultural), actor networks, climate events, policy responses, emotional tone, and geographic focus. The deposited database is implemented in PostgreSQL and combines six relational tables — two sentence-level tables (`CCF_full_data`, `CCF_processed_data`), two article-level rollups (`CCF_article_aggregates` for the 65 per-article proportions, `CCF_article_entities` for the named-entity rollup), a per-category reliability lookup (`CCF_reliability_tiers`), and a `pgvector` table of BAAI/bge-m3 sentence embeddings (`CCF_sentence_embeddings`, 9.46 million 1024-dimensional vectors with HNSW cosine indexing) — so researchers can write either fine-grained sentence-level queries, fast article-level aggregations, or semantic-similarity searches without rewriting the same joins on every project.
 
-This repository contains the annotation pipeline, the reporting pipeline, the training-data CSVs, the manuscript sources, and the figure / table outputs that accompany the paper. The deposited database itself is hosted on Harvard Dataverse (see [Citation](#citation)).
+This repository contains the annotation pipeline, the reporting pipeline, the training-data CSVs, the manuscript sources, and the figure / table outputs that accompany the paper. The deposited database itself is hosted on Zenodo (see [Citation](#citation)).
 
 ### The database
 
 This repository documents a newly compiled database of climate change articles from 20 major Canadian newspapers (n = 266,271) covering the period 1978–2024. Due to copyright restrictions on newspaper content, the raw sentence text is not redistributed here; the deposited database contains the article-level metadata (title, author, publication date, newspaper, page number), the sentence-level identifiers, the 65 binary annotations per sentence, the named-entity extractions, the article-level aggregates, the reliability tiers, and the BGE-M3 embeddings. Any researcher with institutional access to Factiva, Eureka.cc, or ProQuest Canadian Newsstream can recover the original text from the bibliographic coordinates we provide.
 
-The deposit is hosted on **[Harvard Dataverse](https://doi.org/10.7910/DVN/0FKOQB)** (DOI `10.7910/DVN/0FKOQB`) in two complementary formats: (i) a single tarball `CCF_Database.tar` (≈ 37 GB) wrapping a `pg_dump -Fd` directory archive of the six relational tables together with all B-tree, partial and HNSW indexes (restoration requires PostgreSQL 16 or 17 with `pgvector ≥ 0.8.2`), and (ii) a column-oriented **Apache Parquet** bundle (one ZSTD-compressed file per table, ≈ 15.8 GB) readable directly with `pandas`, `polars`, R/`arrow`, DuckDB, or Spark without any database server. Both formats share identical schemas; the only adaptation in Parquet is that the `halfvec(1024)` sentence-embedding column is materialised as a 1024-element `LIST<FLOAT>` and JSONB entity arrays are serialised as UTF-8 JSON strings. The deposit is released under a CC-BY 4.0 licence. The companion code, documentation, and reproducible pipeline are archived on the **[Open Science Framework](https://doi.org/10.17605/OSF.IO/Q5W47)** (DOI `10.17605/OSF.IO/Q5W47`). The table below shows the distribution of articles per newspaper (after filtering and preprocessing), and the figure shows the geographic distribution of articles across Canada.
+The deposit is hosted on **Zenodo** under a CC-BY 4.0 licence in two complementary editions sharing identical schemas: (i) the canonical PostgreSQL edition (**[DOI `10.5281/zenodo.20346364`](https://doi.org/10.5281/zenodo.20346364)**), shipping as a single tarball `CCF_Database.tar` (≈ 37 GB) wrapping a `pg_dump -Fd` directory archive of the six relational tables together with all B-tree, partial and HNSW indexes (restoration requires PostgreSQL 16 or 17 with `pgvector ≥ 0.8.2`); and (ii) a column-oriented **Apache Parquet** mirror (**[DOI `10.5281/zenodo.20346373`](https://doi.org/10.5281/zenodo.20346373)**, one ZSTD-compressed file per table, ≈ 15.8 GB), readable directly with `pandas`, `polars`, R/`arrow`, DuckDB, or Spark without any database server. The only adaptation in Parquet is that the `halfvec(1024)` sentence-embedding column is materialised as a 1024-element `LIST<FLOAT>` and JSONB entity arrays are serialised as UTF-8 JSON strings. The companion code, documentation, manual annotations, and reproducible pipeline are bundled with both Zenodo editions as `ccf_code_and_paper.tar.gz` and are additionally archived on the **[Open Science Framework](https://doi.org/10.17605/OSF.IO/Q5W47)** (DOI `10.17605/OSF.IO/Q5W47`). The table below shows the distribution of articles per newspaper (after filtering and preprocessing), and the figure shows the geographic distribution of articles across Canada.
 
 | Toronto Star | Globe and Mail | National Post | Calgary Herald | Edmonton Journal | Vancouver Sun | Le Devoir | Winnipeg Free Press | Times Colonist | Chronicle Herald | Montreal Gazette | La Presse Plus | Star Phoenix | Whitehorse Daily Star | La Presse | The Telegram | Journal de Montreal | Acadie Nouvelle | Le Droit | Toronto Sun | **Total** |
 |--------------|----------------|---------------|----------------|------------------|---------------|-----------|---------------------|----------------|------------------|------------------|----------------|--------------|----------------------|-----------|--------------|---------------------|-----------------|----------|-------------|-----------|
@@ -197,15 +197,19 @@ The research workflow is organised in five phases, each backed by deterministic 
 
 If you use the data, the methodology, or the accompanying software in your research, please cite both the deposited dataset and the methodology paper:
 
-**Data citation** (Harvard Dataverse, DOI `10.7910/DVN/0FKOQB`):
+**Data citation — canonical PostgreSQL edition** (Zenodo, DOI `10.5281/zenodo.20346364`):
 
-> Lemor, A., Pillod, A., Taylor, M., & Nadeau, R. (2026). *Canadian Climate Framing (CCF) Database: A sentence-level corpus of 266,271 climate-change articles from 20 Canadian newspapers (1978–2024)* [Data set]. Harvard Dataverse. https://doi.org/10.7910/DVN/0FKOQB
+> Lemor, A., Pillod, A., Taylor, M., & Nadeau, R. (2026). *CCF Database (PostgreSQL edition): A sentence-level corpus of 266,271 Canadian climate-change articles from 20 newspapers (1978–2024)* [Data set]. Zenodo. https://doi.org/10.5281/zenodo.20346364
+
+**Data citation — Apache Parquet mirror** (Zenodo, DOI `10.5281/zenodo.20346373`):
+
+> Lemor, A., Pillod, A., Taylor, M., & Nadeau, R. (2026). *CCF Database (Apache Parquet mirror): column-oriented edition of the Canadian Climate Framing corpus (1978–2024)* [Data set]. Zenodo. https://doi.org/10.5281/zenodo.20346373
 
 **Methodology paper** (Scientific Data, under revision):
 
 > Lemor, A., Pillod, A., Taylor, M., & Nadeau, R. (2026). The Canadian Climate Framing (CCF) database: a sentence-level annotated corpus for the analysis of climate-change discourse in the Canadian press. *Scientific Data* (under revision).
 
-A BibTeX entry consistent with these references is available in [`paper/CCF_Methodology/Latex/references.bib`](paper/CCF_Methodology/Latex/references.bib) (key `lemor_ccf_database_2026`).
+BibTeX entries consistent with these references are available in [`paper/CCF_Methodology/Latex/references.bib`](paper/CCF_Methodology/Latex/references.bib) (keys `lemor_ccf_database_2026` and `lemor_ccf_database_parquet_2026`).
 
 ---
 

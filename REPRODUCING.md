@@ -2,7 +2,7 @@
 
 This document is the complete reproducibility recipe. By the end of it you will have:
 
-1. A working copy of the deposited PostgreSQL database (restored from the Harvard Dataverse dump).
+1. A working copy of the deposited PostgreSQL database (restored from the Zenodo dump, DOI [`10.5281/zenodo.20346364`](https://doi.org/10.5281/zenodo.20346364)).
 2. The full set of canonical CSVs under `Database/Training_data/`.
 3. The LaTeX tables under `paper/CCF_Methodology/Results/Outputs/Tables/` and the manuscript figures under `paper/CCF_Methodology/Results/Outputs/Figures/`.
 4. A re-compiled `paper/CCF_Methodology/Latex/CCF_Methodology.pdf` and `CCF_Methodology_SI.pdf` that match the deposited PDFs at the content level (modulo embedded PDF compile timestamps).
@@ -24,14 +24,15 @@ The annotation pipeline (Step 7 below) also needs the language models pulled by 
 
 ## 1. Restore the deposited PostgreSQL dump (or read the Parquet bundle)
 
-The CCF Database is distributed on the Harvard Dataverse deposit in two complementary formats, sharing identical schemas.
+The CCF Database is distributed on Zenodo in two complementary editions sharing identical schemas: the canonical PostgreSQL edition ([DOI `10.5281/zenodo.20346364`](https://doi.org/10.5281/zenodo.20346364)) and the Apache Parquet mirror ([DOI `10.5281/zenodo.20346373`](https://doi.org/10.5281/zenodo.20346373)).
 
 ### Option A — PostgreSQL dump (full schema with HNSW indexing)
 
 The dump is published as a single tarball (`CCF_Database.tar`, ≈ 37 GB) that wraps a `pg_dump` *directory* archive (`-Fd`). Restoring it is a three-step process: untar, create the empty database with the `pgvector` extension, then `pg_restore` from the directory using parallel workers.
 
 ```bash
-# 1. Download CCF_Database.tar from the Harvard Dataverse deposit.
+# 1. Download CCF_Database.tar from the Zenodo deposit
+#    (DOI 10.5281/zenodo.20346364).
 tar -xf CCF_Database.tar           # extracts the CCF_Database_dump/ directory
 
 # 2. Create the target database and load pgvector.
@@ -61,8 +62,8 @@ The five core tables share the same `doc_id` keyspace (1 .. 266,578). Any `JOIN 
 ### Option B — Apache Parquet bundle (no database server required)
 
 ```bash
-# Download the six *.parquet files from the parquet/ subfolder of the
-# Harvard Dataverse deposit.
+# Download the six *.parquet files from the Zenodo Parquet mirror
+# (DOI 10.5281/zenodo.20346373).
 ```
 
 ```python
