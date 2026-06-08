@@ -2,8 +2,8 @@
 
 This bundle ships the six relational tables of the **Canadian Climate Framing (CCF) Database** as standalone Apache Parquet files (ZSTD-compressed). It is the no-database-server alternative to the canonical PostgreSQL edition. The two editions are sister Zenodo deposits:
 
-- **PostgreSQL edition** (canonical): [DOI `10.5281/zenodo.20346364`](https://doi.org/10.5281/zenodo.20346364) — ships `CCF_Database.tar` (37 GB, `pg_dump -Fd` archive with HNSW indexing).
-- **Apache Parquet mirror** (this bundle): [DOI `10.5281/zenodo.20346373`](https://doi.org/10.5281/zenodo.20346373) — ships the six `.parquet` files described below.
+- **PostgreSQL edition** (canonical): [DOI `10.5281/zenodo.20595190`](https://doi.org/10.5281/zenodo.20595190) — ships `CCF_Database.tar` (37 GB, `pg_dump -Fd` archive with HNSW indexing).
+- **Apache Parquet mirror** (this bundle): [DOI `10.5281/zenodo.20595193`](https://doi.org/10.5281/zenodo.20595193) — ships the six `.parquet` files described below.
 
 Both formats share **identical schemas and identical row counts**; the only adaptation in Parquet is that the `halfvec(1024)` embedding column is materialised as a 1024-element `LIST<FLOAT>` and the JSONB entity arrays are serialised as UTF-8 JSON strings.
 
