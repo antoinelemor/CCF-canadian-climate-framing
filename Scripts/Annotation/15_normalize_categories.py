@@ -91,47 +91,47 @@ PROCESSED_TABLE = "CCF_processed_data"
 # =============================================================================
 
 ALL_CATEGORIES = {
-    # THEMATIC FRAMES - Economic (1-6)
+    # MAIN FRAMES - Economic (1-6)
     1: ("Economic Frame (Primary Category)", "economic_frame"),
     2: ("Negative impacts of climate change on the economy", "eco_neg_impact"),
     3: ("Positive impacts of climate change on the economy", "eco_pos_impact"),
     4: ("Economic disadvantages of climate action", "eco_cost"),
     5: ("Economic benefits of climate action", "eco_benefit"),
     6: ("Carbon footprint of the economic sector", "eco_footprint"),
-    # THEMATIC FRAMES - Health (7-9)
+    # MAIN FRAMES - Health (7-9)
     7: ("Health Frame (Primary Category)", "health_frame"),
     8: ("Negative impacts of climate change on health", "health_neg_impact"),
     9: ("Health co-benefits of climate action", "health_cobenefit"),
-    # THEMATIC FRAMES - Security (10-14)
+    # MAIN FRAMES - Security (10-14)
     10: ("Security Frame (Primary Category)", "security_frame"),
     11: ("Presence of climate refugees", "security_refugees"),
     12: ("Conflict", "security_conflict"),
     13: ("Post-disaster military assistance", "security_military"),
     14: ("Disruption of military operations", "security_disruption"),
-    # THEMATIC FRAMES - Justice (15-20)
+    # MAIN FRAMES - Justice (15-20)
     15: ("Justice Frame (Primary Category)", "justice_frame"),
     16: ("Winners and losers of climate action", "justice_winners"),
     17: ("Differentiated responsibility", "justice_responsibility"),
     18: ("Unequal vulnerability to climate change", "justice_vulnerability"),
     19: ("Unequal access to climate action", "justice_access"),
     20: ("Intergenerational justice", "justice_intergen"),
-    # THEMATIC FRAMES - Political (21-25)
+    # MAIN FRAMES - Political (21-25)
     21: ("Political Frame (Primary Category)", "political_frame"),
     22: ("Policy action", "pol_action"),
     23: ("Political debate", "pol_debate"),
     24: ("Political positioning", "pol_position"),
     25: ("Public opinion data", "pol_opinion"),
-    # THEMATIC FRAMES - Scientific (26-30)
+    # MAIN FRAMES - Scientific (26-30)
     26: ("Scientific Frame (Primary Category)", "scientific_frame"),
     27: ("Scientific debate", "sci_debate"),
     28: ("Popularisation or scientific discovery", "sci_discovery"),
     29: ("Questioning of climate science", "sci_skepticism"),
     30: ("Defense of climate science", "sci_defense"),
-    # THEMATIC FRAMES - Environmental (31-33)
+    # MAIN FRAMES - Environmental (31-33)
     31: ("Environmental Frame (Primary Category)", "environmental_frame"),
     32: ("Loss of natural environments", "env_habitat"),
     33: ("Loss of fauna and flora", "env_species"),
-    # THEMATIC FRAMES - Cultural (34-38)
+    # MAIN FRAMES - Cultural (34-38)
     34: ("Cultural Frame (Primary Category)", "cultural_frame"),
     35: ("Artistic representation", "cult_art"),
     36: ("Difficulty to host cultural or sports events", "cult_event_impact"),
@@ -607,7 +607,7 @@ def get_section_headers(ncols):
     followed by a ``\\midrule``.
     """
     return {
-        1: [f"\\multicolumn{{{ncols}}}{{l}}{{\\cellcolor{{gray!10}}\\textbf{{THEMATIC FRAMES}}}} \\\\",
+        1: [f"\\multicolumn{{{ncols}}}{{l}}{{\\cellcolor{{gray!10}}\\textbf{{MAIN FRAMES}}}} \\\\",
             r"\midrule",
             r"\rowcolor{gray!8}",
             f"\\multicolumn{{{ncols}}}{{l}}{{\\textit{{Economic Frame}}}} \\\\",

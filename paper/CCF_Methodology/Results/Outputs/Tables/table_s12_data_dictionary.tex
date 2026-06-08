@@ -54,9 +54,9 @@
 \texttt{n\_sentences\_en}         & INTEGER       & Subset in English. \\
 \texttt{n\_sentences\_fr}         & INTEGER       & Subset in French. \\
 \textbf{65 \texttt{prop\_X} columns} & DOUBLE PRECISION ($[0, 1]$) & Article-level proportion of sentences positive for category $X$ (sum / n\_sentences, with NULL sub-categories coalesced to 0). \\
-\texttt{dominant\_frame}          & TEXT          & Thematic frame with the highest \texttt{prop\_X}, or NULL for articles with no positive frame. \\
-\texttt{dominant\_frame\_prop}    & DOUBLE PRECISION & Proportion of the dominant frame. \\
-\texttt{entropy\_frames}          & DOUBLE PRECISION & Shannon entropy (natural base) of the eight thematic-frame proportions; 0 when the article has no positive frame. \\
+\texttt{top\_frame}               & TEXT          & Main frame with the highest \texttt{prop\_X}, or NULL for articles with no positive frame. \\
+\texttt{top\_frame\_prop}         & DOUBLE PRECISION & Proportion of the top frame. \\
+\texttt{entropy\_frames}          & DOUBLE PRECISION & Shannon entropy (natural base) of the eight main-frame proportions; 0 when the article has no positive frame. \\
 \texttt{n\_unique\_messenger\_subs} & SMALLINT     & Number of distinct messenger sub-categories present in the article (0--9). \\
 \texttt{n\_unique\_event\_subs}    & SMALLINT      & Same for event sub-categories (0--8). \\
 \texttt{n\_unique\_solution\_subs} & SMALLINT      & Same for solution sub-categories (0--2). \\

@@ -21,12 +21,12 @@ deposited CCF Database, with no causal or inferential modelling.
 
 It produces:
   1) A heatmap of the average per-article share of each of the eight
-     thematic frames, year by year (1990--2024).
+     main frames, year by year (1990--2024).
   2) Three LaTeX tables of the top-10 named entities by type
      (PER / ORG / LOC), generated from CCF_article_entities.
   3) A LaTeX table that summarises article-level descriptive
      statistics (words per article, sentences per article, share of
-     each thematic frame, share of each primary category, dominant
+     each main frame, share of each primary category, top
      frame distribution).
 
 All outputs are written to:
@@ -243,7 +243,7 @@ def build_entities_table(top_k: int = 10) -> Path:
 def build_descriptives_table() -> Path:
     """Article-level descriptive statistics, compact two-block layout.
 
-    Left block: thematic frames (mean per-article share + dominant-frame %).
+    Left block: main frames (mean per-article share + top-frame %).
     Right block: primary categories and tone (mean per-article share).
     A short header line above carries the corpus-size figures.
     """
@@ -271,14 +271,14 @@ def build_descriptives_table() -> Path:
         ).iloc[0]
 
         dom = pd.read_sql(
-            'SELECT dominant_frame, COUNT(*)::BIGINT AS n '
+            'SELECT top_frame, COUNT(*)::BIGINT AS n '
             'FROM "CCF_article_aggregates" '
-            'WHERE dominant_frame IS NOT NULL '
-            'GROUP BY dominant_frame;', conn)
+            'WHERE top_frame IS NOT NULL '
+            'GROUP BY top_frame;', conn)
 
     total = int(meta["n_articles"])
 
-    dom_pct = {row["dominant_frame"]: 100.0 * int(row["n"]) / total
+    dom_pct = {row["top_frame"]: 100.0 * int(row["n"]) / total
                for _, row in dom.iterrows()}
 
     frame_rows = []
@@ -322,7 +322,7 @@ def build_descriptives_table() -> Path:
         rf"\multicolumn{{5}}{{l}}{{{corpus_line_1}}} \\",
         rf"\multicolumn{{5}}{{l}}{{{corpus_line_2}}} \\",
         r"\addlinespace[2pt]",
-        r"\multicolumn{3}{c}{\textbf{Thematic frames}} & "
+        r"\multicolumn{3}{c}{\textbf{Main frames}} & "
         r"\multicolumn{2}{c}{\textbf{Primary categories \& tone}} \\",
         r"\cmidrule(lr){1-3}\cmidrule(lr){4-5}",
         r" & \textbf{Mean} & \textbf{Dominant} & & \textbf{Mean} \\",

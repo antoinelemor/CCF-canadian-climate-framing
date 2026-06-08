@@ -233,14 +233,14 @@ def _fmt_category_cell(num: int, name: str, primary_set: set, escape_latex) -> s
 
 PRIMARY_DETECTION_ROWS = [
     # (code in training CSV, display label, group)
-    ("economic_frame",      "Economic Frame",      "thematic"),
-    ("health_frame",        "Health Frame",        "thematic"),
-    ("security_frame",      "Security Frame",      "thematic"),
-    ("justice_frame",       "Justice Frame",       "thematic"),
-    ("political_frame",     "Political Frame",     "thematic"),
-    ("scientific_frame",    "Scientific Frame",    "thematic"),
-    ("environmental_frame", "Environmental Frame", "thematic"),
-    ("cultural_frame",      "Cultural Frame",      "thematic"),
+    ("economic_frame",      "Economic Frame",      "main"),
+    ("health_frame",        "Health Frame",        "main"),
+    ("security_frame",      "Security Frame",      "main"),
+    ("justice_frame",       "Justice Frame",       "main"),
+    ("political_frame",     "Political Frame",     "main"),
+    ("scientific_frame",    "Scientific Frame",    "main"),
+    ("environmental_frame", "Environmental Frame", "main"),
+    ("cultural_frame",      "Cultural Frame",      "main"),
     ("messenger",           "Presence of Messengers", "other"),
     ("event",               "Presence of Events",    "other"),
     ("solution",            "Presence of Solutions", "other"),
@@ -304,7 +304,7 @@ def generate_table_performance() -> None:
         r"\textbf{EN} & \textbf{FR} \\",
         r"\midrule",
         r"\rowcolor{gray!10}",
-        r"\multicolumn{7}{l}{\textit{Thematic Frames}} \\",
+        r"\multicolumn{7}{l}{\textit{Main Frames}} \\",
         r"\midrule",
     ]
     for code, label, group in PRIMARY_DETECTION_ROWS:
@@ -312,7 +312,7 @@ def generate_table_performance() -> None:
             ll == "Presence of Messengers" for ll in [label]
         ):
             pass
-        if group == "thematic":
+        if group == "main":
             lines.append(_row(code, label))
     lines.extend([
         r"\midrule",
@@ -1315,9 +1315,9 @@ TABLE_S12_BODY = r"""\setlength{\tabcolsep}{4pt}
 \texttt{n\_sentences\_en}         & INTEGER       & Subset in English. \\
 \texttt{n\_sentences\_fr}         & INTEGER       & Subset in French. \\
 \textbf{65 \texttt{prop\_X} columns} & DOUBLE PRECISION ($[0, 1]$) & Article-level proportion of sentences positive for category $X$ (sum / n\_sentences, with NULL sub-categories coalesced to 0). \\
-\texttt{dominant\_frame}          & TEXT          & Thematic frame with the highest \texttt{prop\_X}, or NULL for articles with no positive frame. \\
-\texttt{dominant\_frame\_prop}    & DOUBLE PRECISION & Proportion of the dominant frame. \\
-\texttt{entropy\_frames}          & DOUBLE PRECISION & Shannon entropy (natural base) of the eight thematic-frame proportions; 0 when the article has no positive frame. \\
+\texttt{top\_frame}               & TEXT          & Main frame with the highest \texttt{prop\_X}, or NULL for articles with no positive frame. \\
+\texttt{top\_frame\_prop}         & DOUBLE PRECISION & Proportion of the top frame. \\
+\texttt{entropy\_frames}          & DOUBLE PRECISION & Shannon entropy (natural base) of the eight main-frame proportions; 0 when the article has no positive frame. \\
 \texttt{n\_unique\_messenger\_subs} & SMALLINT     & Number of distinct messenger sub-categories present in the article (0--9). \\
 \texttt{n\_unique\_event\_subs}    & SMALLINT      & Same for event sub-categories (0--8). \\
 \texttt{n\_unique\_solution\_subs} & SMALLINT      & Same for solution sub-categories (0--2). \\

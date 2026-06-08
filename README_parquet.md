@@ -48,9 +48,9 @@ con.execute("CREATE VIEW emb AS SELECT * FROM read_parquet('CCF_sentence_embeddi
 con.execute("CREATE VIEW agg AS SELECT * FROM read_parquet('CCF_article_aggregates.parquet')")
 con.execute("CREATE VIEW full AS SELECT * FROM read_parquet('CCF_full_data.parquet')")
 con.execute("""
-  SELECT f.media, f.date, f.title, a.dominant_frame_prop
+  SELECT f.media, f.date, f.title, a.top_frame_prop
   FROM   agg a JOIN full f USING (doc_id)
-  WHERE  a.dominant_frame = 'political_frame'
+  WHERE  a.top_frame = 'political_frame'
     AND  EXTRACT(year FROM f.date) = 2024
 """).df()
 ```
@@ -74,8 +74,8 @@ con.execute("""
   WITH agg AS (SELECT * FROM read_parquet('CCF_article_aggregates.parquet')),
        full AS (SELECT * FROM read_parquet('CCF_full_data.parquet')),
        tier AS (SELECT * FROM read_parquet('CCF_reliability_tiers.parquet'))
-  SELECT f.title, a.dominant_frame, t.tier_overall
-  FROM   agg a JOIN full f USING (doc_id) JOIN tier t ON t.code = a.dominant_frame
+  SELECT f.title, a.top_frame, t.tier_overall
+  FROM   agg a JOIN full f USING (doc_id) JOIN tier t ON t.code = a.top_frame
   WHERE  t.tier_overall = 'A' LIMIT 10
 """).df()
 ```
