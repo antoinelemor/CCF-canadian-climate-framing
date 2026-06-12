@@ -104,4 +104,4 @@ The Parquet files are produced from a freshly restored PostgreSQL database by `S
 
 ## Licence
 
-CC-BY 4.0 (see `LICENSE` in this deposit). Raw newspaper text is excluded for copyright reasons; bibliographic coordinates are sufficient to recover the original text via Factiva, Eureka.cc, or ProQuest Canadian Newsstream.
+CC-BY 4.0 (see `LICENSE` in this deposit). Raw newspaper text is excluded for copyright reasons; bibliographic coordinates are sufficient to recover the original text via Factiva, Eureka.cc, or ProQuest Canadian Major Dailies.

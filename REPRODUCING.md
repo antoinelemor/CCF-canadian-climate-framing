@@ -184,7 +184,7 @@ python Scripts/Annotation/13_Intercoder_reliability.py           # κ / α / AC1
 python Scripts/Annotation/14_create_intercoder_progression_plot.py
 ```
 
-Step 5 requires the raw newspaper text, which is *not* deposited (copyright). Researchers with institutional access to Factiva, Eureka.cc, or ProQuest Canadian Newsstream can rebuild that input from the bibliographic coordinates in `CCF_full_data`.
+Step 5 requires the raw newspaper text, which is *not* deposited (copyright). Researchers with institutional access to Factiva, Eureka.cc, or ProQuest Canadian Major Dailies can rebuild that input from the bibliographic coordinates in `CCF_full_data`.
 
 ## 8. Determinism notes
 
