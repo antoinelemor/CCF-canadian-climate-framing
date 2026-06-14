@@ -325,7 +325,7 @@ def build_descriptives_table() -> Path:
         r"\multicolumn{3}{c}{\textbf{Main frames}} & "
         r"\multicolumn{2}{c}{\textbf{Primary categories \& tone}} \\",
         r"\cmidrule(lr){1-3}\cmidrule(lr){4-5}",
-        r" & \textbf{Mean} & \textbf{Dominant} & & \textbf{Mean} \\",
+        r" & \textbf{Mean} & \textbf{Top} & & \textbf{Mean} \\",
         r" & \textbf{share (\%)} & \textbf{frame (\%)} & & \textbf{share (\%)} \\",
         r"\midrule",
     ]
