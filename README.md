@@ -1,7 +1,7 @@
 # CCF-canadian-climate-framing
 
 <p align="center">
-   <img src="CCF_icone.jpeg" alt="CCF Project Logo" width="500" />
+   <img src="assets/CCF_icone.jpeg" alt="CCF Project Logo" width="500" />
 </p>
 
 # [Have a look at our website here!](https://ccf-project.ca/)
@@ -217,18 +217,22 @@ BibTeX entries consistent with these references are available in [`paper/CCF_Met
 
 ```
 CCF-canadian-climate-framing/
+├── README.md                                               ── this file
+├── .gitignore                                              ── what is tracked and what is local-only
+├── assets/
+│   └── CCF_icone.jpeg                                      ── project logo shown above
 ├── Database/
-│   └── Training_data/                                     (training-time CSVs and gold standard)
-│       ├── all_best_models.csv                            + _normalized.csv
-│       ├── training_database_metrics.csv                  + _normalized.csv
-│       ├── manual_annotations_metrics.csv                 + _normalized.csv
-│       ├── final_annotation_metrics.csv                   + _normalized.csv
+│   └── Training_data/                                      (training-time CSVs and gold standard)
+│       ├── all_best_models.csv                             + _normalized.csv
+│       ├── training_database_metrics.csv                   + _normalized.csv
+│       ├── manual_annotations_metrics.csv                  + _normalized.csv
+│       ├── final_annotation_metrics.csv                    + _normalized.csv
 │       ├── non_trained_models.csv
-│       ├── per_category_reliability_normalized.csv        (per-category κ / α / AC1 / F1)
-│       ├── reliability_tiers.csv                          (tier A / B / C lookup)
-│       ├── training_hyperparameters_normalized.csv        (per-model hyperparameters)
-│       ├── training_static_configuration.csv              (pipeline-wide constants)
-│       ├── Training_logs/                                 (per-model training and reinforced-training metrics CSVs)
+│       ├── per_category_reliability_normalized.csv         (per-category κ / α / AC1 / F1)
+│       ├── reliability_tiers.csv                           (tier A / B / C lookup)
+│       ├── training_hyperparameters_normalized.csv         (per-model hyperparameters)
+│       ├── training_static_configuration.csv               (pipeline-wide constants)
+│       ├── Training_logs/                                  (per-model training and reinforced-training metrics CSVs)
 │       └── manual_annotations_JSONL/
 │           ├── intercoder_reliability_1_overall_summary.csv
 │           ├── intercoder_reliability_2_per_label_reliability.csv
@@ -239,52 +243,47 @@ CCF-canadian-climate-framing/
 │           ├── label_mapping_second_coder.csv
 │           └── label_mapping_second_coder_canonical.csv
 ├── Scripts/
-│   └── Annotation/                                        (17 zero-padded scripts, executed in order)
-│       ├── 01_Preprocess.py                               ── segment into two-sentence units
-│       ├── 02_JSONL.py                                    ── build JSONL for manual annotation
-│       ├── 03_Manual_annotations.py                       ── aggregate manual annotations
-│       ├── 04_JSONL_for_training.py                       ── train / validation split
-│       ├── 05_populate_SQL_database.py                    ── initial PostgreSQL DB (CCF_full_data, CCF_processed_data)
-│       ├── 06_Training_best_models.py                     ── 128 BERT / CamemBERT classifiers (incl. reinforced phase)
-│       ├── 07_Annotation.py                               ── apply models to the entire corpus
-│       ├── 08_NER.py                                      ── PER / ORG / LOC on every sentence
-│       ├── 09_create_sentence_embeddings.py               ── CCF_sentence_embeddings (BAAI/bge-m3 halfvec(1024) + HNSW)
-│       ├── 10_JSONL_for_recheck.py                        ── stratified validation sample
-│       ├── 11_Annotation_metrics.py                       ── precision / recall / F1 vs. gold
-│       ├── 12_Blind_verification.py                       ── strip labels for the blind second-coder pass
-│       ├── 13_Intercoder_reliability.py                   ── Cohen's κ, Krippendorff's α, Gwet's AC1
-│       ├── 14_create_intercoder_progression_plot.py       ── intercoder-progression figure
-│       ├── 15_normalize_categories.py                     ── canonical category API + normalised metrics CSVs
-│       ├── 16_build_normalized_csvs.py                    ── per-category reliability, tiers, hyperparameters CSVs
-│       └── 17_generate_tables.py                          ── reproducible LaTeX tables (main + SI)
-├── paper/
-│   └── CCF_Methodology/
-│       ├── Latex/
-│       │   ├── CCF_Methodology.tex                        (main manuscript; \input{}s the generated tables)
-│       │   ├── CCF_Methodology.pdf
-│       │   ├── CCF_Methodology_SI.tex                     (Supplementary Information; \input{}s the SI tables)
-│       │   ├── CCF_Methodology_SI.pdf
-│       │   ├── references.bib
-│       │   ├── Figures/                                   (figures referenced from the manuscript)
-│       │   └── submission_package/                        (frozen initial submission, kept for reproducibility)
-│       ├── Review/
-│       │   ├── reviewers.txt                              (reviewers' comments)
-│       │   ├── editor.txt                                 (editor decision letter)
-│       │   └── response/                                  (point-by-point response, .tex + .pdf)
-│       └── Results/
-│           ├── Scripts/                                   (figure-generation scripts for the paper)
-│           │   ├── 1_overview_plots.py                    ── distribution by media outlet, year, province
-│           │   ├── 2_temporal_f1_validation.py            ── temporal F1 evolution plot
-│           │   ├── 3_data_overview.py                     ── Data Overview heatmap + descriptive tables
-│           │   └── generate_latex_tables.py               ── framework-definition LaTeX tables
-│           └── Outputs/
-│               ├── Figures/                               (PNG/PDF figures used in the paper)
-│               ├── Tables/                                (LaTeX tables \input{}ed by the manuscript and SI)
-│               └── Stats/                                 (CSV statistics referenced from the paper)
-├── requirements.txt
-├── CCF_icone.jpeg
-└── README.md
+│   ├── requirements.txt                                    ── Python dependencies for the annotation pipeline
+│   └── Annotation/                                         (17 zero-padded scripts, executed in order)
+│       ├── 01_Preprocess.py                                ── segment into two-sentence units
+│       ├── 02_JSONL.py                                     ── build JSONL for manual annotation
+│       ├── 03_Manual_annotations.py                        ── aggregate manual annotations
+│       ├── 04_JSONL_for_training.py                        ── train / validation split
+│       ├── 05_populate_SQL_database.py                     ── initial PostgreSQL DB (CCF_full_data, CCF_processed_data)
+│       ├── 06_Training_best_models.py                      ── 128 BERT / CamemBERT classifiers (incl. reinforced phase)
+│       ├── 07_Annotation.py                                ── apply models to the entire corpus
+│       ├── 08_NER.py                                       ── PER / ORG / LOC on every sentence
+│       ├── 09_create_sentence_embeddings.py                ── CCF_sentence_embeddings (BAAI/bge-m3 halfvec(1024) + HNSW)
+│       ├── 10_JSONL_for_recheck.py                         ── stratified validation sample
+│       ├── 11_Annotation_metrics.py                        ── precision / recall / F1 vs. gold
+│       ├── 12_Blind_verification.py                        ── strip labels for the blind second-coder pass
+│       ├── 13_Intercoder_reliability.py                    ── Cohen's κ, Krippendorff's α, Gwet's AC1
+│       ├── 14_create_intercoder_progression_plot.py        ── intercoder-progression figure
+│       ├── 15_normalize_categories.py                      ── canonical category API + normalised metrics CSVs
+│       ├── 16_build_normalized_csvs.py                     ── per-category reliability, tiers, hyperparameters CSVs
+│       └── 17_generate_tables.py                           ── reproducible LaTeX tables (main + SI)
+└── paper/
+    ├── CCF_Methodology/                                    ── manuscript currently under revision at Scientific Data
+    │   ├── Latex/
+    │   │   ├── CCF_Methodology.tex                         (main manuscript; \input{}s the generated tables)
+    │   │   ├── CCF_Methodology.pdf
+    │   │   ├── CCF_Methodology_SI.tex                      (Supplementary Information; \input{}s the SI tables)
+    │   │   ├── CCF_Methodology_SI.pdf
+    │   │   ├── references.bib
+    │   │   └── Figures/                                    (PNG figures referenced from the manuscript)
+    │   └── Results/
+    │       ├── Scripts/                                    (figure-generation scripts for the paper)
+    │       │   ├── 1_overview_plots.py                     ── distribution by media outlet, year, province
+    │       │   ├── 2_temporal_f1_validation.py             ── temporal F1 evolution plot
+    │       │   ├── 3_data_overview.py                      ── Data Overview heatmap + descriptive tables
+    │       │   └── generate_latex_tables.py                ── framework-definition LaTeX tables
+    │       └── Outputs/
+    │           ├── Figures/                                (PNG figures consumed by the manuscript)
+    │           └── Tables/                                 (LaTeX tables \input{}ed by the manuscript and SI)
+    └── CCF_Science_to_policymakers/                        ── companion science-to-policymakers paper (in preparation)
 ```
+
+The reviewer correspondence (`paper/CCF_Methodology/Review/`), the LaTeX submission bundle for the journal portal (`paper/CCF_Methodology/Submission/`), the local database build artefacts (`build/`), and the project archives (`Archives/`, `Prompt/`, `models/`, `modules/`) are kept strictly local — they are listed in `.gitignore` and are not mirrored on GitHub. The published database itself lives on Zenodo (DOIs `10.5281/zenodo.20667151` for the PostgreSQL edition and `10.5281/zenodo.20667154` for the Apache Parquet mirror), and the companion code, training data, intercoder reliability data, and manuscript sources are mirrored on the Open Science Framework at <https://doi.org/10.17605/OSF.IO/Q5W47>.
 
 **Conventions.** Scripts in `Scripts/Annotation/` are zero-padded so a lexicographic sort matches the execution order: 01--14 form the annotation pipeline (including the BGE-M3 sentence-embedding ingestion at step 09), and 15--17 form the reporting pipeline (CSV normalisation, revision artefacts, table generators).
 
