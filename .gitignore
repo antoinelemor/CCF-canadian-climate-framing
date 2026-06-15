@@ -256,3 +256,18 @@ texput.log
 !Database/Training_data/annotation_bases/
 !Database/Training_data/annotation_bases/**/
 !Database/Training_data/annotation_bases/**/*.jsonl
+
+##############################
+# Local build artefacts (not pushed to remote)
+##############################
+# Database deposits + intermediate artefacts that are too large to track
+# (the database itself is published on Zenodo; see README.md).
+build/
+texput.log
+
+##############################
+# Submission package (LOCAL only — never pushed to remote)
+##############################
+# The Scientific Data submission bundle is staged locally under
+# build/Submission_package/ and is NOT mirrored on GitHub.
+paper/CCF_Methodology/Submission/
