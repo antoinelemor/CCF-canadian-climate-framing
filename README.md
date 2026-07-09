@@ -1,10 +1,22 @@
-# CCF-canadian-climate-framing
+<div align="center">
 
-<p align="center">
-   <img src="assets/CCF_icone.jpeg" alt="CCF Project Logo" width="500" />
-</p>
+<a href="https://ccf-project.ca">
+  <img src="https://ccf-project.ca/static/assets/logos/ccf_icone.png" alt="Canadian Climate Framing" width="130">
+</a>
 
-# [Have a look at our website here!](https://ccf-project.ca/)
+# Canadian Climate Framing (CCF)
+
+**How do Canadian media frame climate change? 275,000+ articles from 21 outlets since 1978, read sentence by sentence, now serving a live public observatory.**
+
+*A lighthouse on Canada's climate coverage*
+
+[![Website](https://img.shields.io/badge/Website-ccf--project.ca-0f8a76?style=flat-square)](https://ccf-project.ca)
+[![Live observatory](https://img.shields.io/badge/Live-observatory-12b48c?style=flat-square)](https://ccf-project.ca/observatory)
+[![Data platform](https://img.shields.io/badge/Data-data.ccf--project.ca-0e2a47?style=flat-square)](https://data.ccf-project.ca)
+
+</div>
+
+---
 
 ## Technical paper
 
