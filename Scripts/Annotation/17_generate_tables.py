@@ -1285,7 +1285,7 @@ TABLE_S12_BODY = r"""\setlength{\tabcolsep}{4pt}
 \bottomrule
 \endlastfoot
 
-\multicolumn{3}{l}{\cellcolor{gray!12}\textbf{Table CCF\_full\_data} \emph{(article-level metadata, 266{,}271 rows)}} \\
+\multicolumn{3}{l}{\cellcolor{gray!12}\textbf{Table CCF\_full\_data} \emph{(article-level metadata, 283{,}964 rows)}} \\
 \midrule
 \texttt{doc\_id}           & BIGINT (PK)   & Unique article identifier. \\
 \texttt{news\_type}        & TEXT          & Editorial category (news, opinion, editorial, etc.). \\
@@ -1298,7 +1298,7 @@ TABLE_S12_BODY = r"""\setlength{\tabcolsep}{4pt}
 \texttt{page\_number}      & TEXT          & Print page (free text, e.g.~``A1'' or ``B3''). \\
 \midrule
 
-\multicolumn{3}{l}{\cellcolor{gray!12}\textbf{Table CCF\_processed\_data} \emph{(sentence-level annotations, 9{,}198{,}958 rows)}} \\
+\multicolumn{3}{l}{\cellcolor{gray!12}\textbf{Table CCF\_processed\_data} \emph{(sentence-level annotations, 9{,}908{,}776 rows)}} \\
 \midrule
 \texttt{doc\_id}             & BIGINT       & Foreign key to CCF\_full\_data. \\
 \texttt{sentence\_id}        & BIGINT       & Sentence position within the article (starting at 1; 0 reserved for title in the embeddings table). \\
@@ -1308,7 +1308,7 @@ TABLE_S12_BODY = r"""\setlength{\tabcolsep}{4pt}
 \texttt{ner\_entities}       & TEXT (JSON)  & Per-sentence NER output as \texttt{\{"PER": [..], "ORG": [..], "LOC": [..]\}}. \\
 \midrule
 
-\multicolumn{3}{l}{\cellcolor{gray!12}\textbf{Table CCF\_article\_aggregates} \emph{(article-level rollup, 266{,}271 rows)}} \\
+\multicolumn{3}{l}{\cellcolor{gray!12}\textbf{Table CCF\_article\_aggregates} \emph{(article-level rollup, 283{,}964 rows)}} \\
 \midrule
 \texttt{doc\_id}                  & BIGINT (PK)   & Foreign key to CCF\_full\_data. \\
 \texttt{n\_sentences}             & INTEGER       & Total number of two-sentence analytical units in the article. \\
@@ -1323,7 +1323,7 @@ TABLE_S12_BODY = r"""\setlength{\tabcolsep}{4pt}
 \texttt{n\_unique\_solution\_subs} & SMALLINT      & Same for solution sub-categories (0--2). \\
 \midrule
 
-\multicolumn{3}{l}{\cellcolor{gray!12}\textbf{Table CCF\_article\_entities} \emph{(NER rollup, 266{,}271 rows)}} \\
+\multicolumn{3}{l}{\cellcolor{gray!12}\textbf{Table CCF\_article\_entities} \emph{(NER rollup, 283{,}964 rows)}} \\
 \midrule
 \texttt{doc\_id}                & BIGINT (PK)   & Foreign key to CCF\_full\_data. \\
 \texttt{entities\_per}          & JSONB         & Deduplicated array of persons mentioned in the article. \\
@@ -1354,7 +1354,7 @@ TABLE_S12_BODY = r"""\setlength{\tabcolsep}{4pt}
 \texttt{prev\_coder1\_full}, \texttt{prev\_coder2\_full} & DOUBLE PRECISION & Prevalence (proportion of positives) per coder on the full 1{,}000-sentence sample. \\
 \midrule
 
-\multicolumn{3}{l}{\cellcolor{gray!12}\textbf{Table CCF\_sentence\_embeddings} \emph{(BGE-M3 dense vectors, 9{,}462{,}845 rows)}} \\
+\multicolumn{3}{l}{\cellcolor{gray!12}\textbf{Table CCF\_sentence\_embeddings} \emph{(BGE-M3 dense vectors, 10{,}192{,}740 rows)}} \\
 \midrule
 \texttt{doc\_id}     & BIGINT (PK, with \texttt{sentence\_id}) & Foreign key to CCF\_full\_data. \\
 \texttt{sentence\_id} & INTEGER (PK)   & Sentence position within the article. \texttt{sentence\_id} = 0 is reserved for the article title. \\
@@ -1370,6 +1370,13 @@ def generate_table_s12() -> str:
     The body is a hand-curated description of every column of every
     relation in the deposited CCF Database. It does not depend on the
     live database at generation time.
+
+    NOTE: the per-table row counts in TABLE_S12_BODY are literals and
+    must be kept in sync with the deposited database. Current values
+    were verified against the live CCF_Database (v2 corpus) on
+    2026-08-13: CCF_full_data / CCF_article_aggregates /
+    CCF_article_entities = 283,964; CCF_processed_data = 9,908,776;
+    CCF_sentence_embeddings = 10,192,740.
     """
     OUTPUT_S12.write_text(TABLE_S12_BODY)
     print(f"  wrote: {OUTPUT_S12.relative_to(PROJECT_ROOT)} ({len(TABLE_S12_BODY):,} chars)")

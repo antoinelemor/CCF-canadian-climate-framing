@@ -20,11 +20,23 @@ sentence_id = 0), enabling semantic search, near-duplicate detection,
 and cosine-similarity queries directly from SQL through the pgvector
 extension.
 
-The upstream artefacts produced by the BGE-M3 encoder consist of:
-- embeddings.npy: a float16 memory-mapped array of shape (N, 1024)
-  where N is the total number of embedded units;
+The upstream artefacts produced by the BGE-M3 encoder consist of a
+base plus an incremental delta:
+- embeddings.npy: the BASE — a genuine .npy file (float16, shape
+  (N, 1024)) opened memory-mapped via np.load(..., mmap_mode='r');
 - index.pkl: a dictionary that maps each (doc_id, sentence_id) pair
-  to the corresponding row index in embeddings.npy.
+  to the corresponding row index in embeddings.npy;
+- embeddings_delta_f16.dat (optional): the DELTA — a RAW float16
+  memmap (N_delta x 1024, no .npy header) holding the vectors encoded
+  since the base was frozen;
+- index_delta.pkl (optional): the (doc_id, sentence_id) -> row-index
+  mapping into the delta file.
+
+The script ingests the UNION of base and delta. When the same
+(doc_id, sentence_id) key appears in both, the DELTA vector primes
+over the base one. In release v2.0.0 the merged set contains
+10,192,740 vectors (the 9,908,776 two-sentence units of
+CCF_processed_data plus the 283,964 article titles).
 
 The vectors are already L2-normalised (encoded with
 normalize_embeddings=True in the upstream sentence-transformers call),
@@ -34,6 +46,8 @@ through the pgvector ``<=>'' operator without any further preparation.
 Input dependencies:
 - ../CCF-media-cascade-detection/data/embeddings/embeddings.npy
 - ../CCF-media-cascade-detection/data/embeddings/index.pkl
+- ../CCF-media-cascade-detection/data/embeddings/embeddings_delta_f16.dat
+  and index_delta.pkl (optional delta; both must be present together)
   (location overridable via the CCF_EMBEDDINGS_DIR environment variable)
 - pgvector >= 0.7 installed and CREATE EXTENSION vector in CCF_Database
   (the script aborts with a clear message otherwise).
@@ -54,17 +68,21 @@ Dependencies:
 
 MAIN FEATURES:
 --------------
-1) Streaming COPY -- The 9.2 million vectors are inserted via the
+1) Base + delta merge -- The base .npy and the raw-float16 delta are
+   memory-mapped separately and iterated in file order (base first,
+   then delta), so each file is read sequentially; the delta wins on
+   duplicate keys.
+2) Streaming COPY -- The 10.2 million vectors are inserted via the
    PostgreSQL COPY protocol with a pgvector-compatible textual
    representation. Streaming keeps Python memory bounded to one chunk
    at a time, regardless of corpus size.
-2) Faithful storage -- The halfvec(1024) column preserves the float16
-   precision of the source file at exactly the same memory cost
-   (2 bytes per dimension), so storage is identical to the .npy file.
-3) HNSW index for cosine -- After ingestion the script builds an HNSW
+3) Faithful storage -- The halfvec(1024) column preserves the float16
+   precision of the source files at exactly the same memory cost
+   (2 bytes per dimension), so storage is identical to the source.
+4) HNSW index for cosine -- After ingestion the script builds an HNSW
    index on the cosine-distance operator class (halfvec_cosine_ops);
    this delivers sub-second top-k retrieval over the full corpus.
-4) Resumable -- If the table already exists and contains the expected
+5) Resumable -- If the table already exists and contains the expected
    number of rows, the script restarts at the index step rather than
    re-ingesting from scratch.
 
@@ -114,6 +132,13 @@ EMBED_DIR = Path(
 )
 EMBEDDINGS_NPY = EMBED_DIR / "embeddings.npy"
 INDEX_PKL = EMBED_DIR / "index.pkl"
+# Incremental delta produced since the base was frozen. The .dat file is a
+# RAW float16 memmap (N_delta x 1024, no .npy header), unlike the base
+# which is a genuine .npy file. Both delta files are optional but must be
+# present together. On duplicate (doc_id, sentence_id) keys, the delta
+# vector primes over the base one.
+EMBEDDINGS_DELTA_DAT = EMBED_DIR / "embeddings_delta_f16.dat"
+INDEX_DELTA_PKL = EMBED_DIR / "index_delta.pkl"
 
 TABLE_NAME = "CCF_sentence_embeddings"
 EMBED_DIM = 1024
@@ -159,12 +184,91 @@ def _format_vector(vec: np.ndarray) -> str:
     return "[" + ",".join(f"{x:.5f}" for x in vec) + "]"
 
 
-def _iter_rows(index_map: dict, mmap: np.memmap) -> Iterator[tuple[int, int, str]]:
-    # Sort by row index so we read the .npy sequentially -- the OS page cache
-    # then serves contiguous chunks rather than random-access reading 18 GB.
-    items = sorted(index_map.items(), key=lambda kv: kv[1])
-    for (doc_id, sentence_id), row_idx in items:
-        vec = mmap[row_idx].astype(np.float32, copy=False)
+def _load_sources() -> tuple[dict[tuple[int, int], tuple[int, int]], list[np.ndarray]]:
+    """Load the base embeddings and merge the optional delta on top.
+
+    Returns ``(merged, arrays)`` where ``merged`` maps each
+    ``(doc_id, sentence_id)`` key to a ``(source, row_idx)`` pair indexing
+    into ``arrays``: source 0 is the base ``embeddings.npy`` (a genuine
+    .npy file, opened via ``np.load(..., mmap_mode='r')``), source 1
+    (when the delta files exist) is the raw float16 memmap
+    ``embeddings_delta_f16.dat``. For a key present in both, the delta
+    PRIMES over the base.
+    """
+    with INDEX_PKL.open("rb") as f:
+        base_index = pickle.load(f)
+    print(f"  base index entries : {len(base_index):,}")
+    base = np.load(EMBEDDINGS_NPY, mmap_mode="r")
+    print(f"  base array shape   : {base.shape}  dtype={base.dtype}")
+    assert base.shape[1] == EMBED_DIM, (
+        f"Expected embedding dimension {EMBED_DIM}, got {base.shape[1]}"
+    )
+    assert base.shape[0] >= len(base_index), (
+        "embeddings.npy has fewer rows than index entries"
+    )
+
+    merged: dict[tuple[int, int], tuple[int, int]] = {
+        key: (0, row_idx) for key, row_idx in base_index.items()
+    }
+    arrays: list[np.ndarray] = [base]
+
+    if INDEX_DELTA_PKL.exists() != EMBEDDINGS_DELTA_DAT.exists():
+        print(
+            "ERROR: incomplete delta -- both index_delta.pkl and "
+            "embeddings_delta_f16.dat must be present together "
+            f"(found: {INDEX_DELTA_PKL.exists()=}, "
+            f"{EMBEDDINGS_DELTA_DAT.exists()=}).",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
+    if INDEX_DELTA_PKL.exists():
+        with INDEX_DELTA_PKL.open("rb") as f:
+            delta_index = pickle.load(f)
+        n_bytes = EMBEDDINGS_DELTA_DAT.stat().st_size
+        row_bytes = EMBED_DIM * np.dtype(np.float16).itemsize
+        if n_bytes % row_bytes:
+            print(
+                f"ERROR: {EMBEDDINGS_DELTA_DAT} size ({n_bytes:,} B) is not "
+                f"a multiple of {row_bytes} B (float16 x {EMBED_DIM}).",
+                file=sys.stderr,
+            )
+            sys.exit(1)
+        n_delta_rows = n_bytes // row_bytes
+        # RAW float16 memmap: np.load would fail (no .npy header).
+        delta = np.memmap(
+            EMBEDDINGS_DELTA_DAT,
+            dtype=np.float16,
+            mode="r",
+            shape=(n_delta_rows, EMBED_DIM),
+        )
+        assert n_delta_rows >= len(delta_index) and (
+            not delta_index or max(delta_index.values()) < n_delta_rows
+        ), "embeddings_delta_f16.dat has fewer rows than index_delta.pkl requires"
+        n_overridden = sum(1 for key in delta_index if key in merged)
+        for key, row_idx in delta_index.items():
+            merged[key] = (1, row_idx)
+        arrays.append(delta)
+        print(f"  delta index entries: {len(delta_index):,}")
+        print(f"  delta array shape  : {delta.shape}  dtype={delta.dtype}")
+        print(f"  keys overridden    : {n_overridden:,} (delta primes over base)")
+    else:
+        print("  no delta files found; ingesting the base only.")
+
+    print(f"  merged units       : {len(merged):,}")
+    return merged, arrays
+
+
+def _iter_rows(
+    merged: dict[tuple[int, int], tuple[int, int]],
+    arrays: list[np.ndarray],
+) -> Iterator[tuple[int, int, str]]:
+    # Sort by (source, row index) so each backing file is read sequentially
+    # -- the OS page cache then serves contiguous chunks rather than
+    # random-access reading ~20 GB.
+    items = sorted(merged.items(), key=lambda kv: kv[1])
+    for (doc_id, sentence_id), (src, row_idx) in items:
+        vec = arrays[src][row_idx].astype(np.float32, copy=False)
         yield int(doc_id), int(sentence_id), _format_vector(vec)
 
 
@@ -189,18 +293,8 @@ def main() -> None:
     cur = conn.cursor()
     _check_extension(cur)
 
-    print(f"[2/4] Loading index.pkl and memory-mapping embeddings.npy")
-    with INDEX_PKL.open("rb") as f:
-        index_map = pickle.load(f)
-    print(f"  index entries : {len(index_map):,}")
-    mmap = np.load(EMBEDDINGS_NPY, mmap_mode="r")
-    print(f"  array shape   : {mmap.shape}  dtype={mmap.dtype}")
-    assert mmap.shape[1] == EMBED_DIM, (
-        f"Expected embedding dimension {EMBED_DIM}, got {mmap.shape[1]}"
-    )
-    assert mmap.shape[0] >= len(index_map), (
-        "embeddings.npy has fewer rows than index entries"
-    )
+    print(f"[2/4] Loading base index/embeddings and merging the delta")
+    merged, arrays = _load_sources()
 
     print(f"[3/4] Building {TABLE_NAME} via COPY (this can take ~30 min)")
     _create_table(cur)
@@ -208,7 +302,7 @@ def main() -> None:
     # Detect resume: if the row count matches we skip ingestion.
     cur.execute(f'SELECT COUNT(*) FROM "{TABLE_NAME}";')
     existing = cur.fetchone()[0]
-    if existing == len(index_map):
+    if existing == len(merged):
         print(
             f"  table already populated ({existing:,} rows); skipping COPY."
         )
@@ -220,17 +314,18 @@ def main() -> None:
             cur.execute(f'TRUNCATE "{TABLE_NAME}";')
             conn.commit()
 
-        # Pre-sort once so the .npy is read sequentially across batches.
-        print(f"  pre-sorting {len(index_map):,} index entries by row index ...")
-        items = sorted(index_map.items(), key=lambda kv: kv[1])
+        # Pre-sort once so each backing file is read sequentially across
+        # batches (base first, then delta).
+        print(f"  pre-sorting {len(merged):,} merged entries by (source, row) ...")
+        items = sorted(merged.items(), key=lambda kv: kv[1])
         print(f"  starting COPY ...")
         t0 = time.perf_counter()
         rows_done = 0
         for batch_start in range(0, len(items), COPY_BATCH_SIZE):
             slice_items = items[batch_start: batch_start + COPY_BATCH_SIZE]
             buf = io.StringIO()
-            for (doc_id, sentence_id), row_idx in slice_items:
-                vec = mmap[row_idx].astype(np.float32, copy=False)
+            for (doc_id, sentence_id), (src, row_idx) in slice_items:
+                vec = arrays[src][row_idx].astype(np.float32, copy=False)
                 buf.write(
                     f"{doc_id}\t{sentence_id}\t"
                     f"[{','.join(f'{x:.5f}' for x in vec)}]\n"

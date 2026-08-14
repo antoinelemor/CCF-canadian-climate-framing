@@ -56,8 +56,10 @@ TAB_DIR = ROOT / "Results" / "Outputs" / "Tables"
 FIG_DIR.mkdir(parents=True, exist_ok=True)
 TAB_DIR.mkdir(parents=True, exist_ok=True)
 
+# Default is a local Unix-socket connection (no host); set CCF_DB_HOST to
+# force TCP. Empty values are stripped in _connect().
 DB_PARAMS = {
-    "host":     os.getenv("CCF_DB_HOST", "localhost"),
+    "host":     os.getenv("CCF_DB_HOST", ""),
     "port":     int(os.getenv("CCF_DB_PORT", 5432)),
     "dbname":   os.getenv("CCF_DB_NAME", "CCF_Database"),
     "user":     os.getenv("CCF_DB_USER", "antoine"),
@@ -77,7 +79,16 @@ THEMATIC_FRAMES = [
 
 
 def _connect():
-    return psycopg2.connect(**DB_PARAMS)
+    params = {k: v for k, v in DB_PARAMS.items() if v not in ("", None)}
+    return psycopg2.connect(**params)
+
+
+def _max_year(conn) -> int:
+    """Latest publication year actually present in the database."""
+    return int(pd.read_sql(
+        'SELECT EXTRACT(YEAR FROM MAX(date))::INT AS y FROM "CCF_full_data";',
+        conn,
+    ).iloc[0]["y"])
 
 
 def _style():
@@ -115,18 +126,23 @@ FRAME_COLOURS = {
 }
 
 
-def build_frames_lines(start_year: int = 1980, end_year: int = 2024) -> Path:
-    """Line plot of mean per-article frame share by year."""
+def build_frames_lines(start_year: int = 1980, end_year: int | None = None) -> Path:
+    """Line plot of mean per-article frame share by year.
+
+    end_year defaults to the latest year present in the database
+    (dynamic upper bound — no hard-coded cut-off)."""
     cols = ", ".join(f"AVG(a.prop_{code})::numeric AS {code}"
                      for code, _ in THEMATIC_FRAMES)
-    sql = (
-        f'SELECT EXTRACT(YEAR FROM f.date)::INT AS yr, {cols} '
-        f'FROM "CCF_article_aggregates" a '
-        f'JOIN "CCF_full_data" f USING (doc_id) '
-        f'WHERE EXTRACT(YEAR FROM f.date) BETWEEN {start_year} AND {end_year} '
-        f'GROUP BY yr ORDER BY yr;'
-    )
     with _connect() as conn:
+        if end_year is None:
+            end_year = _max_year(conn)
+        sql = (
+            f'SELECT EXTRACT(YEAR FROM f.date)::INT AS yr, {cols} '
+            f'FROM "CCF_article_aggregates" a '
+            f'JOIN "CCF_full_data" f USING (doc_id) '
+            f'WHERE EXTRACT(YEAR FROM f.date) BETWEEN {start_year} AND {end_year} '
+            f'GROUP BY yr ORDER BY yr;'
+        )
         df = pd.read_sql(sql, conn)
 
     df = df.set_index("yr").astype(float) * 100.0
@@ -151,10 +167,15 @@ def build_frames_lines(start_year: int = 1980, end_year: int = 2024) -> Path:
     ax.set_ylabel("Mean per-article share of sentences (%)")
     ax.grid(True, linestyle="--", linewidth=0.5, alpha=0.5)
 
-    # x-ticks every 5 years to avoid clutter.
-    xticks = [y for y in years if y % 5 == 0]
-    if years[-1] not in xticks:
-        xticks.append(int(years[-1]))
+    # x-ticks every 5 years to avoid clutter; always label the last year,
+    # replacing the previous tick when the two would overlap.
+    xticks = [int(y) for y in years if y % 5 == 0]
+    last = int(years[-1])
+    if last not in xticks:
+        if xticks and last - xticks[-1] < 2:
+            xticks[-1] = last
+        else:
+            xticks.append(last)
     ax.set_xticks(xticks)
 
     leg = ax.legend(

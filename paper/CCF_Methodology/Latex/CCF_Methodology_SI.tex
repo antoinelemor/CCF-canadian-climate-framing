@@ -110,7 +110,8 @@
 
 \setcounter{secnumdepth}{-1}  % no section numbering (Scientific Data requirement)
 
-\title{\textbf{CCF Database: A Machine-Learning-Annotated Corpus of 266{,}271 Canadian Climate Articles (1978--2024)}\\[0.4em]
+\input{corpus_macros.tex}
+\title{\textbf{CCF Database: A Machine-Learning-Annotated Corpus of \CCFarticles{} Canadian Climate Articles (\CCFyearfirst{}--\CCFyearlast{})}\\[0.4em]
 \large Supplementary Information}
 
 \author[1]{Antoine Lemor\thanks{antoine.lemor@umontreal.ca}}
@@ -274,43 +275,47 @@ Note: This table summarizes the newspaper sources, geographic scope, language, a
 \bottomrule
 \endlastfoot
 
-National & The Globe and Mail & English & 226,171 & 29,442 \\
- & The National Post & English & 79,157 & 20,032 \\
- & The Toronto Star & English & 192,084 & 46,980 \\
+National & The Globe and Mail & English & 226,171 & 31,127 \\
+ & The National Post & English & 79,157 & 20,829 \\
+ & The Toronto Star & English & 192,084 & 48,616 \\
+ & CBC.ca\textsuperscript{b} & English & -- & 2,941 \\
+ & Radio-Canada.ca\textsuperscript{b} & French & -- & 3,054 \\
 \midrule
-Alberta & The Edmonton Journal & English & 59,244 & 18,162 \\
- & The Calgary Herald & English & 58,865 & 19,336 \\
+Alberta & The Edmonton Journal & English & 59,244 & 18,763 \\
+ & The Calgary Herald & English & 58,865 & 20,349 \\
 \midrule
-British Columbia & The Vancouver Sun & English & 78,901 & 17,871 \\
- & The Times Colonist & English & 47,556 & 11,800 \\
+British Columbia & The Vancouver Sun & English & 78,901 & 19,068 \\
+ & The Times Colonist & English & 47,556 & 12,111 \\
 \midrule
-Manitoba & The Winnipeg Free Press & English & 67,503 & 12,421 \\
+Manitoba & The Winnipeg Free Press & English & 67,503 & 13,129 \\
 \midrule
-New Brunswick & L'Acadie Nouvelle & French & 18,102 & 5,143 \\
+New Brunswick & L'Acadie Nouvelle\textsuperscript{c} & French & 18,102 & 5,143 \\
 \midrule
-Newfoundland \& Labrador & The Telegram & English & 15,380 & 5,841 \\
+Newfoundland \& Labrador & The Telegram & English & 15,380 & 6,208 \\
 \midrule
-Nova Scotia & The Chronicle Herald & English & 71,304 & 10,770 \\
+Nova Scotia & The Chronicle Herald & English & 71,304 & 11,018 \\
 \midrule
-Ontario & The Toronto Sun & English & 85,775 & 3,174 \\
- & Le Droit & French & 28,616 & 4,727 \\
+Ontario & The Toronto Sun & English & 85,775 & 3,333 \\
+ & Le Droit\textsuperscript{c} & French & 28,616 & 4,728 \\
 \midrule
-Quebec & Le Devoir & French & 28,729 & 13,685 \\
- & Le Journal de Montréal & French & 175,220 & 5,458 \\
+Quebec & Le Devoir\textsuperscript{c} & French & 28,729 & 13,685 \\
+ & Le Journal de Montréal & French & 175,220 & 5,790 \\
  & La Presse & French & 98,657 & 6,917 \\
- & La Presse+\textsuperscript{a} & French & -- & 9,548 \\
- & The Montreal Gazette & English & 53,344 & 9,567 \\
+ & La Presse+\textsuperscript{a} & French & -- & 11,636 \\
+ & The Montreal Gazette & English & 53,344 & 9,799 \\
 \midrule
-Saskatchewan & The Star Phoenix & English & 31,081 & 7,794 \\
+Saskatchewan & The Star Phoenix & English & 31,081 & 8,018 \\
 \midrule
-Yukon & The Whitehorse Daily Star & English & 945 & 7,603 \\
+Yukon & The Whitehorse Daily Star\textsuperscript{c} & English & 945 & 7,702 \\
 \midrule
-\textbf{Total} & & & & \textbf{266,271} \\
+\textbf{Total} & & & & \textbf{283,964} \\
 \end{longtable}
 }
 
 \vspace{0.5em}
-\noindent\footnotesize\textsuperscript{a} In 2013, La Presse launched a free digital tablet edition called La Presse+ which offers slightly different content. The corpus considers articles published both on the website and in the digital tablet edition. Duplicates were discarded.
+\noindent\footnotesize\textsuperscript{a} In 2013, La Presse launched a free digital tablet edition called La Presse+ which offers slightly different content. The corpus considers articles published both on the website and in the digital tablet edition. Duplicates were discarded.\\
+\textsuperscript{b} News websites of the Canadian public broadcaster, added to the corpus by the CCF Observatory; their coverage begins in 2023. No print circulation applies.\\
+\textsuperscript{c} Coverage window bounded by the access period of the source aggregators: Le Droit until December 2023, The Whitehorse Daily Star until May 2024, Le Devoir and L'Acadie Nouvelle until March 2025. All other outlets are covered through July 2026 (corpus cut-off of release v2.0.0).
 \endlandscape
 
 %==========================================================================
@@ -474,7 +479,7 @@ Yukon & The Whitehorse Daily Star & English & 945 & 7,603 \\
 \end{longtable}
 \vspace{0.5em}
 \noindent\footnotesize
-* Categories marked with an asterisk were included in the annotation protocol but had insufficient positive examples for model training. Health subcategories (\texttt{health\_pos\_impact}, \texttt{health\_footprint}) were completely excluded due to insufficient annotations in both English and French. Security subcategories (\texttt{security\_military}, \texttt{security\_disruption}) are partially available (trained in some languages only). The framework includes 67 categories in total: 63 fully available, 2 partially available, and 2 excluded.
+* Categories marked with an asterisk were included in the annotation protocol but had insufficient positive training examples. This table enumerates the 67 \emph{candidate} categories of the framework; the deployed database carries 65 of them. Two candidates (\texttt{health\_pos\_impact}, \texttt{health\_footprint}) had no positive examples in either language and were excluded entirely. Two deployed categories (\texttt{security\_military}, \texttt{security\_disruption}) could not be trained in English and are annotated on French sentences only (their English annotations are \texttt{NULL} by construction). The deployed model suite therefore counts $65 \times 2 - 2 = 128$ models. Because this table numbers the 67 candidates while \texttt{CCF\_reliability\_tiers} numbers the 65 deployed categories, the two numbering schemes differ from the Health frame onward: always match categories on the \texttt{code} column, never on the row number.
 }
 \endlandscape
 
@@ -491,7 +496,7 @@ Yukon & The Whitehorse Daily Star & English & 945 & 7,603 \\
 
 \vspace{0.5em}
 \noindent\footnotesize
-\textit{Note.} F1 scores at the best epoch retained by the combined-criterion best-model selector ($0.7 \cdot F_1^{(1)} + 0.3 \cdot$ macro-$F_1$). EN columns report metrics for the English BERT-base-uncased classifiers; FR columns report metrics for the French CamemBERT-base classifiers. Categories with ``--'' in both columns could not be trained because the manual annotation set contained too few positive examples in either language. The dataset distribution behind each row is reported in Supplementary Table~S5.
+\textit{Note.} F1 scores at the best epoch retained by the combined-criterion best-model selector ($0.7 \cdot F_1^{(1)} + 0.3 \cdot$ macro-$F_1$). EN columns report metrics for the English BERT-base-uncased classifiers; FR columns report metrics for the French CamemBERT-base classifiers. A ``--'' in one language column means the category could not be trained in that language for lack of positive examples: this concerns exactly two English models (\texttt{security\_military}, \texttt{security\_disruption}), which is why the deployed suite counts $65 \times 2 - 2 = 128$ models; the two candidate categories excluded in both languages do not appear in this table (see the note to Supplementary Table~S3). The dataset distribution behind each row is reported in Supplementary Table~S5.
 
 \endlandscape
 
@@ -551,15 +556,15 @@ Note: The hybrid approach for French combines spaCy for person entities (PER) wi
 
 \vspace{0.5em}
 \noindent\footnotesize
-\textit{Note.} F1 macro, F1 micro, F1 weighted, and positive-class support computed on the 1{,}000-sentence gold standard. EN, FR, and ALL columns report metrics on the English subset, the French subset, and their union. \textbf{OVERALL PERFORMANCE} in the last row reports the corpus-wide aggregates rather than the mean of the per-category scores. Inter-coder agreement statistics on the same 1{,}000 sentences are reported in Supplementary Tables~S9 and~S10.
+\textit{Note.} F1 macro, F1 micro, F1 weighted, and positive-class support computed on the 1{,}000-sentence gold standard. EN, FR, and ALL columns report metrics on the English subset, the French subset, and their union. \textbf{OVERALL PERFORMANCE} in the last row reports the \emph{pooled} aggregates---all per-category predictions are pooled into a single confusion matrix before the scores are computed---and is therefore not the mean of the per-category rows. The unweighted mean of the 65 per-category macro F1 values (ALL column) is 0.773; this is the quantity compared like-for-like with the training-phase mean of 0.826 in the main text (Technical Validation). Support columns report the number of expert-confirmed positive examples; 23 of the 65 categories fall below the sampling target of 40 (see the main text on how to weigh low-support estimates). Inter-coder agreement statistics on the same 1{,}000 sentences are reported in Supplementary Tables~S9 and~S10.
 
 \endlandscape
 
 %==========================================================================
-% Supplementary Table S8 -- Database-wide distribution of annotation categories across the 9.2 million sentences of CCF\_processed\_data.
+% Supplementary Table S8 -- Database-wide distribution of annotation categories across the \CCFsentApprox{}~million sentences of CCF\_processed\_data.
 %==========================================================================
 \landscape
-\noindent\textbf{Supplementary Table S8.} Database-wide distribution of annotation categories across the 9.2 million sentences of CCF\_processed\_data.
+\noindent\textbf{Supplementary Table S8.} Database-wide distribution of annotation categories across the \CCFsentApprox{}~million sentences of CCF\_processed\_data.
 \vspace{0.5em}
 
 {\footnotesize
@@ -587,7 +592,7 @@ Note: The hybrid approach for French combines spaCy for person entities (PER) wi
 
 \vspace{0.5em}
 \noindent\footnotesize
-\textit{Note.} Cohen's $\kappa$, Krippendorff's $\alpha$, and Gwet's AC1 are computed between the expert annotator (gold standard) and the independent second annotator. The full-sample $\kappa$ uses all 1{,}000 doubly-coded sentences; the blind-phase metrics restrict to sentences 601--1000, after which the second annotator coded without any communication with the expert. Categories with ``--'' in the blind-phase columns had no positive examples in sentences 601--1000.
+\textit{Note.} Cohen's $\kappa$, Krippendorff's $\alpha$, Gwet's AC1, and percent agreement are computed between the expert annotator (gold standard) and the independent second annotator. Only Cohen's $\kappa$ is reported in both forms---full-sample (all 1{,}000 doubly-coded sentences) and blind-phase; the other indices are reported for the blind phase only (sentences 601--1000, coded without any communication with the expert), which is the primary reliability benchmark used throughout the paper. Categories with ``--'' in the blind-phase columns had no positive examples in sentences 601--1000.
 
 \endlandscape
 

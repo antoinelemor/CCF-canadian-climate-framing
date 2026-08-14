@@ -1,0 +1,1000 @@
+{"meta": {"doc_id": 337, "sentence_id": 11, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Emotion:_Neutral", "Event_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 412, "sentence_id": 19, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Solutions_Detection", "Messenger_9_SUB", "Solutions_1_SUB", "Just_Detection", "Just_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 998, "sentence_id": 50, "language": "FR"}, "label": ["Emotion:_Negative"]}
+{"meta": {"doc_id": 1151, "sentence_id": 17, "language": "FR"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 1425, "sentence_id": 3, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Emotion:_Negative", "Event_3_SUB", "Eco_3_SUB"]}
+{"meta": {"doc_id": 1509, "sentence_id": 13, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Messenger_Detection", "Messenger_2_SUB", "Eco_4_SUB", "Eco_3_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 1522, "sentence_id": 3, "language": "FR"}, "label": ["Just_3_SUB", "Messenger_Detection", "Messenger_9_SUB", "Messenger_1_SUB", "Just_Detection", "Emotion:_Negative", "Pbh_1_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 1601, "sentence_id": 14, "language": "FR"}, "label": ["Just_5_SUB", "Messenger_Detection", "Messenger_9_SUB", "Just_Detection", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 1690, "sentence_id": 22, "language": "FR"}, "label": ["Event_Detection", "Location_Detection", "Event_7_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 1715, "sentence_id": 18, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_9_SUB", "Pol_3_SUB", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 1881, "sentence_id": 12, "language": "FR"}, "label": ["Event_5_SUB", "Event_Detection", "Messenger_Detection", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 1881, "sentence_id": 21, "language": "FR"}, "label": ["Emotion:_Positive", "Messenger_Detection"]}
+{"meta": {"doc_id": 1950, "sentence_id": 7, "language": "FR"}, "label": ["Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 1953, "sentence_id": 8, "language": "FR"}, "label": ["Emotion:_Neutral", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 2141, "sentence_id": 2, "language": "FR"}, "label": ["Location_Detection", "Event_8_SUB", "Event_Detection", "Messenger_Detection", "Messenger_8_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 2245, "sentence_id": 22, "language": "FR"}, "label": ["Event_5_SUB", "Event_2_SUB", "Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_1_SUB", "Just_Detection", "Pol_2_SUB", "Just_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 2249, "sentence_id": 3, "language": "FR"}, "label": ["Location_Detection", "Event_8_SUB", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 2474, "sentence_id": 7, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Event_3_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 2623, "sentence_id": 10, "language": "FR"}, "label": ["Eco_Detection", "Event_6_SUB", "Event_Detection", "Messenger_Detection", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 2643, "sentence_id": 28, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Emotion:_Neutral", "Messenger_Detection", "Messenger_2_SUB", "Solutions_Detection", "Solutions_1_SUB", "Eco_3_SUB", "Pol_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 2698, "sentence_id": 46, "language": "FR"}, "label": ["Event_5_SUB", "Eco_Detection", "Event_Detection", "Messenger_Detection", "Solutions_Detection", "Pol_1_SUB", "Pol_2_SUB", "Eco_3_SUB", "Solutions_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 2785, "sentence_id": 5, "language": "FR"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 2797, "sentence_id": 13, "language": "FR"}, "label": ["Event_Detection", "Location_Detection", "Emotion:_Neutral", "Event_1_SUB"]}
+{"meta": {"doc_id": 3109, "sentence_id": 43, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 3138, "sentence_id": 12, "language": "FR"}, "label": ["Messenger_6_SUB", "Location_Detection", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 3165, "sentence_id": 4, "language": "FR"}, "label": ["Eco_Detection", "Just_Detection", "Emotion:_Negative", "Pol_2_SUB", "Eco_3_SUB", "Just_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 3223, "sentence_id": 1, "language": "FR"}, "label": ["Location_Detection", "Event_5_SUB", "Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_1_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 3400, "sentence_id": 21, "language": "FR"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 3401, "sentence_id": 9, "language": "FR"}, "label": ["Event_Detection", "Emotion:_Neutral", "Event_3_SUB"]}
+{"meta": {"doc_id": 3451, "sentence_id": 12, "language": "FR"}, "label": ["Location_Detection", "Just_3_SUB", "Sci_2_SUB", "Messenger_Detection", "Just_Detection", "Sci_Detection"]}
+{"meta": {"doc_id": 3625, "sentence_id": 17, "language": "FR"}, "label": ["Event_Detection", "Location_Detection", "Emotion:_Neutral", "Event_3_SUB"]}
+{"meta": {"doc_id": 3635, "sentence_id": 1, "language": "FR"}, "label": ["Location_Detection", "Event_5_SUB", "Event_Detection", "Pol_3_SUB", "Solutions_1_SUB", "Solutions_Detection", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 3671, "sentence_id": 20, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 3705, "sentence_id": 59, "language": "FR"}, "label": []}
+{"meta": {"doc_id": 3759, "sentence_id": 2, "language": "FR"}, "label": ["Location_Detection", "Messenger_6_SUB", "Messenger_Detection", "Messenger_1_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 3795, "sentence_id": 12, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Solutions_Detection", "Messenger_9_SUB", "Solutions_1_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Event_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 3851, "sentence_id": 12, "language": "FR"}, "label": ["Location_Detection", "Event_8_SUB", "Event_Detection", "Messenger_Detection", "Messenger_8_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 4129, "sentence_id": 16, "language": "FR"}, "label": ["Cult_Detection", "Emotion:_Negative", "Cult_1_SUB"]}
+{"meta": {"doc_id": 4154, "sentence_id": 23, "language": "FR"}, "label": ["Location_Detection", "Pol_4_SUB", "Solutions_Detection", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 4155, "sentence_id": 7, "language": "FR"}, "label": ["Emotion:_Negative", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 4221, "sentence_id": 3, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Messenger_6_SUB", "Messenger_Detection", "Messenger_1_SUB", "Emotion:_Negative", "Event_3_SUB"]}
+{"meta": {"doc_id": 4251, "sentence_id": 2, "language": "FR"}, "label": ["Event_Detection", "Messenger_Detection", "Messenger_8_SUB", "Pol_2_SUB", "Event_3_SUB", "Pol_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 4370, "sentence_id": 33, "language": "FR"}, "label": ["Envt_Detection", "Envt_2_SUB", "Sci_2_SUB", "Messenger_Detection", "Messenger_8_SUB", "Sci_Detection"]}
+{"meta": {"doc_id": 4509, "sentence_id": 38, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 4878, "sentence_id": 26, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Solutions_Detection", "Eco_Detection"]}
+{"meta": {"doc_id": 4887, "sentence_id": 5, "language": "FR"}, "label": ["Emotion:_Neutral", "Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 5115, "sentence_id": 2, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Emotion:_Positive", "Messenger_6_SUB", "Messenger_Detection", "Sci_2_SUB", "Sci_Detection", "Event_3_SUB"]}
+{"meta": {"doc_id": 5272, "sentence_id": 10, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Event_1_SUB", "Event_Detection", "Emotion:_Negative", "Eco_1_SUB"]}
+{"meta": {"doc_id": 5466, "sentence_id": 27, "language": "EN"}, "label": ["Sci_1_SUB", "Emotion:_Negative", "Sci_Detection"]}
+{"meta": {"doc_id": 6268, "sentence_id": 8, "language": "EN"}, "label": ["Location_Detection", "Event_6_SUB", "Event_Detection", "Pol_1_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 6353, "sentence_id": 2, "language": "EN"}, "label": ["Event_Detection", "Event_7_SUB", "Cult_1_SUB", "Cult_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 6773, "sentence_id": 8, "language": "EN"}, "label": ["Location_Detection", "Emotion:_Neutral", "Solutions_Detection", "Solutions_1_SUB", "Pol_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 6914, "sentence_id": 17, "language": "EN"}, "label": ["Emotion:_Neutral", "Messenger_Detection", "Solutions_2_SUB", "Solutions_Detection"]}
+{"meta": {"doc_id": 7256, "sentence_id": 7, "language": "EN"}, "label": ["Event_Detection", "Location_Detection", "Emotion:_Neutral", "Event_4_SUB"]}
+{"meta": {"doc_id": 8075, "sentence_id": 65, "language": "EN"}, "label": ["Messenger_Detection", "Emotion:_Neutral", "Messenger_5_SUB"]}
+{"meta": {"doc_id": 8707, "sentence_id": 9, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Event_Detection", "Sci_2_SUB", "Emotion:_Negative", "Sci_Detection", "Event_3_SUB", "Eco_1_SUB"]}
+{"meta": {"doc_id": 8757, "sentence_id": 4, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_9_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 8766, "sentence_id": 5, "language": "FR"}, "label": ["Event_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 8772, "sentence_id": 18, "language": "FR"}, "label": ["Event_2_SUB", "Event_Detection", "Messenger_Detection", "Just_Detection", "Emotion:_Negative", "Pol_2_SUB", "Just_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 8822, "sentence_id": 9, "language": "FR"}, "label": ["Location_Detection", "Event_5_SUB", "Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_1_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 8945, "sentence_id": 16, "language": "FR"}, "label": ["Event_Detection", "Messenger_Detection", "Emotion:_Neutral", "Event_8_SUB"]}
+{"meta": {"doc_id": 9041, "sentence_id": 26, "language": "FR"}, "label": ["Location_Detection", "Emotion:_Positive", "Messenger_Detection", "Solutions_Detection", "Messenger_9_SUB", "Solutions_1_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 9070, "sentence_id": 6, "language": "FR"}, "label": ["Event_1_SUB", "Event_Detection", "Messenger_Detection", "Emotion:_Negative", "Pbh_1_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 9212, "sentence_id": 3, "language": "FR"}, "label": ["Emotion:_Negative", "Messenger_Detection", "Location_Detection"]}
+{"meta": {"doc_id": 9229, "sentence_id": 8, "language": "FR"}, "label": ["Messenger_6_SUB", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 9613, "sentence_id": 10, "language": "FR"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 9829, "sentence_id": 6, "language": "FR"}, "label": ["Emotion:_Neutral", "Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 10026, "sentence_id": 1, "language": "FR"}, "label": ["Location_Detection", "Event_8_SUB", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_8_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 10038, "sentence_id": 1, "language": "FR"}, "label": ["Event_2_SUB", "Emotion:_Negative", "Event_Detection"]}
+{"meta": {"doc_id": 10266, "sentence_id": 26, "language": "FR"}, "label": ["Location_Detection", "Event_5_SUB", "Event_2_SUB", "Event_Detection", "Pol_1_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 10334, "sentence_id": 7, "language": "FR"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 10500, "sentence_id": 1, "language": "FR"}, "label": ["Event_Detection", "Location_Detection", "Emotion:_Neutral", "Event_4_SUB"]}
+{"meta": {"doc_id": 10795, "sentence_id": 51, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Messenger_Detection", "Messenger_6_SUB", "Eco_1_SUB"]}
+{"meta": {"doc_id": 10851, "sentence_id": 3, "language": "FR"}, "label": ["Event_1_SUB", "Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 10881, "sentence_id": 11, "language": "FR"}, "label": ["Emotion:_Negative"]}
+{"meta": {"doc_id": 10891, "sentence_id": 19, "language": "FR"}, "label": ["Event_Detection", "Location_Detection", "Messenger_Detection", "Event_1_SUB"]}
+{"meta": {"doc_id": 10909, "sentence_id": 14, "language": "FR"}, "label": ["Envt_Detection", "Event_1_SUB", "Event_Detection", "Emotion:_Negative", "Envt_1_SUB"]}
+{"meta": {"doc_id": 10928, "sentence_id": 2, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Event_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 10946, "sentence_id": 13, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 11072, "sentence_id": 13, "language": "FR"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 11118, "sentence_id": 11, "language": "FR"}, "label": ["Event_2_SUB", "Event_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 11677, "sentence_id": 1, "language": "FR"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 11748, "sentence_id": 40, "language": "FR"}, "label": ["Event_Detection", "Event_7_SUB", "Messenger_Detection"]}
+{"meta": {"doc_id": 11979, "sentence_id": 4, "language": "FR"}, "label": ["Emotion:_Neutral", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 12141, "sentence_id": 21, "language": "FR"}, "label": ["Event_Detection", "Location_Detection", "Emotion:_Negative", "Event_3_SUB"]}
+{"meta": {"doc_id": 12202, "sentence_id": 8, "language": "FR"}, "label": []}
+{"meta": {"doc_id": 12741, "sentence_id": 15, "language": "FR"}, "label": ["Emotion:_Negative"]}
+{"meta": {"doc_id": 12950, "sentence_id": 21, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 13053, "sentence_id": 13, "language": "FR"}, "label": ["Envt_Detection", "Location_Detection", "Envt_2_SUB", "Event_6_SUB", "Event_Detection", "Messenger_Detection", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 13129, "sentence_id": 5, "language": "FR"}, "label": ["Eco_4_SUB", "Solutions_1_SUB", "Solutions_Detection", "Eco_Detection"]}
+{"meta": {"doc_id": 13155, "sentence_id": 16, "language": "FR"}, "label": ["Event_Detection", "Location_Detection", "Emotion:_Neutral", "Event_4_SUB"]}
+{"meta": {"doc_id": 13161, "sentence_id": 16, "language": "FR"}, "label": ["Sci_4_SUB", "Eco_Detection", "Sci_2_SUB", "Messenger_Detection", "Eco_5_SUB", "Sci_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 14634, "sentence_id": 3, "language": "EN"}, "label": ["Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 14884, "sentence_id": 29, "language": "EN"}, "label": ["Emotion:_Neutral", "Location_Detection", "Pol_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 15108, "sentence_id": 12, "language": "EN"}, "label": ["Just_Detection", "Emotion:_Negative", "Just_3_SUB"]}
+{"meta": {"doc_id": 15175, "sentence_id": 137, "language": "EN"}, "label": ["Messenger_Detection", "Messenger_8_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 15498, "sentence_id": 75, "language": "EN"}, "label": ["Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 16252, "sentence_id": 51, "language": "EN"}, "label": ["Event_Detection", "Sci_2_SUB", "Emotion:_Negative", "Sci_Detection", "Event_3_SUB"]}
+{"meta": {"doc_id": 16507, "sentence_id": 12, "language": "EN"}, "label": ["Messenger_Detection"]}
+{"meta": {"doc_id": 17148, "sentence_id": 12, "language": "EN"}, "label": ["Event_Detection", "Emotion:_Negative", "Messenger_Detection", "Event_3_SUB"]}
+{"meta": {"doc_id": 17636, "sentence_id": 5, "language": "EN"}, "label": ["Messenger_Detection", "Emotion:_Neutral", "Messenger_5_SUB"]}
+{"meta": {"doc_id": 17649, "sentence_id": 25, "language": "EN"}, "label": ["Location_Detection", "Solutions_Detection"]}
+{"meta": {"doc_id": 18085, "sentence_id": 21, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_2_SUB", "Solutions_Detection", "Solutions_1_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 18111, "sentence_id": 10, "language": "EN"}, "label": ["Location_Detection", "Sci_2_SUB", "Messenger_7_SUB", "Messenger_Detection", "Sci_Detection"]}
+{"meta": {"doc_id": 18441, "sentence_id": 22, "language": "EN"}, "label": ["Emotion:_Negative", "Messenger_Detection"]}
+{"meta": {"doc_id": 18600, "sentence_id": 3, "language": "EN"}, "label": ["Event_Detection", "Sci_2_SUB", "Messenger_Detection", "Messenger_6_SUB", "Sci_Detection", "Event_3_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 19064, "sentence_id": 31, "language": "EN"}, "label": ["Emotion:_Neutral", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 19179, "sentence_id": 12, "language": "EN"}, "label": ["Event_Detection", "Emotion:_Neutral", "Event_8_SUB"]}
+{"meta": {"doc_id": 19366, "sentence_id": 13, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Messenger_3_SUB", "Event_Detection", "Messenger_Detection", "Emotion:_Negative", "Eco_1_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 19506, "sentence_id": 20, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Sci_2_SUB", "Emotion:_Negative", "Sci_Detection", "Event_3_SUB"]}
+{"meta": {"doc_id": 19596, "sentence_id": 16, "language": "FR"}, "label": ["Emotion:_Negative", "Messenger_Detection", "Location_Detection"]}
+{"meta": {"doc_id": 19625, "sentence_id": 31, "language": "FR"}, "label": ["Location_Detection", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 19671, "sentence_id": 7, "language": "FR"}, "label": ["Location_Detection", "Event_5_SUB", "Event_Detection", "Pol_1_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 19686, "sentence_id": 5, "language": "FR"}, "label": ["Location_Detection", "Event_5_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Solutions_Detection", "Pol_3_SUB", "Pol_1_SUB", "Solutions_1_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 19722, "sentence_id": 6, "language": "FR"}, "label": ["Sci_1_SUB", "Emotion:_Neutral", "Sci_Detection"]}
+{"meta": {"doc_id": 19748, "sentence_id": 18, "language": "FR"}, "label": ["Eco_Detection", "Event_Detection", "Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_2_SUB", "Event_3_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 19905, "sentence_id": 7, "language": "FR"}, "label": ["Sci_2_SUB", "Event_Detection", "Sci_Detection", "Event_3_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 19913, "sentence_id": 3, "language": "FR"}, "label": ["Envt_Detection", "Sci_2_SUB", "Envt_1_SUB", "Sci_Detection"]}
+{"meta": {"doc_id": 19990, "sentence_id": 22, "language": "FR"}, "label": ["Just_Detection", "Just_5_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 20005, "sentence_id": 14, "language": "FR"}, "label": ["Event_Detection", "Emotion:_Positive", "Messenger_Detection", "Messenger_2_SUB"]}
+{"meta": {"doc_id": 20150, "sentence_id": 27, "language": "FR"}, "label": ["Location_Detection"]}
+{"meta": {"doc_id": 20190, "sentence_id": 14, "language": "FR"}, "label": ["Eco_Detection", "Event_Detection", "Messenger_Detection", "Messenger_8_SUB", "Event_3_SUB", "Eco_1_SUB"]}
+{"meta": {"doc_id": 20365, "sentence_id": 1, "language": "FR"}, "label": ["Location_Detection"]}
+{"meta": {"doc_id": 20380, "sentence_id": 9, "language": "FR"}, "label": ["Emotion:_Positive", "Solutions_Detection", "Solutions_1_SUB", "Location_Detection"]}
+{"meta": {"doc_id": 20447, "sentence_id": 13, "language": "FR"}, "label": ["Emotion:_Neutral", "Pol_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 20455, "sentence_id": 13, "language": "FR"}, "label": ["Event_5_SUB", "Event_Detection", "Messenger_Detection", "Messenger_2_SUB", "Messenger_9_SUB", "Pol_1_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 20596, "sentence_id": 12, "language": "FR"}, "label": ["Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 20764, "sentence_id": 6, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Emotion:_Neutral", "Event_4_SUB"]}
+{"meta": {"doc_id": 20775, "sentence_id": 4, "language": "FR"}, "label": ["Eco_4_SUB", "Messenger_Detection", "Messenger_9_SUB", "Eco_Detection"]}
+{"meta": {"doc_id": 21006, "sentence_id": 6, "language": "FR"}, "label": []}
+{"meta": {"doc_id": 21039, "sentence_id": 30, "language": "FR"}, "label": ["Event_6_SUB", "Event_Detection", "Messenger_Detection", "Messenger_4_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 21049, "sentence_id": 5, "language": "FR"}, "label": ["Messenger_3_SUB", "Messenger_Detection", "Messenger_6_SUB", "Sci_Detection"]}
+{"meta": {"doc_id": 21092, "sentence_id": 8, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Emotion:_Negative", "Event_3_SUB"]}
+{"meta": {"doc_id": 21393, "sentence_id": 53, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_2_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 21531, "sentence_id": 3, "language": "FR"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 21617, "sentence_id": 20, "language": "FR"}, "label": ["Event_5_SUB", "Event_Detection", "Messenger_Detection", "Pol_1_SUB", "Just_Detection", "Just_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 21680, "sentence_id": 14, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Messenger_6_SUB", "Messenger_Detection", "Pol_2_SUB", "Event_3_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 21814, "sentence_id": 22, "language": "FR"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 22228, "sentence_id": 23, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Messenger_Detection", "Solutions_Detection", "Eco_4_SUB", "Solutions_1_SUB"]}
+{"meta": {"doc_id": 22301, "sentence_id": 9, "language": "FR"}, "label": ["Event_Detection", "Event_7_SUB", "Messenger_Detection", "Messenger_5_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 22535, "sentence_id": 14, "language": "FR"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 23157, "sentence_id": 63, "language": "FR"}, "label": ["Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 23211, "sentence_id": 28, "language": "FR"}, "label": ["Messenger_Detection", "Messenger_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 23235, "sentence_id": 16, "language": "FR"}, "label": ["Location_Detection", "Sci_2_SUB", "Messenger_Detection", "Messenger_6_SUB", "Sci_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 23279, "sentence_id": 22, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_2_SUB"]}
+{"meta": {"doc_id": 23357, "sentence_id": 1, "language": "FR"}, "label": ["Location_Detection", "Event_5_SUB", "Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 23408, "sentence_id": 4, "language": "FR"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 23466, "sentence_id": 34, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 23490, "sentence_id": 9, "language": "FR"}, "label": ["Event_Detection", "Event_5_SUB"]}
+{"meta": {"doc_id": 23630, "sentence_id": 1, "language": "FR"}, "label": ["Event_2_SUB", "Emotion:_Positive", "Event_Detection"]}
+{"meta": {"doc_id": 23677, "sentence_id": 3, "language": "FR"}, "label": ["Event_Detection", "Messenger_Detection", "Messenger_2_SUB", "Solutions_Detection", "Solutions_1_SUB", "Pol_2_SUB", "Event_3_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 23745, "sentence_id": 14, "language": "FR"}, "label": ["Emotion:_Neutral", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 23989, "sentence_id": 34, "language": "FR"}, "label": ["Messenger_Detection", "Messenger_8_SUB", "Solutions_Detection", "Solutions_1_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 24003, "sentence_id": 9, "language": "FR"}, "label": ["Just_Detection", "Emotion:_Negative", "Just_5_SUB"]}
+{"meta": {"doc_id": 24005, "sentence_id": 23, "language": "FR"}, "label": ["Location_Detection", "Event_8_SUB", "Event_Detection", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 24082, "sentence_id": 31, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_1_SUB", "Pbh_1_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 24090, "sentence_id": 71, "language": "FR"}, "label": ["Event_Detection", "Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 24133, "sentence_id": 13, "language": "FR"}, "label": ["Emotion:_Negative"]}
+{"meta": {"doc_id": 24221, "sentence_id": 17, "language": "FR"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 24394, "sentence_id": 1, "language": "FR"}, "label": ["Event_Detection", "Emotion:_Negative", "Location_Detection", "Event_3_SUB"]}
+{"meta": {"doc_id": 24488, "sentence_id": 46, "language": "FR"}, "label": ["Eco_Detection", "Solutions_Detection", "Solutions_1_SUB", "Just_Detection", "Pol_2_SUB", "Eco_3_SUB", "Just_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 24599, "sentence_id": 20, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_8_SUB", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 24689, "sentence_id": 10, "language": "FR"}, "label": ["Emotion:_Negative"]}
+{"meta": {"doc_id": 24728, "sentence_id": 15, "language": "FR"}, "label": ["Emotion:_Negative", "Location_Detection", "Messenger_Detection"]}
+{"meta": {"doc_id": 24744, "sentence_id": 20, "language": "FR"}, "label": ["Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Just_Detection", "Emotion:_Negative"]}
+{"meta": {"doc_id": 24749, "sentence_id": 27, "language": "FR"}, "label": ["Messenger_Detection", "Messenger_5_SUB"]}
+{"meta": {"doc_id": 24758, "sentence_id": 4, "language": "FR"}, "label": ["Emotion:_Negative", "Location_Detection", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 25049, "sentence_id": 7, "language": "FR"}, "label": ["Event_Detection", "Event_7_SUB", "Emotion:_Neutral", "Location_Detection"]}
+{"meta": {"doc_id": 25097, "sentence_id": 13, "language": "FR"}, "label": ["Emotion:_Positive"]}
+{"meta": {"doc_id": 25484, "sentence_id": 2, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Event_4_SUB"]}
+{"meta": {"doc_id": 25569, "sentence_id": 14, "language": "FR"}, "label": ["Secu_Detection", "Eco_Detection", "Secu_3_SUB", "Emotion:_Negative", "Eco_1_SUB"]}
+{"meta": {"doc_id": 25723, "sentence_id": 9, "language": "FR"}, "label": ["Messenger_3_SUB", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 25792, "sentence_id": 24, "language": "FR"}, "label": []}
+{"meta": {"doc_id": 25920, "sentence_id": 45, "language": "FR"}, "label": ["Just_Detection", "Emotion:_Negative"]}
+{"meta": {"doc_id": 26025, "sentence_id": 7, "language": "FR"}, "label": ["Emotion:_Neutral", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 26073, "sentence_id": 15, "language": "FR"}, "label": ["Envt_Detection", "Envt_2_SUB", "Eco_Detection", "Just_3_SUB", "Messenger_6_SUB", "Messenger_Detection", "Eco_5_SUB", "Just_Detection", "Emotion:_Negative"]}
+{"meta": {"doc_id": 26248, "sentence_id": 18, "language": "FR"}, "label": ["Messenger_Detection", "Messenger_6_SUB", "Messenger_1_SUB", "Emotion:_Negative", "Pbh_1_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 26259, "sentence_id": 4, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Event_Detection", "Event_2_SUB", "Messenger_Detection", "Eco_4_SUB", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 26291, "sentence_id": 5, "language": "FR"}, "label": ["Location_Detection", "Sci_2_SUB", "Messenger_Detection", "Messenger_1_SUB", "Emotion:_Negative", "Sci_Detection"]}
+{"meta": {"doc_id": 26542, "sentence_id": 16, "language": "FR"}, "label": ["Location_Detection", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 26670, "sentence_id": 17, "language": "FR"}, "label": ["Sci_1_SUB", "Messenger_6_SUB", "Messenger_Detection", "Sci_Detection"]}
+{"meta": {"doc_id": 26700, "sentence_id": 13, "language": "FR"}, "label": ["Emotion:_Neutral", "Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 27301, "sentence_id": 5, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral", "Messenger_5_SUB"]}
+{"meta": {"doc_id": 27333, "sentence_id": 43, "language": "FR"}, "label": ["Cult_Detection", "Emotion:_Neutral", "Cult_1_SUB"]}
+{"meta": {"doc_id": 27357, "sentence_id": 18, "language": "FR"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 27461, "sentence_id": 5, "language": "FR"}, "label": ["Location_Detection", "Event_5_SUB", "Eco_Detection", "Event_Detection", "Emotion:_Positive", "Eco_5_SUB", "Solutions_Detection", "Solutions_1_SUB"]}
+{"meta": {"doc_id": 27569, "sentence_id": 13, "language": "FR"}, "label": ["Sci_1_SUB", "Messenger_Detection", "Sci_Detection"]}
+{"meta": {"doc_id": 27574, "sentence_id": 23, "language": "FR"}, "label": ["Messenger_6_SUB", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 27723, "sentence_id": 12, "language": "FR"}, "label": ["Location_Detection", "Event_6_SUB", "Event_Detection", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 27777, "sentence_id": 4, "language": "FR"}, "label": ["Location_Detection", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Solutions_Detection", "Solutions_1_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 28093, "sentence_id": 2, "language": "FR"}, "label": ["Emotion:_Neutral", "Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 28157, "sentence_id": 10, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 28348, "sentence_id": 22, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_2_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 28360, "sentence_id": 25, "language": "FR"}, "label": ["Location_Detection", "Pol_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 28392, "sentence_id": 14, "language": "FR"}, "label": ["Emotion:_Negative", "Location_Detection"]}
+{"meta": {"doc_id": 28407, "sentence_id": 22, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Messenger_1_SUB", "Emotion:_Negative", "Event_3_SUB"]}
+{"meta": {"doc_id": 28425, "sentence_id": 2, "language": "FR"}, "label": ["Location_Detection", "Just_5_SUB", "Just_Detection", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 28449, "sentence_id": 18, "language": "FR"}, "label": ["Event_Detection", "Location_Detection", "Event_7_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 28461, "sentence_id": 43, "language": "FR"}, "label": ["Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 28517, "sentence_id": 7, "language": "FR"}, "label": ["Event_6_SUB", "Event_Detection", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 28608, "sentence_id": 32, "language": "FR"}, "label": ["Location_Detection"]}
+{"meta": {"doc_id": 28694, "sentence_id": 2, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Sci_Detection"]}
+{"meta": {"doc_id": 28769, "sentence_id": 23, "language": "FR"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 28869, "sentence_id": 12, "language": "FR"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 28869, "sentence_id": 36, "language": "FR"}, "label": ["Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 28910, "sentence_id": 28, "language": "FR"}, "label": ["Location_Detection"]}
+{"meta": {"doc_id": 28992, "sentence_id": 18, "language": "FR"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 29254, "sentence_id": 10, "language": "FR"}, "label": []}
+{"meta": {"doc_id": 29381, "sentence_id": 8, "language": "FR"}, "label": ["Location_Detection"]}
+{"meta": {"doc_id": 29487, "sentence_id": 5, "language": "FR"}, "label": ["Event_Detection", "Location_Detection", "Event_3_SUB"]}
+{"meta": {"doc_id": 29557, "sentence_id": 504, "language": "FR"}, "label": ["Emotion:_Neutral", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 29611, "sentence_id": 4, "language": "FR"}, "label": ["Location_Detection", "Event_6_SUB", "Event_Detection", "Messenger_Detection", "Messenger_8_SUB"]}
+{"meta": {"doc_id": 29751, "sentence_id": 5, "language": "FR"}, "label": ["Messenger_Detection", "Emotion:_Neutral", "Messenger_5_SUB"]}
+{"meta": {"doc_id": 29829, "sentence_id": 108, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_7_SUB"]}
+{"meta": {"doc_id": 29969, "sentence_id": 25, "language": "FR"}, "label": ["Just_Detection", "Emotion:_Negative", "Just_5_SUB"]}
+{"meta": {"doc_id": 30094, "sentence_id": 5, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection"]}
+{"meta": {"doc_id": 30264, "sentence_id": 42, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection"]}
+{"meta": {"doc_id": 30296, "sentence_id": 7, "language": "FR"}, "label": ["Emotion:_Neutral", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 30576, "sentence_id": 10, "language": "FR"}, "label": ["Envt_Detection", "Envt_1_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 30680, "sentence_id": 2, "language": "FR"}, "label": ["Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 30887, "sentence_id": 5, "language": "FR"}, "label": ["Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 30907, "sentence_id": 19, "language": "FR"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 30917, "sentence_id": 10, "language": "FR"}, "label": ["Location_Detection", "Event_8_SUB", "Event_5_SUB", "Event_Detection", "Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_1_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 30939, "sentence_id": 4, "language": "FR"}, "label": ["Event_Detection", "Event_8_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 31082, "sentence_id": 4, "language": "FR"}, "label": ["Location_Detection"]}
+{"meta": {"doc_id": 31326, "sentence_id": 49, "language": "FR"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 31405, "sentence_id": 31, "language": "FR"}, "label": ["Location_Detection", "Solutions_Detection", "Solutions_1_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 31484, "sentence_id": 8, "language": "FR"}, "label": ["Emotion:_Neutral", "Solutions_Detection", "Solutions_1_SUB"]}
+{"meta": {"doc_id": 32079, "sentence_id": 4, "language": "EN"}, "label": ["Sci_4_SUB", "Messenger_6_SUB", "Messenger_Detection", "Sci_Detection"]}
+{"meta": {"doc_id": 32108, "sentence_id": 25, "language": "EN"}, "label": ["Secu_3_SUB", "Secu_4_SUB", "Secu_Detection"]}
+{"meta": {"doc_id": 33476, "sentence_id": 16, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_9_SUB", "Pol_2_SUB", "Pol_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 33687, "sentence_id": 37, "language": "EN"}, "label": ["Eco_2_SUB", "Eco_Detection", "Event_Detection", "Emotion:_Positive", "Event_3_SUB"]}
+{"meta": {"doc_id": 33691, "sentence_id": 21, "language": "EN"}, "label": ["Envt_Detection", "Envt_2_SUB", "Sci_2_SUB", "Messenger_6_SUB", "Messenger_Detection", "Sci_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 33748, "sentence_id": 15, "language": "EN"}, "label": ["Emotion:_Positive", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 34132, "sentence_id": 19, "language": "EN"}, "label": ["Event_8_SUB", "Event_Detection", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 34327, "sentence_id": 6, "language": "EN"}, "label": ["Messenger_Detection", "Solutions_Detection", "Messenger_9_SUB", "Solutions_1_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 34907, "sentence_id": 24, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 36000, "sentence_id": 1, "language": "EN"}, "label": ["Location_Detection"]}
+{"meta": {"doc_id": 37620, "sentence_id": 5, "language": "EN"}, "label": ["Event_Detection", "Event_7_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 37707, "sentence_id": 2, "language": "EN"}, "label": ["Just_1_SUB", "Location_Detection", "Event_Detection", "Event_2_SUB", "Messenger_Detection", "Messenger_9_SUB", "Solutions_Detection", "Solutions_1_SUB", "Just_Detection", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 38276, "sentence_id": 39, "language": "EN"}, "label": ["Sci_2_SUB", "Messenger_6_SUB", "Messenger_Detection", "Sci_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 39017, "sentence_id": 10, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Eco_4_SUB", "Pol_1_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 39233, "sentence_id": 14, "language": "FR"}, "label": ["Emotion:_Neutral", "Messenger_Detection", "Solutions_2_SUB", "Solutions_Detection"]}
+{"meta": {"doc_id": 39325, "sentence_id": 31, "language": "FR"}, "label": ["Just_5_SUB", "Messenger_Detection", "Just_Detection", "Emotion:_Negative", "Pol_2_SUB", "Just_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 39362, "sentence_id": 21, "language": "FR"}, "label": ["Emotion:_Neutral", "Location_Detection", "Sci_Detection"]}
+{"meta": {"doc_id": 39421, "sentence_id": 1, "language": "FR"}, "label": ["Just_Detection", "Emotion:_Negative"]}
+{"meta": {"doc_id": 39521, "sentence_id": 3, "language": "FR"}, "label": ["Location_Detection", "Event_5_SUB", "Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_1_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 39541, "sentence_id": 15, "language": "FR"}, "label": ["Event_6_SUB", "Event_Detection", "Messenger_Detection", "Pol_2_SUB", "Messenger_4_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 39615, "sentence_id": 11, "language": "FR"}, "label": ["Secu_4_SUB", "Secu_Detection", "Messenger_3_SUB", "Event_Detection", "Messenger_Detection", "Emotion:_Negative", "Event_3_SUB"]}
+{"meta": {"doc_id": 39615, "sentence_id": 12, "language": "FR"}, "label": ["Messenger_3_SUB", "Event_Detection", "Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Event_3_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 39632, "sentence_id": 23, "language": "FR"}, "label": ["Secu_1_SUB", "Emotion:_Neutral", "Secu_Detection"]}
+{"meta": {"doc_id": 39646, "sentence_id": 2, "language": "FR"}, "label": ["Location_Detection", "Just_3_SUB", "Event_Detection", "Messenger_6_SUB", "Messenger_Detection", "Messenger_1_SUB", "Just_Detection", "Emotion:_Negative", "Pbh_1_SUB", "Event_3_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 39692, "sentence_id": 24, "language": "FR"}, "label": ["Just_3_SUB", "Event_Detection", "Messenger_Detection", "Just_Detection", "Emotion:_Negative", "Pbh_1_SUB", "Event_3_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 39786, "sentence_id": 87, "language": "FR"}, "label": ["Event_6_SUB", "Event_Detection", "Messenger_Detection", "Emotion:_Negative", "Pol_2_SUB", "Messenger_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 39798, "sentence_id": 7, "language": "FR"}, "label": ["Location_Detection", "Pol_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 39924, "sentence_id": 13, "language": "FR"}, "label": ["Emotion:_Negative"]}
+{"meta": {"doc_id": 39996, "sentence_id": 17, "language": "FR"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 40063, "sentence_id": 29, "language": "FR"}, "label": ["Event_Detection", "Location_Detection", "Emotion:_Neutral", "Event_4_SUB"]}
+{"meta": {"doc_id": 40079, "sentence_id": 23, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 40358, "sentence_id": 27, "language": "FR"}, "label": []}
+{"meta": {"doc_id": 40390, "sentence_id": 8, "language": "FR"}, "label": ["Emotion:_Neutral", "Sci_Detection"]}
+{"meta": {"doc_id": 40403, "sentence_id": 3, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection"]}
+{"meta": {"doc_id": 40689, "sentence_id": 6, "language": "FR"}, "label": ["Location_Detection", "Event_5_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Solutions_Detection", "Solutions_1_SUB", "Pol_1_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 40827, "sentence_id": 16, "language": "FR"}, "label": ["Just_Detection", "Messenger_Detection", "Just_5_SUB"]}
+{"meta": {"doc_id": 40900, "sentence_id": 27, "language": "FR"}, "label": ["Location_Detection", "Sci_2_SUB", "Messenger_Detection", "Messenger_6_SUB", "Sci_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 40985, "sentence_id": 9, "language": "FR"}, "label": ["Emotion:_Neutral", "Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 41017, "sentence_id": 33, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Messenger_6_SUB", "Event_3_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 41057, "sentence_id": 5, "language": "FR"}, "label": ["Location_Detection", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 41267, "sentence_id": 33, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral", "Messenger_4_SUB"]}
+{"meta": {"doc_id": 41440, "sentence_id": 14, "language": "FR"}, "label": ["Emotion:_Negative", "Location_Detection", "Secu_4_SUB", "Secu_Detection"]}
+{"meta": {"doc_id": 41711, "sentence_id": 12, "language": "FR"}, "label": ["Sci_2_SUB", "Messenger_6_SUB", "Messenger_Detection", "Sci_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 41742, "sentence_id": 3, "language": "FR"}, "label": ["Location_Detection", "Event_2_SUB", "Event_Detection", "Just_5_SUB", "Messenger_Detection", "Messenger_9_SUB", "Just_Detection", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 41796, "sentence_id": 10, "language": "FR"}, "label": ["Event_5_SUB", "Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_1_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 41873, "sentence_id": 58, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Event_7_SUB", "Messenger_Detection", "Messenger_5_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 41906, "sentence_id": 37, "language": "FR"}, "label": ["Sci_1_SUB", "Messenger_Detection", "Sci_Detection"]}
+{"meta": {"doc_id": 41945, "sentence_id": 13, "language": "FR"}, "label": ["Eco_Detection", "Emotion:_Negative", "Cult_1_SUB", "Cult_Detection", "Eco_1_SUB"]}
+{"meta": {"doc_id": 41948, "sentence_id": 21, "language": "FR"}, "label": ["Event_6_SUB", "Event_Detection", "Messenger_Detection", "Messenger_8_SUB", "Solutions_Detection", "Solutions_1_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 42242, "sentence_id": 23, "language": "FR"}, "label": ["Messenger_Detection", "Messenger_7_SUB"]}
+{"meta": {"doc_id": 42480, "sentence_id": 10, "language": "FR"}, "label": ["Messenger_6_SUB", "Messenger_Detection", "Messenger_1_SUB"]}
+{"meta": {"doc_id": 42519, "sentence_id": 16, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Eco_Detection"]}
+{"meta": {"doc_id": 42664, "sentence_id": 63, "language": "FR"}, "label": ["Location_Detection", "Messenger_6_SUB", "Messenger_Detection", "Messenger_1_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 42689, "sentence_id": 37, "language": "FR"}, "label": ["Messenger_Detection"]}
+{"meta": {"doc_id": 42971, "sentence_id": 23, "language": "FR"}, "label": ["Messenger_Detection"]}
+{"meta": {"doc_id": 43079, "sentence_id": 17, "language": "FR"}, "label": ["Pol_1_SUB", "Location_Detection", "Pol_Detection"]}
+{"meta": {"doc_id": 43152, "sentence_id": 27, "language": "FR"}, "label": ["Just_Detection", "Just_5_SUB", "Messenger_Detection", "Messenger_4_SUB"]}
+{"meta": {"doc_id": 43214, "sentence_id": 15, "language": "FR"}, "label": ["Location_Detection", "Event_5_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 43247, "sentence_id": 16, "language": "FR"}, "label": ["Location_Detection"]}
+{"meta": {"doc_id": 43269, "sentence_id": 20, "language": "FR"}, "label": ["Cult_Detection", "Emotion:_Positive", "Cult_1_SUB"]}
+{"meta": {"doc_id": 43309, "sentence_id": 17, "language": "FR"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 43533, "sentence_id": 26, "language": "FR"}, "label": ["Location_Detection", "Event_5_SUB", "Eco_Detection", "Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_1_SUB", "Just_Detection", "Just_2_SUB", "Eco_3_SUB", "Solutions_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 43570, "sentence_id": 10, "language": "FR"}, "label": ["Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 43654, "sentence_id": 26, "language": "FR"}, "label": ["Event_Detection", "Sci_2_SUB", "Messenger_Detection", "Messenger_8_SUB", "Emotion:_Negative", "Sci_Detection", "Event_3_SUB"]}
+{"meta": {"doc_id": 43662, "sentence_id": 39, "language": "FR"}, "label": ["Just_5_SUB", "Just_Detection", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 43773, "sentence_id": 2, "language": "FR"}, "label": ["Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Just_Detection", "Pol_2_SUB", "Just_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 44023, "sentence_id": 26, "language": "FR"}, "label": ["Emotion:_Negative", "Eco_5_SUB", "Eco_Detection"]}
+{"meta": {"doc_id": 44272, "sentence_id": 33, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral", "Messenger_1_SUB"]}
+{"meta": {"doc_id": 44334, "sentence_id": 23, "language": "FR"}, "label": ["Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 44452, "sentence_id": 27, "language": "FR"}, "label": ["Event_Detection", "Location_Detection", "Event_4_SUB"]}
+{"meta": {"doc_id": 44629, "sentence_id": 3, "language": "FR"}, "label": ["Location_Detection", "Event_5_SUB", "Event_Detection", "Pol_1_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 44656, "sentence_id": 18, "language": "FR"}, "label": ["Emotion:_Negative", "Location_Detection"]}
+{"meta": {"doc_id": 44691, "sentence_id": 23, "language": "FR"}, "label": ["Location_Detection", "Pol_3_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 44712, "sentence_id": 1, "language": "FR"}, "label": []}
+{"meta": {"doc_id": 44829, "sentence_id": 24, "language": "FR"}, "label": ["Pbh_1_SUB", "Pol_2_SUB", "Pbh_Detection", "RED_Detection", "Pol_Detection"]}
+{"meta": {"doc_id": 44848, "sentence_id": 7, "language": "FR"}, "label": ["Emotion:_Neutral", "Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 45287, "sentence_id": 7, "language": "FR"}, "label": ["Messenger_Detection", "Messenger_5_SUB"]}
+{"meta": {"doc_id": 45434, "sentence_id": 10, "language": "FR"}, "label": ["Messenger_Detection", "Solutions_Detection", "Messenger_9_SUB", "Solutions_1_SUB", "Emotion:_Negative", "RED_Detection"]}
+{"meta": {"doc_id": 45543, "sentence_id": 14, "language": "FR"}, "label": ["Emotion:_Positive"]}
+{"meta": {"doc_id": 45662, "sentence_id": 5, "language": "FR"}, "label": ["Event_Detection", "Emotion:_Positive", "Event_3_SUB"]}
+{"meta": {"doc_id": 45964, "sentence_id": 23, "language": "FR"}, "label": ["Messenger_Detection", "Messenger_8_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 45965, "sentence_id": 33, "language": "FR"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 45974, "sentence_id": 8, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral", "Messenger_5_SUB"]}
+{"meta": {"doc_id": 45987, "sentence_id": 33, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 46048, "sentence_id": 17, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Emotion:_Neutral", "Event_4_SUB"]}
+{"meta": {"doc_id": 46122, "sentence_id": 27, "language": "FR"}, "label": ["Messenger_Detection"]}
+{"meta": {"doc_id": 46224, "sentence_id": 15, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Event_Detection", "Messenger_7_SUB", "Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Eco_3_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 46229, "sentence_id": 124, "language": "FR"}, "label": ["Event_Detection", "Location_Detection", "Emotion:_Neutral", "Event_5_SUB"]}
+{"meta": {"doc_id": 46240, "sentence_id": 9, "language": "FR"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 46293, "sentence_id": 32, "language": "FR"}, "label": ["Location_Detection", "Event_6_SUB", "Event_Detection", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 46466, "sentence_id": 31, "language": "FR"}, "label": ["Eco_Detection", "Just_Detection", "Emotion:_Negative", "Pol_2_SUB", "Eco_3_SUB", "Just_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 46472, "sentence_id": 27, "language": "FR"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 46540, "sentence_id": 34, "language": "FR"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 46566, "sentence_id": 31, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Emotion:_Neutral", "Event_4_SUB"]}
+{"meta": {"doc_id": 46632, "sentence_id": 2, "language": "FR"}, "label": ["Emotion:_Negative", "Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 46692, "sentence_id": 2, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Messenger_Detection", "Messenger_9_SUB", "Eco_5_SUB", "Solutions_Detection", "Pol_3_SUB", "Solutions_1_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 46803, "sentence_id": 6, "language": "FR"}, "label": ["Eco_Detection", "Emotion:_Positive", "Messenger_Detection", "Messenger_2_SUB", "Eco_4_SUB", "Solutions_Detection", "Solutions_1_SUB"]}
+{"meta": {"doc_id": 46903, "sentence_id": 3, "language": "FR"}, "label": ["Just_5_SUB", "Messenger_Detection", "Just_Detection", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 47145, "sentence_id": 1, "language": "FR"}, "label": ["Sci_2_SUB", "Emotion:_Neutral", "Sci_Detection"]}
+{"meta": {"doc_id": 47282, "sentence_id": 5, "language": "FR"}, "label": ["Emotion:_Negative", "Sci_Detection", "Sci_3_SUB"]}
+{"meta": {"doc_id": 47403, "sentence_id": 7, "language": "FR"}, "label": ["Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Event_1_SUB"]}
+{"meta": {"doc_id": 47419, "sentence_id": 22, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Event_3_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 47472, "sentence_id": 15, "language": "FR"}, "label": ["Eco_Detection", "Emotion:_Positive", "Messenger_Detection", "Messenger_2_SUB", "Solutions_Detection", "Solutions_1_SUB"]}
+{"meta": {"doc_id": 47500, "sentence_id": 12, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Pol_2_SUB", "Event_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 47600, "sentence_id": 27, "language": "FR"}, "label": ["Emotion:_Negative", "Messenger_Detection", "Messenger_4_SUB"]}
+{"meta": {"doc_id": 47667, "sentence_id": 11, "language": "FR"}, "label": ["Location_Detection", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 47754, "sentence_id": 18, "language": "FR"}, "label": ["Event_6_SUB", "Event_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 47912, "sentence_id": 17, "language": "FR"}, "label": ["Just_3_SUB", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_8_SUB", "Just_Detection", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 47951, "sentence_id": 17, "language": "FR"}, "label": ["Secu_4_SUB", "Secu_Detection", "Just_3_SUB", "Secu_3_SUB", "Just_Detection", "Emotion:_Negative"]}
+{"meta": {"doc_id": 47961, "sentence_id": 20, "language": "FR"}, "label": ["Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 47981, "sentence_id": 213, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral", "Messenger_1_SUB"]}
+{"meta": {"doc_id": 47999, "sentence_id": 11, "language": "FR"}, "label": ["Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 48080, "sentence_id": 127, "language": "FR"}, "label": ["Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 48141, "sentence_id": 32, "language": "FR"}, "label": ["Pol_1_SUB", "Event_Detection", "Event_5_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 48154, "sentence_id": 54, "language": "FR"}, "label": ["Location_Detection", "Solutions_Detection", "Solutions_1_SUB"]}
+{"meta": {"doc_id": 48286, "sentence_id": 30, "language": "FR"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 48354, "sentence_id": 7, "language": "FR"}, "label": ["Messenger_Detection", "Emotion:_Neutral", "Messenger_7_SUB"]}
+{"meta": {"doc_id": 48480, "sentence_id": 18, "language": "FR"}, "label": ["Just_1_SUB", "Just_Detection", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 48494, "sentence_id": 20, "language": "FR"}, "label": ["Event_Detection", "Messenger_6_SUB", "Messenger_Detection", "Emotion:_Negative", "Pol_2_SUB", "Event_3_SUB", "RED_Detection", "Pol_Detection"]}
+{"meta": {"doc_id": 48510, "sentence_id": 10, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_8_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 48515, "sentence_id": 27, "language": "FR"}, "label": ["Secu_4_SUB", "Secu_Detection", "Messenger_Detection", "Messenger_6_SUB", "Solutions_Detection", "Pol_2_SUB", "Solutions_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 48729, "sentence_id": 12, "language": "FR"}, "label": ["Event_1_SUB", "Event_Detection", "Messenger_6_SUB", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 48935, "sentence_id": 3, "language": "EN"}, "label": ["Eco_1_SUB", "Emotion:_Neutral", "Eco_Detection", "Eco_2_SUB"]}
+{"meta": {"doc_id": 49318, "sentence_id": 6, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Solutions_Detection", "Pol_3_SUB", "Solutions_1_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 49643, "sentence_id": 7, "language": "EN"}, "label": ["Location_Detection", "Event_5_SUB", "Event_Detection", "Emotion:_Positive", "Solutions_Detection", "Solutions_1_SUB", "Pol_1_SUB", "Solutions_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 49671, "sentence_id": 24, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Emotion:_Positive", "Eco_4_SUB", "Solutions_1_SUB", "Solutions_Detection", "Pol_Detection"]}
+{"meta": {"doc_id": 49719, "sentence_id": 6, "language": "EN"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Messenger_1_SUB"]}
+{"meta": {"doc_id": 49896, "sentence_id": 2, "language": "EN"}, "label": ["Location_Detection", "Event_1_SUB", "Event_Detection", "Emotion:_Negative", "Pbh_1_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 50072, "sentence_id": 20, "language": "EN"}, "label": ["Location_Detection", "Event_5_SUB", "Eco_Detection", "Event_Detection", "Messenger_Detection", "Messenger_8_SUB", "Solutions_Detection", "Solutions_1_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 50299, "sentence_id": 13, "language": "EN"}, "label": ["Emotion:_Negative", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 51319, "sentence_id": 2, "language": "EN"}, "label": ["Emotion:_Neutral", "Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 51540, "sentence_id": 16, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral", "Messenger_1_SUB"]}
+{"meta": {"doc_id": 52958, "sentence_id": 7, "language": "EN"}, "label": ["Just_Detection", "Emotion:_Negative", "Messenger_Detection", "Just_3_SUB"]}
+{"meta": {"doc_id": 52964, "sentence_id": 4, "language": "EN"}, "label": ["Secu_Detection", "Event_Detection", "Secu_3_SUB", "Messenger_Detection", "Messenger_9_SUB", "Event_3_SUB"]}
+{"meta": {"doc_id": 53037, "sentence_id": 2, "language": "EN"}, "label": ["Messenger_Detection", "Messenger_2_SUB"]}
+{"meta": {"doc_id": 54788, "sentence_id": 25, "language": "EN"}, "label": ["Eco_Detection", "Messenger_Detection", "Messenger_9_SUB", "Emotion:_Negative", "Pbh_1_SUB", "Pbh_Detection", "Eco_1_SUB"]}
+{"meta": {"doc_id": 56010, "sentence_id": 25, "language": "EN"}, "label": ["Solutions_2_SUB", "Solutions_Detection"]}
+{"meta": {"doc_id": 56595, "sentence_id": 15, "language": "FR"}, "label": ["Event_Detection", "Messenger_Detection", "Solutions_Detection", "Messenger_9_SUB", "Solutions_1_SUB", "Just_Detection", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 56630, "sentence_id": 18, "language": "FR"}, "label": ["Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_8_SUB", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 56638, "sentence_id": 15, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 56704, "sentence_id": 11, "language": "FR"}, "label": ["Envt_Detection", "Eco_Detection", "Solutions_Detection", "Just_Detection", "Emotion:_Negative", "Envt_1_SUB", "Just_4_SUB", "Solutions_2_SUB", "Eco_1_SUB"]}
+{"meta": {"doc_id": 56778, "sentence_id": 76, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_2_SUB", "Messenger_7_SUB"]}
+{"meta": {"doc_id": 56783, "sentence_id": 9, "language": "FR"}, "label": ["Event_5_SUB", "Event_2_SUB", "Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Event_3_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 56794, "sentence_id": 45, "language": "FR"}, "label": ["Sci_1_SUB", "Messenger_Detection", "Messenger_6_SUB", "Sci_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 56800, "sentence_id": 24, "language": "FR"}, "label": ["Sci_4_SUB", "Event_Detection", "Messenger_Detection", "Sci_Detection", "Pol_2_SUB", "Event_3_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 56880, "sentence_id": 2, "language": "FR"}, "label": ["Event_5_SUB", "Event_Detection", "Messenger_Detection", "Solutions_Detection", "Messenger_9_SUB", "Solutions_1_SUB", "Pol_1_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 56986, "sentence_id": 2, "language": "FR"}, "label": ["Event_Detection", "Sci_2_SUB", "Messenger_Detection", "Messenger_6_SUB", "Sci_Detection", "Event_3_SUB"]}
+{"meta": {"doc_id": 56989, "sentence_id": 2, "language": "FR"}, "label": ["Location_Detection", "Just_3_SUB", "Messenger_Detection", "Messenger_7_SUB", "Just_Detection", "Pol_2_SUB", "Messenger_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 57018, "sentence_id": 15, "language": "FR"}, "label": ["Messenger_Detection", "Eco_5_SUB", "Eco_Detection"]}
+{"meta": {"doc_id": 57024, "sentence_id": 19, "language": "FR"}, "label": ["Just_Detection", "Emotion:_Negative", "Just_2_SUB", "Just_3_SUB"]}
+{"meta": {"doc_id": 57033, "sentence_id": 26, "language": "FR"}, "label": ["Sci_3_SUB", "Messenger_Detection", "Messenger_9_SUB", "Emotion:_Negative", "Sci_Detection", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 57039, "sentence_id": 35, "language": "FR"}, "label": ["Eco_Detection", "Just_5_SUB", "Emotion:_Positive", "Solutions_Detection", "Solutions_1_SUB", "Just_Detection"]}
+{"meta": {"doc_id": 57055, "sentence_id": 2, "language": "FR"}, "label": ["Location_Detection", "Event_5_SUB", "Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 57258, "sentence_id": 33, "language": "FR"}, "label": ["Pbh_Detection", "Event_Detection", "Messenger_Detection", "Event_3_SUB"]}
+{"meta": {"doc_id": 57279, "sentence_id": 22, "language": "FR"}, "label": ["Eco_Detection", "Sci_2_SUB", "Emotion:_Positive", "Solutions_Detection", "Eco_4_SUB", "Solutions_1_SUB", "Sci_Detection"]}
+{"meta": {"doc_id": 57359, "sentence_id": 2, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral", "Messenger_4_SUB"]}
+{"meta": {"doc_id": 57367, "sentence_id": 7, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Just_5_SUB", "Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Just_Detection", "Eco_3_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 57390, "sentence_id": 15, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Event_Detection", "Sci_2_SUB", "Messenger_6_SUB", "Messenger_Detection", "Emotion:_Negative", "Pbh_1_SUB", "Sci_Detection", "Event_3_SUB", "Pbh_Detection", "Eco_1_SUB"]}
+{"meta": {"doc_id": 57394, "sentence_id": 2, "language": "FR"}, "label": ["Location_Detection", "Event_1_SUB", "Event_Detection", "Emotion:_Negative", "Pbh_1_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 57406, "sentence_id": 15, "language": "FR"}, "label": ["Emotion:_Negative", "Messenger_Detection", "Location_Detection"]}
+{"meta": {"doc_id": 57490, "sentence_id": 108, "language": "FR"}, "label": ["Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_8_SUB", "Emotion:_Negative", "Pol_2_SUB", "Event_3_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 57542, "sentence_id": 10, "language": "FR"}, "label": ["Just_Detection", "Emotion:_Negative", "Messenger_Detection", "Just_3_SUB"]}
+{"meta": {"doc_id": 57851, "sentence_id": 31, "language": "FR"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 57961, "sentence_id": 19, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Event_Detection", "Eco_5_SUB", "Emotion:_Negative", "Event_3_SUB"]}
+{"meta": {"doc_id": 57987, "sentence_id": 1, "language": "FR"}, "label": ["Event_5_SUB", "Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_1_SUB", "Emotion:_Negative", "Pol_Detection"]}
+{"meta": {"doc_id": 58003, "sentence_id": 4, "language": "FR"}, "label": []}
+{"meta": {"doc_id": 58090, "sentence_id": 28, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Messenger_Detection", "Messenger_9_SUB", "Emotion:_Negative", "Pol_2_SUB", "Eco_3_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 58107, "sentence_id": 4, "language": "FR"}, "label": ["Event_Detection", "Messenger_Detection", "Event_3_SUB"]}
+{"meta": {"doc_id": 58131, "sentence_id": 30, "language": "FR"}, "label": ["Messenger_Detection", "Secu_4_SUB", "Messenger_9_SUB", "Secu_Detection"]}
+{"meta": {"doc_id": 58199, "sentence_id": 54, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_8_SUB", "Messenger_9_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 58239, "sentence_id": 31, "language": "FR"}, "label": ["Sci_4_SUB", "Messenger_Detection", "Emotion:_Neutral", "Sci_Detection"]}
+{"meta": {"doc_id": 58316, "sentence_id": 3, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Messenger_Detection", "Messenger_9_SUB", "Eco_4_SUB", "Solutions_1_SUB", "Solutions_Detection", "Pol_Detection"]}
+{"meta": {"doc_id": 58428, "sentence_id": 14, "language": "FR"}, "label": ["Messenger_6_SUB", "Messenger_Detection"]}
+{"meta": {"doc_id": 58451, "sentence_id": 31, "language": "FR"}, "label": ["Location_Detection", "Just_5_SUB", "Just_Detection", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 58491, "sentence_id": 39, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Eco_5_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 58609, "sentence_id": 19, "language": "FR"}, "label": ["Location_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 58614, "sentence_id": 11, "language": "FR"}, "label": ["Emotion:_Neutral", "Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 58656, "sentence_id": 10, "language": "FR"}, "label": ["Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 58776, "sentence_id": 4, "language": "FR"}, "label": ["Location_Detection", "Emotion:_Positive", "Messenger_Detection", "Messenger_8_SUB", "Solutions_Detection", "Solutions_1_SUB"]}
+{"meta": {"doc_id": 58785, "sentence_id": 23, "language": "FR"}, "label": ["Messenger_Detection", "Messenger_9_SUB", "Messenger_7_SUB"]}
+{"meta": {"doc_id": 58887, "sentence_id": 37, "language": "FR"}, "label": ["Event_Detection", "Messenger_Detection", "Messenger_2_SUB", "Solutions_Detection", "Solutions_1_SUB", "Just_Detection", "Emotion:_Negative", "Event_3_SUB", "Just_4_SUB"]}
+{"meta": {"doc_id": 58942, "sentence_id": 9, "language": "FR"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 58983, "sentence_id": 8, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Messenger_Detection", "Eco_5_SUB", "Messenger_5_SUB", "Emotion:_Negative"]}
+{"meta": {"doc_id": 59075, "sentence_id": 16, "language": "FR"}, "label": ["Emotion:_Neutral", "Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 59143, "sentence_id": 30, "language": "FR"}, "label": ["Messenger_Detection"]}
+{"meta": {"doc_id": 59309, "sentence_id": 14, "language": "FR"}, "label": ["Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 59514, "sentence_id": 5, "language": "FR"}, "label": ["Location_Detection", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_6_SUB", "Sci_2_SUB", "Messenger_1_SUB", "Sci_Detection", "Event_3_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 59696, "sentence_id": 54, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_8_SUB", "Just_Detection", "Emotion:_Negative", "Pol_2_SUB", "Just_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 59770, "sentence_id": 5, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Messenger_8_SUB", "Emotion:_Negative", "Pol_2_SUB", "Messenger_4_SUB", "Event_3_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 59802, "sentence_id": 10, "language": "FR"}, "label": ["Event_5_SUB", "Eco_Detection", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Pol_1_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 59893, "sentence_id": 2, "language": "FR"}, "label": ["Location_Detection", "Event_5_SUB", "Event_2_SUB", "Event_Detection", "Emotion:_Positive", "Solutions_Detection", "Solutions_1_SUB", "Pol_1_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 59942, "sentence_id": 38, "language": "FR"}, "label": ["Location_Detection"]}
+{"meta": {"doc_id": 60004, "sentence_id": 10, "language": "FR"}, "label": ["Emotion:_Negative", "Messenger_Detection", "Messenger_5_SUB"]}
+{"meta": {"doc_id": 60074, "sentence_id": 54, "language": "FR"}, "label": ["Envt_Detection", "Location_Detection", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Pol_2_SUB", "Envt_1_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 60116, "sentence_id": 4, "language": "FR"}, "label": ["Location_Detection", "Pol_4_SUB", "Sci_3_SUB", "Sci_Detection", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 60118, "sentence_id": 9, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Solutions_Detection", "Messenger_9_SUB", "Solutions_1_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 60138, "sentence_id": 23, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 60143, "sentence_id": 26, "language": "FR"}, "label": ["Envt_Detection", "Sci_2_SUB", "Messenger_6_SUB", "Messenger_Detection", "Emotion:_Negative", "Sci_Detection", "Envt_1_SUB"]}
+{"meta": {"doc_id": 60161, "sentence_id": 5, "language": "FR"}, "label": ["Location_Detection", "Solutions_Detection", "Solutions_1_SUB", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 60214, "sentence_id": 24, "language": "FR"}, "label": ["Event_2_SUB", "Event_Detection", "Messenger_9_SUB", "Messenger_Detection"]}
+{"meta": {"doc_id": 60270, "sentence_id": 2, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Messenger_7_SUB", "Messenger_Detection", "Event_3_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 60282, "sentence_id": 15, "language": "FR"}, "label": ["Messenger_Detection"]}
+{"meta": {"doc_id": 60287, "sentence_id": 8, "language": "FR"}, "label": ["Messenger_Detection"]}
+{"meta": {"doc_id": 60290, "sentence_id": 14, "language": "FR"}, "label": ["Eco_Detection", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 60298, "sentence_id": 29, "language": "FR"}, "label": ["Location_Detection", "Secu_4_SUB", "Secu_Detection", "Messenger_3_SUB", "Messenger_7_SUB", "Messenger_Detection", "Emotion:_Negative"]}
+{"meta": {"doc_id": 60416, "sentence_id": 17, "language": "FR"}, "label": ["Messenger_Detection"]}
+{"meta": {"doc_id": 60621, "sentence_id": 2, "language": "FR"}, "label": ["Sci_1_SUB", "Location_Detection", "Event_6_SUB", "Event_Detection", "Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Sci_Detection", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 60628, "sentence_id": 19, "language": "FR"}, "label": ["Emotion:_Negative"]}
+{"meta": {"doc_id": 60757, "sentence_id": 1, "language": "FR"}, "label": ["Emotion:_Positive", "Solutions_Detection", "Eco_Detection", "Solutions_1_SUB"]}
+{"meta": {"doc_id": 60775, "sentence_id": 12, "language": "FR"}, "label": ["Event_Detection", "Messenger_Detection", "Event_3_SUB"]}
+{"meta": {"doc_id": 60892, "sentence_id": 5, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Event_3_SUB", "Messenger_4_SUB"]}
+{"meta": {"doc_id": 61012, "sentence_id": 1, "language": "FR"}, "label": ["Location_Detection", "Event_8_SUB", "Eco_Detection", "Event_Detection", "Eco_5_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 61160, "sentence_id": 30, "language": "FR"}, "label": ["Location_Detection", "Messenger_6_SUB", "Messenger_Detection", "Messenger_1_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 61324, "sentence_id": 8, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 61324, "sentence_id": 18, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Messenger_Detection", "Eco_3_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 61414, "sentence_id": 2, "language": "FR"}, "label": ["Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Just_Detection", "Pol_2_SUB", "Just_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 61422, "sentence_id": 34, "language": "FR"}, "label": ["Event_2_SUB", "Emotion:_Negative", "Event_Detection"]}
+{"meta": {"doc_id": 61468, "sentence_id": 22, "language": "FR"}, "label": ["Messenger_6_SUB", "Location_Detection", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 61579, "sentence_id": 17, "language": "FR"}, "label": ["Location_Detection"]}
+{"meta": {"doc_id": 61634, "sentence_id": 9, "language": "FR"}, "label": ["Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 61668, "sentence_id": 5, "language": "FR"}, "label": ["Just_3_SUB", "Messenger_Detection", "Messenger_1_SUB", "Just_Detection", "Emotion:_Negative", "Pbh_1_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 62267, "sentence_id": 2, "language": "FR"}, "label": ["Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Emotion:_Negative", "Event_3_SUB"]}
+{"meta": {"doc_id": 62334, "sentence_id": 33, "language": "FR"}, "label": ["Messenger_3_SUB", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 62346, "sentence_id": 2, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral", "Messenger_7_SUB"]}
+{"meta": {"doc_id": 62385, "sentence_id": 1, "language": "FR"}, "label": ["Event_1_SUB", "Event_Detection", "Messenger_Detection", "Emotion:_Negative", "Pbh_1_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 62417, "sentence_id": 24, "language": "FR"}, "label": ["Emotion:_Neutral", "Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 62631, "sentence_id": 25, "language": "FR"}, "label": ["Event_Detection", "Location_Detection", "Event_7_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 62631, "sentence_id": 42, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Event_7_SUB", "Messenger_Detection", "Messenger_5_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 62653, "sentence_id": 18, "language": "FR"}, "label": ["Event_Detection", "Messenger_Detection", "Emotion:_Neutral", "Event_3_SUB"]}
+{"meta": {"doc_id": 62693, "sentence_id": 16, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Solutions_Detection", "Pol_2_SUB", "Event_3_SUB", "Eco_3_SUB", "Solutions_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 62740, "sentence_id": 26, "language": "FR"}, "label": ["Event_2_SUB", "Event_Detection", "Messenger_9_SUB", "Messenger_Detection"]}
+{"meta": {"doc_id": 62743, "sentence_id": 61, "language": "FR"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 62814, "sentence_id": 16, "language": "FR"}, "label": ["Cult_Detection", "Messenger_Detection", "Cult_1_SUB"]}
+{"meta": {"doc_id": 62840, "sentence_id": 1, "language": "FR"}, "label": ["Messenger_Detection", "Messenger_1_SUB"]}
+{"meta": {"doc_id": 62850, "sentence_id": 29, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_2_SUB", "Solutions_Detection"]}
+{"meta": {"doc_id": 62868, "sentence_id": 8, "language": "FR"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 63004, "sentence_id": 10, "language": "FR"}, "label": ["Just_1_SUB", "Location_Detection", "Just_3_SUB", "Just_Detection", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 63041, "sentence_id": 7, "language": "FR"}, "label": ["Secu_Detection", "Just_3_SUB", "Secu_3_SUB", "Messenger_Detection", "Messenger_9_SUB", "Emotion:_Negative"]}
+{"meta": {"doc_id": 63178, "sentence_id": 58, "language": "FR"}, "label": ["Messenger_Detection", "Emotion:_Neutral", "Messenger_7_SUB"]}
+{"meta": {"doc_id": 63196, "sentence_id": 21, "language": "FR"}, "label": ["Event_5_SUB", "Eco_Detection", "Just_3_SUB", "Event_Detection", "Pol_1_SUB", "Just_Detection", "Eco_3_SUB", "Just_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 63202, "sentence_id": 28, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral", "Messenger_5_SUB"]}
+{"meta": {"doc_id": 63362, "sentence_id": 6, "language": "FR"}, "label": ["Location_Detection", "Event_6_SUB", "Event_Detection", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 63416, "sentence_id": 47, "language": "FR"}, "label": ["Event_Detection", "Event_7_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 63464, "sentence_id": 29, "language": "FR"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 63581, "sentence_id": 24, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Event_Detection", "Sci_2_SUB", "Messenger_7_SUB", "Messenger_2_SUB", "Eco_4_SUB", "Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Sci_Detection", "Event_3_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 63586, "sentence_id": 27, "language": "FR"}, "label": ["Emotion:_Negative", "Location_Detection", "Messenger_Detection", "Messenger_7_SUB"]}
+{"meta": {"doc_id": 63592, "sentence_id": 5, "language": "FR"}, "label": ["Sci_4_SUB", "Messenger_Detection", "Sci_Detection"]}
+{"meta": {"doc_id": 63683, "sentence_id": 6, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Event_3_SUB", "Solutions_2_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 63741, "sentence_id": 43, "language": "FR"}, "label": ["Just_5_SUB", "Messenger_Detection", "Solutions_Detection", "Messenger_9_SUB", "Just_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 63919, "sentence_id": 29, "language": "FR"}, "label": ["Emotion:_Negative", "Messenger_Detection", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 64123, "sentence_id": 6, "language": "FR"}, "label": []}
+{"meta": {"doc_id": 64172, "sentence_id": 17, "language": "FR"}, "label": ["Emotion:_Negative", "Messenger_Detection"]}
+{"meta": {"doc_id": 64205, "sentence_id": 35, "language": "FR"}, "label": ["Solutions_Detection", "Solutions_1_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 64257, "sentence_id": 18, "language": "FR"}, "label": ["Eco_Detection", "Just_3_SUB", "Event_Detection", "Messenger_Detection", "Messenger_2_SUB", "Just_Detection", "Emotion:_Negative", "Pbh_1_SUB", "Event_3_SUB", "Pbh_Detection", "Just_2_SUB", "Eco_1_SUB"]}
+{"meta": {"doc_id": 64452, "sentence_id": 26, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_8_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 64464, "sentence_id": 22, "language": "FR"}, "label": ["Event_Detection", "Location_Detection", "Event_3_SUB"]}
+{"meta": {"doc_id": 64575, "sentence_id": 1, "language": "FR"}, "label": ["Location_Detection", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 64578, "sentence_id": 40, "language": "FR"}, "label": ["Emotion:_Negative"]}
+{"meta": {"doc_id": 64607, "sentence_id": 3, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Solutions_Detection", "Messenger_9_SUB", "Pol_3_SUB", "Solutions_1_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 64648, "sentence_id": 1, "language": "FR"}, "label": ["Location_Detection", "Event_8_SUB", "Event_Detection", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 64711, "sentence_id": 12, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_9_SUB", "Pol_3_SUB", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 64776, "sentence_id": 28, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_9_SUB", "Pol_3_SUB", "Solutions_1_SUB", "Solutions_Detection", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 64796, "sentence_id": 8, "language": "FR"}, "label": ["Emotion:_Neutral", "Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 64814, "sentence_id": 37, "language": "FR"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 64889, "sentence_id": 1, "language": "FR"}, "label": ["Location_Detection", "Event_5_SUB", "Eco_Detection", "Event_Detection", "Emotion:_Positive", "Messenger_Detection", "Messenger_2_SUB", "Solutions_Detection", "Solutions_1_SUB", "Pol_1_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 65011, "sentence_id": 10, "language": "FR"}, "label": ["Location_Detection", "Emotion:_Positive", "Solutions_Detection", "Solutions_1_SUB"]}
+{"meta": {"doc_id": 65164, "sentence_id": 11, "language": "FR"}, "label": ["Location_Detection"]}
+{"meta": {"doc_id": 65323, "sentence_id": 15, "language": "FR"}, "label": ["Eco_Detection", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_2_SUB", "Eco_4_SUB", "Solutions_Detection", "Solutions_1_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 65429, "sentence_id": 9, "language": "FR"}, "label": ["Event_Detection", "Emotion:_Negative", "Event_1_SUB"]}
+{"meta": {"doc_id": 65454, "sentence_id": 105, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_9_SUB", "Messenger_4_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 65499, "sentence_id": 3, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Emotion:_Positive", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 65565, "sentence_id": 24, "language": "FR"}, "label": ["Event_Detection", "Emotion:_Negative", "Event_1_SUB"]}
+{"meta": {"doc_id": 65654, "sentence_id": 2, "language": "FR"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 65719, "sentence_id": 38, "language": "FR"}, "label": ["Just_Detection", "Just_2_SUB", "Emotion:_Neutral", "Just_3_SUB"]}
+{"meta": {"doc_id": 65732, "sentence_id": 17, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Messenger_Detection", "Messenger_2_SUB", "Emotion:_Negative", "Pol_2_SUB", "Eco_3_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 65735, "sentence_id": 29, "language": "FR"}, "label": ["Messenger_Detection", "Messenger_8_SUB", "Messenger_9_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 65821, "sentence_id": 30, "language": "FR"}, "label": ["Location_Detection", "Event_6_SUB", "Event_Detection", "Messenger_Detection", "Messenger_4_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 65879, "sentence_id": 32, "language": "FR"}, "label": ["Emotion:_Negative", "Messenger_Detection", "Messenger_8_SUB"]}
+{"meta": {"doc_id": 65904, "sentence_id": 31, "language": "FR"}, "label": ["Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Emotion:_Negative", "Event_3_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 65963, "sentence_id": 35, "language": "FR"}, "label": ["Event_5_SUB", "Event_Detection", "Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 66229, "sentence_id": 27, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Messenger_Detection", "Solutions_Detection", "Messenger_9_SUB", "Solutions_1_SUB", "Pol_2_SUB", "Eco_3_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 66246, "sentence_id": 2, "language": "FR"}, "label": ["Emotion:_Negative"]}
+{"meta": {"doc_id": 66325, "sentence_id": 37, "language": "FR"}, "label": ["Sci_2_SUB", "Emotion:_Neutral", "Sci_Detection"]}
+{"meta": {"doc_id": 66348, "sentence_id": 16, "language": "FR"}, "label": ["Emotion:_Positive", "Messenger_Detection", "Location_Detection"]}
+{"meta": {"doc_id": 66521, "sentence_id": 10, "language": "FR"}, "label": ["Location_Detection", "Event_8_SUB", "Event_Detection", "Messenger_Detection", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 66539, "sentence_id": 18, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_9_SUB", "Pol_3_SUB", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 66708, "sentence_id": 31, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 66778, "sentence_id": 1, "language": "FR"}, "label": ["Just_1_SUB", "Location_Detection", "Event_5_SUB", "Event_Detection", "Pol_1_SUB", "Just_Detection", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 66854, "sentence_id": 2, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Event_3_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 66953, "sentence_id": 7, "language": "FR"}, "label": ["Messenger_Detection", "Messenger_8_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 67092, "sentence_id": 21, "language": "FR"}, "label": ["Just_Detection", "Location_Detection", "Just_3_SUB"]}
+{"meta": {"doc_id": 67122, "sentence_id": 2, "language": "FR"}, "label": ["Secu_Detection", "Eco_Detection", "Secu_3_SUB", "Messenger_Detection", "Messenger_9_SUB", "Emotion:_Negative", "Pol_2_SUB", "Eco_3_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 67188, "sentence_id": 15, "language": "FR"}, "label": ["Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 67256, "sentence_id": 46, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Solutions_Detection", "Messenger_9_SUB", "Solutions_1_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 67498, "sentence_id": 4, "language": "FR"}, "label": ["Event_Detection", "Event_1_SUB"]}
+{"meta": {"doc_id": 67501, "sentence_id": 30, "language": "FR"}, "label": ["Event_5_SUB", "Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 67529, "sentence_id": 2, "language": "FR"}, "label": ["Eco_Detection", "Event_6_SUB", "Event_Detection", "Messenger_Detection", "Messenger_2_SUB", "Eco_5_SUB", "Messenger_9_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 67580, "sentence_id": 23, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 67683, "sentence_id": 1, "language": "FR"}, "label": ["Eco_Detection", "Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Event_3_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 67738, "sentence_id": 13, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Negative", "Pol_2_SUB", "Messenger_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 67738, "sentence_id": 27, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 67787, "sentence_id": 5, "language": "FR"}, "label": ["Location_Detection", "Pol_Detection"]}
+{"meta": {"doc_id": 68019, "sentence_id": 31, "language": "FR"}, "label": ["Emotion:_Neutral", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 68100, "sentence_id": 34, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 68144, "sentence_id": 19, "language": "FR"}, "label": ["Eco_1_SUB", "Emotion:_Neutral", "Eco_Detection"]}
+{"meta": {"doc_id": 68197, "sentence_id": 23, "language": "FR"}, "label": ["Messenger_Detection"]}
+{"meta": {"doc_id": 68202, "sentence_id": 4, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Messenger_Detection", "Messenger_6_SUB", "Emotion:_Negative"]}
+{"meta": {"doc_id": 68262, "sentence_id": 63, "language": "FR"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 68277, "sentence_id": 6, "language": "FR"}, "label": ["Eco_Detection", "Event_Detection", "Sci_2_SUB", "Solutions_Detection", "Eco_4_SUB", "Solutions_1_SUB", "Sci_Detection", "Pol_2_SUB", "Event_3_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 68355, "sentence_id": 8, "language": "FR"}, "label": ["Messenger_Detection", "Solutions_Detection", "Messenger_9_SUB", "Solutions_1_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 68658, "sentence_id": 17, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_2_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 68704, "sentence_id": 2, "language": "FR"}, "label": ["Event_Detection", "Location_Detection", "Event_5_SUB"]}
+{"meta": {"doc_id": 68814, "sentence_id": 18, "language": "FR"}, "label": ["Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 68963, "sentence_id": 22, "language": "FR"}, "label": ["Event_6_SUB", "Event_Detection", "Messenger_Detection", "Messenger_8_SUB", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 69045, "sentence_id": 20, "language": "FR"}, "label": ["Envt_Detection", "Envt_2_SUB", "Secu_Detection", "Eco_Detection", "Secu_3_SUB", "Emotion:_Negative", "Envt_1_SUB", "Eco_1_SUB"]}
+{"meta": {"doc_id": 69057, "sentence_id": 6, "language": "FR"}, "label": ["Messenger_6_SUB", "Emotion:_Negative", "Messenger_Detection", "Location_Detection"]}
+{"meta": {"doc_id": 69061, "sentence_id": 30, "language": "FR"}, "label": ["Location_Detection", "Eco_Detection", "Emotion:_Positive", "Messenger_Detection", "Messenger_9_SUB", "Eco_4_SUB", "Solutions_Detection", "Solutions_1_SUB"]}
+{"meta": {"doc_id": 69079, "sentence_id": 17, "language": "FR"}, "label": ["Envt_Detection", "Location_Detection", "Envt_2_SUB", "Messenger_6_SUB", "Messenger_Detection", "Emotion:_Negative"]}
+{"meta": {"doc_id": 69091, "sentence_id": 9, "language": "FR"}, "label": ["Sci_2_SUB", "Messenger_6_SUB", "Messenger_Detection", "Sci_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 69144, "sentence_id": 17, "language": "FR"}, "label": ["Location_Detection", "Messenger_Detection", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 69149, "sentence_id": 28, "language": "FR"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 69222, "sentence_id": 8, "language": "FR"}, "label": ["Emotion:_Neutral", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 69250, "sentence_id": 5, "language": "FR"}, "label": ["Location_Detection", "Event_1_SUB", "Event_Detection", "Emotion:_Negative", "Pbh_1_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 69277, "sentence_id": 28, "language": "FR"}, "label": ["Emotion:_Neutral", "Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 69292, "sentence_id": 7, "language": "FR"}, "label": ["Messenger_Detection", "Emotion:_Neutral", "Messenger_1_SUB"]}
+{"meta": {"doc_id": 69482, "sentence_id": 2, "language": "FR"}, "label": ["Event_Detection", "Emotion:_Negative", "Event_3_SUB"]}
+{"meta": {"doc_id": 69510, "sentence_id": 4, "language": "FR"}, "label": ["Location_Detection", "Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Emotion:_Negative", "Pol_2_SUB", "Event_3_SUB", "Event_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 69580, "sentence_id": 31, "language": "FR"}, "label": ["Emotion:_Negative"]}
+{"meta": {"doc_id": 69723, "sentence_id": 9, "language": "FR"}, "label": ["Location_Detection", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Solutions_Detection", "Solutions_1_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 69854, "sentence_id": 24, "language": "FR"}, "label": ["Messenger_Detection", "Solutions_Detection", "Pol_2_SUB", "Solutions_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 70099, "sentence_id": 6, "language": "FR"}, "label": ["Eco_Detection", "Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 70128, "sentence_id": 27, "language": "FR"}, "label": ["Envt_Detection", "Location_Detection", "Envt_2_SUB", "Event_Detection", "Emotion:_Negative", "Event_3_SUB"]}
+{"meta": {"doc_id": 70299, "sentence_id": 6, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Event_Detection", "Sci_2_SUB", "Messenger_6_SUB", "Messenger_8_SUB", "Messenger_Detection", "Emotion:_Negative", "Sci_Detection", "Event_3_SUB", "Eco_1_SUB"]}
+{"meta": {"doc_id": 70299, "sentence_id": 9, "language": "EN"}, "label": ["Location_Detection", "Sci_2_SUB", "Messenger_Detection", "Emotion:_Negative", "Sci_Detection"]}
+{"meta": {"doc_id": 70791, "sentence_id": 2, "language": "EN"}, "label": ["Location_Detection", "Event_Detection", "Event_7_SUB", "Messenger_Detection", "Messenger_5_SUB", "Cult_1_SUB", "Cult_Detection"]}
+{"meta": {"doc_id": 70793, "sentence_id": 7, "language": "EN"}, "label": ["Emotion:_Negative", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 72265, "sentence_id": 41, "language": "EN"}, "label": ["Emotion:_Negative", "Eco_5_SUB", "Eco_Detection"]}
+{"meta": {"doc_id": 73140, "sentence_id": 11, "language": "EN"}, "label": ["Event_Detection", "Emotion:_Neutral", "Event_8_SUB"]}
+{"meta": {"doc_id": 73302, "sentence_id": 11, "language": "EN"}, "label": ["Emotion:_Negative", "Messenger_Detection"]}
+{"meta": {"doc_id": 74057, "sentence_id": 12, "language": "EN"}, "label": []}
+{"meta": {"doc_id": 74795, "sentence_id": 15, "language": "EN"}, "label": ["Emotion:_Positive", "Location_Detection"]}
+{"meta": {"doc_id": 74895, "sentence_id": 9, "language": "EN"}, "label": ["Messenger_Detection", "Messenger_8_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 75632, "sentence_id": 8, "language": "EN"}, "label": ["Emotion:_Negative"]}
+{"meta": {"doc_id": 76845, "sentence_id": 18, "language": "EN"}, "label": ["Event_Detection", "Location_Detection", "Emotion:_Neutral", "Event_4_SUB"]}
+{"meta": {"doc_id": 76897, "sentence_id": 23, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_8_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 77641, "sentence_id": 26, "language": "EN"}, "label": ["Envt_Detection", "Location_Detection", "Messenger_Detection", "Messenger_6_SUB", "Envt_1_SUB"]}
+{"meta": {"doc_id": 77661, "sentence_id": 41, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_2_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 77870, "sentence_id": 26, "language": "EN"}, "label": ["Eco_Detection", "Emotion:_Positive", "Solutions_Detection", "Solutions_1_SUB", "Solutions_2_SUB"]}
+{"meta": {"doc_id": 78493, "sentence_id": 12, "language": "EN"}, "label": ["Sci_2_SUB", "Messenger_Detection", "Emotion:_Neutral", "Sci_Detection"]}
+{"meta": {"doc_id": 78952, "sentence_id": 9, "language": "EN"}, "label": ["Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 79682, "sentence_id": 2, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Event_Detection", "Messenger_Detection", "Messenger_8_SUB", "Eco_5_SUB", "Emotion:_Negative", "Pol_2_SUB", "Event_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 79953, "sentence_id": 33, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 81132, "sentence_id": 14, "language": "EN"}, "label": ["Emotion:_Positive", "Eco_2_SUB", "Eco_Detection", "Location_Detection"]}
+{"meta": {"doc_id": 81245, "sentence_id": 3, "language": "EN"}, "label": ["Location_Detection"]}
+{"meta": {"doc_id": 81287, "sentence_id": 10, "language": "EN"}, "label": ["Eco_Detection", "Event_Detection", "Event_6_SUB", "Messenger_Detection", "Eco_5_SUB", "Messenger_4_SUB"]}
+{"meta": {"doc_id": 81317, "sentence_id": 19, "language": "EN"}, "label": ["Messenger_6_SUB", "Messenger_Detection", "Emotion:_Negative", "Pbh_1_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 81568, "sentence_id": 26, "language": "EN"}, "label": ["Cult_Detection", "Cult_1_SUB"]}
+{"meta": {"doc_id": 81710, "sentence_id": 86, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_8_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 81829, "sentence_id": 2, "language": "EN"}, "label": ["Secu_Detection", "Event_Detection", "Secu_3_SUB", "Messenger_Detection", "Messenger_4_SUB"]}
+{"meta": {"doc_id": 81895, "sentence_id": 9, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_2_SUB", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 82056, "sentence_id": 74, "language": "EN"}, "label": ["Messenger_Detection"]}
+{"meta": {"doc_id": 82088, "sentence_id": 8, "language": "EN"}, "label": ["Messenger_Detection", "Messenger_8_SUB", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 82338, "sentence_id": 92, "language": "EN"}, "label": ["Emotion:_Neutral", "Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 82728, "sentence_id": 20, "language": "EN"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 84282, "sentence_id": 5, "language": "EN"}, "label": ["Emotion:_Neutral", "Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 84730, "sentence_id": 8, "language": "EN"}, "label": ["Emotion:_Negative", "Location_Detection"]}
+{"meta": {"doc_id": 84962, "sentence_id": 68, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 85153, "sentence_id": 35, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 85325, "sentence_id": 1, "language": "EN"}, "label": ["Event_Detection", "Location_Detection", "Emotion:_Neutral", "Event_4_SUB"]}
+{"meta": {"doc_id": 85463, "sentence_id": 2, "language": "EN"}, "label": ["Event_Detection", "Sci_2_SUB", "Solutions_Detection", "Solutions_1_SUB", "Sci_Detection", "Event_3_SUB"]}
+{"meta": {"doc_id": 86178, "sentence_id": 23, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 86672, "sentence_id": 128, "language": "EN"}, "label": ["Event_Detection", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 86858, "sentence_id": 2, "language": "EN"}, "label": ["Location_Detection", "Event_Detection", "Pol_2_SUB", "Emotion:_Neutral", "Event_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 86978, "sentence_id": 49, "language": "EN"}, "label": ["Envt_Detection", "Event_Detection", "Location_Detection", "Event_3_SUB"]}
+{"meta": {"doc_id": 87880, "sentence_id": 27, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Messenger_Detection", "Messenger_6_SUB", "Eco_5_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 88128, "sentence_id": 36, "language": "EN"}, "label": ["Messenger_Detection", "Emotion:_Neutral", "Messenger_7_SUB"]}
+{"meta": {"doc_id": 88557, "sentence_id": 10, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Event_1_SUB", "Sci_2_SUB", "Event_Detection", "Messenger_7_SUB", "Messenger_Detection", "Sci_Detection", "Eco_1_SUB"]}
+{"meta": {"doc_id": 88600, "sentence_id": 46, "language": "EN"}, "label": ["Location_Detection", "Event_5_SUB", "Event_Detection", "Pol_1_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 88822, "sentence_id": 26, "language": "EN"}, "label": ["Emotion:_Positive", "Solutions_Detection", "Solutions_1_SUB"]}
+{"meta": {"doc_id": 89069, "sentence_id": 31, "language": "EN"}, "label": ["Messenger_6_SUB", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 89093, "sentence_id": 17, "language": "EN"}, "label": ["Messenger_Detection", "Emotion:_Neutral", "Messenger_7_SUB"]}
+{"meta": {"doc_id": 90395, "sentence_id": 26, "language": "EN"}, "label": ["Sci_2_SUB", "Messenger_6_SUB", "Messenger_Detection", "Sci_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 90710, "sentence_id": 45, "language": "EN"}, "label": ["Just_Detection", "Messenger_Detection", "Just_5_SUB"]}
+{"meta": {"doc_id": 93051, "sentence_id": 31, "language": "EN"}, "label": ["Emotion:_Neutral", "Solutions_Detection", "Solutions_1_SUB"]}
+{"meta": {"doc_id": 93095, "sentence_id": 4, "language": "EN"}, "label": ["Event_Detection", "Emotion:_Negative", "Event_3_SUB"]}
+{"meta": {"doc_id": 93737, "sentence_id": 30, "language": "EN"}, "label": ["Event_1_SUB", "Eco_Detection", "Event_Detection", "Messenger_Detection", "Emotion:_Negative", "Eco_1_SUB"]}
+{"meta": {"doc_id": 94291, "sentence_id": 18, "language": "EN"}, "label": ["Location_Detection", "Event_1_SUB", "Eco_Detection", "Event_Detection", "Emotion:_Negative", "Event_3_SUB", "Eco_1_SUB"]}
+{"meta": {"doc_id": 94708, "sentence_id": 12, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Emotion:_Positive", "Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pbh_3_SUB", "Pbh_Detection", "Pol_Detection"]}
+{"meta": {"doc_id": 96314, "sentence_id": 45, "language": "EN"}, "label": ["Location_Detection"]}
+{"meta": {"doc_id": 96438, "sentence_id": 8, "language": "EN"}, "label": ["Location_Detection", "Event_1_SUB", "Eco_Detection", "Just_3_SUB", "Event_Detection", "Just_Detection", "Emotion:_Negative", "Eco_1_SUB"]}
+{"meta": {"doc_id": 96469, "sentence_id": 4, "language": "EN"}, "label": ["Event_Detection", "Location_Detection", "Event_8_SUB"]}
+{"meta": {"doc_id": 97672, "sentence_id": 1, "language": "EN"}, "label": ["Location_Detection", "Event_8_SUB", "Event_Detection", "Messenger_Detection", "Messenger_8_SUB", "Emotion:_Negative"]}
+{"meta": {"doc_id": 98077, "sentence_id": 8, "language": "EN"}, "label": ["Location_Detection", "Eco_2_SUB", "Eco_Detection", "Emotion:_Negative", "Eco_1_SUB"]}
+{"meta": {"doc_id": 98761, "sentence_id": 26, "language": "EN"}, "label": ["Location_Detection", "Event_5_SUB", "Eco_Detection", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Solutions_Detection", "Solutions_1_SUB", "Pol_1_SUB", "Emotion:_Negative", "Pol_2_SUB", "Eco_3_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 98786, "sentence_id": 12, "language": "EN"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 98908, "sentence_id": 112, "language": "EN"}, "label": ["Location_Detection", "Event_Detection", "Event_7_SUB", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 98927, "sentence_id": 11, "language": "EN"}, "label": ["Eco_Detection", "Sci_2_SUB", "Messenger_Detection", "Emotion:_Negative", "Sci_Detection", "Eco_1_SUB"]}
+{"meta": {"doc_id": 99436, "sentence_id": 13, "language": "EN"}, "label": ["Sci_2_SUB", "Emotion:_Negative", "Messenger_Detection", "Sci_Detection"]}
+{"meta": {"doc_id": 100039, "sentence_id": 32, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection"]}
+{"meta": {"doc_id": 100457, "sentence_id": 9, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_2_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 100985, "sentence_id": 30, "language": "EN"}, "label": ["Secu_Detection", "Messenger_3_SUB", "Secu_3_SUB", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 101827, "sentence_id": 22, "language": "EN"}, "label": ["Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 102950, "sentence_id": 2, "language": "EN"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 104056, "sentence_id": 11, "language": "EN"}, "label": ["Location_Detection", "Event_8_SUB", "Event_Detection", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 104196, "sentence_id": 116, "language": "EN"}, "label": ["Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Messenger_5_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 104385, "sentence_id": 8, "language": "EN"}, "label": ["Eco_Detection", "Messenger_Detection", "Messenger_2_SUB", "Emotion:_Negative", "Eco_1_SUB"]}
+{"meta": {"doc_id": 105694, "sentence_id": 36, "language": "EN"}, "label": ["Event_Detection", "Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 105844, "sentence_id": 30, "language": "EN"}, "label": ["Eco_1_SUB", "Messenger_Detection", "Eco_2_SUB", "Eco_Detection"]}
+{"meta": {"doc_id": 106105, "sentence_id": 3, "language": "EN"}, "label": ["Sci_2_SUB", "Messenger_6_SUB", "Messenger_Detection", "Emotion:_Negative", "Sci_Detection"]}
+{"meta": {"doc_id": 106842, "sentence_id": 2, "language": "EN"}, "label": ["Messenger_Detection", "Messenger_2_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 107002, "sentence_id": 26, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_2_SUB"]}
+{"meta": {"doc_id": 107083, "sentence_id": 2, "language": "EN"}, "label": ["Location_Detection", "Event_8_SUB", "Eco_Detection", "Event_Detection", "Eco_5_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 108052, "sentence_id": 11, "language": "EN"}, "label": ["Event_Detection", "Event_7_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 108332, "sentence_id": 16, "language": "EN"}, "label": ["Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Emotion:_Negative", "Event_3_SUB"]}
+{"meta": {"doc_id": 108449, "sentence_id": 24, "language": "EN"}, "label": ["Eco_Detection", "Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Messenger_1_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 108644, "sentence_id": 88, "language": "EN"}, "label": ["Messenger_6_SUB", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 108889, "sentence_id": 1, "language": "EN"}, "label": ["Solutions_2_SUB", "Solutions_Detection"]}
+{"meta": {"doc_id": 109055, "sentence_id": 19, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Messenger_1_SUB", "Emotion:_Negative", "Pbh_1_SUB", "Pol_2_SUB", "Pbh_Detection", "Solutions_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 110444, "sentence_id": 13, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral", "Messenger_5_SUB"]}
+{"meta": {"doc_id": 111416, "sentence_id": 30, "language": "EN"}, "label": ["Secu_Detection", "Secu_3_SUB", "Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pbh_1_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 111836, "sentence_id": 4, "language": "EN"}, "label": ["Event_Detection", "Messenger_Detection", "Emotion:_Negative", "Pbh_1_SUB", "Event_3_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 112100, "sentence_id": 26, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_2_SUB", "Eco_3_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 112525, "sentence_id": 5, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_8_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 113245, "sentence_id": 31, "language": "EN"}, "label": ["Event_Detection", "Location_Detection"]}
+{"meta": {"doc_id": 114097, "sentence_id": 17, "language": "EN"}, "label": ["Emotion:_Negative", "Messenger_Detection", "Messenger_2_SUB"]}
+{"meta": {"doc_id": 114480, "sentence_id": 21, "language": "EN"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 114702, "sentence_id": 1, "language": "EN"}, "label": ["Solutions_Detection", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 114786, "sentence_id": 13, "language": "EN"}, "label": ["Location_Detection", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_8_SUB", "Messenger_9_SUB", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 114887, "sentence_id": 21, "language": "EN"}, "label": ["Location_Detection", "Event_5_SUB", "Event_Detection", "Messenger_Detection", "Messenger_2_SUB", "Pol_1_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 114949, "sentence_id": 17, "language": "EN"}, "label": ["Location_Detection", "Event_Detection", "Event_7_SUB", "Messenger_Detection", "Messenger_5_SUB", "Cult_4_SUB", "Emotion:_Negative", "Cult_1_SUB", "Cult_Detection"]}
+{"meta": {"doc_id": 114949, "sentence_id": 18, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_5_SUB", "Emotion:_Negative", "Cult_1_SUB", "Cult_Detection"]}
+{"meta": {"doc_id": 115002, "sentence_id": 24, "language": "EN"}, "label": ["Sci_1_SUB", "Messenger_Detection", "Emotion:_Neutral", "Sci_Detection"]}
+{"meta": {"doc_id": 115289, "sentence_id": 1, "language": "EN"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Event_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 115443, "sentence_id": 11, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Event_3_SUB", "Eco_3_SUB"]}
+{"meta": {"doc_id": 116550, "sentence_id": 7, "language": "EN"}, "label": ["Emotion:_Negative", "Messenger_Detection", "Messenger_2_SUB"]}
+{"meta": {"doc_id": 116834, "sentence_id": 14, "language": "EN"}, "label": ["Emotion:_Negative", "Messenger_Detection"]}
+{"meta": {"doc_id": 116978, "sentence_id": 30, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 118740, "sentence_id": 42, "language": "EN"}, "label": ["Eco_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_1_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 119182, "sentence_id": 1, "language": "EN"}, "label": ["Emotion:_Neutral", "Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 119252, "sentence_id": 31, "language": "EN"}, "label": ["Location_Detection", "Pol_4_SUB", "Messenger_Detection", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 119545, "sentence_id": 17, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection"]}
+{"meta": {"doc_id": 120817, "sentence_id": 8, "language": "EN"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 120909, "sentence_id": 13, "language": "EN"}, "label": ["Emotion:_Negative", "Messenger_Detection"]}
+{"meta": {"doc_id": 122236, "sentence_id": 12, "language": "EN"}, "label": ["Location_Detection", "Event_5_SUB", "Eco_Detection", "Event_Detection", "Emotion:_Positive", "Messenger_6_SUB", "Messenger_Detection", "Solutions_Detection", "Pol_1_SUB", "Eco_3_SUB", "Solutions_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 122595, "sentence_id": 27, "language": "EN"}, "label": ["Eco_Detection", "Emotion:_Positive", "Solutions_Detection", "Eco_4_SUB", "Solutions_1_SUB"]}
+{"meta": {"doc_id": 123529, "sentence_id": 29, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_9_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 123821, "sentence_id": 40, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral", "Messenger_1_SUB"]}
+{"meta": {"doc_id": 124394, "sentence_id": 33, "language": "EN"}, "label": []}
+{"meta": {"doc_id": 124479, "sentence_id": 4, "language": "EN"}, "label": ["Envt_Detection", "Eco_Detection", "Just_3_SUB", "Event_Detection", "Messenger_6_SUB", "Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Just_Detection", "Emotion:_Negative", "Eco_1_SUB", "Event_3_SUB", "Envt_1_SUB", "RED_Detection"]}
+{"meta": {"doc_id": 125140, "sentence_id": 26, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 127250, "sentence_id": 2, "language": "EN"}, "label": ["Location_Detection", "Event_Detection", "Event_7_SUB", "Messenger_Detection", "Messenger_5_SUB", "Cult_1_SUB", "Cult_Detection"]}
+{"meta": {"doc_id": 128771, "sentence_id": 6, "language": "EN"}, "label": ["Event_2_SUB", "Location_Detection", "Event_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 129195, "sentence_id": 23, "language": "EN"}, "label": ["Location_Detection", "Event_5_SUB", "Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_1_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 129315, "sentence_id": 15, "language": "EN"}, "label": ["Just_Detection", "Messenger_Detection", "Just_2_SUB", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 129321, "sentence_id": 4, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 131527, "sentence_id": 26, "language": "EN"}, "label": ["Solutions_Detection", "Solutions_1_SUB", "Just_Detection", "Emotion:_Negative", "Pol_2_SUB", "Just_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 132540, "sentence_id": 5, "language": "EN"}, "label": ["Envt_Detection", "Location_Detection", "Eco_2_SUB", "Eco_Detection", "Pbh_1_SUB", "Pbh_Detection", "Envt_1_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 132936, "sentence_id": 4, "language": "EN"}, "label": ["Location_Detection", "Event_Detection", "Emotion:_Positive", "Messenger_Detection", "Event_7_SUB", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 133621, "sentence_id": 3, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 133694, "sentence_id": 23, "language": "EN"}, "label": ["Messenger_Detection", "Messenger_2_SUB", "Solutions_Detection", "Solutions_1_SUB"]}
+{"meta": {"doc_id": 134181, "sentence_id": 82, "language": "EN"}, "label": ["Eco_2_SUB", "Eco_Detection", "Emotion:_Positive", "Messenger_6_SUB", "Messenger_Detection"]}
+{"meta": {"doc_id": 134230, "sentence_id": 17, "language": "EN"}, "label": ["Envt_Detection", "Emotion:_Negative", "Messenger_Detection", "Envt_2_SUB"]}
+{"meta": {"doc_id": 134335, "sentence_id": 138, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 135209, "sentence_id": 26, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_8_SUB", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 135277, "sentence_id": 20, "language": "EN"}, "label": ["Cult_Detection", "Emotion:_Negative", "Cult_3_SUB", "Location_Detection"]}
+{"meta": {"doc_id": 136680, "sentence_id": 2, "language": "EN"}, "label": ["Secu_Detection", "Event_6_SUB", "Event_Detection", "Secu_3_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 137054, "sentence_id": 2, "language": "EN"}, "label": ["Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Emotion:_Negative", "Event_3_SUB"]}
+{"meta": {"doc_id": 137094, "sentence_id": 39, "language": "EN"}, "label": ["Eco_3_SUB", "Eco_Detection", "Emotion:_Neutral", "Sci_Detection"]}
+{"meta": {"doc_id": 137288, "sentence_id": 17, "language": "EN"}, "label": ["Emotion:_Negative"]}
+{"meta": {"doc_id": 137706, "sentence_id": 20, "language": "EN"}, "label": ["Messenger_Detection", "Messenger_5_SUB", "Cult_1_SUB", "Cult_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 138359, "sentence_id": 12, "language": "EN"}, "label": ["Emotion:_Negative", "Messenger_Detection", "Eco_Detection", "Eco_1_SUB"]}
+{"meta": {"doc_id": 138410, "sentence_id": 3, "language": "EN"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Messenger_5_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 138607, "sentence_id": 17, "language": "EN"}, "label": ["Secu_Detection", "Eco_Detection", "Secu_3_SUB", "Messenger_Detection", "Emotion:_Negative", "Pbh_1_SUB", "Pbh_Detection", "Eco_1_SUB"]}
+{"meta": {"doc_id": 138821, "sentence_id": 2, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Eco_5_SUB", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 138998, "sentence_id": 69, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Eco_Detection"]}
+{"meta": {"doc_id": 139059, "sentence_id": 3, "language": "EN"}, "label": ["Location_Detection", "Event_8_SUB", "Event_Detection", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 139175, "sentence_id": 27, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 139180, "sentence_id": 90, "language": "EN"}, "label": ["Messenger_Detection", "Emotion:_Neutral", "Messenger_5_SUB"]}
+{"meta": {"doc_id": 139808, "sentence_id": 5, "language": "EN"}, "label": ["Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 139825, "sentence_id": 20, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Messenger_Detection", "Solutions_Detection", "Messenger_9_SUB", "Solutions_1_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 140204, "sentence_id": 13, "language": "EN"}, "label": ["Event_Detection", "Event_7_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 140341, "sentence_id": 31, "language": "EN"}, "label": ["Event_Detection", "Location_Detection", "Emotion:_Neutral", "Event_4_SUB"]}
+{"meta": {"doc_id": 140783, "sentence_id": 3, "language": "EN"}, "label": ["Location_Detection", "Event_6_SUB", "Event_Detection", "Messenger_Detection", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 140952, "sentence_id": 23, "language": "EN"}, "label": ["Location_Detection"]}
+{"meta": {"doc_id": 141007, "sentence_id": 19, "language": "EN"}, "label": ["Messenger_Detection", "Emotion:_Neutral", "Messenger_5_SUB"]}
+{"meta": {"doc_id": 141018, "sentence_id": 2, "language": "EN"}, "label": ["Envt_Detection", "Location_Detection", "Envt_2_SUB", "Sci_2_SUB", "Messenger_6_SUB", "Messenger_Detection", "Sci_Detection"]}
+{"meta": {"doc_id": 141154, "sentence_id": 3, "language": "EN"}, "label": ["Messenger_3_SUB", "Emotion:_Neutral", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 141629, "sentence_id": 15, "language": "EN"}, "label": ["Envt_Detection", "Emotion:_Negative", "Envt_2_SUB"]}
+{"meta": {"doc_id": 141701, "sentence_id": 12, "language": "EN"}, "label": ["Messenger_Detection", "Messenger_6_SUB"]}
+{"meta": {"doc_id": 142638, "sentence_id": 12, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Messenger_Detection", "Messenger_2_SUB", "Solutions_Detection", "Solutions_1_SUB", "Eco_3_SUB"]}
+{"meta": {"doc_id": 142914, "sentence_id": 95, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 143025, "sentence_id": 4, "language": "EN"}, "label": ["Event_Detection", "Event_4_SUB"]}
+{"meta": {"doc_id": 143067, "sentence_id": 33, "language": "EN"}, "label": ["Emotion:_Positive", "Eco_2_SUB", "Eco_Detection"]}
+{"meta": {"doc_id": 143209, "sentence_id": 6, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 144028, "sentence_id": 17, "language": "EN"}, "label": ["Eco_Detection", "Messenger_Detection", "Pbh_1_SUB", "Pbh_Detection", "Eco_1_SUB"]}
+{"meta": {"doc_id": 144142, "sentence_id": 13, "language": "EN"}, "label": ["Event_Detection", "Location_Detection", "Emotion:_Neutral", "Event_5_SUB"]}
+{"meta": {"doc_id": 144601, "sentence_id": 35, "language": "EN"}, "label": ["Location_Detection", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 144798, "sentence_id": 16, "language": "EN"}, "label": ["Event_Detection", "Event_7_SUB", "Messenger_Detection", "Messenger_5_SUB", "Emotion:_Negative"]}
+{"meta": {"doc_id": 146072, "sentence_id": 17, "language": "EN"}, "label": ["Event_8_SUB", "Event_Detection", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 146078, "sentence_id": 4, "language": "EN"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Messenger_8_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 147352, "sentence_id": 6, "language": "EN"}, "label": ["Emotion:_Positive"]}
+{"meta": {"doc_id": 147641, "sentence_id": 22, "language": "EN"}, "label": ["Location_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_1_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 148459, "sentence_id": 6, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 148664, "sentence_id": 23, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 149746, "sentence_id": 44, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_8_SUB", "Messenger_9_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 150299, "sentence_id": 19, "language": "EN"}, "label": ["Pol_Detection", "Emotion:_Negative", "Secu_Detection", "Pol_2_SUB"]}
+{"meta": {"doc_id": 150913, "sentence_id": 63, "language": "EN"}, "label": ["Messenger_Detection", "Messenger_7_SUB", "Eco_5_SUB", "Eco_Detection"]}
+{"meta": {"doc_id": 151416, "sentence_id": 16, "language": "EN"}, "label": ["Cult_Detection", "Messenger_6_SUB", "Messenger_Detection", "Cult_3_SUB"]}
+{"meta": {"doc_id": 151883, "sentence_id": 62, "language": "EN"}, "label": ["Messenger_6_SUB", "Messenger_Detection", "Emotion:_Neutral", "Messenger_1_SUB"]}
+{"meta": {"doc_id": 152198, "sentence_id": 15, "language": "EN"}, "label": ["Just_3_SUB", "Messenger_Detection", "Messenger_1_SUB", "Just_Detection", "Pbh_1_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 152375, "sentence_id": 10, "language": "EN"}, "label": ["Emotion:_Negative", "Messenger_Detection", "Messenger_2_SUB"]}
+{"meta": {"doc_id": 152447, "sentence_id": 12, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_2_SUB", "Eco_3_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 152699, "sentence_id": 2, "language": "EN"}, "label": ["Envt_Detection", "Location_Detection", "Envt_2_SUB", "Secu_Detection", "Just_3_SUB", "Event_Detection", "Secu_3_SUB", "Just_Detection", "Emotion:_Negative", "Pbh_1_SUB", "Event_3_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 152847, "sentence_id": 24, "language": "EN"}, "label": ["Envt_Detection", "Sci_2_SUB", "Messenger_Detection", "Sci_Detection", "Envt_1_SUB"]}
+{"meta": {"doc_id": 152853, "sentence_id": 13, "language": "EN"}, "label": ["Messenger_Detection", "Messenger_9_SUB", "Solutions_Detection", "Solutions_1_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 153190, "sentence_id": 13, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Sci_2_SUB", "Emotion:_Positive", "Messenger_Detection", "Eco_4_SUB", "Solutions_Detection", "Solutions_1_SUB", "Sci_Detection"]}
+{"meta": {"doc_id": 153197, "sentence_id": 11, "language": "EN"}, "label": ["Just_5_SUB", "Event_Detection", "Messenger_Detection", "Event_2_SUB", "Just_Detection", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 153272, "sentence_id": 5, "language": "EN"}, "label": ["Eco_Detection", "Emotion:_Positive", "Eco_4_SUB", "Pbh_3_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 153544, "sentence_id": 1, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_8_SUB", "Solutions_Detection", "Solutions_1_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 153797, "sentence_id": 2, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 153906, "sentence_id": 2, "language": "EN"}, "label": ["Location_Detection", "Event_5_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Pol_3_SUB", "Pol_1_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Event_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 154026, "sentence_id": 16, "language": "EN"}, "label": ["Envt_Detection", "Emotion:_Negative", "Envt_2_SUB"]}
+{"meta": {"doc_id": 154449, "sentence_id": 10, "language": "EN"}, "label": ["Emotion:_Positive", "Messenger_Detection", "Messenger_2_SUB", "Location_Detection"]}
+{"meta": {"doc_id": 154490, "sentence_id": 10, "language": "EN"}, "label": ["Event_Detection", "Messenger_Detection", "Event_1_SUB"]}
+{"meta": {"doc_id": 154495, "sentence_id": 18, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_2_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 154773, "sentence_id": 98, "language": "EN"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 154996, "sentence_id": 6, "language": "EN"}, "label": ["Event_8_SUB", "Messenger_3_SUB", "Event_Detection", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 156266, "sentence_id": 162, "language": "EN"}, "label": ["Event_Detection", "Location_Detection", "Event_7_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 156377, "sentence_id": 16, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 156588, "sentence_id": 20, "language": "EN"}, "label": ["Emotion:_Neutral", "Solutions_Detection", "Solutions_1_SUB"]}
+{"meta": {"doc_id": 156606, "sentence_id": 69, "language": "EN"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 156888, "sentence_id": 7, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_8_SUB"]}
+{"meta": {"doc_id": 157195, "sentence_id": 117, "language": "EN"}, "label": ["Event_Detection", "Location_Detection", "Event_7_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 157400, "sentence_id": 2, "language": "EN"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 157789, "sentence_id": 23, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 158808, "sentence_id": 14, "language": "EN"}, "label": ["Event_Detection", "Emotion:_Negative", "Event_3_SUB"]}
+{"meta": {"doc_id": 159194, "sentence_id": 41, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 159747, "sentence_id": 11, "language": "EN"}, "label": ["Location_Detection", "Event_Detection", "Event_7_SUB", "Messenger_Detection", "Messenger_7_SUB", "Messenger_5_SUB", "Cult_1_SUB", "Cult_Detection"]}
+{"meta": {"doc_id": 160033, "sentence_id": 17, "language": "EN"}, "label": ["Location_Detection", "Pol_4_SUB", "Event_Detection", "Event_3_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 160214, "sentence_id": 27, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 161935, "sentence_id": 25, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Solutions_Detection", "Eco_5_SUB", "Solutions_1_SUB", "Emotion:_Negative", "Pbh_1_SUB", "Pol_2_SUB", "Pbh_Detection", "Pol_Detection"]}
+{"meta": {"doc_id": 162355, "sentence_id": 5, "language": "EN"}, "label": ["Event_Detection", "Location_Detection", "Event_1_SUB"]}
+{"meta": {"doc_id": 162888, "sentence_id": 16, "language": "EN"}, "label": ["Messenger_Detection", "Messenger_2_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 163139, "sentence_id": 25, "language": "EN"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 163716, "sentence_id": 17, "language": "EN"}, "label": ["Location_Detection", "Event_Detection", "Event_7_SUB", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 163884, "sentence_id": 9, "language": "EN"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Event_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 164028, "sentence_id": 20, "language": "EN"}, "label": ["Just_1_SUB", "Location_Detection", "Messenger_Detection", "Solutions_Detection", "Messenger_9_SUB", "Pol_3_SUB", "Solutions_1_SUB", "Just_Detection", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 164273, "sentence_id": 16, "language": "EN"}, "label": ["Eco_2_SUB", "Eco_Detection", "Event_Detection", "Event_3_SUB", "Emotion:_Neutral", "Eco_1_SUB"]}
+{"meta": {"doc_id": 164275, "sentence_id": 10, "language": "EN"}, "label": ["Emotion:_Negative"]}
+{"meta": {"doc_id": 164433, "sentence_id": 60, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Messenger_Detection", "Messenger_2_SUB", "Eco_1_SUB"]}
+{"meta": {"doc_id": 165052, "sentence_id": 22, "language": "EN"}, "label": ["Sci_2_SUB", "Emotion:_Neutral", "Sci_Detection"]}
+{"meta": {"doc_id": 165929, "sentence_id": 9, "language": "EN"}, "label": ["Event_Detection", "Secu_3_SUB", "Secu_Detection", "Event_1_SUB"]}
+{"meta": {"doc_id": 166111, "sentence_id": 22, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 166133, "sentence_id": 33, "language": "EN"}, "label": ["Emotion:_Negative", "Messenger_Detection"]}
+{"meta": {"doc_id": 166244, "sentence_id": 5, "language": "EN"}, "label": ["Eco_Detection", "Messenger_Detection", "Emotion:_Negative", "Pbh_1_SUB", "Pbh_Detection", "Eco_1_SUB"]}
+{"meta": {"doc_id": 166479, "sentence_id": 20, "language": "EN"}, "label": ["Event_1_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Pbh_1_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 166491, "sentence_id": 171, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 166668, "sentence_id": 8, "language": "EN"}, "label": ["Eco_Detection", "Messenger_Detection", "Messenger_7_SUB", "Messenger_9_SUB", "Eco_5_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 168454, "sentence_id": 11, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 168789, "sentence_id": 26, "language": "EN"}, "label": ["Emotion:_Negative", "Eco_5_SUB", "Eco_Detection"]}
+{"meta": {"doc_id": 169222, "sentence_id": 10, "language": "EN"}, "label": ["Sci_1_SUB", "Event_Detection", "Sci_2_SUB", "Messenger_6_SUB", "Messenger_Detection", "Sci_Detection", "Event_3_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 170530, "sentence_id": 5, "language": "EN"}, "label": ["Eco_Detection", "Messenger_Detection", "Eco_5_SUB", "Messenger_9_SUB", "Emotion:_Negative"]}
+{"meta": {"doc_id": 170721, "sentence_id": 2, "language": "EN"}, "label": ["Secu_Detection", "Event_6_SUB", "Event_Detection", "Secu_3_SUB", "Messenger_Detection", "Messenger_4_SUB"]}
+{"meta": {"doc_id": 170877, "sentence_id": 59, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 170908, "sentence_id": 28, "language": "EN"}, "label": ["Sci_1_SUB", "Messenger_Detection", "Sci_Detection"]}
+{"meta": {"doc_id": 170970, "sentence_id": 51, "language": "EN"}, "label": ["Just_1_SUB", "Just_Detection", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 171133, "sentence_id": 93, "language": "EN"}, "label": ["Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Cult_4_SUB", "Cult_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 172380, "sentence_id": 2, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Event_Detection", "Messenger_Detection", "Messenger_8_SUB", "Eco_5_SUB", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 173473, "sentence_id": 18, "language": "EN"}, "label": ["Eco_Detection", "Just_3_SUB", "Solutions_Detection", "Just_Detection", "Just_2_SUB", "Solutions_2_SUB"]}
+{"meta": {"doc_id": 173484, "sentence_id": 65, "language": "EN"}, "label": ["Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 173547, "sentence_id": 26, "language": "EN"}, "label": ["Emotion:_Neutral", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 173937, "sentence_id": 37, "language": "EN"}, "label": ["Messenger_Detection", "Messenger_2_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 174538, "sentence_id": 5, "language": "EN"}, "label": ["Pbh_Detection", "Emotion:_Negative", "Pbh_1_SUB"]}
+{"meta": {"doc_id": 174625, "sentence_id": 41, "language": "EN"}, "label": ["Event_Detection", "Messenger_Detection", "Messenger_7_SUB", "Emotion:_Neutral", "Event_4_SUB"]}
+{"meta": {"doc_id": 174745, "sentence_id": 51, "language": "EN"}, "label": ["Event_Detection", "Location_Detection", "Emotion:_Neutral", "Event_3_SUB"]}
+{"meta": {"doc_id": 175035, "sentence_id": 8, "language": "EN"}, "label": ["Emotion:_Neutral", "Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 175701, "sentence_id": 17, "language": "EN"}, "label": ["Sci_1_SUB", "Sci_Detection"]}
+{"meta": {"doc_id": 177377, "sentence_id": 4, "language": "EN"}, "label": ["Solutions_Detection", "Solutions_1_SUB", "Pol_2_SUB", "Solutions_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 177722, "sentence_id": 13, "language": "EN"}, "label": ["Envt_Detection", "Emotion:_Negative", "Messenger_Detection", "Envt_2_SUB"]}
+{"meta": {"doc_id": 178187, "sentence_id": 33, "language": "EN"}, "label": ["Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 179169, "sentence_id": 12, "language": "EN"}, "label": ["Eco_Detection", "Sci_2_SUB", "Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Emotion:_Negative", "Sci_Detection", "Eco_3_SUB"]}
+{"meta": {"doc_id": 181155, "sentence_id": 5, "language": "EN"}, "label": ["Messenger_Detection"]}
+{"meta": {"doc_id": 181196, "sentence_id": 2, "language": "EN"}, "label": ["Sci_1_SUB", "Location_Detection", "Event_Detection", "Sci_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 181272, "sentence_id": 10, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Messenger_Detection", "Solutions_Detection", "Messenger_9_SUB", "Solutions_1_SUB", "Pol_2_SUB", "Eco_3_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 181364, "sentence_id": 21, "language": "EN"}, "label": ["Event_5_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 181832, "sentence_id": 15, "language": "EN"}, "label": ["Just_1_SUB", "Location_Detection", "Event_Detection", "Event_2_SUB", "Messenger_Detection", "Messenger_9_SUB", "Just_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 182116, "sentence_id": 27, "language": "EN"}, "label": ["Event_8_SUB", "Event_Detection", "Messenger_Detection", "Messenger_2_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 184212, "sentence_id": 5, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Solutions_Detection", "Messenger_9_SUB", "Solutions_1_SUB", "Just_Detection", "Emotion:_Negative", "Pol_2_SUB", "Just_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 185028, "sentence_id": 1, "language": "EN"}, "label": ["Emotion:_Positive", "Eco_2_SUB", "Eco_Detection", "Location_Detection"]}
+{"meta": {"doc_id": 185218, "sentence_id": 8, "language": "EN"}, "label": ["Messenger_6_SUB", "Messenger_Detection", "Sci_Detection"]}
+{"meta": {"doc_id": 185288, "sentence_id": 26, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_2_SUB", "Sci_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 186407, "sentence_id": 14, "language": "EN"}, "label": ["Emotion:_Negative", "Eco_5_SUB", "Eco_Detection"]}
+{"meta": {"doc_id": 186689, "sentence_id": 14, "language": "EN"}, "label": ["Emotion:_Negative", "Location_Detection"]}
+{"meta": {"doc_id": 186936, "sentence_id": 13, "language": "EN"}, "label": ["Messenger_6_SUB", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 187002, "sentence_id": 11, "language": "EN"}, "label": ["Sci_4_SUB", "Emotion:_Positive", "Messenger_Detection", "Messenger_6_SUB", "Sci_Detection"]}
+{"meta": {"doc_id": 187175, "sentence_id": 13, "language": "EN"}, "label": ["Location_Detection", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_6_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 187524, "sentence_id": 13, "language": "EN"}, "label": ["Sci_4_SUB", "Emotion:_Neutral", "Sci_Detection"]}
+{"meta": {"doc_id": 189200, "sentence_id": 15, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_8_SUB", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 190445, "sentence_id": 12, "language": "EN"}, "label": ["Messenger_Detection", "Sci_Detection"]}
+{"meta": {"doc_id": 190651, "sentence_id": 8, "language": "EN"}, "label": ["Event_Detection", "Location_Detection", "Emotion:_Neutral", "Event_4_SUB"]}
+{"meta": {"doc_id": 190682, "sentence_id": 24, "language": "EN"}, "label": ["Sci_4_SUB", "Emotion:_Positive", "Sci_Detection"]}
+{"meta": {"doc_id": 190908, "sentence_id": 9, "language": "EN"}, "label": ["Sci_4_SUB", "Sci_3_SUB", "Messenger_Detection", "Emotion:_Negative", "Sci_Detection", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 191096, "sentence_id": 24, "language": "EN"}, "label": ["Eco_2_SUB", "Eco_Detection"]}
+{"meta": {"doc_id": 191455, "sentence_id": 9, "language": "EN"}, "label": ["Event_Detection", "Sci_2_SUB", "Messenger_Detection", "Messenger_6_SUB", "Sci_Detection", "Event_3_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 191764, "sentence_id": 23, "language": "EN"}, "label": ["Event_5_SUB", "Event_2_SUB", "Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_1_SUB", "Just_Detection", "Just_2_SUB", "Solutions_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 192210, "sentence_id": 27, "language": "EN"}, "label": ["Event_Detection", "Messenger_Detection", "Event_3_SUB"]}
+{"meta": {"doc_id": 192504, "sentence_id": 21, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral", "Messenger_7_SUB"]}
+{"meta": {"doc_id": 192524, "sentence_id": 6, "language": "EN"}, "label": ["Event_Detection", "Emotion:_Negative", "Messenger_Detection", "Event_1_SUB"]}
+{"meta": {"doc_id": 192621, "sentence_id": 29, "language": "EN"}, "label": ["Eco_Detection", "Messenger_Detection", "Emotion:_Negative", "Pbh_1_SUB", "Pbh_Detection", "Eco_1_SUB"]}
+{"meta": {"doc_id": 192676, "sentence_id": 2, "language": "EN"}, "label": ["Event_1_SUB", "Eco_Detection", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Pbh_1_SUB", "Pbh_Detection", "Eco_1_SUB"]}
+{"meta": {"doc_id": 192684, "sentence_id": 24, "language": "EN"}, "label": ["Event_1_SUB", "Event_Detection", "Messenger_Detection", "Secu_Detection"]}
+{"meta": {"doc_id": 192786, "sentence_id": 19, "language": "EN"}, "label": ["Location_Detection", "Event_Detection", "Messenger_6_SUB", "Messenger_Detection", "Solutions_Detection", "Pol_1_SUB", "Solutions_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 193112, "sentence_id": 15, "language": "EN"}, "label": ["Event_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 193650, "sentence_id": 6, "language": "EN"}, "label": ["Location_Detection", "Event_1_SUB", "Eco_Detection", "Event_Detection", "Emotion:_Negative", "Eco_1_SUB"]}
+{"meta": {"doc_id": 193874, "sentence_id": 22, "language": "EN"}, "label": ["Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 193956, "sentence_id": 42, "language": "EN"}, "label": ["Sci_4_SUB", "Emotion:_Negative", "Sci_Detection", "RED_Detection"]}
+{"meta": {"doc_id": 194215, "sentence_id": 43, "language": "EN"}, "label": ["Emotion:_Neutral", "Pol_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 194439, "sentence_id": 18, "language": "EN"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Messenger_2_SUB", "Event_3_SUB"]}
+{"meta": {"doc_id": 194608, "sentence_id": 2, "language": "EN"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 194640, "sentence_id": 22, "language": "EN"}, "label": ["Event_2_SUB", "Location_Detection", "Event_Detection"]}
+{"meta": {"doc_id": 196208, "sentence_id": 30, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 196405, "sentence_id": 21, "language": "EN"}, "label": ["Location_Detection", "Just_3_SUB", "Solutions_Detection", "Solutions_1_SUB", "Just_Detection", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 197075, "sentence_id": 69, "language": "EN"}, "label": ["Emotion:_Negative", "Sci_Detection"]}
+{"meta": {"doc_id": 200703, "sentence_id": 33, "language": "EN"}, "label": ["Emotion:_Neutral", "Solutions_Detection", "Solutions_1_SUB"]}
+{"meta": {"doc_id": 201323, "sentence_id": 24, "language": "EN"}, "label": ["Sci_2_SUB", "Sci_Detection"]}
+{"meta": {"doc_id": 201673, "sentence_id": 49, "language": "EN"}, "label": ["Envt_Detection", "Sci_2_SUB", "Envt_2_SUB", "Sci_Detection"]}
+{"meta": {"doc_id": 202324, "sentence_id": 26, "language": "EN"}, "label": ["Event_Detection", "Location_Detection", "Emotion:_Neutral", "Event_4_SUB"]}
+{"meta": {"doc_id": 202892, "sentence_id": 8, "language": "EN"}, "label": ["Eco_Detection", "Messenger_Detection", "Solutions_Detection", "Solutions_2_SUB", "Eco_1_SUB"]}
+{"meta": {"doc_id": 203130, "sentence_id": 4, "language": "EN"}, "label": ["Event_Detection", "Event_7_SUB", "Messenger_Detection", "Messenger_5_SUB"]}
+{"meta": {"doc_id": 203359, "sentence_id": 4, "language": "EN"}, "label": ["Location_Detection", "Event_5_SUB", "Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 203457, "sentence_id": 39, "language": "EN"}, "label": ["Location_Detection", "Event_1_SUB", "Eco_Detection", "Event_Detection", "Solutions_Detection", "Solutions_2_SUB"]}
+{"meta": {"doc_id": 203511, "sentence_id": 4, "language": "EN"}, "label": ["Event_Detection", "Emotion:_Negative"]}
+{"meta": {"doc_id": 203941, "sentence_id": 7, "language": "EN"}, "label": ["Sci_2_SUB", "Messenger_6_SUB", "Messenger_Detection", "Emotion:_Negative", "Sci_Detection"]}
+{"meta": {"doc_id": 204631, "sentence_id": 106, "language": "EN"}, "label": ["Messenger_Detection", "Solutions_Detection", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 204869, "sentence_id": 6, "language": "EN"}, "label": ["Emotion:_Negative", "Messenger_Detection", "Messenger_9_SUB", "Location_Detection"]}
+{"meta": {"doc_id": 205046, "sentence_id": 29, "language": "EN"}, "label": ["Event_Detection", "Emotion:_Negative", "Location_Detection", "Event_4_SUB"]}
+{"meta": {"doc_id": 206835, "sentence_id": 3, "language": "EN"}, "label": ["Location_Detection", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_2_SUB"]}
+{"meta": {"doc_id": 206852, "sentence_id": 37, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 207810, "sentence_id": 19, "language": "EN"}, "label": []}
+{"meta": {"doc_id": 208475, "sentence_id": 2, "language": "EN"}, "label": ["Location_Detection", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Solutions_Detection", "Solutions_1_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 208658, "sentence_id": 6, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 210395, "sentence_id": 16, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Emotion:_Positive", "Eco_4_SUB", "Solutions_1_SUB", "Solutions_Detection"]}
+{"meta": {"doc_id": 210576, "sentence_id": 19, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 211698, "sentence_id": 14, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 212514, "sentence_id": 44, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 212778, "sentence_id": 39, "language": "EN"}, "label": ["Emotion:_Neutral", "Location_Detection", "Pol_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 212898, "sentence_id": 21, "language": "EN"}, "label": ["Location_Detection", "Eco_2_SUB", "Eco_Detection", "Event_Detection", "Messenger_Detection", "Event_3_SUB"]}
+{"meta": {"doc_id": 213344, "sentence_id": 6, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Solutions_Detection", "Messenger_9_SUB", "Solutions_1_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 213556, "sentence_id": 27, "language": "EN"}, "label": ["Emotion:_Negative", "Messenger_Detection", "Eco_5_SUB", "Eco_Detection"]}
+{"meta": {"doc_id": 213624, "sentence_id": 18, "language": "EN"}, "label": ["Emotion:_Negative", "Messenger_Detection"]}
+{"meta": {"doc_id": 214894, "sentence_id": 86, "language": "EN"}, "label": ["Envt_Detection", "Location_Detection", "Envt_2_SUB", "Messenger_6_SUB", "Messenger_8_SUB", "Messenger_Detection", "Emotion:_Negative"]}
+{"meta": {"doc_id": 214944, "sentence_id": 3, "language": "EN"}, "label": ["Eco_2_SUB", "Eco_Detection"]}
+{"meta": {"doc_id": 215509, "sentence_id": 89, "language": "EN"}, "label": ["Emotion:_Neutral", "Solutions_2_SUB", "Solutions_Detection"]}
+{"meta": {"doc_id": 215553, "sentence_id": 63, "language": "EN"}, "label": ["Event_Detection", "Event_7_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 215721, "sentence_id": 9, "language": "EN"}, "label": ["Event_Detection", "Emotion:_Neutral", "Solutions_Detection", "Solutions_1_SUB"]}
+{"meta": {"doc_id": 215894, "sentence_id": 189, "language": "EN"}, "label": ["Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 216847, "sentence_id": 70, "language": "EN"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Emotion:_Neutral", "Event_4_SUB"]}
+{"meta": {"doc_id": 217121, "sentence_id": 15, "language": "EN"}, "label": ["Location_Detection", "Event_8_SUB", "Event_Detection", "Messenger_Detection", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 217319, "sentence_id": 17, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral", "Messenger_1_SUB"]}
+{"meta": {"doc_id": 217375, "sentence_id": 35, "language": "EN"}, "label": ["Location_Detection", "Messenger_6_SUB", "Messenger_Detection", "Messenger_1_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 217631, "sentence_id": 32, "language": "EN"}, "label": ["Event_Detection", "Location_Detection", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 218231, "sentence_id": 35, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 218847, "sentence_id": 5, "language": "EN"}, "label": ["Messenger_Detection", "Messenger_9_SUB", "Pol_2_SUB", "Messenger_4_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 219207, "sentence_id": 68, "language": "EN"}, "label": ["Emotion:_Negative", "Location_Detection"]}
+{"meta": {"doc_id": 219443, "sentence_id": 6, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 219924, "sentence_id": 35, "language": "EN"}, "label": ["Secu_4_SUB", "Secu_Detection", "Secu_3_SUB", "Messenger_Detection", "Emotion:_Negative"]}
+{"meta": {"doc_id": 219924, "sentence_id": 36, "language": "EN"}, "label": ["Location_Detection", "Event_1_SUB", "Secu_Detection", "Event_Detection", "Messenger_Detection", "Solutions_Detection", "Just_Detection", "Solutions_2_SUB"]}
+{"meta": {"doc_id": 220410, "sentence_id": 6, "language": "EN"}, "label": ["Location_Detection", "Cult_3_SUB", "Just_3_SUB", "Messenger_Detection", "Messenger_9_SUB", "Just_Detection", "Emotion:_Negative", "Cult_Detection"]}
+{"meta": {"doc_id": 220425, "sentence_id": 31, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_9_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 220631, "sentence_id": 17, "language": "EN"}, "label": ["Just_3_SUB", "Messenger_Detection", "Just_Detection", "Pbh_1_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 221422, "sentence_id": 9, "language": "EN"}, "label": ["Just_Detection", "Emotion:_Negative", "Pol_2_SUB", "Just_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 221851, "sentence_id": 24, "language": "EN"}, "label": ["Just_3_SUB", "Event_2_SUB", "Event_Detection", "Solutions_Detection", "Solutions_1_SUB", "Just_Detection", "Emotion:_Negative", "Pol_2_SUB", "Just_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 221867, "sentence_id": 8, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Event_Detection", "Messenger_Detection", "Event_4_SUB"]}
+{"meta": {"doc_id": 222181, "sentence_id": 2, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Event_Detection", "Event_7_SUB", "Messenger_Detection", "Eco_5_SUB", "Messenger_5_SUB", "Cult_1_SUB", "Cult_Detection"]}
+{"meta": {"doc_id": 222868, "sentence_id": 20, "language": "EN"}, "label": ["Location_Detection", "Secu_4_SUB", "Secu_Detection", "Messenger_Detection", "Pol_Detection"]}
+{"meta": {"doc_id": 222874, "sentence_id": 4, "language": "EN"}, "label": ["Event_Detection", "Sci_2_SUB", "Messenger_6_SUB", "Messenger_Detection", "Messenger_1_SUB", "Pbh_1_SUB", "Sci_Detection", "Event_3_SUB", "Pbh_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 224268, "sentence_id": 39, "language": "EN"}, "label": ["Messenger_Detection", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 225250, "sentence_id": 90, "language": "EN"}, "label": ["Event_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 225533, "sentence_id": 7, "language": "EN"}, "label": ["Event_5_SUB", "Eco_Detection", "Event_Detection", "Eco_5_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 225559, "sentence_id": 16, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB"]}
+{"meta": {"doc_id": 225809, "sentence_id": 28, "language": "EN"}, "label": ["Cult_Detection", "Cult_1_SUB"]}
+{"meta": {"doc_id": 226056, "sentence_id": 5, "language": "EN"}, "label": ["Emotion:_Negative", "Secu_3_SUB", "Messenger_Detection", "Secu_Detection"]}
+{"meta": {"doc_id": 227695, "sentence_id": 2, "language": "EN"}, "label": ["Emotion:_Negative", "Messenger_Detection", "Messenger_2_SUB", "Location_Detection"]}
+{"meta": {"doc_id": 228833, "sentence_id": 5, "language": "EN"}, "label": ["Emotion:_Neutral", "Messenger_Detection", "Messenger_9_SUB", "Messenger_1_SUB"]}
+{"meta": {"doc_id": 229108, "sentence_id": 35, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 229184, "sentence_id": 19, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral", "Messenger_5_SUB"]}
+{"meta": {"doc_id": 229558, "sentence_id": 3, "language": "EN"}, "label": ["Messenger_6_SUB", "Location_Detection", "Messenger_Detection", "Messenger_1_SUB"]}
+{"meta": {"doc_id": 229570, "sentence_id": 1, "language": "EN"}, "label": ["Event_1_SUB", "Event_Detection", "Messenger_Detection", "Messenger_8_SUB", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 230554, "sentence_id": 25, "language": "EN"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 230638, "sentence_id": 23, "language": "EN"}, "label": ["Location_Detection"]}
+{"meta": {"doc_id": 230665, "sentence_id": 3, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 231082, "sentence_id": 2, "language": "EN"}, "label": ["Location_Detection", "Event_Detection", "Event_7_SUB", "Messenger_Detection", "Messenger_5_SUB", "Cult_1_SUB", "Cult_Detection"]}
+{"meta": {"doc_id": 231718, "sentence_id": 5, "language": "EN"}, "label": ["Sci_4_SUB", "Event_1_SUB", "Event_Detection", "Emotion:_Negative", "Sci_Detection"]}
+{"meta": {"doc_id": 231817, "sentence_id": 18, "language": "EN"}, "label": ["Eco_Detection", "Event_Detection", "Emotion:_Negative", "Event_3_SUB", "Eco_1_SUB"]}
+{"meta": {"doc_id": 232324, "sentence_id": 29, "language": "EN"}, "label": ["Event_1_SUB", "Event_Detection", "Emotion:_Negative", "Pbh_1_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 232510, "sentence_id": 4, "language": "EN"}, "label": ["Emotion:_Negative", "Eco_Detection", "Location_Detection", "Eco_1_SUB"]}
+{"meta": {"doc_id": 232763, "sentence_id": 10, "language": "EN"}, "label": ["Event_Detection", "Location_Detection", "Event_4_SUB"]}
+{"meta": {"doc_id": 233031, "sentence_id": 32, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Solutions_Detection", "Messenger_9_SUB", "Solutions_1_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 233398, "sentence_id": 36, "language": "EN"}, "label": ["Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 233606, "sentence_id": 7, "language": "EN"}, "label": ["Emotion:_Negative"]}
+{"meta": {"doc_id": 233692, "sentence_id": 5, "language": "EN"}, "label": ["Emotion:_Negative", "Messenger_Detection", "Location_Detection"]}
+{"meta": {"doc_id": 233855, "sentence_id": 82, "language": "EN"}, "label": ["Messenger_Detection"]}
+{"meta": {"doc_id": 234296, "sentence_id": 72, "language": "EN"}, "label": ["Event_Detection", "Emotion:_Negative", "Pol_2_SUB", "Event_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 235823, "sentence_id": 6, "language": "EN"}, "label": ["Event_Detection", "Event_7_SUB", "Cult_1_SUB", "Cult_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 235883, "sentence_id": 6, "language": "EN"}, "label": ["Emotion:_Neutral", "Location_Detection", "Pol_4_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 236113, "sentence_id": 12, "language": "EN"}, "label": ["Secu_Detection", "Just_3_SUB", "Event_Detection", "Secu_3_SUB", "Solutions_Detection", "Just_Detection", "Event_3_SUB", "Solutions_2_SUB"]}
+{"meta": {"doc_id": 236799, "sentence_id": 80, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection"]}
+{"meta": {"doc_id": 237238, "sentence_id": 1, "language": "EN"}, "label": ["Event_5_SUB", "Eco_Detection", "Event_Detection", "Messenger_Detection", "Messenger_2_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 238811, "sentence_id": 13, "language": "EN"}, "label": ["Event_2_SUB", "Event_Detection", "Messenger_9_SUB", "Messenger_Detection"]}
+{"meta": {"doc_id": 239004, "sentence_id": 5, "language": "EN"}, "label": ["Just_3_SUB", "Event_Detection", "Just_Detection", "Emotion:_Negative", "Pbh_1_SUB", "Event_3_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 239620, "sentence_id": 20, "language": "EN"}, "label": ["Emotion:_Neutral", "Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 240507, "sentence_id": 6, "language": "EN"}, "label": ["Messenger_Detection"]}
+{"meta": {"doc_id": 240550, "sentence_id": 23, "language": "EN"}, "label": ["Location_Detection", "Event_5_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 240629, "sentence_id": 31, "language": "EN"}, "label": ["Event_6_SUB", "Location_Detection", "Event_Detection", "Event_5_SUB"]}
+{"meta": {"doc_id": 240871, "sentence_id": 15, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection"]}
+{"meta": {"doc_id": 241506, "sentence_id": 22, "language": "EN"}, "label": ["Messenger_Detection", "Emotion:_Neutral", "Messenger_5_SUB"]}
+{"meta": {"doc_id": 242050, "sentence_id": 55, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral", "Messenger_7_SUB"]}
+{"meta": {"doc_id": 242297, "sentence_id": 4, "language": "EN"}, "label": ["Secu_Detection", "Messenger_Detection", "Secu_3_SUB", "Cult_1_SUB", "Cult_Detection"]}
+{"meta": {"doc_id": 242420, "sentence_id": 16, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Emotion:_Positive", "Messenger_Detection", "Eco_5_SUB", "Solutions_Detection", "Solutions_1_SUB"]}
+{"meta": {"doc_id": 242705, "sentence_id": 55, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 242742, "sentence_id": 10, "language": "EN"}, "label": ["Emotion:_Negative", "Sci_Detection"]}
+{"meta": {"doc_id": 243239, "sentence_id": 143, "language": "EN"}, "label": ["Messenger_6_SUB", "Emotion:_Negative", "Messenger_Detection", "Messenger_1_SUB"]}
+{"meta": {"doc_id": 243310, "sentence_id": 116, "language": "EN"}, "label": ["Emotion:_Neutral", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 243960, "sentence_id": 4, "language": "EN"}, "label": ["Event_5_SUB", "Secu_Detection", "Event_Detection", "Secu_3_SUB", "Solutions_Detection", "Pbh_Detection", "Solutions_2_SUB"]}
+{"meta": {"doc_id": 244203, "sentence_id": 7, "language": "EN"}, "label": ["Envt_Detection", "Location_Detection", "Messenger_Detection", "Emotion:_Negative", "Cult_1_SUB", "Cult_Detection", "Envt_1_SUB"]}
+{"meta": {"doc_id": 245426, "sentence_id": 27, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Just_5_SUB", "Messenger_6_SUB", "Messenger_Detection", "Eco_4_SUB", "Solutions_Detection", "Messenger_1_SUB", "Solutions_1_SUB", "Just_Detection", "Pbh_1_SUB", "Pol_2_SUB", "Pbh_Detection", "Pol_Detection"]}
+{"meta": {"doc_id": 247154, "sentence_id": 5, "language": "EN"}, "label": ["Location_Detection", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 247367, "sentence_id": 26, "language": "EN"}, "label": ["Event_8_SUB", "Event_Detection", "Messenger_Detection", "Messenger_8_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 250273, "sentence_id": 53, "language": "EN"}, "label": ["Location_Detection", "Cult_3_SUB", "Messenger_Detection", "Cult_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 250630, "sentence_id": 39, "language": "EN"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Emotion:_Neutral", "Event_4_SUB"]}
+{"meta": {"doc_id": 250715, "sentence_id": 87, "language": "EN"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 251118, "sentence_id": 27, "language": "EN"}, "label": ["Emotion:_Negative", "Messenger_Detection"]}
+{"meta": {"doc_id": 251297, "sentence_id": 12, "language": "EN"}, "label": ["Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 251646, "sentence_id": 77, "language": "EN"}, "label": ["Location_Detection", "Solutions_Detection", "Solutions_1_SUB", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 252042, "sentence_id": 49, "language": "EN"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 253177, "sentence_id": 10, "language": "EN"}, "label": ["Emotion:_Neutral", "Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 253195, "sentence_id": 24, "language": "EN"}, "label": ["Location_Detection", "Event_2_SUB", "Event_Detection", "Messenger_Detection", "Messenger_7_SUB"]}
+{"meta": {"doc_id": 253913, "sentence_id": 19, "language": "EN"}, "label": ["Emotion:_Negative", "Secu_3_SUB", "Secu_Detection"]}
+{"meta": {"doc_id": 254097, "sentence_id": 31, "language": "EN"}, "label": ["Event_Detection", "Emotion:_Neutral", "Event_4_SUB"]}
+{"meta": {"doc_id": 254218, "sentence_id": 2, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_9_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 254554, "sentence_id": 9, "language": "EN"}, "label": ["Location_Detection", "Emotion:_Positive", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 255840, "sentence_id": 4, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_2_SUB", "Messenger_9_SUB", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 256935, "sentence_id": 17, "language": "EN"}, "label": ["Location_Detection"]}
+{"meta": {"doc_id": 257094, "sentence_id": 15, "language": "EN"}, "label": ["Location_Detection", "Secu_4_SUB", "Event_5_SUB", "Secu_Detection", "Event_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 257107, "sentence_id": 9, "language": "EN"}, "label": ["Location_Detection", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 257219, "sentence_id": 32, "language": "EN"}, "label": ["Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Just_Detection", "Pol_2_SUB", "Just_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 257281, "sentence_id": 36, "language": "EN"}, "label": ["Solutions_Detection", "Solutions_1_SUB", "Just_Detection", "Emotion:_Negative", "Pol_2_SUB", "Just_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 257370, "sentence_id": 17, "language": "EN"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 257603, "sentence_id": 18, "language": "EN"}, "label": ["Sci_2_SUB", "Emotion:_Neutral", "Messenger_Detection", "Sci_Detection"]}
+{"meta": {"doc_id": 258425, "sentence_id": 11, "language": "EN"}, "label": ["Sci_1_SUB", "Event_Detection", "Sci_2_SUB", "Messenger_6_SUB", "Messenger_Detection", "Sci_Detection"]}
+{"meta": {"doc_id": 258616, "sentence_id": 75, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 258623, "sentence_id": 57, "language": "EN"}, "label": ["Messenger_6_SUB", "Location_Detection", "Messenger_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 259445, "sentence_id": 25, "language": "EN"}, "label": ["Location_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 259545, "sentence_id": 85, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 260352, "sentence_id": 11, "language": "EN"}, "label": ["Event_Detection", "Location_Detection", "Emotion:_Neutral", "Event_4_SUB"]}
+{"meta": {"doc_id": 261490, "sentence_id": 47, "language": "EN"}, "label": ["Emotion:_Negative", "Location_Detection", "Eco_Detection", "Eco_1_SUB"]}
+{"meta": {"doc_id": 261506, "sentence_id": 54, "language": "EN"}, "label": ["Messenger_Detection", "Solutions_Detection", "Solutions_1_SUB", "Messenger_5_SUB", "Cult_Detection"]}
+{"meta": {"doc_id": 263717, "sentence_id": 96, "language": "EN"}, "label": ["Emotion:_Neutral"]}
+{"meta": {"doc_id": 263914, "sentence_id": 2, "language": "EN"}, "label": ["Location_Detection"]}
+{"meta": {"doc_id": 263957, "sentence_id": 2, "language": "EN"}, "label": ["Event_1_SUB", "Event_Detection", "Messenger_Detection", "Messenger_9_SUB", "Pbh_1_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 263957, "sentence_id": 10, "language": "EN"}, "label": ["Event_1_SUB", "Event_Detection", "Sci_2_SUB", "Messenger_Detection", "Sci_Detection"]}
+{"meta": {"doc_id": 264795, "sentence_id": 21, "language": "EN"}, "label": ["Location_Detection", "Event_Detection", "Messenger_Detection", "Messenger_8_SUB", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 264999, "sentence_id": 72, "language": "EN"}, "label": ["Event_Detection", "Emotion:_Neutral", "Event_8_SUB"]}
+{"meta": {"doc_id": 265368, "sentence_id": 47, "language": "EN"}, "label": ["Location_Detection", "Messenger_Detection", "Messenger_9_SUB"]}
+{"meta": {"doc_id": 265419, "sentence_id": 17, "language": "EN"}, "label": ["Location_Detection"]}
+{"meta": {"doc_id": 265671, "sentence_id": 21, "language": "EN"}, "label": ["Event_2_SUB", "Location_Detection", "Event_Detection", "Emotion:_Neutral"]}
+{"meta": {"doc_id": 265889, "sentence_id": 17, "language": "EN"}, "label": ["Messenger_Detection", "Messenger_9_SUB", "Messenger_1_SUB", "Pbh_1_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 266085, "sentence_id": 26, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Messenger_Detection", "Eco_5_SUB", "Emotion:_Negative", "Pbh_1_SUB", "Pbh_Detection"]}
+{"meta": {"doc_id": 266201, "sentence_id": 19, "language": "EN"}, "label": ["Location_Detection", "Eco_Detection", "Event_1_SUB", "Event_Detection", "Emotion:_Negative", "Eco_1_SUB"]}
+{"meta": {"doc_id": 266487, "sentence_id": 8, "language": "EN"}, "label": ["Secu_4_SUB", "Secu_Detection", "Secu_3_SUB", "Messenger_Detection", "Emotion:_Negative", "Pol_2_SUB", "Pol_Detection"]}
+{"meta": {"doc_id": 266511, "sentence_id": 22, "language": "EN"}, "label": ["Location_Detection", "Solutions_Detection", "Solutions_1_SUB", "Pol_2_SUB", "Emotion:_Neutral", "Pol_Detection"]}
+{"meta": {"doc_id": 266572, "sentence_id": 64, "language": "EN"}, "label": ["Event_Detection", "Location_Detection", "Emotion:_Neutral", "Event_4_SUB"]}

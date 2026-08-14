@@ -41,6 +41,7 @@ Antoine Lemor
 from __future__ import annotations
 
 import os
+import datetime as _dt
 from pathlib import Path
 import warnings
 import csv
@@ -78,8 +79,10 @@ OUTDIR = ROOT / "Results" / "Outputs" / "Figures"
 OUTDIR.mkdir(parents=True, exist_ok=True)
 
 # Database configuration - CCF_Database (publication database)
+# Default is a local Unix-socket connection (no host); set CCF_DB_HOST to
+# force TCP. Empty values are stripped before connecting.
 DB_PARAMS = {
-    "host":     os.getenv("CCF_DB_HOST", "localhost"),
+    "host":     os.getenv("CCF_DB_HOST", ""),
     "port":     int(os.getenv("CCF_DB_PORT", 5432)),
     "dbname":   "CCF_Database",  # Publication database with proper DATE type
     "user":     os.getenv("CCF_DB_USER", "antoine"),
@@ -129,63 +132,33 @@ def fetch_full_data_counts():
         'savefig.pad_inches': 0.1,
     })
 
-    # Try DB first
-    # 1) Preferred: DatabaseConnector if available
-    if DatabaseConnector is not None and pd is not None:
-        try:
-            connector = DatabaseConnector()
-            with connector.get_connection() as conn:  # SQLAlchemy connection
-                # Media counts
-                media_df = pd.read_sql(
-                    f"SELECT media, COUNT(*) AS n FROM {OVERVIEW_TABLE} GROUP BY media",
-                    conn,
-                )
-                # Year counts with safe casts from potential text dates
-                year_df = pd.read_sql(
-                    f"""
-                    SELECT EXTRACT(YEAR FROM (
-                        CASE WHEN date ~ '^[0-9]{{4}}-[0-9]{{2}}-[0-9]{{2}}$' THEN date::date
-                             WHEN date ~ '^[0-9]{{4}}/[0-9]{{2}}/[0-9]{{2}}$' THEN to_date(date, 'YYYY/MM/DD')
-                             WHEN date ~ '^[0-9]{{4}}$' THEN to_date(date||'-01-01','YYYY-MM-DD')
-                             WHEN date ~ '^[0-9]{{2}}-[0-9]{{2}}-[0-9]{{4}}$' THEN to_date(date, 'MM-DD-YYYY')
-                             ELSE NULL END
-                    )) AS yr, COUNT(*) AS n
-                    FROM {OVERVIEW_TABLE}
-                    GROUP BY yr
-                    ORDER BY yr
-                    """,
-                    conn,
-                )
-            media_counts = Counter({(m or '').strip(): int(n) for m, n in media_df.values if m})
-            year_counts = {int(y): int(n) for y, n in year_df.values if pd.notna(y) and int(y) < 2025}
-            
-            # Get sentence count from CCF_processed_data table
-            try:
-                sentence_df = pd.read_sql("SELECT COUNT(*) AS n FROM ccf_processed_data", conn)
-                total_sentences = int(sentence_df['n'].iloc[0])
-            except:
-                # Fallback to counting from annotated file
-                total_sentences = 0
-                
-            # Province counts and language counts not available from DB, return empty
-            province_counts = Counter()
-            national_count = 0
-            national_media = []
-            lang_counts = {'EN': 0, 'FR': 0}
-            return media_counts, year_counts, province_counts, national_count, national_media, lang_counts, total_sentences
-        except Exception:
-            pass  # silently fall through to psycopg2 / CSV
+    # Authoritative source: PostgreSQL CCF_Database via psycopg2.
+    # The CSV fallback below is ONLY used when CCF_ALLOW_CSV_FALLBACK=1 is
+    # set explicitly: the tracked CSVs are stale (v1 corpus) and silently
+    # falling back to them has produced publication figures with outdated
+    # counts. A DB failure must therefore be LOUD, never silent.
+    allow_csv = os.getenv("CCF_ALLOW_CSV_FALLBACK", "") == "1"
 
-    # 2) psycopg2 direct
-    if psycopg2 is not None:
-        try:
-            conn = psycopg2.connect(
-                host=DB_PARAMS["host"],
-                port=DB_PARAMS["port"],
-                user=DB_PARAMS["user"],
-                password=DB_PARAMS["password"],
-                dbname=DB_PARAMS["dbname"],
+    if psycopg2 is None:
+        if not allow_csv:
+            raise SystemExit(
+                "FATAL: psycopg2 is not installed and CCF_ALLOW_CSV_FALLBACK "
+                "is not set. Refusing to silently use the stale CSV fallback."
             )
+    else:
+        try:
+            # Empty host/password mean "use libpq defaults" (Unix socket,
+            # no password): strip them so psycopg2 does not force TCP.
+            conn_kwargs = {
+                k: v for k, v in (
+                    ("host", DB_PARAMS["host"]),
+                    ("port", DB_PARAMS["port"]),
+                    ("user", DB_PARAMS["user"]),
+                    ("password", DB_PARAMS["password"]),
+                    ("dbname", DB_PARAMS["dbname"]),
+                ) if v not in ("", None)
+            }
+            conn = psycopg2.connect(**conn_kwargs)
             cur = conn.cursor()
             cur.execute(f'SELECT media, COUNT(*) FROM "{OVERVIEW_TABLE}" GROUP BY media;')
             media_rows = cur.fetchall()
@@ -220,7 +193,9 @@ def fetch_full_data_counts():
             cur.close()
             conn.close()
             media_counts = Counter({(m or '').strip(): int(n) for m, n in media_rows if m})
-            year_counts = {int(y): int(n) for y, n in year_rows if y is not None and int(y) < 2025}
+            # No hard-coded year cap: the range is whatever the database
+            # actually contains (dynamic upper bound).
+            year_counts = {int(y): int(n) for y, n in year_rows if y is not None}
 
             # Load media to province mapping to calculate province counts from media data
             media_to_province = {}
@@ -233,6 +208,8 @@ def fetch_full_data_counts():
                         media_orig = (row.get('media') or '').strip()
                         media_lower = media_orig.lower()
                         region = (row.get('region') or '').strip()
+                        if media_lower == 'total':
+                            continue  # summary row of the CSV, not an outlet
                         if media_orig and region:
                             if region.lower() == 'national':
                                 media_is_national.add(media_lower)
@@ -241,15 +218,35 @@ def fetch_full_data_counts():
                             else:
                                 media_to_province[media_lower] = region
 
+            # v2 corpus additions absent from the (older) province CSV:
+            # both are national outlets. Declared here explicitly so the
+            # map totals cover the full corpus.
+            for extra_national in ("cbc.ca", "radio-canada.ca"):
+                if extra_national not in media_is_national:
+                    media_is_national.add(extra_national)
+            for extra_label in ("CBC.ca", "Radio-Canada.ca"):
+                if extra_label not in national_media_names:
+                    national_media_names.append(extra_label)
+
             # Calculate province counts from media counts
             province_counts = Counter()
             national_count = 0
+            unmapped = []
             for media, count in media_counts.items():
                 media_lower = media.lower()
                 if media_lower in media_to_province:
                     province_counts[media_to_province[media_lower]] += count
                 elif media_lower in media_is_national:
                     national_count += count
+                else:
+                    unmapped.append(media)
+            if unmapped:
+                raise SystemExit(
+                    f"FATAL: media outlets without a province/national "
+                    f"mapping (map totals would undercount the corpus): "
+                    f"{unmapped}. Update {MEDIA_PROVINCE_CSV} or the "
+                    f"explicit national supplement in this script."
+                )
 
             # Fallback to estimation if language counts were not retrieved from DB
             if lang_counts is None:
@@ -263,9 +260,18 @@ def fetch_full_data_counts():
             
             return media_counts, year_counts, province_counts, national_count, national_media_names, lang_counts, total_sentences
         except Exception as exc:
-            warnings.warn(f"DB connection failed, falling back to CSV: {exc}")
+            if not allow_csv:
+                raise SystemExit(
+                    f"FATAL: could not fetch counts from PostgreSQL "
+                    f"CCF_Database ({exc!r}). Refusing to silently fall back "
+                    f"to the stale CSV. Fix the DB connection (socket by "
+                    f"default; set CCF_DB_HOST for TCP) or set "
+                    f"CCF_ALLOW_CSV_FALLBACK=1 to force the CSV explicitly."
+                ) from exc
+            warnings.warn(f"DB connection failed, falling back to CSV "
+                          f"(CCF_ALLOW_CSV_FALLBACK=1): {exc}")
 
-    # Fallback to CSV
+    # Fallback to CSV (explicit opt-in only)
     if not CSV_FALLBACK.exists():
         raise SystemExit(f"CSV fallback not found: {CSV_FALLBACK}")
     
@@ -337,7 +343,7 @@ def fetch_full_data_counts():
             elif len(date_str) == 4 and date_str.isdigit():
                 # Just a year
                 year = int(date_str)
-            if year is not None and 1900 <= year < 2025:  # Sanity check and exclude 2025
+            if year is not None and 1900 <= year <= _dt.date.today().year:  # sanity check, dynamic upper bound
                 year_counts[year] += 1
     
     # Count sentences from processed texts CSV if available
@@ -353,8 +359,11 @@ def fetch_full_data_counts():
     return media_counts, dict(sorted(year_counts.items())), province_counts, national_count, national_media_names, lang_counts, total_sentences
 
 
-def plot_articles_by_media(media_counts: Counter[str], outpath: Path, total_sentences: int = 0, top_n: int = 20) -> None:
-    top = sorted(media_counts.items(), key=lambda x: x[1], reverse=True)[:top_n]
+def plot_articles_by_media(media_counts: Counter[str], outpath: Path, total_sentences: int = 0, top_n: int | None = None) -> None:
+    """Horizontal bar chart of article counts. By default ALL media outlets
+    are shown (dynamic; the corpus currently has 22), pass top_n to trim."""
+    ranked = sorted(media_counts.items(), key=lambda x: x[1], reverse=True)
+    top = ranked[:top_n] if top_n else ranked
     labels = [m for m, _ in top][::-1]
     values = [n for _, n in top][::-1]
     
@@ -410,7 +419,7 @@ def plot_articles_by_media(media_counts: Counter[str], outpath: Path, total_sent
     plt.close()
 
 
-def plot_articles_by_year(year_counts: dict[int, int], outpath: Path, total_sentences: int = 0) -> None:
+def plot_articles_by_year(year_counts: dict[int, int], outpath: Path, total_sentences: int = 0, total_articles: int | None = None) -> None:
     if not year_counts:
         print("Warning: No year data to plot")
         return
@@ -440,8 +449,11 @@ def plot_articles_by_year(year_counts: dict[int, int], outpath: Path, total_sent
     ax.set_ylabel('Number of Articles', fontweight='semibold', fontsize=12)
     # Title removed as requested - figure already has caption in LaTeX
     
-    # Add total counts in top right
-    total_articles = sum(year_counts.values())
+    # Add total counts in top right. The badge reports the FULL corpus
+    # size (including the handful of articles with a NULL date, which
+    # cannot be plotted by year), not just the sum of plotted points.
+    if total_articles is None:
+        total_articles = sum(year_counts.values())
     stats_text = f'n_articles={total_articles:,}\nn_sentences={total_sentences:,}'
     ax.text(0.98, 0.98, stats_text, 
             transform=ax.transAxes,
@@ -641,7 +653,8 @@ def main() -> None:
     print(f"  Saved: {out_media}")
 
     print("\n[3/4] Creating year distribution plot...")
-    plot_articles_by_year(year_counts, out_year, total_sentences)
+    plot_articles_by_year(year_counts, out_year, total_sentences,
+                          total_articles=sum(media_counts.values()))
     print(f"  Saved: {out_year}")
 
     print("\n[4/4] Creating province map...")
