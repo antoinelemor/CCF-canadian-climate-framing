@@ -161,7 +161,7 @@ PARADOX_KAPPA_MAX = 0.40
 ##############################################################################
 
 STATIC_CONFIG = {
-    "english_model": "bert-base-uncased",
+    "english_model": "bert-base-cased",
     "french_model": "camembert-base",
     "model_size_parameters": "110M (per language)",
     "optimizer": "AdamW",

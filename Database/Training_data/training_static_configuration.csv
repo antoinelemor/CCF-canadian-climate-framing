@@ -1,6 +1,7 @@
 parameter,value
-english_model,bert-base-uncased
+english_model,bert-base-cased
 french_model,camembert-base
+english_tokenizer_note,"bert-base-cased: the tokenizer MUST be instantiated with do_lower_case=False (a tokenizer_config.json enforcing it ships with every English model directory)"
 model_size_parameters,110M (per language)
 optimizer,AdamW
 optimizer_eps,1e-08
