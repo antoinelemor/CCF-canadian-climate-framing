@@ -2,7 +2,7 @@
 
 This document is the complete reproducibility recipe. By the end of it you will have:
 
-1. A working copy of the deposited PostgreSQL database, version 2.0.0 (restored from the Zenodo dump, version DOI `10.5281/zenodo.21921210`; the concept DOI [`10.5281/zenodo.20346363`](https://doi.org/10.5281/zenodo.20346363) always resolves to the latest version).
+1. A working copy of the deposited PostgreSQL database, version 2.0.0 (restored from the Zenodo dump, version DOI `10.5281/zenodo.21967283`; the concept DOI [`10.5281/zenodo.20346363`](https://doi.org/10.5281/zenodo.20346363) always resolves to the latest version).
 2. The full set of canonical CSVs under `Database/Training_data/`.
 3. The LaTeX tables under `paper/CCF_Methodology/Results/Outputs/Tables/` and the manuscript figures under `paper/CCF_Methodology/Results/Outputs/Figures/`.
 4. A re-compiled `paper/CCF_Methodology/Latex/CCF_Methodology.pdf` and `CCF_Methodology_SI.pdf` that match the deposited PDFs at the content level (modulo embedded PDF compile timestamps).
@@ -24,7 +24,7 @@ The annotation pipeline (Step 7 below) also needs the language models pulled by 
 
 ## 1. Restore the deposited PostgreSQL dump (or read the Parquet bundle)
 
-The CCF Database is distributed on Zenodo in two complementary editions sharing identical schemas: the canonical PostgreSQL edition (version DOI `10.5281/zenodo.21921210`; concept DOI [`10.5281/zenodo.20346363`](https://doi.org/10.5281/zenodo.20346363)) and the Apache Parquet mirror (version DOI `10.5281/zenodo.21921211`; concept DOI [`10.5281/zenodo.20346372`](https://doi.org/10.5281/zenodo.20346372)). The database is refreshed roughly every six months by the CCF observatory's continuous extraction–annotation pipeline; the concept DOIs always point to the latest release. The counts below are those of **version 2.0.0** (corpus cut-off: 31 July 2026).
+The CCF Database is distributed on Zenodo in two complementary editions sharing identical schemas: the canonical PostgreSQL edition (version DOI `10.5281/zenodo.21967283`; concept DOI [`10.5281/zenodo.20346363`](https://doi.org/10.5281/zenodo.20346363)) and the Apache Parquet mirror (version DOI `10.5281/zenodo.21967286`; concept DOI [`10.5281/zenodo.20346372`](https://doi.org/10.5281/zenodo.20346372)). The database is refreshed roughly every six months by the CCF observatory's continuous extraction–annotation pipeline; the concept DOIs always point to the latest release. The counts below are those of **version 2.0.0** (corpus cut-off: 31 July 2026).
 
 ### Option A — PostgreSQL dump (full schema with HNSW indexing)
 
@@ -32,7 +32,7 @@ The dump is published as a single tarball (`CCF_Database.tar`, ≈ 40 GB) that w
 
 ```bash
 # 1. Download CCF_Database.tar from the Zenodo deposit
-#    (version DOI 10.5281/zenodo.21921210; concept DOI 10.5281/zenodo.20346363).
+#    (version DOI 10.5281/zenodo.21967283; concept DOI 10.5281/zenodo.20346363).
 tar -xf CCF_Database.tar           # extracts the CCF_Database_dump/ directory
 
 # 2. Create the target database and load pgvector.
@@ -63,7 +63,7 @@ The five core tables share the same `doc_id` keyspace. Any `JOIN ... USING (doc_
 
 ```bash
 # Download the six *.parquet files from the Zenodo Parquet mirror
-# (version DOI 10.5281/zenodo.21921211; concept DOI 10.5281/zenodo.20346372).
+# (version DOI 10.5281/zenodo.21967286; concept DOI 10.5281/zenodo.20346372).
 ```
 
 ```python
@@ -83,7 +83,7 @@ schemas.
 
 The companion code bundle `ccf_code_and_paper.tar.gz` — attached to both data
 editions, deposited as a dedicated Zenodo code archive (DOI
-`10.5281/zenodo.21921215`), and mirrored on GitHub — is assembled from this
+`10.5281/zenodo.21921214`), and mirrored on GitHub — is assembled from this
 repository by `Scripts/Database_creation/enrichment/07_build_code_package.py`.
 
 ## 2. Reporting pipeline — regenerate the canonical CSVs

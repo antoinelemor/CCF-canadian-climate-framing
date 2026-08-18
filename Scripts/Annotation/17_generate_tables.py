@@ -527,8 +527,8 @@ def generate_table_s4(norm, training_df) -> str:
     n_excluded = 65 - n_total
     lines.append(
         f"\\multicolumn{{{ncols}}}{{l}}{{\\cellcolor{{gray!20}}\\textit{{("
-        f"{n_total} categories with at least one model; {n_excluded} categories "
-        f"entirely excluded*)}}}} \\\\"
+        f"{n_total} deployed categories; {65 - n_excluded - 2} with models in both languages, "
+        f"2 with a French model only*)}}}} \\\\"
     )
     lines.append(r"\end{longtable}")
 
@@ -1076,7 +1076,7 @@ def generate_table_s10(norm) -> str:
                 flag_parts.append("PIRD*")
             reason = r.get("exclusion_reason")
             if isinstance(reason, str) and reason.strip():
-                flag_parts.append("excluded")
+                flag_parts.append("no EN model")
             flag_cell = ", ".join(flag_parts) if flag_parts else ""
             lines.append(
                 f"{num} & {cell_cat} & \\texttt{{{norm.format_code(code)}}} & "
@@ -1108,7 +1108,7 @@ def generate_table_s10(norm) -> str:
         f"All: A={counts_overall['A']} / B={counts_overall['B']} / C={counts_overall['C']}; "
         f"EN: A={counts_en['A']} / B={counts_en['B']} / C={counts_en['C']}; "
         f"FR: A={counts_fr['A']} / B={counts_fr['B']} / C={counts_fr['C']}; "
-        f"PIRD*: {n_paradox}; excluded from training: {n_excl}.}} \\\\"
+        f"PIRD*: {n_paradox}; without an English model: {n_excl}.}} \\\\"
     )
     lines.append(r"\end{longtable}")
     output = "\n".join(lines)

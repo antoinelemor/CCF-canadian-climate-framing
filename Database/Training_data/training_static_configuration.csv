@@ -6,18 +6,18 @@ model_size_parameters,110M (per language)
 optimizer,AdamW
 optimizer_eps,1e-08
 learning_rate_normal,5e-05
-learning_rate_reinforced,1e-05
+learning_rate_reinforced,5e-06
 scheduler,linear with 0 warm-up steps
 batch_size_normal,32
 batch_size_reinforced,64
 max_seq_length_tokens,512
 n_epochs_normal_max,20
 n_epochs_reinforced_max,20
-reinforcement_trigger,positive-class F1 < 0.60 at best normal epoch
-best_epoch_criterion,0.7 * F1_class_1 + 0.3 * macro_F1 (combined)
-class_weighting_normal,pos_weight from class frequencies (weighted cross-entropy)
-class_weighting_reinforced,WeightedRandomSampler (oversample minority)
-loss_function,BCEWithLogitsLoss (binary classification per category)
+reinforcement_trigger,positive-class F1 < 0.70 at best normal epoch
+best_epoch_criterion,0.98 * F1_class_1 + 0.02 * macro_F1 (combined)
+class_weighting_normal,none (unweighted cross-entropy; pos_weight=None)
+class_weighting_reinforced,"WeightedRandomSampler (inverse-frequency oversampling) + class-weighted cross-entropy (weights [1.0, 3.5])"
+loss_function,"CrossEntropyLoss (two-class softmax, per category)"
 random_seed_python,42
 random_seed_numpy,42
 random_seed_torch,42
